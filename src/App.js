@@ -16,14 +16,6 @@ function App() {
       </Router>
     </div>
   );
-  // <div className='font-font'>
-  //   <Router>
-  //     <Routes>
-  //       <Route path='/' element={<LandingPage />} />
-  //       <Route path='/signup' element={<SignUp />}></Route>
-  //     </Routes>
-  //   </Router>
-  // </div>
 }
 
 export default App;
