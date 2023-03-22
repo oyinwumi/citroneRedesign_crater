@@ -11,7 +11,7 @@ import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 
 const SignUp = () => {
   return (
-    <div className='flex justify-center items-center bg-lightpink'>
+    <div className='h-screen bg-light flex justify-center items-center '>
       <div className='w-148 h-200 bg-white'>
         <div className='pt-8 pl-6'>
           <img src={Logo} alt='' className='cursor-pointer' />
@@ -24,7 +24,11 @@ const SignUp = () => {
           <form action=''>
             <div className='flex justify-between mt-12'>
               <div className='flex items-center w-56 border border-lightgrey rounded  '>
-                <img src={Person} alt='' className='bg-light p-3 rounded-l' />
+                <img
+                  src={Person}
+                  alt=''
+                  className='bg-light px-3 py-3.5 rounded-l'
+                />
                 <input
                   type='text'
                   id='firstName'
@@ -35,7 +39,11 @@ const SignUp = () => {
               </div>
 
               <div className='flex items-center w-56 border border-lightgrey rounded'>
-                <img src={Person} alt='' className='bg-light p-3 rounded-l' />
+                <img
+                  src={Person}
+                  alt=''
+                  className='bg-light px-3 py-3.5 rounded-l'
+                />
                 <input
                   type='text'
                   id='lastName'
@@ -47,7 +55,11 @@ const SignUp = () => {
             </div>
 
             <div className='flex items-center border border-lightgrey mt-5 rounded'>
-              <img src={Mail} alt='' className='bg-light p-3 rounded-l' />
+              <img
+                src={Mail}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
               <input
                 type='email'
                 id='email'
@@ -57,7 +69,11 @@ const SignUp = () => {
             </div>
 
             <div className='flex items-center border border-lightgrey mt-5 rounded'>
-              <img src={Call} alt='' className='bg-light p-3 rounded-l' />
+              <img
+                src={Call}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
               <input
                 type='text'
                 id='phone'
@@ -68,7 +84,11 @@ const SignUp = () => {
             </div>
 
             <div className='flex items-center bg-white border border-lightgrey mt-5 rounded'>
-              <img src={Lock} alt='' className='bg-light p-3 rounded-l' />
+              <img
+                src={Lock}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
               <input
                 type='text'
                 id='password'
@@ -86,7 +106,7 @@ const SignUp = () => {
                 value=''
                 className='w-4 h-4 checked:accent-purple'
               />
-              <label for='checkbox' className=' pl-2'>
+              <label for='checkbox' className='pl-2'>
                 By signing up, I agree to the{' '}
                 <span className='text-purple cursor-pointer'>
                   Terms of Service and privacy policy
@@ -97,7 +117,7 @@ const SignUp = () => {
             <button
               type='submit'
               id='signUp'
-              className='w-full py-3.5 bg-purple text-white rounded font-bold mt-4'
+              className='w-full flex justify-center items-center bg-purple py-3 text-white rounded font-bold mt-4'
             >
               Sign Up
             </button>
