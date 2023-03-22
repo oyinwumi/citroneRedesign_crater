@@ -26,12 +26,12 @@ const LandingPage = () => {
           <img src={Logo} alt={Logo} />
         </div>
         <div>
-          <button className='border border-x-purple text-center py-3 px-4 w-[102px] text-purple text-sm rounded-lg bg-white hover:bg-purple hover:text-white'>
+           <Link to='/login'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-purple text-sm rounded-lg bg-white hover:bg-purple hover:text-white'>
             LOGIN
-          </button>
-          <button className='border border-x-purple text-center py-3 px-4 w-[102px] text-white text-sm rounded-lg bg-purple ml-3  hover:bg-purple hover:opacity-50'>
+          </button></Link>
+           <Link to='/signup'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-white text-sm rounded-lg bg-purple ml-3  hover:bg-purple hover:opacity-50'>
             SIGNUP
-          </button>
+          </button></Link>
         </div>
       </nav>
       <div className='flex justify-between items-center leading-[64px] bg-light  px-32 pt-20 '>
