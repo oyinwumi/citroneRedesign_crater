@@ -12,19 +12,18 @@ import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 const SignUp = () => {
   return (
     <div className='flex justify-center items-center bg-lightpink'>
-      <div className='w-[592px] h-[800px] bg-white'>
+      <div className='w-148 h-200 bg-white'>
         <div className='pt-8 pl-6'>
           <img src={Logo} alt='' className='cursor-pointer' />
         </div>
 
         <div className='px-16'>
+          <h4 className='text-center pt-12 font-bold text-xl text-black'>
+            Create Account
+          </h4>
           <form action=''>
-            <h4 className='text-center pt-12 font-bold text-xl text-black'>
-              Create Account
-            </h4>
-
             <div className='flex justify-between mt-12'>
-              <div className='flex w-56 border border-lightgrey rounded  '>
+              <div className='flex items-center w-56 border border-lightgrey rounded  '>
                 <img src={Person} alt='' className='bg-light p-3 rounded-l' />
                 <input
                   type='text'
@@ -35,7 +34,7 @@ const SignUp = () => {
                 />
               </div>
 
-              <div className='flex w-56 border border-lightgrey rounded'>
+              <div className='flex items-center w-56 border border-lightgrey rounded'>
                 <img src={Person} alt='' className='bg-light p-3 rounded-l' />
                 <input
                   type='text'
@@ -47,7 +46,7 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div className='flex border border-lightgrey mt-5 rounded'>
+            <div className='flex items-center border border-lightgrey mt-5 rounded'>
               <img src={Mail} alt='' className='bg-light p-3 rounded-l' />
               <input
                 type='email'
@@ -57,7 +56,7 @@ const SignUp = () => {
               />
             </div>
 
-            <div className='flex border border-lightgrey mt-5 rounded'>
+            <div className='flex items-center border border-lightgrey mt-5 rounded'>
               <img src={Call} alt='' className='bg-light p-3 rounded-l' />
               <input
                 type='text'
@@ -68,7 +67,7 @@ const SignUp = () => {
               />
             </div>
 
-            <div className='flex bg-white border border-lightgrey mt-5 rounded'>
+            <div className='flex items-center bg-white border border-lightgrey mt-5 rounded'>
               <img src={Lock} alt='' className='bg-light p-3 rounded-l' />
               <input
                 type='text'
@@ -98,7 +97,7 @@ const SignUp = () => {
             <button
               type='submit'
               id='signUp'
-              className='w-full py-2 bg-purple text-white rounded font-bold mt-4'
+              className='w-full py-3.5 bg-purple text-white rounded font-bold mt-4'
             >
               Sign Up
             </button>
@@ -111,7 +110,7 @@ const SignUp = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center w-56 py-2 border  border-lightgrey rounded'
+                className='flex justify-center items-center w-56 py-2 border  border-lightgrey rounded'
               >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Sign up with Google</p>
@@ -120,7 +119,7 @@ const SignUp = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center w-56 bg-blue py-2 border-0 rounded'
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
               >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
@@ -128,14 +127,14 @@ const SignUp = () => {
                 </p>
               </button>
             </div>
-
-            <span className='flex justify-center mt-5 font-semibold'>
-              <p className='text-lightergrey mr-4'>Already have an account?</p>
-              <Link to='/login' className='text-purple'>
-                Login
-              </Link>
-            </span>
           </form>
+
+          <div className='flex justify-center mt-5 font-semibold'>
+            <p className='text-lightergrey mr-4'>Already have an account?</p>
+            <Link to='/login' className='text-purple'>
+              Login
+            </Link>
+          </div>
         </div>
       </div>
     </div>
