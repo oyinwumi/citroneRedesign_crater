@@ -1,10 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #313131;
+}
+
+.center-text {
+  position: relative;
+}
+
+.center-text:before {
+  content: '';
+  display: block;
+  height: 0.5px;
+  width: 160px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: #d3d0d9;
+}
+
+.center-text:after {
+  content: '';
+  display: block;
+  height: 0.5px;
+  width: 160px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-color: #d3d0d9;
 }
