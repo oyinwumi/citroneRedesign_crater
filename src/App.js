@@ -19,13 +19,8 @@ function App() {
             path='/forgot-password'
             element={<ForgotPassword />}
           ></Route>
-          <Route
-            exact
-            path='/reset-password'
-            element={<ResetPassword />}
-          ></Route> */}
-      {/* </Routes>
-      </Router> */}
+        </Routes>
+      </Router>
     </div>
   );
 }
