@@ -40,7 +40,7 @@ const ForgotPassword = () => {
           </form>
 
           <div className='flex justify-center items-center mt-5'>
-            <p className='mr-4'>Don't have an account?</p>
+            <p className='text-lightgrey mr-4'>Don't have an account?</p>
             <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>

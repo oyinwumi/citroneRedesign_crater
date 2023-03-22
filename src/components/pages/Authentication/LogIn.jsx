@@ -61,7 +61,7 @@ const LogIn = () => {
                 </label>
               </div>
               <Link
-                to='/reset-password'
+                to='/forgot-password'
                 className=' text-purple cursor-pointer'>
                 Forgot password?
               </Link>
@@ -100,7 +100,7 @@ const LogIn = () => {
 
           <div className='flex justify-center items-center mt-5'>
             <p className='text-lightgrey mr-4'>Don't have an account?</p>
-            <Link to='/sign-up' className='text-purple font-semibold'>
+            <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>
           </div>
