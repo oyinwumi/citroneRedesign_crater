@@ -9,11 +9,9 @@ import { Link } from 'react-router-dom';
 
 const LogIn = () => {
   return (
-    <div className=' bg-lightpink flex justify-center items-center'>
+    <div className='h-screen bg-light flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
-        <div className='mt-8 ml-6'>
-          <img src={Logo} alt='' className='cursor-pointer' />
-        </div>
+        <img src={Logo} alt='' className='mt-8 ml-6 cursor-pointer' />
 
         <div className='mt-12 px-16'>
           <h2 className='text-center text-black font-bold text-xl'>
@@ -21,8 +19,12 @@ const LogIn = () => {
           </h2>
 
           <form action=''>
-            <div className='bg-white flex mt-12 border border-pink border-solid rounded'>
-              <img src={Mail} alt='' className='bg-light p-3 rounded-l' />
+            <div className='bg-white flex items-center mt-12 border border-pink rounded'>
+              <img
+                src={Mail}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
               <input
                 type='text'
                 placeholder='Enter your email'
@@ -31,8 +33,12 @@ const LogIn = () => {
               />
             </div>
 
-            <div className='bg-white flex mt-5 border border-pink rounded'>
-              <img src={Lock} alt='' className='bg-light p-3 rounded-l' />
+            <div className='bg-white flex items-center mt-5 border border-pink rounded'>
+              <img
+                src={Lock}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
               <input
                 type='text'
                 placeholder='Enter your password'
@@ -64,7 +70,7 @@ const LogIn = () => {
 
             <button
               type='submit'
-              className='w-full bg-purple mt-8 py-3.5 text-white font-bold rounded '
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '
             >
               Login
             </button>
@@ -77,7 +83,7 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center w-56 py-2 border border-lightgrey rounded'
+                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'
               >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Login with Google</p>
@@ -86,7 +92,7 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center w-56 bg-blue py-2 rounded'
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
               >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
@@ -96,7 +102,7 @@ const LogIn = () => {
             </div>
           </form>
 
-          <div className='flex justify-center mt-5'>
+          <div className='flex justify-center items-center mt-5'>
             <p className='text-lightgrey mr-4'>Don't have an account?</p>
             <Link to='/sign-up' className='text-purple font-semibold'>
               Sign Up
