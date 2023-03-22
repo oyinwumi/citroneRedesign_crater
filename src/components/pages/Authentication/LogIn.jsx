@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const LogIn = () => {
   return (
-    <div className='h-screen bg-light flex justify-center items-center'>
+    <div className='h-full bg-light flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
         <img src={Logo} alt='' className='mt-8 ml-6 cursor-pointer' />
 
@@ -62,16 +62,14 @@ const LogIn = () => {
               </div>
               <Link
                 to='/reset-password'
-                className=' text-purple cursor-pointer'
-              >
+                className=' text-purple cursor-pointer'>
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '
-            >
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '>
               Login
             </button>
 
@@ -83,8 +81,7 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'
-              >
+                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'>
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Login with Google</p>
               </button>
@@ -92,8 +89,7 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
-              >
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'>
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
                   Login with Facebook

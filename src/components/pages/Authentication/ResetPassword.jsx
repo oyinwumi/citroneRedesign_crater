@@ -6,7 +6,7 @@ import Check from '../../../assets/shield-tick.svg';
 
 const ResetPassword = () => {
   return (
-    <div className='bg-light h-screen flex justify-center items-center'>
+    <div className='bg-light h-full flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
         <img src={Logo} alt='' className='ml-6 mt-8 cursor-pointer' />
 
@@ -53,8 +53,7 @@ const ResetPassword = () => {
 
             <button
               type='submit'
-              className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'
-            >
+              className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'>
               Reset Password
             </button>
           </form>
