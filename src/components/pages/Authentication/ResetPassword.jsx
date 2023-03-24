@@ -6,7 +6,7 @@ import Check from '../../../assets/shield-tick.svg';
 
 const ResetPassword = () => {
   return (
-    <div className='bg-light h-screen flex justify-center items-center'>
+    <div className='bg-light h-full flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
         <img src={Logo} alt='' className='ml-6 mt-8 cursor-pointer' />
 
@@ -27,7 +27,7 @@ const ResetPassword = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 id='new-password'
                 name='new-password'
                 placeholder='Enter new password'
@@ -43,7 +43,7 @@ const ResetPassword = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 id='re-password'
                 name='re-password'
                 placeholder='Confirm new password'

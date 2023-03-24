@@ -1,5 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFirstName,
+  setLastName,
+  setEmail,
+  setMobile,
+  setPassword,
+} from '../../../apps/Reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
@@ -10,8 +18,25 @@ import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userReducer);
+
+  const saveNewUser = () => {
+    let allUsers = JSON.parse(localStorage.getItem('Users')) || [];
+
+    const { firstName, lastName, email, password } = state;
+    if (!firstName || !lastName || !email || !password) {
+      return 'firstName, lastName, email and password cannot be empty';
+    }
+
+    let user = { firstName, lastName, email, password };
+    allUsers.push(user);
+    localStorage.setItem('users', JSON.stringify(allUsers));
+    alert('SignUp Successful');
+  };
+
   return (
-    <div className='h-screen bg-light flex justify-center items-center '>
+    <div className='h-full bg-light flex justify-center items-center '>
       <div className='w-148 h-200 bg-white'>
         <div className='pt-8 pl-6'>
           <img src={Logo} alt='' className='cursor-pointer' />
@@ -34,6 +59,7 @@ const SignUp = () => {
                   id='firstName'
                   placeholder='Enter your first name'
                   name='firstname'
+                  onChange={(e) => dispatch(setFirstName(e.target.value))}
                   className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
                 />
               </div>
@@ -49,6 +75,7 @@ const SignUp = () => {
                   id='lastName'
                   placeholder='Enter your last name'
                   name='lastname'
+                  onChange={(e) => dispatch(setLastName(e.target.value))}
                   className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
                 />
               </div>
@@ -64,6 +91,7 @@ const SignUp = () => {
                 type='email'
                 id='email'
                 placeholder='Enter your email'
+                onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
               />
             </div>
@@ -78,7 +106,8 @@ const SignUp = () => {
                 type='text'
                 id='phone'
                 placeholder='Enter your phone number'
-                name='email'
+                name='phone'
+                onChange={(e) => dispatch(setMobileNo(e.target.value))}
                 className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
               />
             </div>
@@ -90,10 +119,11 @@ const SignUp = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 id='password'
                 placeholder='Enter your password'
                 name='password'
+                onChange={(e) => dispatch(setPassword(e.target.value))}
                 className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />

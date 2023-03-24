@@ -12,6 +12,7 @@ module.exports = {
     },
     fontFamily: {
       font: ['Nunito', 'sans-serif'],
+      open: ['"Open Sans"', 'sans-serif'],
     },
     colors: {
       black: '#313131',
