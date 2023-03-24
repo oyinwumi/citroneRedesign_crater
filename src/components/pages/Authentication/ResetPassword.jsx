@@ -27,7 +27,7 @@ const ResetPassword = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 id='new-password'
                 name='new-password'
                 placeholder='Enter new password'
@@ -43,7 +43,7 @@ const ResetPassword = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 id='re-password'
                 name='re-password'
                 placeholder='Confirm new password'
@@ -53,7 +53,8 @@ const ResetPassword = () => {
 
             <button
               type='submit'
-              className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'>
+              className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'
+            >
               Reset Password
             </button>
           </form>

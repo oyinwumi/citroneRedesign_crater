@@ -40,7 +40,7 @@ const LogIn = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 placeholder='Enter your password'
                 name='password'
                 className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
@@ -62,14 +62,16 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '
+            >
               Login
             </button>
 
@@ -81,7 +83,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'>
+                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'
+              >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Login with Google</p>
               </button>
@@ -89,7 +92,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center items-center w-56 bg-blue py-2 rounded'>
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
+              >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
                   Login with Facebook
