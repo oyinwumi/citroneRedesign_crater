@@ -6,9 +6,12 @@ import { FaSearch , FaRegBell, FaCog} from "react-icons/fa";
 const Course = () => {
   return (
     <div className='lg:px-32 md:px-10 '>
-        <nav className='flex h-[88px] items-center  border justify-between'>
-           <img src={Logo} alt={Logo}  className='lg:w-auto md:w-[80px] w-[50px]'/>
-           <div className='relative'>
+        <nav className='flex h-[88px] items-center  border '>
+          <div >
+          <img src={Logo} alt={Logo}  className='lg:w-auto md:w-[80px] w-[50px]'/>
+          </div>
+       <div className='flex justify-between'>
+       <div className='relative'>
               <span className='text-lightgrey text-xl absolute top-3 left-2 '><FaSearch/></span><input type="text" placeholder='search'  className='border rounded-lg  border-lightgrey lg:w-[300px] md:w-[200px]  w-[150px] placeholder:pl-8 h-10'/>
            </div>
            <div className='flex items-center'>
@@ -28,9 +31,11 @@ const Course = () => {
                 </div>
             </div>
            </div>
+       </div>
         </nav>
     </div>
   )
 }
 
 export default Course
+
