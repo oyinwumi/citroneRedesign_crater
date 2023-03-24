@@ -5,7 +5,7 @@ import Mail from '../../../assets/mail-icon.svg';
 
 const ForgotPassword = () => {
   return (
-    <div className='bg-light h-screen flex justify-center items-center'>
+    <div className='bg-light h-full flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
         <img src={Logo} alt='' className='ml-6 mt-8 cursor-pointer' />
 
@@ -41,7 +41,7 @@ const ForgotPassword = () => {
           </form>
 
           <div className='flex justify-center items-center mt-5'>
-            <p className='mr-4'>Don't have an account?</p>
+            <p className='text-lightgrey mr-4'>Don't have an account?</p>
             <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>

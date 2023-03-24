@@ -3,7 +3,7 @@ import { FaCheck } from 'react-icons/fa';
 
 const SuccessPopUp = () => {
   return (
-    <div className='flex h-screen justify-center items-center bg-grey opacity-50'>
+    <div className='flex h-full justify-center items-center bg-grey opacity-50'>
       <div className='w-120 h-61 bg-white flex flex-col items-center rounded-2xl'>
         <div className=' mt-7 border-[1.5px] border-green text-green font-light p-3 rounded-full'>
           <FaCheck />

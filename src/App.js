@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './components/pages/Authentication/SignUp';
 import LogIn from './components/pages/Authentication/LogIn';
 import CoursePage from './components/pages/coursePage/Course';
+import ForgotPassword from './components/pages/Authentication/ForgotPassword';
 
 function App() {
   return (

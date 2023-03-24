@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const LogIn = () => {
   return (
-    <div className='h-screen bg-light flex justify-center items-center'>
+    <div className='h-full bg-light flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
         <img src={Logo} alt='' className='mt-8 ml-6 cursor-pointer' />
 
@@ -40,7 +40,7 @@ const LogIn = () => {
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
-                type='text'
+                type='password'
                 placeholder='Enter your password'
                 name='password'
                 className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
@@ -61,7 +61,7 @@ const LogIn = () => {
                 </label>
               </div>
               <Link
-                to='/reset-password'
+                to='/forgot-password'
                 className=' text-purple cursor-pointer'
               >
                 Forgot password?
@@ -104,7 +104,7 @@ const LogIn = () => {
 
           <div className='flex justify-center items-center mt-5'>
             <p className='text-lightgrey mr-4'>Don't have an account?</p>
-            <Link to='/sign-up' className='text-purple font-semibold'>
+            <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>
           </div>
