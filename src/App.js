@@ -23,9 +23,9 @@ function App() {
             exact
             path='/reset-password'
             element={<ResetPassword />}
-          ></Route>
-        </Routes>
-      </Router>
+          ></Route> */}
+      {/* </Routes>
+      </Router> */}
     </div>
   );
 }

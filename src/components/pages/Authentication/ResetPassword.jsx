@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo.svg';
-import Mail from '../../../assets/mail-icon.svg';
+import Lock from '../../../assets/lock-icon.svg';
+import Eye from '../../../assets/eye-icon.svg';
+import Check from '../../../assets/shield-tick.svg';
 
 const ResetPassword = () => {
   return (
@@ -11,23 +12,41 @@ const ResetPassword = () => {
 
         <div className='px-16 mt-12'>
           <h1 className='text-center text-black text-xl font-bold'>
-            Forgot Password
+            Reset Password
           </h1>
-          <p className='text-center mt-4 text-black'>
-            Enter the email registered with your account
+          <p className='text-center mt-4 px-4 text-black'>
+            Your password should be at least 9 characters of lower case and
+            upper case.
           </p>
 
           <form action=''>
-            <div className='flex items-center bg-white mt-8 border border-lightgrey rounded'>
+            <div className='flex items-center bg-white border border-lightgrey mt-5 rounded'>
               <img
-                src={Mail}
+                src={Lock}
                 alt=''
                 className='bg-light px-3 py-3.5 rounded-l'
               />
               <input
                 type='text'
-                name='email'
-                placeholder='Enter your email'
+                id='new-password'
+                name='new-password'
+                placeholder='Enter new password'
+                className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
+              />
+              <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+            </div>
+
+            <div className='flex items-center bg-white mt-8 border border-lightgrey rounded'>
+              <img
+                src={Check}
+                alt=''
+                className='bg-light px-3 py-3.5 rounded-l'
+              />
+              <input
+                type='text'
+                id='re-password'
+                name='re-password'
+                placeholder='Confirm new password'
                 className='w-full rounded-r ml-3 placeholder:text-black focus: outline-0'
               />
             </div>
@@ -36,16 +55,9 @@ const ResetPassword = () => {
               type='submit'
               className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'
             >
-              Continue
+              Reset Password
             </button>
           </form>
-
-          <div className='flex justify-center items-center mt-5'>
-            <p className='mr-4'>Don't have an account?</p>
-            <Link to='/signup' className='text-purple font-semibold'>
-              Sign Up
-            </Link>
-          </div>
         </div>
       </div>
     </div>
