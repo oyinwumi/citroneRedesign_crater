@@ -27,8 +27,7 @@ const LandingPage = () => {
           <img src={Logo} alt={Logo} className='lg:w-auto md:w-32 w-32' />
           <div
             onClick={() => setOpen(!open)}
-            className='text-violet-900 text-5xl cursor-pointer md:hidden absolute right-8 top-6 text-center'
-          >
+            className='text-violet-900 text-5xl cursor-pointer md:hidden absolute right-8 top-6 text-center'>
             <ion-icon name={open ? 'close' : 'menu'}></ion-icon>
           </div>
         </div>
@@ -36,8 +35,7 @@ const LandingPage = () => {
           className={`md:flex px-4 md:text-centertext-black md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-0 md:pt-10 pt-10
         md:pb-0 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${
           open ? 'top-20' : 'top-[-490px]'
-        } `}
-        >
+        } `}>
           <Link to='/login'>
             <button className='border border-x-purple text-center py-3 px-4 w-[102px] text-purple text-sm rounded-lg bg-white hover:bg-purple hover:text-white '>
               LOGIN
