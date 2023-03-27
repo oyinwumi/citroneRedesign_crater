@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../../assets/logo.svg';
 import Lock from '../../../assets/lock-icon.svg';
 import Eye from '../../../assets/eye-icon.svg';
 import Check from '../../../assets/shield-tick.svg';
 
 const ResetPassword = () => {
+  const [newPassword, setNewPassword] = useState('');
+  const [reTypeNewPassword, setReTypeNewPassword] = useState('');
+
   return (
     <div className='bg-light h-full flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
@@ -31,10 +34,16 @@ const ResetPassword = () => {
                 id='new-password'
                 name='new-password'
                 placeholder='Enter new password'
+                onChange={(e) => setNewPassword(e.target.value)}
                 className='w-full rounded-r pl-3 placeholder:text-black focus: outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
             </div>
+            <p className='my-4 text-red'>
+              {newPassword.length < 9
+                ? 'Password should be at least 9 characters'
+                : ' '}
+            </p>
 
             <div className='flex items-center bg-white mt-8 border border-lightgrey rounded'>
               <img
@@ -47,9 +56,16 @@ const ResetPassword = () => {
                 id='re-password'
                 name='re-password'
                 placeholder='Confirm new password'
+                onChange={(e) => setReTypeNewPassword(e.target.value)}
                 className='w-full rounded-r ml-3 placeholder:text-black focus: outline-0'
               />
             </div>
+
+            <p className='my-4 text-red '>
+              {newPassword && newPassword !== reTypeNewPassword
+                ? 'The password does not match'
+                : ''}
+            </p>
 
             <button
               type='submit'

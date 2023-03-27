@@ -1,9 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { useDispatch, useSelector } from 'react-redux';
+// import {setEmail} from '../../../apps/Reducers/userReducer'
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
+  // const dispatch = useDispatch();
+  // const state = useSelector((state) => state.userReducer);
+
+  // const checkEmail =() => {
+  //   const{email} = state
+  // }
   return (
     <div className='bg-light h-full flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>

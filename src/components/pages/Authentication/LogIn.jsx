@@ -1,13 +1,38 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { setEmail, setPassword } from '../../../apps/Reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
 import Eye from '../../../assets/eye-icon.svg';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
-import { Link } from 'react-router-dom';
 
 const LogIn = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userReducer);
+  const navigate = useNavigate();
+
+  const loginData = () => {
+    const { email, password } = state;
+    let allUsers = JSON.parse(localStorage.getItem('users'));
+    if (!allUsers) {
+      console.log('allUsers is empty');
+      return false;
+    }
+
+    const foundUser = allUsers.filter(
+      (user) => user.email === email && user.password === password
+    );
+    if (!foundUser.length) {
+      console.log('No filtered user found');
+      console.log('wrong email and password');
+      return false;
+    }
+    navigate('/dashboard');
+  };
+
   return (
     <div className='h-full bg-light flex justify-center items-center'>
       <div className='w-148 h-200 bg-white '>
@@ -29,6 +54,7 @@ const LogIn = () => {
                 type='text'
                 placeholder='Enter your email'
                 name='email'
+                onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
               />
             </div>
@@ -43,6 +69,7 @@ const LogIn = () => {
                 type='password'
                 placeholder='Enter your password'
                 name='password'
+                onChange={(e) => dispatch(setPassword(e.target.value))}
                 className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
@@ -69,6 +96,7 @@ const LogIn = () => {
 
             <button
               type='submit'
+              onClick={loginData}
               className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '>
               Login
             </button>
