@@ -2,9 +2,17 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        61: '244px',
+        120: '480px',
+        148: '592px',
+        200: '800px',
+      },
+    },
     fontFamily: {
       font: ['Nunito', 'sans-serif'],
+      open: ['"Open Sans"', 'sans-serif'],
     },
     colors: {
       black: '#313131',
@@ -16,6 +24,7 @@ module.exports = {
       white: '#FFFFFF',
       red: '#FF4D4F',
       green: '#52C41A',
+      grey: '#969599',
       lightergrey: '#C1C1C1',
       lightgrey: '#D3D0D9',
       lightpink: '#F5F5F5',
