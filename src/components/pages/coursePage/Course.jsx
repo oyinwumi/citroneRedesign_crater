@@ -1,38 +1,62 @@
+import React from "react"
+import CoursePageNav from "./CoursePageNav";
+import Sidebar from "./Sidebar"
+import CourseImage from '../../../assets/course.png';
+import Beginner from '../../../assets/beginner.png';
+import Intermidiate from '../../../assets/intermidiate.png';
+import Simage from '../../../assets/s-image.svg'
 
-import Logo from '../../../assets/logo.svg';
-import ProfileImage from '../../../assets/profileImage.svg'
-import { FaSearch , FaRegBell, FaCog} from "react-icons/fa";
-
-const Course = () => {
+ const Course = () => {
   return (
-    <div className='lg:px-32 md:px-10 '>
-        <nav className='flex h-[88px] items-center  border '>
-          <div >
-          <img src={Logo} alt={Logo}  className='lg:w-auto md:w-[80px] w-[50px]'/>
-          </div>
-       <div className='flex justify-between'>
-       <div className='relative'>
-              <span className='text-lightgrey text-xl absolute top-3 left-2 '><FaSearch/></span><input type="text" placeholder='search'  className='border rounded-lg  border-lightgrey lg:w-[300px] md:w-[200px]  w-[150px] placeholder:pl-8 h-10'/>
-           </div>
-           <div className='flex items-center'>
-            <div className='class relative'>
-             <span className='text-lightgrey text-2xl'>< FaRegBell/> </span>
-            <div className='w-4 h-4 rounded-full border  text-center absolute bottom-4 left-5 bg-lightpurple'> <p className='text-xs text-purple'>0</p></div>
-            </div>
-            <span className='text-2xl text-black ml-4'><FaCog/></span>
-            <div className='flex items-center ml-4'>
-                <div className=''>
-                    <img src={ProfileImage} alt={ProfileImage} />
-                    <span className='w-2 h-2 rounded-full bg-lemongreen'></span>
-                </div>
-                <div className='flex flex-col ml-2 '>
-                <header className='text-xs'>User Fullname</header>
-                <p className='text-xs'>online</p>
-                </div>
-            </div>
-           </div>
+    <div className='lg:p-8  '>
+       <CoursePageNav/>
+       <div className="flex">
+       <div className="lg:w-1/6">
+       <Sidebar/>
        </div>
-        </nav>
+
+    <div className="flex flex-col lg:w-5/6">
+    <div>
+        <header className="text-24px my-4">Courses</header>
+        <div className="flex">
+       <div>
+       <img src={CourseImage} alt={CourseImage} />
+       <div className="bg-pink p-4 rounded-br-lg">  
+          <div className="flex mb- items-center"> 
+        <img src={Simage} alt={Simage} />
+        <p className="ml-3">STUTERN</p>
+      </div>
+      <p className="mt-4">UI/UX DESIGN</p></div>
+       </div>
+        <div className="ml-[32px]">
+          <header className="text-[20px] mb-6">About this course</header>
+          <ul className="list-none font-bold">
+          <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
+          <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
+          <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
+          <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
+          </ul>
+          <button className="bg-purple text-white mt-24 px-20 py-2  items-center rounded">Learn more</button>
+        </div>
+        </div>
+       </div>
+       <div>
+        <header className="text-24px my-4">Levels</header>
+       <div className="flex w-full">
+      <div>
+        <img src={Beginner} alt={Beginner} className=" w-"/>
+        <p className="mt-2">Beginner Level</p>
+        <p className="mt-4 ">1.3 UI/UX Design</p>
+      </div>
+      <div>
+        <img src={Intermidiate} alt={Intermidiate}/>
+        <p className="mt-2">Intermediate Level</p>
+        <p className="mt-4">1.3 UI/UX Design</p>
+      </div>
+       </div>
+       </div>
+    </div>
+       </div>
     </div>
   )
 }
