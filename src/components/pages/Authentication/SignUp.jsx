@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setFirstName,
   setLastName,
   setEmail,
-  setMobile,
+  setMobileNo,
   setPassword,
 } from '../../../apps/Reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
@@ -16,6 +15,7 @@ import Lock from '../../../assets/lock-icon.svg';
 import Eye from '../../../assets/eye-icon.svg';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -24,12 +24,12 @@ const SignUp = () => {
   const saveNewUser = () => {
     let allUsers = JSON.parse(localStorage.getItem('Users')) || [];
 
-    const { firstName, lastName, email, password } = state;
-    if (!firstName || !lastName || !email || !password) {
-      return 'firstName, lastName, email and password cannot be empty';
+    const { firstName, lastName, email, mobileNo, password } = state;
+    if (!firstName || !lastName || !email || mobileNo || !password) {
+      return 'firstName, lastName, email, mobileNo and password cannot be empty';
     }
 
-    let user = { firstName, lastName, email, password };
+    let user = { firstName, lastName, email, mobileNo, password };
     allUsers.push(user);
     localStorage.setItem('users', JSON.stringify(allUsers));
     alert('SignUp Successful');
