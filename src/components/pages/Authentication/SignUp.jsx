@@ -6,7 +6,7 @@ import {
   setEmail,
   setMobileNo,
   setPassword,
-} from '../../../apps/Reducers/userReducer';
+} from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
@@ -147,7 +147,9 @@ const SignUp = () => {
             <button
               type='submit'
               id='signUp'
-              className='w-full flex justify-center items-center bg-purple py-3 text-white rounded font-bold mt-4'>
+              onClick={saveNewUser}
+              className='w-full flex justify-center items-center bg-purple py-3 text-white rounded font-bold mt-4'
+            >
               Sign Up
             </button>
 
@@ -159,7 +161,8 @@ const SignUp = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center items-center w-56 py-2 border  border-lightgrey rounded'>
+                className='flex justify-center items-center w-56 py-2 border  border-lightgrey rounded'
+              >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Sign up with Google</p>
               </button>
@@ -167,7 +170,8 @@ const SignUp = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center items-center w-56 bg-blue py-2 rounded'>
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
+              >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
                   Sign up with Facebook

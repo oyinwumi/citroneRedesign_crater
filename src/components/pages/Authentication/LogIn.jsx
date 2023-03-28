@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setPassword } from '../../../apps/Reducers/userReducer';
+import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
@@ -89,7 +89,8 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
@@ -97,7 +98,8 @@ const LogIn = () => {
             <button
               type='submit'
               onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '
+            >
               Login
             </button>
 
@@ -109,7 +111,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'>
+                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'
+              >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Login with Google</p>
               </button>
@@ -117,7 +120,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center items-center w-56 bg-blue py-2 rounded'>
+                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
+              >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
                   Login with Facebook
