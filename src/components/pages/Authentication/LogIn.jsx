@@ -35,9 +35,11 @@ const LogIn = () => {
 
   return (
     <div className='body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center '>
-      <div className='bg-white rounded shadow-lg sm:w-148'>
+      <div className='bg-white rounded shadow-lg pb-20 sm:w-148'>
         <div className='py-8 px-6'>
-          <img src={Logo} alt='' className=' cursor-pointer' />
+          <Link to='/'>
+            <img src={Logo} alt='' className='cursor-pointer' />
+          </Link>
         </div>
 
         <div className=' px-16'>
@@ -53,7 +55,7 @@ const LogIn = () => {
                 placeholder='Enter your email'
                 name='email'
                 onChange={(e) => dispatch(setEmail(e.target.value))}
-                className='w-full pl-3 placeholder:text-black focus:outline-0'
+                className='w-full px-3 placeholder:text-black focus:outline-0'
               />
             </div>
 
@@ -92,7 +94,7 @@ const LogIn = () => {
             <button
               type='submit'
               onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded shadow'
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
             >
               Login
             </button>
@@ -105,26 +107,26 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='w-full mt-4 flex justify-center items-center py-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
               >
                 <img src={Google} alt='Google icon' />
-                <p className='pl-2 font-semibold'>Login with Google</p>
+                <p className='ml-2 font-semibold'>Login with Google</p>
               </button>
 
               <button
                 type='submit'
                 id='facebook'
-                className='w-full mt-4 flex justify-center items-center bg-blue py-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
               >
                 <img src={Facebook} alt='Facebook icon' />
-                <p className='pl-2 font-semibold text-white'>
+                <p className='ml-2 font-semibold text-white'>
                   Login with Facebook
                 </p>
               </button>
             </div>
           </form>
 
-          <div className='flex justify-center mt-5 pb-20'>
+          <div className='flex justify-center mt-5'>
             <p className='text-lightergrey mr-4'>Don't have an account?</p>
             <Link to='/signup' className='text-purple font-semibold'>
               Sign Up

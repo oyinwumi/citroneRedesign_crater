@@ -13,12 +13,16 @@ const ForgotPassword = () => {
   //   const{email} = state
   // }
   return (
-    <div className='bg-light h-full flex justify-center items-center'>
-      <div className='w-148 h-200 bg-white '>
-        <img src={Logo} alt='' className='ml-6 mt-8 cursor-pointer' />
+    <div className=' body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
+      <div className='bg-white rounded shadow-lg pb-20 sm:w-148'>
+        <div className='py-8 px-6'>
+          <Link to='/'>
+            <img src={Logo} alt='' className='cursor-pointer' />
+          </Link>
+        </div>
 
-        <div className='px-16 mt-12'>
-          <h1 className='text-center text-black text-xl font-bold'>
+        <div className='px-16'>
+          <h1 className='text-center mt-12 text-black text-xl font-bold'>
             Forgot Password
           </h1>
           <p className='text-center mt-4 text-black'>
@@ -26,29 +30,26 @@ const ForgotPassword = () => {
           </p>
 
           <form action=''>
-            <div className='flex items-center bg-white mt-8 border border-lightgrey rounded'>
-              <img
-                src={Mail}
-                alt=''
-                className='bg-light px-3 py-3.5 rounded-l'
-              />
+            <div className='bg-white flex items-center mt-8 border border-lightgrey rounded overflow-hidden shadow'>
+              <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
                 name='email'
                 placeholder='Enter your email'
-                className='w-full rounded-r ml-3 placeholder:text-black focus: outline-0'
+                className='w-full px-3 placeholder:text-black focus: outline-0'
               />
             </div>
 
             <button
               type='submit'
-              className='bg-purple flex justify-center items-center w-full mt-8 py-3 font-bold text-white rounded'>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 font-bold text-white rounded shadow'
+            >
               Continue
             </button>
           </form>
 
-          <div className='flex justify-center items-center mt-5'>
-            <p className='text-lightgrey mr-4'>Don't have an account?</p>
+          <div className='flex justify-center mt-5'>
+            <p className='text-lightergrey mr-4'>Don't have an account?</p>
             <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>
