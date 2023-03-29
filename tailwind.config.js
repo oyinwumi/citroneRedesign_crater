@@ -28,6 +28,7 @@ module.exports = {
       lightergrey: '#C1C1C1',
       lightgrey: '#D3D0D9',
       lightpink: '#F5F5F5',
+      deepgreen: '#008000'
     },
   },
   plugins: [],

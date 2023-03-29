@@ -1,4 +1,4 @@
-import React from "react"
+import { Link } from "react-router-dom";
 import CoursePageNav from "./CoursePageNav";
 import Sidebar from "./Sidebar"
 import CourseImage from '../../../assets/course.png';
@@ -8,21 +8,21 @@ import Simage from '../../../assets/s-image.svg'
 
  const Course = () => {
   return (
-    <div className='lg:p-8  '>
+    <div className='lg:p-8'>
        <CoursePageNav/>
        <div className="flex">
        <div className="lg:w-1/6">
        <Sidebar/>
        </div>
 
-    <div className="flex flex-col lg:w-5/6">
+    <div className="flex flex-col  lg:w-5/6 p-5" >
     <div>
-        <header className="text-24px my-4">Courses</header>
-        <div className="flex">
+        <header className="text-[24px] my-4">Courses</header>
+        <div className="flex lg:flex-row md:flex-col flex-col">
        <div>
        <img src={CourseImage} alt={CourseImage} />
-       <div className="bg-pink p-4 rounded-br-lg">  
-          <div className="flex mb- items-center"> 
+       <div className="bg-pink p-4 rounded-b-lg">  
+          <div className="flex  items-center"> 
         <img src={Simage} alt={Simage} />
         <p className="ml-3">STUTERN</p>
       </div>
@@ -40,19 +40,23 @@ import Simage from '../../../assets/s-image.svg'
         </div>
         </div>
        </div>
-       <div>
-        <header className="text-24px my-4">Levels</header>
-       <div className="flex w-full">
-      <div>
-        <img src={Beginner} alt={Beginner} className=" w-"/>
+       <div className="w-full ">
+        <header className="text-[24px] mt-4">Levels</header>
+       <div className="flex lg:flex-row md:flex-col flex-col ">
+      <Link to="/beginner" className="w-1/2">
+        <img src={Beginner} alt={Beginner} className=" w-full"/>
+        <div className="ml-4">
         <p className="mt-2">Beginner Level</p>
         <p className="mt-4 ">1.3 UI/UX Design</p>
-      </div>
-      <div>
-        <img src={Intermidiate} alt={Intermidiate}/>
-        <p className="mt-2">Intermediate Level</p>
+        </div>
+      </Link>
+      <Link to="/intermidiate" className="w-1/2">
+        <img src={Intermidiate} alt={Intermidiate} className="w-full"/>
+         <div className="ml-4">
+         <p className="mt-2">Intermediate Level</p>
         <p className="mt-4">1.3 UI/UX Design</p>
-      </div>
+         </div>
+      </Link>
        </div>
        </div>
     </div>
