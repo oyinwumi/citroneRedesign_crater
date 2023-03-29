@@ -152,7 +152,7 @@ const LandingPage = () => {
           <h3 className='text-center text-black lg:text-[40px] md:text-3xl text-2xl pt-12 mb-4'>
             Want to start learning <br /> easily today?
           </h3>
-          <button className=' mb-16 lg:ml-[45%] md:ml[40%] ml-[35%] mt-6 border border-x-purple text-center py-3 px-4 w-[184px] text-white text-sm rounded-lg bg-purple  hover:bg-purple hover:opacity-50'>
+          <button className=' mb-16 lg:ml-[45%] md:ml[40%] ml-[30%] mt-6 border border-x-purple text-center py-3 px-4 w-[184px] text-white text-sm rounded-lg bg-purple  hover:bg-purple hover:opacity-50'>
             Get Started for Free
           </button>
         </div>
