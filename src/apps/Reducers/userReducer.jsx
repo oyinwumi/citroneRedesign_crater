@@ -1,38 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  name: {
-    firstName: '',
-    lastName: '',
-  },
-  email: '',
-  mobileNo: '',
-  password: '',
-};
+// const initialState = {
+//   name: {
+//     firstName: '',
+//     lastName: '',
+//   },
+//   email: '',
+//   mobileNo: '',
+//   password: '',
+// };
 
-const userReducer = createSlice({
-  name: 'userReducer',
-  initialState,
-  reducers: {
-    setFirstName(state, action) {
-      state.name.firstName = action.payload;
-    },
-    setLastName(state, action) {
-      state.name.lastName = action.payload;
-    },
-    setEmail(state, action) {
-      state.email = action.payload;
-    },
-    setMobileNo(state, action) {
-      state.mobileNo = action.payload;
-    },
-    setPassword(state, action) {
-      state.password = action.payload;
-    },
-  },
-});
+// const userReducer = createSlice({
+//   name: 'userReducer',
+//   initialState,
+//   reducers: {
+//     setFirstName(state, action) {
+//       state.name.firstName = action.payload;
+//     },
+//     setLastName(state, action) {
+//       state.name.lastName = action.payload;
+//     },
+//     setEmail(state, action) {
+//       state.email = action.payload;
+//     },
+//     setMobileNo(state, action) {
+//       state.mobileNo = action.payload;
+//     },
+//     setPassword(state, action) {
+//       state.password = action.payload;
+//     },
+//   },
+// });
 
-export const { setFirstName, setLastName, setEmail, setMobileNo, setPassword } =
-  userReducer.actions;
+// export const { setFirstName, setLastName, setEmail, setMobileNo, setPassword } =
+//   userReducer.actions;
 
-export default userReducer.reducer;
+// export default userReducer.reducer;
