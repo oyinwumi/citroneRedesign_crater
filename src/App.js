@@ -5,8 +5,8 @@ import SignUp from './components/pages/Authentication/SignUp';
 import LogIn from './components/pages/Authentication/LogIn';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/Authentication/ForgotPassword';
-import Beginner from './components/pages/coursePage/beginner/Beginner';
-import ModuleOne from './components/pages/courseModule/ModuleOne';
+import Beginner from './components/pages/coursePage/beginner/Beginner.jsx';
+import ModuleOne from './components/pages/courseModule/ModuleOne.jsx';
 
 function App() {
   return (
