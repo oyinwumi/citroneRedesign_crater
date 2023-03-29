@@ -25,7 +25,7 @@ body {
   content: '';
   display: block;
   height: 0.5px;
-  width: 160px;
+  width: 8rem;
   position: absolute;
   top: 50%;
   left: 0;
@@ -36,7 +36,7 @@ body {
   content: '';
   display: block;
   height: 0.5px;
-  width: 160px;
+  width: 8rem;
   position: absolute;
   top: 50%;
   right: 0;

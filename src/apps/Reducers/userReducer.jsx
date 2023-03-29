@@ -6,7 +6,7 @@ const initialState = {
     lastName: '',
   },
   email: '',
-  setMobileNo: '',
+  mobileNo: '',
   password: '',
 };
 
@@ -24,7 +24,7 @@ const userReducer = createSlice({
       state.email = action.payload;
     },
     setMobileNo(state, action) {
-      state.email = action.payload;
+      state.mobileNo = action.payload;
     },
     setPassword(state, action) {
       state.password = action.payload;
