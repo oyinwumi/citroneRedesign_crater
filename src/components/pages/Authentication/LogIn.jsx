@@ -34,43 +34,37 @@ const LogIn = () => {
   };
 
   return (
-    <div className='h-full bg-light flex justify-center items-center'>
-      <div className='w-148 h-200 bg-white '>
-        <img src={Logo} alt='' className='mt-8 ml-6 cursor-pointer' />
+    <div className='body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center '>
+      <div className='bg-white rounded shadow-lg sm:w-148'>
+        <div className='py-8 px-6'>
+          <img src={Logo} alt='' className=' cursor-pointer' />
+        </div>
 
-        <div className='mt-12 px-16'>
-          <h2 className='text-center text-black font-bold text-xl'>
+        <div className=' px-16'>
+          <h2 className='text-center mt-4 font-bold text-xl text-black'>
             Welcome Back
           </h2>
 
           <form action=''>
-            <div className='bg-white flex items-center mt-12 border border-pink rounded'>
-              <img
-                src={Mail}
-                alt=''
-                className='bg-light px-3 py-3.5 rounded-l'
-              />
+            <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
+              <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
                 placeholder='Enter your email'
                 name='email'
                 onChange={(e) => dispatch(setEmail(e.target.value))}
-                className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
+                className='w-full pl-3 placeholder:text-black focus:outline-0'
               />
             </div>
 
-            <div className='bg-white flex items-center mt-5 border border-pink rounded'>
-              <img
-                src={Lock}
-                alt=''
-                className='bg-light px-3 py-3.5 rounded-l'
-              />
+            <div className='bg-white flex items-center mt-5 border border-pink rounded overflow-hidden shadow'>
+              <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='password'
                 placeholder='Enter your password'
                 name='password'
                 onChange={(e) => dispatch(setPassword(e.target.value))}
-                className='w-full pl-3 rounded-r placeholder:text-black focus:outline-0'
+                className='w-full pl-3 placeholder:text-black focus:outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
             </div>
@@ -98,20 +92,20 @@ const LogIn = () => {
             <button
               type='submit'
               onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded '
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 text-white font-bold rounded shadow'
             >
               Login
             </button>
 
-            <p className='center-text text-center text-lightgrey mt-4'>
+            <p className='center-text text-center text-lightergrey mt-4'>
               Or continue with
             </p>
 
-            <div className='flex mt-4 justify-between'>
+            <div className='sm:flex sm:justify-between sm:mt-4'>
               <button
                 type='submit'
                 id='google'
-                className='flex justify-center items-center w-56 py-2 border border-lightgrey rounded'
+                className='w-full mt-4 flex justify-center items-center py-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
               >
                 <img src={Google} alt='Google icon' />
                 <p className='pl-2 font-semibold'>Login with Google</p>
@@ -120,7 +114,7 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='flex justify-center items-center w-56 bg-blue py-2 rounded'
+                className='w-full mt-4 flex justify-center items-center bg-blue py-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
               >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='pl-2 font-semibold text-white'>
@@ -130,8 +124,8 @@ const LogIn = () => {
             </div>
           </form>
 
-          <div className='flex justify-center items-center mt-5'>
-            <p className='text-lightgrey mr-4'>Don't have an account?</p>
+          <div className='flex justify-center mt-5 pb-20'>
+            <p className='text-lightergrey mr-4'>Don't have an account?</p>
             <Link to='/signup' className='text-purple font-semibold'>
               Sign Up
             </Link>
