@@ -17,7 +17,7 @@ function App() {
         <Route path='/course' element={<CoursePage />} />
         <Route path='/beginner' element={<Beginner />} />
         <Route path='/moduleone' element={<ModuleOne />} />
-        <Route path='/quiz' element={<Quiz/>} />
+        <Route path='/quiz' element={<Quiz />} />
         {/* <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
         <Route exact path='/forgot-password' element={<ForgotPassword />} /> */}
