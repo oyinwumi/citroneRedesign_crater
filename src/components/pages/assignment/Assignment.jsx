@@ -21,7 +21,7 @@ const Assignment = () => {
                     <div className='flex items-center'>
                         <img src={course.img} alt=""  className='w-[100px] h-[100px]'/>
                         <div className='ml-4'>
-                          <header className='text-[24px]'>{course.name}</header>
+                          <header className='lg:text-[24px] md:text-[20px] text-[px] '>{course.name}</header>
                           <p className='text-extralight'>{course.date}</p>
                         </div>
                     </div>

@@ -19,29 +19,30 @@ import Simage from '../../../assets/s-image.svg'
     <div>
         <header className="text-[24px] my-4">Courses</header>
         <div className="flex lg:flex-row md:flex-col flex-col">
-       <div>
-       <img src={CourseImage} alt={CourseImage} />
-       <div className="bg-pink p-4 rounded-b-lg">  
+       <div className="">
+       <img src={CourseImage} alt={CourseImage}  className="w-[256px] "/>
+       <div className="bg-pink p-4 rounded-b-lg w-[256px]">  
           <div className="flex  items-center"> 
         <img src={Simage} alt={Simage} />
         <p className="ml-3">STUTERN</p>
       </div>
-      <p className="mt-4">UI/UX DESIGN</p></div>
+      <p className="mt-4">UI/UX DESIGN</p>
+      </div>
        </div>
-        <div className="ml-[32px]">
-          <header className="text-[20px] mb-6">About this course</header>
+        <div className=" lg:ml-[32px] md:ml-0 ml-0 lg:mt-0 md:mt-8 mt-8">
+          <header className="text-[20px] mb-4">About this course</header>
           <ul className="list-none font-bold">
           <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
           <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
           <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
           <li className="mb-6 ">The focus of Stutern’s UI/UX course is to expose the learner to User Interface (UI) and User Experience (UX) design.</li>
           </ul>
-          <button className="bg-purple text-white mt-24 px-20 py-2  items-center rounded">Learn more</button>
+          <button className="bg-purple text-white lg:mt-24 md:mt-10 mt-10 px-20 py-2  items-center rounded">Learn more</button>
         </div>
         </div>
        </div>
        <div className="w-full ">
-        <header className="text-[24px] mt-4">Levels</header>
+        <header className="text-[24px] lg:mt-4 md:mt-12 mt-12">Levels</header>
        <div className="flex lg:flex-row md:flex-col flex-col ">
       <Link to="/beginner" className="w-1/2">
         <img src={Beginner} alt={Beginner} className=" w-full"/>
