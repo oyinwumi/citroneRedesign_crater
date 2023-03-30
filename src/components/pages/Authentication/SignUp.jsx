@@ -36,7 +36,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
+    <div className='body min-h-screen bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
       <div className='bg-white rounded shadow-lg pb-20 sm:w-148'>
         <div className='py-8 px-6'>
           <Link to='/'>
@@ -44,7 +44,7 @@ const SignUp = () => {
           </Link>
         </div>
 
-        <div className='px-16'>
+        <div className='px-6 sm:px-16'>
           <h4 className='text-center mt-4 font-bold text-xl text-black'>
             Create Account
           </h4>
