@@ -21,7 +21,7 @@ const Beginner = () => {
         <div className='flex  flex-wrap items-center mb-14 '>
 
             {beginnerCourse.map((course)=>{
-                return <Link to={course.link} className=' w-1/4 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110'>
+                return <Link to={course.link} className=' lg:w-1/4 md:w-full w-10/12 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110'>
                      <img src={course.img} alt={course.img} className=" w-full" />
                     <div className='ml-6'>
                   <header>{course.header}</header>
