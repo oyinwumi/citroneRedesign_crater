@@ -3,7 +3,12 @@ import React from 'react';
 const ProfileList = () => {
   return (
     <div>
-      <h1>List of all profiles goes here</h1>
+      <div>
+        <h1>Students Profile list</h1>
+      </div>
+      <div>
+        <h1>Tutors Profile list</h1>
+      </div>
     </div>
   );
 };

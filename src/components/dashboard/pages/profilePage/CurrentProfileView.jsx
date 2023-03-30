@@ -1,9 +1,10 @@
 import React from 'react';
+import dashboardImg from '../../../../assets/dashboard-img.svg';
 
 const CurrentProfileView = () => {
   return (
     <div>
-      <h1>Current profile view goes here</h1>
+      <img src={dashboardImg} alt='' />
     </div>
   );
 };
