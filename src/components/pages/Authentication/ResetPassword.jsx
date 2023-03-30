@@ -10,7 +10,7 @@ const ResetPassword = () => {
   const [reTypeNewPassword, setReTypeNewPassword] = useState('');
 
   return (
-    <div className='body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
+    <div className='body min-h-screen py-7 bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
       <div className='bg-white rounded shadow-lg pb-20 sm:w-148 '>
         <div className='py-8 px-6'>
           <Link to='/'>
@@ -18,7 +18,7 @@ const ResetPassword = () => {
           </Link>
         </div>
 
-        <div className='px-16'>
+        <div className='px-6 sm:px-16'>
           <h1 className='text-center mt-12 text-black text-xl font-bold'>
             Reset Password
           </h1>
