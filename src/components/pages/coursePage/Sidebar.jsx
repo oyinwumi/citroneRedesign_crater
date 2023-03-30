@@ -13,13 +13,13 @@ import Logout from '../../../assets/logout.svg'
 const Sidebar = () => {
     const [open, setOpen] = useState(false);
   return (
-    <div className="lg:mt-6 border-r-2 border-lightgrey h-full ">
+    <div className="lg:mt-6 lg:border-r-2 md:border-r-none border-r-none border-lightgrey h-full  lg:block md:hidden hidden">
      <div className="bg-white ">
      <div  onClick={() => setOpen(!open)}className='text-black text-4xl ml-2'>
            <ion-icon name={open ? "close" : "menu"} ></ion-icon>
         </div>
      <div className={`px-4 md:text-center text-black  lg:z-auto md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-0 md:pt-10 pt-10
-        md:pb-0 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-490px]'} `}>
+        md:pb-0 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-560px]'} `}>
      <Link to='/dashboard' className="flex hover:bg-pink  p-4 hover:border-r-4 items-center">
        <img src={Dashboard} alt={Dashboard} />
        <p className="ml-4">Dashbord</p>

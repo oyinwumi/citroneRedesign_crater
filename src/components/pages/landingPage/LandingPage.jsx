@@ -30,23 +30,25 @@ const LandingPage = () => {
            <ion-icon name={open ? "close" : "menu"} ></ion-icon>
         </div>
         </div>
-        <div className={`md:flex px-4 md:text-centertext-black md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-0 md:pt-10 pt-10
-        md:pb-0 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-490px]'} `}>
+        <div className={`md:flex px-4 md:text-center items-center h-[88px] text-black md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-14 md:pt-10 pt-10
+        md:pb-12 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-490px]'} `}>
         <Link to='/login'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-purple text-sm rounded-lg bg-white hover:bg-purple hover:text-white '>
             LOGIN
-          </button></Link>
+          </button>
+          </Link>
            <Link to='/signup'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-white text-sm rounded-lg bg-purple ml-3  hover:bg-purple hover:opacity-50'>
             SIGNUP
-          </button></Link>
+          </button>
+          </Link>
         </div>
       </nav>
       <div className='flex lg:flex-row md:flex-col flex-col justify-between items-center leading-[64px] bg-light  lg:px-32 md:px-20 px-10 pt-10 '>
-        <div className=''>
+        <div className='lg-w1/2 md:w-full w-full'>
           <h1 className='text-black lg:text-[64px] md:text-6xl text-5xl font-bold lg:w-full md:w-full w-full mt-10'>
             Deliver a  <span className='text-purple'>Community-First </span>
             Learning Experience
           </h1>
-          <p className='text-black lg:text-lg md:text-sm text-sm lg:w-[600px] md:w-full w-full mt-8'>
+          <p className='text-black lg:text-lg md:text-sm text-sm lg:w-1/2 md:w-full w-full mt-8'>
             Citrone makes it easy for educators to create learning experiences
             that positively engage students.
           </p>
@@ -60,7 +62,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className='relative lg:ml-40 md:ml-20px ml-10 lg:mt-0 md:mt-10 mt-10 lg-w1/2 md:w-full w-full'  >
-          <img src={PrettyLady} alt={PrettyLady} className='h-auto ' />
+          <img src={PrettyLady} alt={PrettyLady} className='h-auto lg:w-[60vh] md:w-full' />
           <img src={Jet} alt={Jet} className='absolute top-0 left-20  lg:w-auto md:w-24 w-20' />
           <img
             src={Ellipse}
