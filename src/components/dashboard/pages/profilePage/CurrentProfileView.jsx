@@ -4,6 +4,8 @@ import dashboardImg from '../../../../assets/dashboard-img.svg';
 import profileImg from '../../../../assets/user-image.svg';
 import location from '../../../../assets/location-icon.svg';
 
+// This returns the view of the active (i.e clicked) user profile.  
+// It is also a component of the ProfilePage.jsx
 const CurrentProfileView = () => {
   return (
     <div div className='container'>

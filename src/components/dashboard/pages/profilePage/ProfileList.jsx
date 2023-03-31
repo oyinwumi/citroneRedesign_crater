@@ -2,6 +2,8 @@ import React from 'react';
 import TrackMember from './TrackMember';
 import Tutor from './Tutor';
 
+// This returns the list of all the profiles of Tutors and Track members
+//It is also a component of the ProfilePage.jsx
 const ProfileList = () => {
   return (
     <div className='h-full flex flex-col justify-between'>

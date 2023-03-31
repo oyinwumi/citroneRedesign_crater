@@ -1,6 +1,7 @@
 import React from 'react';
 import user1 from '../../../../assets/user1.svg';
 
+// This is a Track Member component of the ProfileList.jsx
 const TrackMember = () => {
   return (
     <div className='flex justify-around items-center'>
