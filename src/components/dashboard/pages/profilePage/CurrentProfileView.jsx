@@ -4,7 +4,7 @@ import dashboardImg from '../../../../assets/dashboard-img.svg';
 import profileImg from '../../../../assets/user-image.svg';
 import location from '../../../../assets/location-icon.svg';
 
-// This returns the view of the active (i.e clicked) user profile.  
+// This returns the view of the active (i.e clicked) user profile.
 // It is also a component of the ProfilePage.jsx
 const CurrentProfileView = () => {
   return (
@@ -61,7 +61,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
               />
             </div>
 
@@ -70,7 +70,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
               />
             </div>
             <div className='mt-4'>
@@ -80,7 +80,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
               />
             </div>
           </form>
