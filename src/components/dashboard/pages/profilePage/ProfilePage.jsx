@@ -9,7 +9,7 @@ const ProfilePage = () => {
       <div className='bg-lightpink grow pr-8 pt-6 pb-32'>
         <CurrentProfileView />
       </div>
-      <div className='bg-verylightgrey w-[320px] my-4 mr-8'>
+      <div className='bg-verylightgrey w-[360px] my-4'>
         <ProfileList />
       </div>
     </div>

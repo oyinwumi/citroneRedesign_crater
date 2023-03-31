@@ -23,8 +23,7 @@ const EditProfile = () => {
         <div className='flex justify-end'>
           <button
             type='button'
-            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'
-          >
+            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'>
             Upload Photo
           </button>
         </div>
@@ -37,7 +36,7 @@ const EditProfile = () => {
                 type='text'
                 value=''
                 placeholder='@haddy'
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
 
@@ -47,7 +46,7 @@ const EditProfile = () => {
                 type='text'
                 value=''
                 placeholder='hadizaabdulazeez@gmail.com'
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
             <div className='mt-4'>
@@ -58,20 +57,18 @@ const EditProfile = () => {
                 type='text'
                 value=''
                 placeholder='+234567899900'
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
             <div className='flex justify-end mt-10'>
               <button
                 type='button'
-                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '
-              >
+                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '>
                 Cancel
               </button>
               <button
                 type='submit'
-                className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'
-              >
+                className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
                 Save Changes
               </button>
             </div>

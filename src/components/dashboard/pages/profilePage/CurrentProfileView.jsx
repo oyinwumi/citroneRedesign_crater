@@ -21,8 +21,7 @@ const CurrentProfileView = () => {
       <div className='flex justify-end'>
         <button
           type='button'
-          className='border border-purple rounded py-2 px-4 mt-2 text-base text-purple'
-        >
+          className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'>
           Edit Profile
         </button>
       </div>
@@ -61,7 +60,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
 
@@ -70,7 +69,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
             <div className='mt-4'>
@@ -80,7 +79,7 @@ const CurrentProfileView = () => {
               <input
                 type='text'
                 value=''
-                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0'
+                className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
           </form>
