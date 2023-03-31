@@ -4,11 +4,11 @@ import ProfileList from './ProfileList';
 
 const ProfilePage = () => {
   return (
-    <div className=' flex justify-between '>
-      <div className='bg-light border'>
+    <div className='flex'>
+      <div className='bg-lightpink grow pr-8 pt-6 pb-32'>
         <CurrentProfileView />
       </div>
-      <div className='bg-blue w-[320px] border'>
+      <div className='bg-verylightgrey w-[320px] my-4 mr-8'>
         <ProfileList />
       </div>
     </div>
