@@ -6,10 +6,10 @@ import ProfileList from './ProfileList';
 const ProfilePage = () => {
   return (
     <div className='flex'>
-      <div className='bg-lightpink grow pr-8 pt-6 pb-32'>
+      <div className=''>
         <CurrentProfileView />
       </div>
-      <div className='bg-verylightgrey w-[360px] my-4'>
+      <div className='bg-lightpink w-[360px] my-4 mr-8'>
         <ProfileList />
       </div>
     </div>

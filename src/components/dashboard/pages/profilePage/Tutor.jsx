@@ -1,5 +1,4 @@
 import React from 'react';
-// import user1 from '../../../../assets/user1.svg';
 
 // This is a Tutor component of the ProfileList.jsx
 const Tutor = (props) => {

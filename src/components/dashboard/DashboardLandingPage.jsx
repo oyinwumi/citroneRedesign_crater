@@ -9,11 +9,11 @@ import ProfilePage from './pages/profilePage/ProfilePage';
 const DashboardLandingPage = () => {
   return (
     <div className='body'>
-      <div className='h-[104px] text-center '>
+      <div className='h-[104px] text-center border '>
         <Header />
       </div>
 
-      <div className='bg-lightpink h-full flex'>
+      <div className='bg-white h-full flex'>
         <div className='bg-purple w-[245px] border'>{/* <Sidebar /> */}</div>
 
         <div className='grow'>

@@ -8,25 +8,27 @@ import location from '../../../../assets/location-icon.svg';
 // It is also a component of the ProfilePage.jsx
 const CurrentProfileView = () => {
   return (
-    <div div className='container'>
+    <div div className='container bg-white h-full pt-6 pb-[126px]'>
       <span className='flex items-center ml-7'>
         <img src={arrowLeft} alt='' />
         <span className='ml-3 text-xl font-bold'>Profile</span>
       </span>
 
-      <div className='relative'>
-        <img src={dashboardImg} alt='' className='pt-2 w-full' />
-        <img src={profileImg} alt='' className='absolute -bottom-16 left-7' />
-      </div>
-      <div className='flex justify-end'>
-        <button
-          type='button'
-          className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'>
-          Edit Profile
-        </button>
+      <div className='pr-6'>
+        <div className='relative'>
+          <img src={dashboardImg} alt='' className='pt-2 w-full' />
+          <img src={profileImg} alt='' className='absolute -bottom-16 left-7' />
+        </div>
+        <div className='flex justify-end'>
+          <button
+            type='button'
+            className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'>
+            Edit Profile
+          </button>
+        </div>
       </div>
 
-      <div className='pl-6 mt-10'>
+      <div className='pl-6 pr-8 mt-10'>
         <div className='flex justify-between items-center'>
           <div>
             <h2 className='text-xl font-bold'>
@@ -52,7 +54,7 @@ const CurrentProfileView = () => {
           </span>
         </div>
 
-        <div className=' border-t border-pink pt-4 '>
+        <div className=' border-t border-pink pt-4'>
           <h1 className='text-xl font-bold'>Contact Information</h1>
           <form action=''>
             <div className='mt-4'>
