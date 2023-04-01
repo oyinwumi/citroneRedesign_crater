@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   //   const{email} = state
   // }
   return (
-    <div className=' body min-h-screen py-7 bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
+    <div className=' body bg-light mx-auto sm:h-screen sm:flex sm:justify-center sm:items-center'>
       <div className='bg-white rounded shadow-lg pb-20 sm:w-148'>
         <div className='py-8 px-6'>
           <Link to='/'>
@@ -42,8 +42,7 @@ const ForgotPassword = () => {
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 font-bold text-white rounded shadow'
-            >
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 font-bold text-white rounded shadow'>
               Continue
             </button>
           </form>
