@@ -1,0 +1,43 @@
+import React from 'react'
+import CoursePageNav from '../coursePage/CoursePageNav'
+import Sidebar from '../coursePage/Sidebar'
+import beginnerCourse from '../coursePage/beginner/beginner'
+import { FaArrowLeft} from "react-icons/fa";
+
+const Scoreboard = () => {
+    
+  return (
+    <div className='lg:py-8 pl-8 w-full'>
+    <CoursePageNav/>
+    <div className='flex mx-6'>
+        <div className="lg:w-1/6">
+            <Sidebar/>
+        </div>
+        <div className='w-full'>
+        <h5 className='flex items-center mt-6 ml-6 text-xl'><span className='mr-3'><FaArrowLeft/></span> Scoreboard</h5>
+      <div className='flex justify-between '>
+        <header className='ml-6 mt-6'>Modules</header>
+        <p className='mr-8'>Grades</p>
+        </div>
+        <div className='mt-6 w-full px-6'>
+           {beginnerCourse.map((course)=>{
+            return <div className='border border-lightgrey rounded p-2 flex justify-between w-full mb-4 items-center  ' >
+                <div className='flex items-center w-full'>
+                    <img src={course.img} alt=""  className='w-[100px] h-[100px]'/>
+                    <div className='ml-4'>
+                      <header className='lg:text-[24px] md:text-[20px] text-[px] '>{course.name}</header>
+                      <p className='text-extralight'>{course.date}</p>
+                    </div>
+                </div>
+                <div className='lg:text-[24px] p-2'>{course.grade}</div>
+            </div>
+           })}
+        </div>
+        </div>
+    </div>
+
+</div>
+  )
+}
+
+export default Scoreboard

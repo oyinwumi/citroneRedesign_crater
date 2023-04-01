@@ -20,8 +20,8 @@ import Simage from '../../../assets/s-image.svg'
         <header className="text-[24px] my-4">Courses</header>
         <div className="flex lg:flex-row md:flex-col flex-col">
        <div className="">
-       <img src={CourseImage} alt={CourseImage}  className="w-[256px] "/>
-       <div className="bg-pink p-4 rounded-b-lg w-[256px]">  
+       <img src={CourseImage} alt={CourseImage}  className="w-auto "/>
+       <div className="bg-pink p-4 rounded-b-lg w-[inherit]">  
           <div className="flex  items-center"> 
         <img src={Simage} alt={Simage} />
         <p className="ml-3">STUTERN</p>
