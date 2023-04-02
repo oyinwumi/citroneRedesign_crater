@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SettingsHeader from './SettingsHeader';
-import AccountSettings from './AccountSettings';
-// import SecuritySettings from './SecuritySettings';
+// import AccountSettings from './AccountSettings';
+import SecuritySettings from './SecuritySettings';
 
 const Settings = () => {
   return (
@@ -11,10 +11,10 @@ const Settings = () => {
         <SettingsHeader />
       </div>
 
-      <div>
+      <div className='mt-20 pl-[136px]'>
         <Routes>
-          <Route exact path='/' element={<AccountSettings />} />
-          {/* <Route exact path='/' element={<SecuritySettings />} /> */}
+          {/* <Route exact path='/' element={<AccountSettings />} /> */}
+          <Route exact path='/' element={<SecuritySettings />} />
         </Routes>
       </div>
     </div>

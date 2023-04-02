@@ -5,7 +5,7 @@ import leftChevron from '../../../../assets/chevron-left.svg';
 
 const AccountSettings = () => {
   return (
-    <div className='mt-20 pb-[358px] pl-[136px] pr-28 h-full relative'>
+    <div className='pb-[358px] pr-28 relative'>
       <div>
         <h3 className='text-3xl font-bold mb-1'>Your account</h3>
         <p className='text-2xl'>
@@ -34,7 +34,7 @@ const AccountSettings = () => {
         </div>
       </div>
 
-      <div className='flex absolute bottom-0 right-4 mb-20'>
+      <div className='flex items-center absolute bottom-0 right-4 mb-20'>
         <img src={leftChevron} alt='' />
         <h3 className=' text-2xl ml-2'>Go back</h3>
       </div>
