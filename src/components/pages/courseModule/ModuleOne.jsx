@@ -14,7 +14,7 @@ const ModuleOne = () => {
         <div>
             <Sidebar/>
         </div>
-        <div>
+        <div className=''>
         <div className='my-6'>
                 <p className=' flex items-center  ml-6'>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
             </div>
@@ -30,25 +30,25 @@ const ModuleOne = () => {
             </ul>
         </div>
           {moduleOne.map((lesson)=>{
-            return    <div className='ml-6 mb-4'>
+            return    <div className='ml-6 mb-4 w-full'>
             <header className='mt-6 mb-2 text-[24px]'>{lesson.title}</header>
             <p className='mb-4'>{lesson.description}</p>
             <p className='mb-2'>{lesson.text}</p>
-           <div className='my-4'>
+           <div className='my-4 w-full  '>
            <p className='mb-2 text-[12px]'>{lesson.linkTitle}</p>
-            <a className='border border-lightergrey p-2  pr-14 rounded' href={lesson.link} >{lesson.link}</a>
+            <a className='lg:border border-lightergrey p-2 w-full rounded hover:text-blue lg:pr-6' href={lesson.link} >{lesson.link}</a>
            </div>
-           <div className='my-4'>
+           <div className='my-4 w-full'>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleTwo}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkTwo} >{lesson.linkTwo}</a>
+           <a  className='lg:border border-lightergrey p-2 w-full rounded hover:text-blue lg:pr-6' href={lesson.linkTwo} >{lesson.linkTwo}</a>
            </div>
-           <div className='my-4'>
+           <div className='my-4 w-full'>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleThree}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkThree} >{lesson.linkThree}</a>
+           <a  className='lg:border border-lightergrey p-2 w-full rounded hover:text-blue lg:pr-6'  href={lesson.linkThree} >{lesson.linkThree}</a>
            </div>
-           <div className='my-4'>
+           <div className='my-4 w-full'>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleFour}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkFour} >{lesson.linkFour}</a>
+           <a  className='lg:border border-lightergrey p-2 w-full rounded hover:text-blue lg:pr-6' href={lesson.linkFour} >{lesson.linkFour}</a>
            </div>
         </div>
         
