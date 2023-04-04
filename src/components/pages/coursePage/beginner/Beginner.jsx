@@ -9,7 +9,7 @@ const Beginner = () => {
   return (
     <div className='lg:p-8 '>
        <CoursePageNav/>
-       <div className='flex mt-10 '>
+       <div className='flex p-3 '>
         <div className='lg:w-1/6'>
             <Sidebar/>
         </div>

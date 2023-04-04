@@ -8,9 +8,9 @@ import beginnerCourse from '../coursePage/beginner/beginner'
 const button= <button className='bg-purple text-white text-center rounded p-2 w-20 '>Start</button>
 const Assignment = () => {
   return (
-    <div className='lg:p-8'>
+    <div className='lg:p-8  w-full'>
         <CoursePageNav/>
-        <div className='flex'>
+        <div className='flex p-3'>
             <div className="lg:w-1/6">
                 <Sidebar/>
             </div>

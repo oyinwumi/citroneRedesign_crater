@@ -8,9 +8,9 @@ import Simage from '../../../assets/s-image.svg'
 
  const Course = () => {
   return (
-    <div className='lg:p-8'>
+    <div className='lg:p-8  w-full'>
        <CoursePageNav/>
-       <div className="flex">
+       <div className="flex p-3">
        <div className="lg:w-1/6">
        <Sidebar/>
        </div>
@@ -44,14 +44,14 @@ import Simage from '../../../assets/s-image.svg'
        <div className="w-full ">
         <header className="text-[24px] lg:mt-4 md:mt-12 mt-12">Levels</header>
        <div className="flex lg:flex-row md:flex-col flex-col ">
-      <Link to="/beginner" className="w-1/2">
+      <Link to="/beginner" className="lg:w-1/2">
         <img src={Beginner} alt={Beginner} className=" w-full"/>
         <div className="ml-4">
         <p className="mt-2">Beginner Level</p>
         <p className="mt-4 ">1.3 UI/UX Design</p>
         </div>
       </Link>
-      <Link to="/intermidiate" className="w-1/2">
+      <Link to="/intermidiate" className="lg:w-1/2">
         <img src={Intermidiate} alt={Intermidiate} className="w-full"/>
          <div className="ml-4">
          <p className="mt-2">Intermediate Level</p>
