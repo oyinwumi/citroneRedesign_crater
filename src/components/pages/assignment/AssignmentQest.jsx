@@ -8,15 +8,15 @@ import MicIcon from '../../../assets/microphone-2.svg';
 
 const AssignmentQest = () => {
   return (
-    <div className="lg: p-8">
+    <div className="lg: p-6">
           <CoursePageNav/>
        <div className='flex'>
         <div className="w-1/6">
             <Sidebar/>
         </div>
-        <div className="w-full mx-6">
+        <div className="w-full lg:mx-6">
         <div className='my-6'>
-                <p className=' flex items-center  '>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Assignment 1</p>
+                <p className=' flex items-center text-center '>courses <Link to='/moduleone' className='mx-2 text-sm '>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Assignment 1</p>
             </div>
         <h5 className='text-[24px] mb-4 '>Module 1 Assignment 1</h5>
         <div  className=''>

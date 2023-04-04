@@ -21,7 +21,7 @@ import Simage from '../../../assets/s-image.svg'
         <div className="flex lg:flex-row md:flex-col flex-col">
        <div className="">
        <img src={CourseImage} alt={CourseImage}  className="w-auto "/>
-       <div className="bg-pink p-4 rounded-b-lg w-[inherit]">  
+       <div className="bg-pink p-4 rounded-b-lg  md:w-[376px] w-[inherit]">  
           <div className="flex  items-center"> 
         <img src={Simage} alt={Simage} />
         <p className="ml-3">STUTERN</p>

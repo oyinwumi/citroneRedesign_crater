@@ -12,10 +12,11 @@ import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/pages/coursePage/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
 import Scoreboard from './components/pages/scoreboard/Scoreboard';
+import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
 
 function App() {
   return (
-    <div>
+    <div className='w-full'>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
@@ -29,6 +30,7 @@ function App() {
         <Route path='/sidebar' element={<Sidebar/>}/>
         <Route path='/assignmentqest' element={<AssignmentQest/>}/>
         <Route path='/scoreboard' element={<Scoreboard/>} />
+        <Route path='/quizmodalone' element= {<QuizModalOne/>} />
       </Routes>
     </div>
   );
