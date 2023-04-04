@@ -15,7 +15,7 @@ const Quiz = () => {
       { isOpen && <QuizModalOne/>}
       <CoursePageNav/>
       < div className='flex'>
-        <div className="lg:w-1/6">
+        <div className="lg:w-1/6 lg:p-3">
             <Sidebar/>
         </div>
        <div className='ml-6 mt-6 relative w-full'>

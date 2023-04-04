@@ -10,7 +10,7 @@ const Scoreboard = () => {
   return (
     <div className='lg:p-8  w-full'>
     <CoursePageNav/>
-    <div className='flex mx-6'>
+    <div className='flex p-3'>
         <div className="lg:w-1/6">
             <Sidebar/>
         </div>

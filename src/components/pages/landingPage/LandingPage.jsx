@@ -48,7 +48,7 @@ const LandingPage = () => {
             Deliver a  <span className='text-purple'>Community-First </span>
             Learning Experience
           </h1>
-          <p className='text-black lg:text-lg md:text-sm text-sm lg:w-1/2 md:w-full w-full mt-8'>
+          <p className='text-black lg:text-lg md:text-sm text-sm lg:w-full md:w-full w-full mt-8'>
             Citrone makes it easy for educators to create learning experiences
             that positively engage students.
           </p>
