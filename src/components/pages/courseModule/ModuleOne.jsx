@@ -8,19 +8,19 @@ import moduleOne from './moduleone';
 
 const ModuleOne = () => {
   return (
-    <div className='lg:p-8'>
+    <div className='lg:p-8  w-full'>
        <CoursePageNav/>
-       <div className='flex'>
-        <div>
+       <div className='flex p-3'>
+        <div className='lg:w-1/6'>
             <Sidebar/>
         </div>
-        <div>
+        <div className='mx-6  mb-14 overflow-x-hidden'>
         <div className='my-6'>
-                <p className=' flex items-center  ml-6'>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
+                <p className=' flex items-center '>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
             </div>
-        <h5 className='text-[24px] mb-4 ml-6'>Module 1</h5>
-        <p  className='ml-6 w-full text-lg mb-4' >This Module introduces you to product design, the design process, the tools product designers use and job opportunities for product designers.</p>
-        <div  className='ml-6'>
+        <h5 className='lg:text-[24px] md:text-xl text-xl mb-4 '>Module 1</h5>
+        <p  className=' lg:text-lg mb-4' >This Module introduces you to product design, the design process, the tools product designers use and job opportunities for product designers.</p>
+        <div  className=''>
             <header className='font-bold mb-2'>Learning Objectives</header>
             <ul className='font-extralight'>
                 <li className='mb-2'>At the end of this module, you should:</li>
@@ -30,30 +30,30 @@ const ModuleOne = () => {
             </ul>
         </div>
           {moduleOne.map((lesson)=>{
-            return    <div className='ml-6 mb-4'>
-            <header className='mt-6 mb-2 text-[24px]'>{lesson.title}</header>
-            <p className='mb-4'>{lesson.description}</p>
+            return    <div className=' mb-4 break-all'>
+            <header className='mt-6 mb-2 Lg:text-[24px] md:text-xl text-xl'>{lesson.title}</header>
+            <p className='mb-4 '>{lesson.description}</p>
             <p className='mb-2'>{lesson.text}</p>
-           <div className='my-4'>
+           <div className='my-4  '>
            <p className='mb-2 text-[12px]'>{lesson.linkTitle}</p>
-            <a className='border border-lightergrey p-2  pr-14 rounded' href={lesson.link} >{lesson.link}</a>
+            <a className='lg:border border-lightergrey p-2  rounded hover:text-blue lg:pr-6' href={lesson.link} >{lesson.link}</a>
            </div>
-           <div className='my-4'>
+           <div className='my-4 '>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleTwo}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkTwo} >{lesson.linkTwo}</a>
+           <a  className='lg:border border-lightergrey p-2 rounded hover:text-blue lg:pr-6' href={lesson.linkTwo} >{lesson.linkTwo}</a>
            </div>
            <div className='my-4'>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleThree}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkThree} >{lesson.linkThree}</a>
+           <a  className='lg:border border-lightergrey p-2 rounded hover:text-blue lg:pr-6'  href='/assignmentqest' >{lesson.linkThree}</a>
            </div>
-           <div className='my-4'>
+           <div className='my-4 '>
            <p className='mb-2 text-[12px]'>{lesson.linkTitleFour}</p>
-           <a  className='border border-lightergrey p-2  pr-14 rounded' href={lesson.linkFour} >{lesson.linkFour}</a>
+           <a  className='lg:border border-lightergrey p-2  rounded hover:text-blue lg:pr-6' href="/quiz" >{lesson.linkFour}</a>
            </div>
         </div>
         
           })}
-          <button className='ml-6 mt-4 text-white bg-deepgreen hover:opacity-50 py-1 px-4 text-center rounded'>Complete</button>
+          <button className=' mt-4 text-white bg-deepgreen hover:opacity-50 py-1 px-4 text-center rounded'>Complete</button>
         </div>
    
        </div>

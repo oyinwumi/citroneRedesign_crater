@@ -6,7 +6,7 @@ import {
   setEmail,
   setMobileNo,
   setPassword,
-} from '../../../apps/reducers/userReducer';
+} from './reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';

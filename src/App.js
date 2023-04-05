@@ -1,23 +1,26 @@
 import React from 'react';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
-// import { Routes, Route } from 'react-router-dom';
-// import LandingPage from './components/pages/landingPage/LandingPage';
-// import SignUp from './components/pages/Authentication/SignUp';
-// import LogIn from './components/pages/Authentication/LogIn';
-// import CoursePage from './components/pages/coursePage/Course';
-// import ForgotPassword from './components/pages/Authentication/ForgotPassword';
-// import Beginner from './components/pages/coursePage/beginner/Beginner';
-// import ModuleOne from './components/pages/courseModule/ModuleOne';
-// import Quiz from './components/pages/courseModule/quiz/Quiz';
-// import Assignment from './components/pages/assignment/Assignment';
-// import Sidebar from './components/pages/coursePage/Sidebar';
+import { Routes, Route } from 'react-router-dom';
+import LandingPage from './components/pages/landingPage/LandingPage';
+import SignUp from './components/pages/authentication/SignUp';
+import LogIn from './components/pages/authentication/LogIn';
+import CoursePage from './components/pages/coursePage/Course';
+import ForgotPassword from './components/pages/authentication/ForgotPassword';
+import Beginner from './components/pages/coursePage/beginner/Beginner';
+import ModuleOne from './components/pages/courseModule/ModuleOne';
+import Quiz from './components/pages/courseModule/quiz/Quiz';
+import Assignment from './components/pages/assignment/Assignment';
+import Sidebar from './components/pages/coursePage/Sidebar';
+import AssignmentQest from './components/pages/assignment/AssignmentQest';
+import Scoreboard from './components/pages/scoreboard/Scoreboard';
+import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
 
 function App() {
   return (
     <div>
       <DashboardLandingPage />
     </div>
-    // <div>
+    // <div className='w-full'>
     //   <Routes>
     //     <Route exact path='/' element={<LandingPage />} />
     //     <Route path='/course' element={<CoursePage />} />
@@ -29,6 +32,9 @@ function App() {
     //     <Route exact path='/login' element={<LogIn />} />
     //     <Route exact path='/forgot-password' element={<ForgotPassword />} />
     //     <Route path='/sidebar' element={<Sidebar />} />
+    //     <Route path='/assignmentqest' element={<AssignmentQest />} />
+    //     <Route path='/scoreboard' element={<Scoreboard />} />
+    //     <Route path='/quizmodalone' element={<QuizModalOne />} />
     //   </Routes>
     // </div>
   );

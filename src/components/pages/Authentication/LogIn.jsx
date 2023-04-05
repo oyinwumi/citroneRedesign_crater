@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
+import { setEmail, setPassword } from './reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
@@ -85,7 +85,8 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
@@ -93,7 +94,8 @@ const LogIn = () => {
             <button
               type='submit'
               onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
+            >
               Login
             </button>
 
@@ -105,7 +107,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
+                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+              >
                 <img src={Google} alt='Google icon' />
                 <p className='ml-2 font-semibold'>Login with Google</p>
               </button>
@@ -113,7 +116,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
+                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+              >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='ml-2 font-semibold text-white'>
                   Login with Facebook
