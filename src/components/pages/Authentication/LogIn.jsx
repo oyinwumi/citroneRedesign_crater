@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setPassword } from './reducers/userReducer';
+import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';

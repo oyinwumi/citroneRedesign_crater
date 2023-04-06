@@ -2,9 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
 // import Sidebar from '../pages/coursePage/Sidebar';
-// import DashboardPage from './pages/dashboardPage/DashboardPage';
-// import ProfilePage from './pages/profilePage/ProfilePage';
-// import EditProfile from './pages/profilePage/EditProfile';
+import DashboardPage from './pages/dashboardPage/DashboardPage';
+import ProfilePage from './pages/profilePage/ProfilePage';
+import EditProfile from './pages/profilePage/EditProfile';
 import Settings from './pages/settings/Settings';
 
 const DashboardLandingPage = () => {
@@ -19,10 +19,10 @@ const DashboardLandingPage = () => {
 
         <div className='grow'>
           <Routes>
-            {/* <Route exact path='/' element={<DashboardPage />} /> */}
-            {/* <Route exact path='/' element={<ProfilePage />} /> */}
-            {/* <Route exact path='/' element={<EditProfile />} /> */}
-            <Route exact path='/' element={<Settings />} />
+            <Route exact path='/' element={<DashboardPage />} />
+            <Route exact path='/profile' element={<ProfilePage />} />
+            <Route exact path='/editProfile' element={<EditProfile />} />
+            <Route exact path='/settings' element={<Settings />} />
           </Routes>
         </div>
       </div>

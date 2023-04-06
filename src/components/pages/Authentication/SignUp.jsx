@@ -6,7 +6,7 @@ import {
   setEmail,
   setMobileNo,
   setPassword,
-} from './reducers/userReducer';
+} from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
@@ -22,7 +22,7 @@ const SignUp = () => {
   const state = useSelector((state) => state.userReducer);
 
   const saveNewUser = () => {
-    let allUsers = JSON.parse(localStorage.getItem('Users')) || [];
+    let allUsers = JSON.parse(localStorage.getItem('users')) || [];
 
     const { firstName, lastName, email, mobileNo, password } = state;
     if (!firstName || !lastName || !email || mobileNo || !password) {
