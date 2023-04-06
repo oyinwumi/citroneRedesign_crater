@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SuccessPopUp = () => {
   return (
@@ -14,7 +15,7 @@ const SuccessPopUp = () => {
           Your password has been changed
         </p>
         <button className='flex justify-center items-center bg-purple w-[86px] h-[42px] text-white text-base font-bold mt-6 rounded'>
-          Login
+          <Link to='/login'>Login</Link>
         </button>
       </div>
     </div>

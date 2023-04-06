@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './components/pages/landingPage/LandingPage';
 import SignUp from './components/pages/authentication/SignUp';
 import LogIn from './components/pages/authentication/LogIn';
+import Dashboard from './components/dashboard/DashboardLandingPage';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 // import Beginner from './components/pages/coursePage/beginner/Beginner';
@@ -30,6 +31,7 @@ function App() {
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
+        <Route exact path='/dashboard' element={<Dashboard />} />
         <Route exact path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/sidebar' element={<Sidebar />} />
         <Route path='/assignmentqest' element={<AssignmentQest />} />

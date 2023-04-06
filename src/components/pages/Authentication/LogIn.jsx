@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
@@ -10,6 +10,8 @@ import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 
 const LogIn = () => {
+  // const [LoginSuccess, setLoginSuccess] = useState(false);
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
@@ -31,6 +33,11 @@ const LogIn = () => {
       return false;
     }
     navigate('/dashboard');
+    // setLoginSuccess(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -47,13 +54,12 @@ const LogIn = () => {
             Welcome Back
           </h2>
 
-          <form action=''>
+          <form onSubmit={handleSubmit}>
             <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
               <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
                 placeholder='Enter your email'
-                name='email'
                 onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='w-full px-3 placeholder:text-black focus:outline-0'
               />
@@ -64,7 +70,6 @@ const LogIn = () => {
               <input
                 type='password'
                 placeholder='Enter your password'
-                name='password'
                 onChange={(e) => dispatch(setPassword(e.target.value))}
                 className='w-full pl-3 placeholder:text-black focus:outline-0'
               />
