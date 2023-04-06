@@ -11,9 +11,7 @@ import Simage from '../../../assets/s-image.svg'
     <div className='lg:p-8  w-full'>
        <CoursePageNav/>
        <div className="flex p-3">
-       <div className="lg:w-1/6">
        <Sidebar/>
-       </div>
 
     <div className="flex flex-col  lg:w-5/6 p-5" >
     <div>
@@ -51,7 +49,7 @@ import Simage from '../../../assets/s-image.svg'
         <p className="mt-4 ">1.3 UI/UX Design</p>
         </div>
       </Link>
-      <Link to="/intermidiate" className="lg:w-1/2">
+      <Link to="/begg" className="lg:w-1/2">
         <img src={Intermidiate} alt={Intermidiate} className="w-full"/>
          <div className="ml-4">
          <p className="mt-2">Intermediate Level</p>

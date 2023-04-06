@@ -11,9 +11,7 @@ const ModuleOne = () => {
     <div className='lg:p-8  w-full'>
        <CoursePageNav/>
        <div className='flex p-3'>
-        <div className='lg:w-1/6'>
-            <Sidebar/>
-        </div>
+       <Sidebar/>
         <div className='mx-6  mb-14 overflow-x-hidden'>
         <div className='my-6'>
                 <p className=' flex items-center '>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
@@ -53,7 +51,7 @@ const ModuleOne = () => {
         </div>
         
           })}
-          <button className=' mt-4 text-white bg-deepgreen hover:opacity-50 py-1 px-4 text-center rounded'>Complete</button>
+        <Link to='/course'><button className=' mt-4 text-white bg-deepgreen hover:opacity-50 py-1 px-4 text-center rounded'>Complete</button></Link>
         </div>
    
        </div>

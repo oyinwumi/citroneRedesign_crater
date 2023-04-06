@@ -11,14 +11,13 @@ const Scoreboard = () => {
     <div className='lg:p-8  w-full'>
     <CoursePageNav/>
     <div className='flex p-3'>
-        <div className="lg:w-1/6">
             <Sidebar/>
-        </div>
-        <div className='w-full ml-6'>
+        
+        <div className='w-full mx-6'>
         <h5 className='flex items-center mt-6  text-xl'><Link to='/dashboard' className='mr-3'><FaArrowLeft/></Link> Scoreboard</h5>
-      <div className='flex justify-between '>
-        <header className='ml-6 mt-6'>Modules</header>
-        <p className='mr-8'>Grades</p>
+      <div className='flex justify-between  mt-4'>
+        <p className=''>Modules</p>
+        <p className=''>Grades</p>
         </div>
         <div className='mt-6 w-full '>
            {beginnerCourse.map((course)=>{

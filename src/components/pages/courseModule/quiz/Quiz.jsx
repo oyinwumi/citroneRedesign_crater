@@ -11,13 +11,11 @@ const Quiz = () => {
   const dispatch = useDispatch() ;
   return (
 
-    <div className=' w-full h-full relative'>
+    <div className=' lg:p-8 w-full h-full relative'>
       { isOpen && <QuizModalOne/>}
       <CoursePageNav/>
-      < div className='flex'>
-        <div className="lg:w-1/6 lg:p-3">
-            <Sidebar/>
-        </div>
+      < div className='flex p-3' >
+      <Sidebar/>
        <div className='ml-6 mt-6 relative w-full'>
       
        <header className='lg:text-[32px]'>Module 1: Introduction to design Quiz</header>

@@ -11,12 +11,10 @@ const Assignment = () => {
     <div className='lg:p-8  w-full'>
         <CoursePageNav/>
         <div className='flex p-3'>
-            <div className="lg:w-1/6">
-                <Sidebar/>
-            </div>
-            <div className='w-full'>
-            <header className='ml-6 mt-6'>Modules</header>
-            <div className='mt-6 w-full px-6'>
+        <Sidebar/>
+            <div className='w-full px-6 '>
+            <header className=' mt-6'>Modules</header>
+            <div className='mt-6 w-full '>
                {beginnerCourse.map((course)=>{
                 return <div className='border border-lightgrey rounded p-2 flex  lg:flex-row md:flex-col flex-col  justify-between w-full mb-4 items-center ' >
                     <div className='flex items-center'>
