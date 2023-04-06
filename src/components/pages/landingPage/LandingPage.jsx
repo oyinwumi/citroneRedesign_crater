@@ -23,7 +23,7 @@ const LandingPage = () => {
   const [open, setOpen] = useState(false);
   return (
     <section className='overflow-x-hidden'>
-      <nav className='bg-white flex justify-between h-[88px] border border-white items-center lg:px-32 md:px-20 px-12'>
+      <nav className='bg-white flex justify-between h-[88px] border border-white items-center lg:px-32 md:px-20 px-8'>
         <div className='flex md:flex-col'>
           <img src={Logo} alt={Logo} className='lg:w-auto md:w-32 w-32'/>
           <div  onClick={() => setOpen(!open)}className='text-violet-900 text-5xl cursor-pointer md:hidden absolute right-8 top-6 text-center'>

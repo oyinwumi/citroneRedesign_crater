@@ -13,14 +13,13 @@ const AssignmentQest = () => {
     const { isOpen} = useSelector((store)=> store.modal);
     const dispatch = useDispatch() ;
   return (
-    <div className="w-full h-full relative">
+    <div className=" lg:p-8 w-full h-full relative">
         { isOpen && <AssignmentModal/>}
           <CoursePageNav/>
-       <div className='flex p-3'>
-        <div className="w-1/6">
-            <Sidebar/>
-        </div>
-        <div className="w-full lg:mx-6">
+       <div className='flex p-3 '>
+       <Sidebar/>
+      
+        <div className="w-full px-6 ">
         <div className='my-6'>
                 <p className=' flex items-center text-center '>courses <Link to='/moduleone' className='mx-2 text-sm '>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Assignment 1</p>
             </div>
