@@ -53,7 +53,7 @@ const LandingPage = () => {
             that positively engage students.
           </p>
           <div className='my-10 lg:text-sm md:text-xs text-xs '>
-            <Link to='/course'>
+            <Link to='/dashboard'>
             <button className='border border-x-purple text-center lg:py-3 md:py-2 py-2  lg:px-4 md:px-2 px-2 lg:w-[184px] md:w-[150px] w-[130px] text-white rounded-lg bg-purple  hover:bg-purple hover:opacity-50 lg:text-sm md:text-xs text-xs'>
               Get Started for Free
             </button>

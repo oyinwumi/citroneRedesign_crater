@@ -82,8 +82,8 @@ const Sidebar = () => {
  }
     const menu =[
       {
-        path: '/dashbord',
-        name: 'Dashbord',
+        path: '/dashboard',
+        name: 'Dashboard',
         icon: <img src={Dashboard} alt={Dashboard} />
       },
       {
