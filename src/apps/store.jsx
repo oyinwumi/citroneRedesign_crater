@@ -3,11 +3,10 @@ import userReducer from './reducers/userReducer';
 import modalReducer from './modal/modalSlice'
 
 const store = configureStore({
- reducer: {
+  reducer: {
     userReducer,
      modal: modalReducer,
   },
 });
-
 
 export default store;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
@@ -10,6 +10,8 @@ import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 
 const LogIn = () => {
+  // const [LoginSuccess, setLoginSuccess] = useState(false);
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
@@ -31,29 +33,33 @@ const LogIn = () => {
       return false;
     }
     navigate('/dashboard');
+    // setLoginSuccess(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
-    <div className='body h-200 bg-light mx-auto sm:flex sm:justify-center sm:items-center '>
+    <div className='body min-h-screen bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
       <div className='bg-white rounded shadow-lg pb-20 sm:w-148'>
-        <div className='py-8 px-6'>
+        <div className=' py-8 px-6'>
           <Link to='/'>
             <img src={Logo} alt='' className='cursor-pointer' />
           </Link>
         </div>
 
-        <div className=' px-16'>
+        <div className=' px-6 sm:px-16'>
           <h2 className='text-center mt-4 font-bold text-xl text-black'>
             Welcome Back
           </h2>
 
-          <form action=''>
+          <form onSubmit={handleSubmit}>
             <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
               <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
                 placeholder='Enter your email'
-                name='email'
                 onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='w-full px-3 placeholder:text-black focus:outline-0'
               />
@@ -64,7 +70,6 @@ const LogIn = () => {
               <input
                 type='password'
                 placeholder='Enter your password'
-                name='password'
                 onChange={(e) => dispatch(setPassword(e.target.value))}
                 className='w-full pl-3 placeholder:text-black focus:outline-0'
               />
@@ -85,7 +90,8 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
@@ -93,7 +99,8 @@ const LogIn = () => {
             <button
               type='submit'
               onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
+            >
               Login
             </button>
 
@@ -105,7 +112,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='google'
-                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
+                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+              >
                 <img src={Google} alt='Google icon' />
                 <p className='ml-2 font-semibold'>Login with Google</p>
               </button>
@@ -113,7 +121,8 @@ const LogIn = () => {
               <button
                 type='submit'
                 id='facebook'
-                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
+                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+              >
                 <img src={Facebook} alt='Facebook icon' />
                 <p className='ml-2 font-semibold text-white'>
                   Login with Facebook

@@ -31,7 +31,8 @@ module.exports = {
       lightgrey: '#D3D0D9',
       lightpink: '#F5F5F5',
       deepgreen: '#008000',
-      teagreen:'#18B368'
+      verylightgrey: '#FCFBFE',
+      teagreen: '#18B368',
     },
   },
   plugins: [],
