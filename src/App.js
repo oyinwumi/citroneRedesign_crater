@@ -10,10 +10,16 @@ import ModuleOne from './components/pages/courseModule/ModuleOne';
 import Quiz from './components/pages/courseModule/quiz/Quiz';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/pages/coursePage/Sidebar';
+import AssignmentQest from './components/pages/assignment/AssignmentQest';
+import Scoreboard from './components/pages/scoreboard/Scoreboard';
+import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
+import EditAssignment from './components/pages/assignment/EditAssignment';
+import Grade from './components/pages/assignment/Grade';
+import Dashboard from './components/pages/dashboard/Dashboard';
 
 function App() {
   return (
-    <div>
+    <div className='w-full'>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
@@ -25,6 +31,12 @@ function App() {
         <Route exact path='/login' element={<LogIn />} />
         <Route exact path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/sidebar' element={<Sidebar />} />
+        <Route path='/assignmentqest' element={<AssignmentQest />} />
+        <Route path='/scoreboard' element={<Scoreboard />} />
+        <Route path='/quizmodalone' element={<QuizModalOne />} />
+        <Route path='/editassignment' element={<EditAssignment />} />
+        <Route path='/grade' element={<Grade />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </div>
   );

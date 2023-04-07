@@ -25,10 +25,13 @@ module.exports = {
       red: '#FF4D4F',
       green: '#52C41A',
       grey: '#969599',
+      gray: 'rgba(150, 149, 153, 0.5)',
+      darkgray: '#847979',
       lightergrey: '#C1C1C1',
       lightgrey: '#D3D0D9',
       lightpink: '#F5F5F5',
-      deepgreen: '#008000'
+      deepgreen: '#008000',
+      teagreen:'#18B368'
     },
   },
   plugins: [],
