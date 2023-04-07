@@ -28,9 +28,9 @@ const Quiz = () => {
                 </div>
                 <div className='flex lg:flex-row md:flex-col flex-col text-lg'>
                     <p className='mr-12 lg:ml-0 md:ml-2 '>{question.option1}</p>
-                    <p className='mr-12'>{question.option2}</p>
-                    <p className='mr-12'>{question.option3}</p>
-                    <p>{question.option4}</p>
+                    <p className='mr-12'> {question.option2}</p>
+                    <p className='mr-12'> {question.option3}</p>
+                    <p> {question.option4}</p>
                 </div>
                 
             </div>

@@ -17,10 +17,10 @@ const ModuleOne = () => {
                 <p className=' flex items-center '>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
             </div>
         <h5 className='lg:text-[24px] md:text-xl text-xl mb-4 '>Module 1</h5>
-        <p  className=' lg:text-lg mb-4' >This Module introduces you to product design, the design process, the tools product designers use and job opportunities for product designers.</p>
+        <p  className=' lg:text-[16px] mb-4' >This Module introduces you to product design, the design process, the tools product designers use and job opportunities for product designers.</p>
         <div  className=''>
             <header className='font-bold mb-2'>Learning Objectives</header>
-            <ul className='font-extralight'>
+            <ul className='font-extralight lg:text-[16px]'>
                 <li className='mb-2'>At the end of this module, you should:</li>
                 <li className='mb-2' >Know who a product designer is</li>
                 <li  className='mb-2'>Understand the design process</li>
