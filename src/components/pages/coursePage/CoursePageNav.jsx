@@ -17,7 +17,7 @@ const CoursePageNav = () => {
   return (
         <nav className='flex justify-between h-[88px] items-center  px-6 py-4 '>
           <div className=''>
-          <img src={Logo} alt={Logo}  className='lg:w-auto md:w-[150x] w-[120px]'/>
+         <Link to='/'><img src={Logo} alt={Logo}  className='lg:w-auto md:w-[150x] w-[120px]'/></Link>
           </div>
           <div className='relative lg:mb-0 md:mb-6 mb-6 lg:block md:hidden hidden'>
               <span className='text-lightgrey text-xl absolute top-3 left-2 '><FaSearch/></span><input type="text" placeholder='search'  className='border rounded-lg  border-lightgrey lg:w-[300px] md:w-[200px]  w-[150px] placeholder:lg:pl-8  h-10'/>
@@ -30,9 +30,9 @@ const CoursePageNav = () => {
             </div>
             <span className='text-3xl text-black lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 cursor-pointer lg:block md:hidden hidden '><FaCog/></span>
             <div className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'>
-                <div className='items-center lg:mb-0 md:mb-4 mb-4'>
-                    <img src={ProfileImage} alt={ProfileImage}  className=" lg:ml-0 md:ml-3 ml-3"/>
-                    <span className='w-2 h-2 rounded-full bg-lemongreen'></span>
+                <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
+                    <img src={ProfileImage} alt={ProfileImage}  className=" lg:ml-0 md:ml-3 ml-3 "/>
+                    <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0' ></span>
                 </div>
                 <div className='lg:flex md:hidden hidden  lg:flex-col lg:ml-2 md:ml-0 ml-0 items-start'>
                 <header className='text-xs '>User Fullname</header>

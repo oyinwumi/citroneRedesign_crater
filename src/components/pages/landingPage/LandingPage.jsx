@@ -23,29 +23,29 @@ const LandingPage = () => {
   const [open, setOpen] = useState(false);
   return (
     <section className='overflow-x-hidden'>
-      <nav className='bg-white flex justify-between h-[88px] border border-white items-center lg:px-32 md:px-20 px-12'>
+      <nav className='bg-white flex justify-between h-[88px] border border-white items-center lg:px-32 md:px-20 px-8'>
         <div className='flex md:flex-col'>
           <img src={Logo} alt={Logo} className='lg:w-auto md:w-32 w-32'/>
           <div  onClick={() => setOpen(!open)}className='text-violet-900 text-5xl cursor-pointer md:hidden absolute right-8 top-6 text-center'>
            <ion-icon name={open ? "close" : "menu"} ></ion-icon>
         </div>
         </div>
-        <div className={`md:flex px-4 md:text-center items-center h-[88px] text-black md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-14 md:pt-10 pt-10
-        md:pb-12 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-490px]'} `}>
-        <Link to='/login'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-purple text-sm rounded-lg bg-white hover:bg-purple hover:text-white '>
+        <div className={`md:flex px-4 md:text-center items-center  text-black md:z-auto z-50 md:static absolute w-full left-0 md:w-auto lg:pt-14 md:pt-10 pt-10
+       lg:pb-0 lg:mb-12 md:pb-12 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${open ? 'top-20' : 'top-[-490px]'} `}>
+        <Link to='/login'><button className='border border-x-purple text-center py-3 px-4 w-[102px] h-[42px]  text-purple text-sm rounded-lg bg-white hover:bg-purple mr-4 hover:text-white '>
             LOGIN
           </button>
           </Link>
-           <Link to='/signup'><button className='border border-x-purple text-center py-3 px-4 w-[102px] text-white text-sm rounded-lg bg-purple ml-3  hover:bg-purple hover:opacity-50'>
+           <Link to='/signup'><button className='border border-x-purple text-center py-3 px-4 w-[102px] h-[42px] text-white text-sm rounded-lg bg-purple   hover:bg-purple hover:opacity-50'>
             SIGNUP
           </button>
           </Link>
         </div>
       </nav>
-      <div className='flex lg:flex-row md:flex-col flex-col justify-between items-center leading-[64px] bg-light  lg:px-32 md:px-20 px-10 pt-10 '>
-        <div className='lg-w1/2 md:w-full w-full'>
-          <h1 className='text-black lg:text-[64px] md:text-6xl text-5xl font-bold lg:w-full md:w-full w-full mt-10'>
-            Deliver a  <span className='text-purple'>Community-First </span>
+      <div className='flex lg:flex-row md:flex-col  flex-col justify-between leading-[64px] bg-light  lg:px-32 md:px-20 px-10 pt-10  '>
+        <div className='lg:w-1/2 md:w-full w-full '>
+          <h1 className='text-black lg:text-[64px] md:text-6xl text-5xl font-bold lg:w-[621px] md:w-full w-full lg:mt-20 '>
+            Deliver a <br /> <span className='text-purple'>Community-First </span>
             Learning Experience
           </h1>
           <p className='text-black lg:text-lg md:text-sm text-sm lg:w-full md:w-full w-full mt-8'>
@@ -53,18 +53,18 @@ const LandingPage = () => {
             that positively engage students.
           </p>
           <div className='my-10 lg:text-sm md:text-xs text-xs '>
-            <Link to='/course'>
-            <button className='border border-x-purple text-center lg:py-3 md:py-2 py-2  lg:px-4 md:px-2 px-2 lg:w-[184px] md:w-[150px] w-[130px] text-white rounded-lg bg-purple  hover:bg-purple hover:opacity-50 lg:text-sm md:text-xs text-xs'>
+            <Link to='/dashboard'>
+            <button className='border border-x-purple text-center lg:py-3 md:py-2 py-2  lg:px-4 md:px-2 px-2 lg:w-[184px] h-[56px] md:w-[150px] w-[130px] text-white rounded-lg bg-purple  hover:bg-purple hover:opacity-50 lg:text-sm md:text-xs text-xs'>
               Get Started for Free
             </button>
             </Link>
-            <button className='border border-x-purple text-center lg:py-3 md:py-2 py-2  lg:px-4 md:px-2 px-2 lg:w-[184px] md:w-[150px] w-[130px] ml-3 text-purple rounded-lg bg-white hover:bg-purple hover:text-white lg:text-sm md:text-xs text-xs'>
+            <button className='border border-x-purple text-center lg:py-3 md:py-2 py-2  lg:px-4 md:px-2 px-2 lg:w-[184px] h-[56px] md:w-[150px] w-[130px] ml-3 text-purple rounded-lg bg-white hover:bg-purple hover:text-white lg:text-sm md:text-xs text-xs'>
               Learn more
             </button>
           </div>
         </div>
-        <div className='relative lg:ml-40 md:ml-20px ml-10 lg:mt-0 md:mt-10 mt-10 lg-w1/2 md:w-full w-full'  >
-          <img src={PrettyLady} alt={PrettyLady} className='h-auto lg:w-[60vh] md:w-full' />
+        <div className='relative lg:ml-[400px] md:ml-20px ml-10 lg:mt-0 md:mt-10 mt-10 lg-w-1/2 md:w-full w-full'  >
+          <img src={PrettyLady} alt={PrettyLady} className=' ' />
           <img src={Jet} alt={Jet} className='absolute top-0 left-20  lg:w-auto md:w-24 w-20' />
           <img
             src={Ellipse}
@@ -92,7 +92,7 @@ const LandingPage = () => {
               Seamless engagement between tutors and students.
             </p>
           </div>
-          <div className='border border-lightgrey rounded text-justify px-6 py-10 text-black lg:mr-4 md:mr-0 mr-0  lg:mb-0 md:mb-4 mb-4 lg:w-1/3 md:w-2/3 w-full h-60 items-center'>
+          <div className='border bordeh-[56px]r-lightgrey rounded text-justify px-6 py-10 text-black lg:mr-4 md:mr-0 mr-0  lg:mb-0 md:mb-4 mb-4 lg:w-1/3 md:w-2/3 w-full h-60 items-center'>
             <h3 className='font-bold text-purple mb-3 text-5xl'>01</h3>
             <p className='text-lg font-bold mb-3'>Feedback</p>
             <p className='font-normal text-base'>
@@ -119,7 +119,7 @@ const LandingPage = () => {
         </div>
       </section>
       <section className='flex lg:flex-row md:flex-col flex-col py-14 lg:px-32 md:px-20 px-10 justify-between'>
-        <div className='wlg:w-1/2 md:w-full w-full mt-20'>
+        <div className='lg:w-1/2 md:w-full w-full mt-20'>
           <h3 className='text-purple text-[40px] font-extrabold mb-2'>
             Effective Learning
           </h3>
@@ -153,50 +153,50 @@ const LandingPage = () => {
         </div>
       </section>
       <div className='bg-light  h-80  w-full'>
-          <h3 className='text-center text-black lg:text-[40px] md:text-3xl text-2xl pt-12 mb-4'>
-            Want to start learning <br /> easily today?
+          <h3 className='text-center text-black lg:text-[40px] md:text-3xl text-2xl leading-[64px] pt-12 mb-4 lg:w-[483px] mx-auto '>
+            Want to start learning easily today?
           </h3>
-          <button className=' mb-16 lg:ml-[45%] md:ml[40%] ml-[30%] mt-6 border border-x-purple text-center py-3 px-4 w-[184px] text-white text-sm rounded-lg bg-purple  hover:bg-purple hover:opacity-50'>
+          <button className='h-[56px] mb-16 lg:ml-[45%] md:ml[40%] ml-[30%] mt-6 border border-x-purple text-center py-3 px-4 w-[184px] text-white text-sm rounded-lg bg-purple  hover:bg-purple hover:opacity-50'>
             Get Started for Free
           </button>
         </div>
       <footer className='bg-white lg:px-32 md:px-20 px-12 pb-10  mt-20 flex lg:flex-row md:flex-col flex-col justify-between'>
         <div className='flex lg:flex-row md:flex-col flex-col lg:w-3/5 md:w-full w-full lg:order-1 md:order-2 order-1'>
           <div className=' text-justify text-black w-1/4'>
-            <h5 className='text-sm font-bold '>COMPANY</h5>
+            <h5 className='text-sm font-bold mb-4'>COMPANY</h5>
             <div className='text-black text-xs flex flex-col'>
-              <Link to='#' className='py-2'>
+              <Link to='#' className='pb-3'>
                 About
               </Link>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Contact Us
               </Link>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Partners
               </Link>
             </div>
           </div>
           <div className='text-justify text-black w-1/4'>
-            <h5 className='text-sm font-bold pb-3'>DISCOVER</h5>
+            <h5 className='text-sm font-bold mb-4'>DISCOVER</h5>
             <div className='text-black text-xs flex flex-col'>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Events
               </Link>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Community
               </Link>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Courses
               </Link>
             </div>
           </div>
           <div className=' text-justify text-black w-1/4'>
-            <h5 className='text-sm font-bold pb-3'>SUPPORT</h5>
+            <h5 className='text-sm font-bold mb-4'>SUPPORT</h5>
             <div className='text-black text-xs flex flex-col'>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Faqs
               </Link>
-              <Link to='#' className='pb-2'>
+              <Link to='#' className='pb-3'>
                 Help Center
               </Link>
             </div>
@@ -208,7 +208,7 @@ const LandingPage = () => {
                 <span className='mr-2 '>
                   <FaEnvelope />
                 </span>{' '}
-                <Link to='#' className='pb-2'>
+                <Link to='#' className='pb-3'>
                   citrone@gmail.com
                 </Link>
               </div>
@@ -216,7 +216,7 @@ const LandingPage = () => {
                 <span className='mr-2'>
                   <FaPhoneAlt />
                 </span>{' '}
-                <Link to='#' className='pb-2'>
+                <Link to='#' className='pb-3'>
                   citrone@gmail.com
                 </Link>
               </div>
@@ -224,35 +224,35 @@ const LandingPage = () => {
                 <span className='mr-2'>
                   <FaMapMarkerAlt />
                 </span>{' '}
-                <Link to='#' className='pb-2'>
+                <Link to='#' className='pb-3'>
                   Lagos, Nigeria
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className='lg:w-1/4 md:w-full w-full '>
+        <div className='lg:w-1/4 md:w-full w-full lg:order-2 md:order-1 order-1 lg:mt-0 md:mt-6 mt-6 '>
           <img src={Logo} alt={Logo} />
           <p className='text-sm text-black mt-4'>
             We build educational hub where young adults with special needs can
             have access to information and education about the Blockchain
             Ecosystem.
           </p>
-          <div className='flex flex-row mt-8 lg:mb-0 md:mb-6 mb-6' >
-            <span className='p-1 ml-2 w-7 h-7 border text-center border-black rounded-full'>
-              <FaInstagramSquare/>
+          <div className='flex flex-row justify-center mt-8 lg:mb-0 md:mb-6 mb-6' >
+            <span className='p-1 ml-2 w-[30px] h-[30px] border text-center border-black rounded-full'>
+              <FaInstagramSquare className='text-[16px]'/>
             </span>
-            <span className='p-1 ml-2 w-7 h-7 border text-center border-black rounded-full'>
-              <FaYoutube className='text-lg' />
+            <span className=' p-1 ml-2 w-[30px] h-[30px] border text-center border-black rounded-full'>
+              <FaYoutube className='text-[16px]' />
             </span>
-            <span className='p-1 ml-2 w-7 h-7 border text-center border-black rounded-full'>
-              <FaFacebookF />
+            <span className='p-1 ml-2 w-[30px] h-[30px] border text-center border-black rounded-full'>
+              <FaFacebookF  className='text-[16px]'/>
             </span>
-            <span className='p-1 ml-2 w-7 h-7 border text-center border-black rounded-full'>
-              <FaDove />
+            <span className='p-1 ml-2 w-[30px] h-[30px] border text-center border-black rounded-full'>
+              <FaDove  className='text-[16px]'/>
             </span>
-            <span className='p-1 ml-2 w-7 h-7 border text-center border-black rounded-full'>
-              <FaLinkedinIn />
+            <span className='p-1 ml-2 w-[30px] h-[30px] border text-center border-black rounded-full'>
+              <FaLinkedinIn className='text-[16px]' />
             </span>
           </div>
         </div>

@@ -15,6 +15,9 @@ import Sidebar from './components/pages/coursePage/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
 import Scoreboard from './components/pages/scoreboard/Scoreboard';
 import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
+import EditAssignment from './components/pages/assignment/EditAssignment';
+import Grade from './components/pages/assignment/Grade';
+import Dashboard from './components/pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
         <Route path='/assignmentqest' element={<AssignmentQest />} />
         <Route path='/scoreboard' element={<Scoreboard />} />
         <Route path='/quizmodalone' element={<QuizModalOne />} />
+        <Route path='/editassignment' element={<EditAssignment />} />
+        <Route path='/grade' element={<Grade />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </div>
   );
