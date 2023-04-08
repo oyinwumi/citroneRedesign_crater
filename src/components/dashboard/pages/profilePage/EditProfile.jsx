@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import close from '../../../../assets/x-close.svg';
 import addImg from '../../../../assets/gallery-add.svg';
 
@@ -66,11 +67,13 @@ const EditProfile = () => {
                 className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '>
                 Cancel
               </button>
-              <button
-                type='submit'
-                className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
-                Save Changes
-              </button>
+              <Link to='/profiledata'>
+                <button
+                    type='submit'
+                    className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
+                    Save Changes
+                  </button>
+            </Link>
             </div>
           </form>
         </div>

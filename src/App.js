@@ -4,33 +4,37 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './components/pages/landingPage/LandingPage';
 import SignUp from './components/pages/authentication/SignUp';
 import LogIn from './components/pages/authentication/LogIn';
-import Dashboard from './components/dashboard/DashboardLandingPage';
+// import Dashboard from './components/dashboard/DashboardLandingPage';
+import Dashboard from './components/dashboard/Dashboard';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
-// import Beginner from './components/pages/coursePage/beginner/Beginner';
-// import ModuleOne from './components/pages/courseModule/ModuleOne';
-// import Quiz from './components/pages/courseModule/quiz/Quiz';
+import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
+import ModuleOne from './components/pages/courseModule/ModuleOne';
+import Quiz from './components/pages/courseModule/quiz/Quiz';
 import Assignment from './components/pages/assignment/Assignment';
-import Sidebar from './components/pages/coursePage/Sidebar';
+import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
 import Scoreboard from './components/pages/scoreboard/Scoreboard';
 import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
 import EditAssignment from './components/pages/assignment/EditAssignment';
 import Grade from './components/pages/assignment/Grade';
-import Dashboard from './components/pages/dashboard/Dashboard';
+import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
+import EditProfile from './components/dashboard/pages/profilePage/EditProfile';
+import Settings from './components/dashboard/pages/settings/Settings';
+
 
 function App() {
   return (
     // <div>
     //   <DashboardLandingPage />
     // </div>
-    <div className='w-full'>
+    <div className=''>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
-        {/* <Route path='/beginner' element={<Beginner />} /> */}
-        {/* <Route path='/moduleone' element={<ModuleOne />} /> */}
-        {/* <Route path='/quiz' element={<Quiz />} /> */}
+        <Route path='/courses/:course_category' element={<CourseCategory />} />
+        <Route path='/moduleone' element={<ModuleOne />} />
+        <Route path='/quiz' element={<Quiz />} />
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
@@ -42,7 +46,10 @@ function App() {
         <Route path='/quizmodalone' element={<QuizModalOne />} />
         <Route path='/editassignment' element={<EditAssignment />} />
         <Route path='/grade' element={<Grade />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
+        <Route exact path='/profile' element={<ProfilePage />} />
+          <Route exact path='/editProfile' element={<EditProfile />} />
+            <Route exact path='/settings' element={<Settings />} />
       </Routes>
     </div>
   );

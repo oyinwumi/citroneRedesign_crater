@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from "react-icons/fa";
-import CoursePageNav from '../coursePage/CoursePageNav';
-import Sidebar from '../coursePage/Sidebar';
+import DashboardHeader from '../../dashboard/pages/navigation/DashboardHeader';
+import Sidebar from '../../dashboard/pages/navigation/Sidebar';
 import moduleOne from './moduleone';
 
 
 const ModuleOne = () => {
   return (
-    <div className='lg:p-8  w-full'>
-       <CoursePageNav/>
+    <div className='  w-full'>
+       <DashboardHeader/>
        <div className='flex p-3'>
        <Sidebar/>
         <div className='mx-6  mb-14 overflow-x-hidden'>

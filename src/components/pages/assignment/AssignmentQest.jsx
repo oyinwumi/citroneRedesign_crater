@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
-import CoursePageNav from '../coursePage/CoursePageNav';
-import Sidebar from '../coursePage/Sidebar';
+import CoursePageNav from '../../dashboard/pages/navigation/DashboardHeader';
+import Sidebar from '../../dashboard/pages/navigation/Sidebar';
 import LinkIcon from '../../../assets/linkicon.svg';
 import TextIcon from '../../../assets/texticon.svg';
 import MicIcon from '../../../assets/microphone-2.svg';
@@ -13,7 +13,7 @@ const AssignmentQest = () => {
     const { isOpen} = useSelector((store)=> store.modal);
     const dispatch = useDispatch() ;
   return (
-    <div className=" lg:p-8 w-full h-full relative">
+    <div className="w-full h-full relative">
         { isOpen && <AssignmentModal/>}
           <CoursePageNav/>
        <div className='flex p-3 '>
