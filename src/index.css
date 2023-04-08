@@ -42,3 +42,7 @@ body {
   right: 0;
   background-color: #d3d0d9;
 }
+
+.shadow{
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}

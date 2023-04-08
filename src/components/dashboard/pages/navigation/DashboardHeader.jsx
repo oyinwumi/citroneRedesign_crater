@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import Logo from '../../../assets/logo.svg';
-import ProfileImage from '../../../assets/profileImage.svg'
+import Logo from '../../../../assets/logo.svg';
+import ProfileImage from '../../../../assets/profileImage.svg'
 import { FaSearch , FaRegBell, FaCog} from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Dashboard from '../../../assets/dashboard.svg';
-import Chat from '../../../assets/chat.svg';
-import Award from '../../../assets/award.svg';
-import Support from '../../../assets/24-support.svg';
-import Video from '../../../assets/video-square.svg';
-import Book from '../../../assets/book.svg';
-import Note from '../../../assets/note.svg';
-import Logout from '../../../assets/logout.svg';
+import Dashboard from '../../../../assets/dashboard.svg';
+import Chat from '../../../../assets/chat.svg';
+import Award from '../../../../assets/award.svg';
+import Support from '../../../../assets/24-support.svg';
+import Video from '../../../../assets/video-square.svg';
+import Book from '../../../../assets/book.svg';
+import Note from '../../../../assets/note.svg';
+import Logout from '../../../../assets/logout.svg';
 
 const CoursePageNav = () => {
   const [open, setOpen] = useState(false);
@@ -25,11 +25,11 @@ const CoursePageNav = () => {
          <div className=''>
            <div className='flex flex-row items-center text-center' >
             <div className='class relative '>
-             <span className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'>< FaRegBell/> </span>
+             <Link to='/notification' className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'>< FaRegBell/> </Link>
             <div className='w-4 h-4 rounded-full border  text-center absolute bottom-4 left-5 bg-lightpurple'> <p className='text-xs text-purple'>0</p></div>
             </div>
-            <span className='text-3xl text-black lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 cursor-pointer lg:block md:hidden hidden '><FaCog/></span>
-            <div className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'>
+            <Link to='/settings' className='text-3xl text-black lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 cursor-pointer lg:block md:hidden hidden '><FaCog/></Link>
+            <Link to='/profile' className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'>
                 <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
                     <img src={ProfileImage} alt={ProfileImage}  className=" lg:ml-0 md:ml-3 ml-3 "/>
                     <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0' ></span>
@@ -38,7 +38,7 @@ const CoursePageNav = () => {
                 <header className='text-xs '>User Fullname</header>
                 <p className='text-xs '>online</p>
                 </div>
-            </div>
+            </Link>
            </div>
        </div>
        <div  onClick={() => setOpen(!open)}className='text-black text-4xl ml-2 lg:hidden'>

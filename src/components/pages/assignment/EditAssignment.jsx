@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
-import CoursePageNav from '../coursePage/CoursePageNav';
-import Sidebar from '../coursePage/Sidebar';
+import DashboardHeader from '../../dashboard/pages/navigation/DashboardHeader';
+import Sidebar from '../../dashboard/pages/navigation/Sidebar';
 
 const EditAssignment = () => {
   return (
     <div className="w-full h-full relative">
-      <CoursePageNav/>
+      <DashboardHeader/>
    <div className='flex p-3'>
    <Sidebar/>
     <div className="w-full px-6 ">

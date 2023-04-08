@@ -20,7 +20,7 @@ const CurrentProfileView = () => {
           <img src={profileImg} alt='' className='absolute -bottom-16 left-7' />
         </div>
         <div className='flex justify-end'>
-          <button
+          <button to='/editprofile'
             type='button'
             className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'>
             Edit Profile

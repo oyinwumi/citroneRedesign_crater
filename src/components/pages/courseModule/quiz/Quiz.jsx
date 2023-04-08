@@ -1,6 +1,6 @@
 import React from 'react';
-import CoursePageNav from '../../coursePage/CoursePageNav';
-import Sidebar from '../../coursePage/Sidebar';
+import DashboardHeader from '../../../dashboard/pages/navigation/DashboardHeader';
+import Sidebar from '../../../dashboard/pages/navigation/Sidebar';
 import questions from './quiz';
 import { useSelector, useDispatch } from 'react-redux';
 import { QuizModalOne } from './QuizModalOne';
@@ -13,7 +13,7 @@ const Quiz = () => {
 
     <div className=' lg:p-8 w-full h-full relative'>
       { isOpen && <QuizModalOne/>}
-      <CoursePageNav/>
+      <DashboardHeader/>
       < div className='flex p-3' >
       <Sidebar/>
        <div className='ml-6 mt-6 relative w-full'>

@@ -1,14 +1,15 @@
 
 import React , { useState}from 'react'
 import { Link } from 'react-router-dom';
-import Dashboard from '../../../assets/dashboard.svg';
-import Chat from '../../../assets/chat.svg';
-import Award from '../../../assets/award.svg';
-import Support from '../../../assets/24-support.svg';
-import Video from '../../../assets/video-square.svg';
-import Book from '../../../assets/book.svg';
-import Note from '../../../assets/note.svg';
-import Logout from '../../../assets/logout.svg';
+// import Dashboard from '../../../../assets/dashboard.svg';
+import Chat from '../../../../assets/chat.svg';
+import Award from '../../../../assets/award.svg';
+import Support from '../../../../assets/24-support.svg';
+import Video from '../../../../assets/video-square.svg';
+import Book from '../../../../assets/book.svg';
+import Note from '../../../../assets/note.svg';
+import Logout from '../../../../assets/logout.svg';
+import DashboardIcon from '../../../../assets/dashboard.svg'
 import { FaBars } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ const Sidebar = () => {
       {
         path: '/dashboard',
         name: 'Dashboard',
-        icon: <img src={Dashboard} alt={Dashboard} />
+        icon: <img src={DashboardIcon} alt={DashboardIcon} />
       },
       {
         path: '/course',
@@ -54,15 +55,11 @@ const Sidebar = () => {
         name: 'Help Desk',
         icon: <img src={Support} alt={Support} />
       },
-      // {
-      //   path: '/logout',
-      //   name: 'Logout',
-      //   icon: <img src={Logout} alt={Logout} />
-      // },
+ 
     ]
 
   return (
-    <div className={`lg:mt-10 lg:border-r-2 md:border-r-none border-r-none border-lightgrey h-full  lg:block md:hidden hidden transition-all ${ open ? 'lg:w-1/6' : 'lg:w-20'}`}>
+    <div className={`lg:mt-10 lg:border-r-2 pl-3 md:border-r-none border-r-none border-lightgrey h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
       <div className="bg-white ">
           <div className={`text-black text-3xl ml-2`}>
             <FaBars  onClick={toggle}/>

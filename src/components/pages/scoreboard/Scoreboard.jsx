@@ -1,15 +1,15 @@
 import React from 'react'
-import CoursePageNav from '../coursePage/CoursePageNav'
-import Sidebar from '../coursePage/Sidebar'
-import beginnerCourse from '../coursePage/beginner/beginner'
+import DashboardHeader from '../../dashboard/pages/navigation/DashboardHeader'
+import Sidebar from '../../dashboard/pages/navigation/Sidebar'
+import beginnerCourse from '../coursePage/courseCategory/coursedata'
 import { FaArrowLeft} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Scoreboard = () => {
     
   return (
-    <div className='lg:p-8  w-full'>
-    <CoursePageNav/>
+    <div className=' w-full'>
+    <DashboardHeader/>
     <div className='flex p-3'>
             <Sidebar/>
         
@@ -21,7 +21,7 @@ const Scoreboard = () => {
         </div>
         <div className='mt-6 w-full '>
            {beginnerCourse.map((course)=>{
-            return <div className='border border-lightgrey rounded p-2 flex  lg:flex-row md:flex-col flex-col justify-between w-full mb-4 items-center  ' >
+            return <div className='border border-lightgrey rounded p-2 flex  lg:flex-row md:flex-row flex-col justify-between w-full mb-4 lg:items-center md:items-center  ' >
                 <div className='flex items-center w-full'>
                     <img src={course.img} alt=""  className='w-[100px] h-[100px]'/>
                     <div className='ml-4'>
@@ -29,7 +29,7 @@ const Scoreboard = () => {
                       <p className='text-extralight'>{course.date}</p>
                     </div>
                 </div>
-                <div className='text-[24px] p-2 lg:ml-0  ml-[60%] font-bold '>{course.grade}</div>
+                <div className='text-[24px] p-2 font-bold '>{course.grade}</div>
             </div>
            })}
         </div>
