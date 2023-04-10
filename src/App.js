@@ -28,7 +28,7 @@ function App() {
     // <div>
     //   <DashboardLandingPage />
     // </div>
-    <div className=''>
+    <div className='w-full overflow-x-hidden'>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />

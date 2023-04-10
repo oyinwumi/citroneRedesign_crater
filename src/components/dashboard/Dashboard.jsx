@@ -10,6 +10,10 @@ import courseData from '../pages/coursePage/courseCategory/coursedata';
 import classes from './pages/dashboardPage/scheduledClass';
 import SmallGraph from '../../assets/smallgraph.svg';
 import Barchart from '../../assets/barchart.png'
+import recentActivity from '../dashboard/activity';
+import Blue from '../../assets/blue-square.svg';
+import Orange from '../../assets/orange-square.svg'
+
 
 const button= <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>Completed</button>
 const Dashboard = () => {
@@ -17,7 +21,7 @@ const Dashboard = () => {
   return (
     <div className='w-full'> 
      <CoursePageNav/>
-     <div className="flex p-3 ">
+     <div className="flex p-3  mb-14">
         <Sidebar/>
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
             <div className='w-full mt-6'>
@@ -36,50 +40,79 @@ const Dashboard = () => {
                    })} 
                 </div>
                <div className='mt-12'>
-                <h1 className='text-xl mb-4 font-bold'>Scheduled Classes</h1>
+                <h2 className='text-xl mb-4 font-bold'>Scheduled Classes</h2>
                 {classes.map((item)=>{
-                    return <div className='flex justify-between border p-3 border-white rounded bg-white shadow mb-5' >
-                        <div className='text-xl '>
+                    return <div className='flex  lg:flex-row md:flex-row flex-col justify-between border p-3 border-white rounded bg-white shadow mb-5' >
+                        <div className='lg:text-xl md:text-lg text-[16px] lg:block md:block flex gap-5'>
                             <h2 className='mb-2  font-bold'>{item.day}</h2>
                             <p>{item.date}</p>
                         </div>
-                        <div className=' text-xl '>
+                        <div className='lg:text-xl md:text-lg text-[16px]  lg:block md:block flex gap-5'>
                             <h2 className='mb-2 font-bold'>{item.topic}</h2>
                             <p>{item.time}</p>
                         </div>
                         <div className=''>
-                        <button className='bg-white  border border-purple text-purple text-xl text-center rounded-lg p-2 w- 28'>Join Class</button> 
+                        <button className='bg-white  border border-purple text-purple lg:text-xl md:text-lg text-[16px] rounded-lg p-2 lg:w-28 md:w-28 w-24 '>Join Class</button> 
                         </div>
+                        
                     </div>
                 })}
-                <button  
-                   className='bg-white text-purple border text-xl border-purple  text-center rounded-lg p-2 w-[109px] h-[46px]  relative float-right mt-8'>View All</button>
+                 <button  className='bg-white text-purple border lg:text-xl md:text-lg text-[16px] border-purple  text-center rounded-lg p-2 lg:w-[109px] md:w-24 w-28 h-[46px] lg:ml-[89%] md:ml-[85%] ml-[70%] lg:mt-8 md:mt-6 mt-4'>View All</button>
                </div>
-               <div></div>
+               <div className='mt-14'>
+                <h2 className='text-xl font-bold ml-2'>Student Recent Activity</h2>
+                <div className='mt-6'>
+                    {recentActivity.map((activity)=>{
+                        return <div className='flex lg:flex-row md:flex-row flex-col items-center text-center ml-6 '>
+                            <div className='flex gap-4 '>
+                                <img src={activity.iconOne} alt={activity.iconOne} />
+                                <div  className='text-[16px] font-semibold'>
+                                    <h5>{activity.header}</h5>
+                                    <div className='flex gap-2  mt-2'>
+                                        <img src={activity.iconTwo} alt={activity.iconTwo} />
+                                        <p className='text-lightergrey '>{activity.day}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=' lg:ml-[40%] md:ml-[30%] ml-0'>
+                                <p> {activity.level}</p>
+                            </div>
+                            <div className='flex gap-2 lg:items-center md:items-center items-startfont-semi-bold lg:ml-[10%] md:ml-[8%] ml-0'>
+                                <img src={activity.iconThree} alt={activity.iconThree}/>
+                                <p>{activity.profileName}</p>
+                            </div>
+                        </div>
+                    })}
+                </div>
+               </div>
                <div className=' mt-12'>
-                 <div className='flex mb-10 font-bold'>
+                 <div className='flex gap-3 items-center mb-10 font-bold'>
                  <img src={SmallGraph} alt={SmallGraph} />
-                <h2 className='text-xl ml-2'>Weekly Progress</h2>
+                <h2 className='text-xl  '>Weekly Progress</h2>
                  </div>
-                <div>
-                  <img src={Barchart} alt={Barchart} />  
+                 <div className='flex  justify-center gap-10 w-full items-center mx-auto mb-10'  >
+                    <img src={Blue} alt={Blue} />
+                    <img src={Orange} alt={Orange} />
+                 </div>
+                <div className='w-full'>
+                  <img src={Barchart} alt={Barchart}  className='w-full h-[45vh] '/>  
                 </div>
                </div>
             </div> 
             <div className='mt-6 ml-10 '>
-                <header className='text-xl'>Calender</header>
+                <header className='text-xl font-bold'>Calender</header>
             <Calendar onChange={setDate} value={date} className='react-calendar' />
-            <div className='mt-10'>
+            <div className='mt-12'>
                 <h5 className='text-xl'>Completed Modules</h5>
                 <div className='mt-4'>
                     <img src={CompleteImage} alt={CompleteImage}/>
                 </div>
             </div>
-            <div className='mt-10'>
+            <div className='mt-12'>
                 <h5 className='text-xl'>My Assignment</h5>
                 <div className='mt-4'>
                    {courseData.slice(0,4).map((course)=>{
-                    return<div className='border border-lightgrey rounded p-2 flex  lg:flex-col md:flex-row flex-col  justify-between w-full mb-4  ' >
+                    return<div className='border border-lightgrey rounded p-2 flex  lg:flex-col md:flex-row flex-col  justify-between  mb-4  ' >
                     <div className='flex items-center '>
                         <img src={course.img} alt=""  className='w-[100px] h-[100px] '/>
                         <div className='ml-4 items-center mt-6'>
@@ -90,7 +123,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                     </div>
-                    <Link to='/assignmentqest' className='p-2 ml-[60%]'>{button}</Link>
+                    <Link to='/assignmentqest' className='p-2 lg:ml-[60%] md:ml[60%] ml-[50%]'>{button}</Link>
                 </div>
                    })}
                    <button  
