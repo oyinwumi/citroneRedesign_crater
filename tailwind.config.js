@@ -23,6 +23,7 @@ module.exports = {
       light: '#F9F4FD',
       white: '#FFFFFF',
       red: '#FF4D4F',
+      deepred:'#FF0000',
       green: '#52C41A',
       grey: '#969599',
       gray: 'rgba(150, 149, 153, 0.5)',

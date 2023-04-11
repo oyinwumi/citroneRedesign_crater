@@ -13,13 +13,13 @@ import Simage from '../../../assets/s-image.svg'
        <div className="flex p-3">
        <Sidebar/>
 
-    <div className="flex flex-col w-full p-5" >
+    <div className="flex flex-col w-full p-6" >
     <div>
         <header className="text-[24px] my-4">Courses</header>
         <div className="flex lg:flex-row md:flex-col flex-col">
        <div className="w-[376px]">
-       <img src={CourseImage} alt={CourseImage}  className=" w-auto"/>
-       <div className="bg-pink p-4 rounded-b-lg  lg:w-auto md:w-auto w-auto">  
+       <img src={CourseImage} alt={CourseImage}  className=" lg:w-auto md:w-auto w-[95%]"/>
+       <div className="bg-pink p-4 rounded-b-lg  lg:w-auto md:w-auto w-[95%]">  
           <div className="flex  items-center "> 
         <img src={Simage} alt={Simage} />
         <p className="ml-3">STUTERN</p>
