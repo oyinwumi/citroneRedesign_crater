@@ -1,6 +1,6 @@
 
 import React , { useState}from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import Dashboard from '../../../../assets/dashboard.svg';
 import Chat from '../../../../assets/chat.svg';
 import Award from '../../../../assets/award.svg';
@@ -12,9 +12,15 @@ import Logout from '../../../../assets/logout.svg';
 import DashboardIcon from '../../../../assets/dashboard.svg'
 import { FaBars } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import {  useDispatch } from 'react-redux';
+import { openModal } from '../../../../apps/modal/modalSlice';
+// import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
+
 
 
 const Sidebar = () => {
+  // const {isOpen } = useSelector((store) => store.modal);
+  const dispatch = useDispatch()
  const [open , setOpen] = useState(true);
  const toggle = () =>{
   setOpen(!open)
@@ -59,7 +65,10 @@ const Sidebar = () => {
     ]
 
   return (
+    <>
+  
     <div className={`lg:mt-10 lg:border-r-2 pl-3 md:border-r-none border-r-none border-lightgrey h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
+      
       <div className="bg-white ">
           <div className={`text-black text-3xl ml-2`}>
             <FaBars  onClick={toggle}/>
@@ -75,13 +84,14 @@ const Sidebar = () => {
                </NavLink>
             })
           }
-            <Link to='/logout' className="flex text-xl hover:bg-pink  p-4 hover:border-r-4 items-center mt-12">
+            <div  onClick={() => dispatch(openModal())} className="flex text-xl hover:bg-pink  p-4 hover:border-r-4 items-center mt-12 cursor-pointer ">
                     <img src={Logout} alt={Logout} />
                     <p className={`ml-3 ${open ? 'display:block ': 'hidden '}`}>Logout</p>
-                    </Link>
+                    </div>
       </div>
     </div>
+    </>
   )
 }
 
-export default Sidebar
+export default Sidebar;

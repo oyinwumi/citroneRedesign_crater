@@ -13,18 +13,22 @@ import Barchart from '../../assets/barchart.png'
 import recentActivity from '../dashboard/activity';
 import Blue from '../../assets/blue-square.svg';
 import Orange from '../../assets/orange-square.svg'
+import { useSelector } from 'react-redux';
+import LogoutModal  from '../pages/ logoutPage/LogoutModal'
 
 
 const button= <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>Completed</button>
 const Dashboard = () => {
+    const {isOpen } = useSelector((store) => store.modal);
     const [date, setDate] = useState(new Date());
   return (
     <div className='w-full'> 
+      { isOpen && <LogoutModal/>}
      <CoursePageNav/>
      <div className="flex p-3  mb-14">
         <Sidebar/>
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
-            <div className='w-full mt-6'>
+            <div className='w-full mt-8'>
                 <header className='mb-4 text-xl'>Hi, username</header>
                 <div className='flex gap-8  lg:flex-row md:flex-row flex-col'>
                    {dashboardUser.map((user)=>{
@@ -33,8 +37,8 @@ const Dashboard = () => {
                         <img src={user.icon} alt={user} />
                         </div>
                         <div className='flex flex-col mt-2'>
-                            <h5 className='text-darkgray text-lg'>{user.title}</h5>
-                            <p className='text-[24px]'>{user.detail}</p>
+                            <h5 className='text-darkgray ;g:text-lg md:text-sm text-sm'>{user.title}</h5>
+                            <p className=' lg:text-[24px] md:text-xl text-xl'>{user.detail}</p>
                         </div>
                     </div>
                    })} 
@@ -63,8 +67,8 @@ const Dashboard = () => {
                 <h2 className='text-xl font-bold ml-2'>Student Recent Activity</h2>
                 <div className='mt-6'>
                     {recentActivity.map((activity)=>{
-                        return <div className='flex lg:flex-row md:flex-row flex-col items-center text-center ml-6 '>
-                            <div className='flex gap-4 '>
+                        return <div className='flex lg:flex-row md:flex-row flex-col items-center justify-between  lg:ml-6 md:ml-4 ml-0 md:mb-4 mb-4 '>
+                            <div className='flex gap-4  '>
                                 <img src={activity.iconOne} alt={activity.iconOne} />
                                 <div  className='text-[16px] font-semibold'>
                                     <h5>{activity.header}</h5>
@@ -74,13 +78,15 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className=' lg:ml-[40%] md:ml-[30%] ml-0'>
+                         <div className='flex gap-24 md:my-4 my-4'>
+                         <div className=' lg:order-1 md:order-2 order-2'>
                                 <p> {activity.level}</p>
                             </div>
-                            <div className='flex gap-2 lg:items-center md:items-center items-startfont-semi-bold lg:ml-[10%] md:ml-[8%] ml-0'>
+                            <div className='flex justify-between flex-row gap-2 font-semi-bold  lg:order-2 md:order-1 order-1'>
                                 <img src={activity.iconThree} alt={activity.iconThree}/>
                                 <p>{activity.profileName}</p>
                             </div>
+                         </div>
                         </div>
                     })}
                 </div>
@@ -99,13 +105,13 @@ const Dashboard = () => {
                 </div>
                </div>
             </div> 
-            <div className='mt-6 ml-10 '>
-                <header className='text-xl font-bold'>Calender</header>
-            <Calendar onChange={setDate} value={date} className='react-calendar' />
+            <div className='mt-8 lg:ml-10 md:ml-8 ml-0  '>
+                <header className='text-xl font-bold lg:mx-0 md:mx-auto mx-0 md:text-center' >Calender</header>
+            <Calendar onChange={setDate} value={date} className='react-calendar lg:mx-0 md:mx-auto mx-0' />
             <div className='mt-12'>
-                <h5 className='text-xl'>Completed Modules</h5>
+                <h5 className='text-xl md:text-center'>Completed Modules</h5>
                 <div className='mt-4'>
-                    <img src={CompleteImage} alt={CompleteImage}/>
+                    <img src={CompleteImage} alt={CompleteImage} className='lg:mx-0 md:mx-auto mx-0'/>
                 </div>
             </div>
             <div className='mt-12'>
@@ -123,7 +129,7 @@ const Dashboard = () => {
                           </div>
                         </div>
                     </div>
-                    <Link to='/assignmentqest' className='p-2 lg:ml-[60%] md:ml[60%] ml-[50%]'>{button}</Link>
+                    <Link to='/assignmentqest' className='p-2 lg:ml-[60%] md:ml[60%] ml-[50%] md:mt-8'>{button}</Link>
                 </div>
                    })}
                    <button  
