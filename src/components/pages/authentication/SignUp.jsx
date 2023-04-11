@@ -12,7 +12,9 @@ import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Call from '../../../assets/call-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
-import Eye from '../../../assets/eye-icon.svg';
+import { Icon } from 'react-icons-kit';
+import { eye } from 'react-icons-kit/fa/eye';
+import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 import { Link } from 'react-router-dom';
@@ -26,6 +28,9 @@ const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const SignUp = () => {
+  const [passwordType, setPasswordType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
+
   const [confirmPassword, setConfirmPassword] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -73,6 +78,17 @@ const SignUp = () => {
   //CSS constants
   const instructions = 'text-red relative ';
   const hide = 'absolute left-[-9999px]';
+
+  // Handle display/hiding of the password
+  const handleToggle = (e) => {
+    if (passwordType === 'password') {
+      setEyeIcon(eye);
+      setPasswordType('text');
+    } else {
+      setEyeIcon(eyeSlash);
+      setPasswordType('password');
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -165,14 +181,18 @@ const SignUp = () => {
                 <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
                   <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
                   <input
-                    type='password'
+                    type={passwordType}
                     placeholder='Enter your password'
                     value={password}
                     required
                     onChange={(e) => dispatch(setPassword(e.target.value))}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
-                  <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+                  <Icon
+                    icon={eyeIcon}
+                    onClick={(e) => handleToggle(e)}
+                    className='mx-4 cursor-pointer'
+                  />
                 </div>
                 <p className={password && !validPassword ? instructions : hide}>
                   8 to 24 characters. Must include uppercase and lowercase
@@ -182,14 +202,18 @@ const SignUp = () => {
                 <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
                   <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
                   <input
-                    type='password'
+                    type={passwordType}
                     placeholder='Confirm your password'
                     value={confirmPassword}
                     required
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
-                  <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+                  <Icon
+                    icon={eyeIcon}
+                    onClick={(e) => handleToggle(e)}
+                    className='mx-4 cursor-pointer'
+                  />
                 </div>
                 <p
                   className={

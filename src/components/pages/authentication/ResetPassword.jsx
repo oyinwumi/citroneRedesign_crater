@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../../../assets/logo.svg';
 import Lock from '../../../assets/lock-icon.svg';
 import Eye from '../../../assets/eye-icon.svg';
 import Check from '../../../assets/shield-tick.svg';
 import { Link } from 'react-router-dom';
 
+const PASSWORD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 const ResetPassword = () => {
-  const [newPassword, setNewPassword] = useState('');
-  const [reTypeNewPassword, setReTypeNewPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [validPassword, setValidPassword] = useState(false);
+
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [validConfirmPassword, setValidConfirmPassword] = useState(false);
+
+  //CSS constants
+  const instructions = 'text-red relative ';
+  const hide = 'absolute left-[-9999px]';
+
+  useEffect(() => {
+    setValidPassword(PASSWORD_REGEX.test(password));
+    setValidConfirmPassword(password === confirmPassword);
+  }, [password, confirmPassword]);
 
   return (
     <div className='body bg-light mx-auto sm:h-screen sm:flex sm:justify-center sm:items-center'>
@@ -35,15 +50,14 @@ const ResetPassword = () => {
                 id='new-password'
                 name='new-password'
                 placeholder='Enter new password'
-                onChange={(e) => setNewPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
             </div>
-            <p className='text-red'>
-              {newPassword && newPassword.length < 9
-                ? 'Password should be at least 9 characters'
-                : ' '}
+            <p className={password && !validPassword ? instructions : hide}>
+              8 to 24 characters. Must include uppercase and lowercase letters,
+              a number and a special character ! @ # $ %.
             </p>
 
             <div className='bg-white flex items-center mt-8 border border-lightgrey rounded overflow-hidden shadow'>
@@ -53,19 +67,23 @@ const ResetPassword = () => {
                 id='re-password'
                 name='re-password'
                 placeholder='Confirm new password'
-                onChange={(e) => setReTypeNewPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
             </div>
-            <p className='text-red '>
-              {newPassword && newPassword !== reTypeNewPassword
-                ? 'The password does not match'
-                : ''}
+            <p
+              className={
+                confirmPassword && !validConfirmPassword ? instructions : hide
+              }
+            >
+              Must match the first password input field
             </p>
 
             <button
               type='submit'
-              className='bg-purple flex justify-center items-center w-full mt-8 py-3 px-2 font-bold text-white rounded shadow'>
+              disabled={!validPassword || !validConfirmPassword ? true : false}
+              className='bg-purple flex justify-center items-center w-full mt-8 py-3 px-2 font-bold text-white rounded shadow'
+            >
               Reset Password
             </button>
           </form>

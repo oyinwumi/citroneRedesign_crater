@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { eye } from 'react-icons-kit/fa/eye';
+// import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 
 const initialState = {
   firstName: '',
@@ -6,6 +8,8 @@ const initialState = {
   email: '',
   mobileNo: '',
   password: '',
+  // passwordType: 'password',
+  // eyeIcon: eyeSlash,
 };
 
 const userReducer = createSlice({

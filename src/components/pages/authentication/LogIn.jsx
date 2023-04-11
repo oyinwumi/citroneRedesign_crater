@@ -5,12 +5,16 @@ import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
-import Eye from '../../../assets/eye-icon.svg';
+import { Icon } from 'react-icons-kit';
+import { eye } from 'react-icons-kit/fa/eye';
+import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 
 const LogIn = () => {
   // const [LoginSuccess, setLoginSuccess] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
@@ -36,6 +40,18 @@ const LogIn = () => {
     // setLoginSuccess(true);
   };
 
+  // Handle display/hiding of the password
+  const handleToggle = () => {
+    if (passwordType === 'password') {
+      setEyeIcon(eye);
+      setPasswordType('text');
+    } else {
+      setEyeIcon(eyeSlash);
+      setPasswordType('password');
+    }
+  };
+
+  //Prevents the page from reloading
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -68,12 +84,16 @@ const LogIn = () => {
             <div className='bg-white flex items-center mt-5 border border-pink rounded overflow-hidden shadow'>
               <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
               <input
-                type='password'
+                type={passwordType}
                 placeholder='Enter your password'
                 onChange={(e) => dispatch(setPassword(e.target.value))}
                 className='w-full pl-3 placeholder:text-black focus:outline-0'
               />
-              <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+              <Icon
+                icon={eyeIcon}
+                onClick={handleToggle}
+                className='mx-4 cursor-pointer'
+              />
             </div>
 
             <div className='flex justify-between items-center mt-4'>
