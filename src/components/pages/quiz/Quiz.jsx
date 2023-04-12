@@ -1,22 +1,22 @@
 import React from 'react';
-import DashboardHeader from '../../../dashboard/pages/navigation/DashboardHeader';
-import Sidebar from '../../../dashboard/pages/navigation/Sidebar';
+import DashboardHeader from '../../dashboard/pages/navigation/DashboardHeader'
+import Sidebar from '../../dashboard/pages/navigation/Sidebar';
 import questions from './quiz';
 import { useSelector, useDispatch } from 'react-redux';
-import { QuizModalOne } from './QuizModalOne';
-import { openModal } from '../../../../apps/modal/modalSlice';
+import QuizModalOne from './QuizModalOne';
+import { openModal } from '../../../apps/modal/modalSlice';
 
 const Quiz = () => {
   const { isOpen} = useSelector((store)=> store.modal);
   const dispatch = useDispatch() ;
   return (
 
-    <div className=' lg:p-8 w-full h-full relative'>
+    <div className=' w-full h-full relative'>
       { isOpen && <QuizModalOne/>}
       <DashboardHeader/>
       < div className='flex p-3' >
       <Sidebar/>
-       <div className='ml-6 mt-6 relative w-full'>
+       <div className='px-6 pt-6 relative w-full'>
       
        <header className='lg:text-[32px]'>Module 1: Introduction to design Quiz</header>
         <p className='text-lg'>Questions and Answers</p>

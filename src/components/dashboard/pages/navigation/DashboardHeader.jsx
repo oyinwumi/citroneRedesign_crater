@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Logo from '../../../../assets/logo.svg';
 import ProfileImage from '../../../../assets/profileImage.svg'
-import { FaSearch , FaRegBell, FaCog} from "react-icons/fa";
+import { FaSearch , FaRegBell, FaRegSun} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Dashboard from '../../../../assets/dashboard.svg';
 import Chat from '../../../../assets/chat.svg';
@@ -23,15 +23,15 @@ const CoursePageNav = () => {
               <span className='text-lightgrey text-xl absolute top-3 left-2 '><FaSearch/></span><input type="text" placeholder='search'  className='border rounded-lg  border-lightgrey lg:w-[300px] md:w-[200px]  w-[150px] placeholder:lg:pl-8  h-10'/>
            </div>
          <div className=''>
-           <div className='flex flex-row items-center text-center' >
-            <div className='class relative '>
+           <div className='flex flex-row items-center justify-center text-center' >
+            <div className=' relative '>
              <Link to='/notification' className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'>< FaRegBell/> </Link>
             <div className='w-4 h-4 rounded-full border  text-center absolute bottom-4 left-5 bg-lightpurple'> <p className='text-xs text-purple'>0</p></div>
             </div>
-            <Link to='/settings' className='text-3xl text-black lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 cursor-pointer lg:block md:hidden hidden '><FaCog/></Link>
+            <Link to='/settings' className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-4 md:ml-3 ml-3  cursor-pointer items-center text-center'><FaRegSun/></Link>
             <Link to='/profile' className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'>
                 <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
-                    <img src={ProfileImage} alt={ProfileImage}  className=" lg:ml-0 md:ml-3 ml-3 "/>
+                    <img src={ProfileImage} alt={ProfileImage}  className=" lg:ml-0 md:ml-3 ml-3  "/>
                     <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0' ></span>
                 </div>
                 <div className='lg:flex md:hidden hidden  lg:flex-col lg:ml-2 md:ml-0 ml-0 items-start'>

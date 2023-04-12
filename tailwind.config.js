@@ -34,6 +34,7 @@ module.exports = {
       deepgreen: '#008000',
       verylightgrey: '#FCFBFE',
       teagreen: '#18B368',
+      dark: '292D32',
     },
   },
   plugins: [],

@@ -1,5 +1,5 @@
 
-const moduleOne =[
+const moduleData =[
 
     { id: '1' , 
     title: 'Lesson 1: Introduction to Product Design',
@@ -60,4 +60,4 @@ const moduleOne =[
 
 ]
 
-export default moduleOne
+export default moduleData;

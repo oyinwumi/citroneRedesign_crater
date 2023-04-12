@@ -1,10 +1,10 @@
 import React from 'react'
-import { closeModal, openModalTwo } from '../../../../apps/modal/modalSlice';
+import { closeModal, openModalTwo } from '../../../apps/modal/modalSlice';
 import { useSelector ,useDispatch } from 'react-redux';
 import QuizModalTwo from './QuizModalTwo';
 
 
-export const QuizModalOne = () => {
+  const QuizModalOne = () => {
   const { isOpenTwo} = useSelector((store)=> store.modal);
     const dispatch = useDispatch();
   return (
@@ -25,3 +25,5 @@ export const QuizModalOne = () => {
    </aside>
   )
 }
+
+ export default QuizModalOne;

@@ -31,7 +31,6 @@ body {
   left: 0;
   background-color: #d3d0d9;
 }
-
 .center-text:after {
   content: '';
   display: block;
