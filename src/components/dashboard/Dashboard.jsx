@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import CompleteImage from '../../assets/completeimage.png'
 import './calendar.css';
-import CoursePageNav from './pages/navigation/DashboardHeader'
+import DashboardHeader from './pages/navigation/DashboardHeader'
 import Sidebar from './pages/navigation/Sidebar';
 import dashboardUser from './dashboardUser';
 import courseData from '../pages/coursePage/courseCategory/coursedata';
@@ -24,7 +24,7 @@ const Dashboard = () => {
   return (
     <div className='w-full'> 
       { isOpen && <LogoutModal/>}
-     <CoursePageNav/>
+     <DashboardHeader/>
      <div className="flex p-3  mb-14">
         <Sidebar/>
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>

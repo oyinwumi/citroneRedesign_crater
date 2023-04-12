@@ -1,6 +1,6 @@
 import React from 'react'
 import {  FaCheck} from "react-icons/fa";
-import {  openModalThree } from '../../../../apps/modal/modalSlice';
+import {  openModalThree } from '../../../apps/modal/modalSlice';
 import { useSelector ,useDispatch } from 'react-redux';
 import QuizModalThree from './QuizModalThree';
 

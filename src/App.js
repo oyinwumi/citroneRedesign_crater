@@ -10,17 +10,19 @@ import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
 import ModuleOne from './components/pages/courseModule/ModuleOne';
-import Quiz from './components/pages/courseModule/quiz/Quiz';
+import Quiz from './components/pages/quiz/Quiz';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
 import Scoreboard from './components/pages/scoreboard/Scoreboard';
-import { QuizModalOne } from './components/pages/courseModule/quiz/QuizModalOne';
+import  QuizModalOne   from './components/pages/quiz/QuizModalOne';
 import EditAssignment from './components/pages/assignment/EditAssignment';
 import Grade from './components/pages/assignment/Grade';
 import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
 import EditProfile from './components/dashboard/pages/profilePage/EditProfile';
 import Settings from './components/dashboard/pages/settings/Settings';
+import Chat from './components/pages/chat/Chat';
+
 
 
 function App() {
@@ -48,8 +50,9 @@ function App() {
         <Route path='/grade' element={<Grade />} />
         {/* <Route path='/dashboard' element={<Dashboard />} /> */}
         <Route exact path='/profile' element={<ProfilePage />} />
-          <Route exact path='/editProfile' element={<EditProfile />} />
-            <Route exact path='/settings' element={<Settings />} />
+        <Route exact path='/editProfile' element={<EditProfile />} />
+        <Route exact path='/settings' element={<Settings/>} />
+        <Route  path='/chat' element={<Chat />} />
       </Routes>
     </div>
   );
