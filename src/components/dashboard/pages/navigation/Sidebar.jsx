@@ -67,7 +67,7 @@ const Sidebar = () => {
   return (
     <>
   
-    <div className={`lg:mt-10 lg:border-r-2 pl-3 md:border-r-none border-r-none border-lightgrey h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
+    <div className={`lg:mt-10 lg:border-r pl-3 md:border-r-none border-r-none border-pink h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
       
       <div className="bg-white ">
           <div className={`text-black text-3xl ml-2`}>

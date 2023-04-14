@@ -12,7 +12,7 @@ import Book from '../../../../assets/book.svg';
 import Note from '../../../../assets/note.svg';
 import Logout from '../../../../assets/logout.svg';
 
-const CoursePageNav = () => {
+const DashboardHeader = () => {
   const [open, setOpen] = useState(false);
   return (
         <nav className='flex justify-between h-[88px] items-center  px-6 py-4 '>
@@ -83,5 +83,5 @@ const CoursePageNav = () => {
   )
 }
 
-export default CoursePageNav;
+export default DashboardHeader;
 
