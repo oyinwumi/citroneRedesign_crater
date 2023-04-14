@@ -28,17 +28,17 @@ const Grade = () => {
         </div>
         <div className="w-full mb-20" >
             <h5 className="font-bold lg:text-[24px] md:text-xl text-xl mb-4">Tutor Remark</h5>
-            <textarea name="" placeholder="Comment" className="border rounded border-gray  w-full p-4 outline-none texx-lg capitalize " type="text" value='Weldone, Keep up the good work '></textarea>
+            <textarea name="" placeholder="Comment" className="border rounded border-pink  w-full p-4 outline-none texx-lg capitalize " type="text" value='Weldone, Keep up the good work '></textarea>
         </div>
     </div>
-    <div className="flex justify-between  border rounded-t-lg  border-gray "  >
+    <div className="flex justify-between  border rounded-t-lg  border-pink "  >
         <div className="flex flex-col w-full ">
            <h5 className="m-2">Add Comment</h5>
-           <textarea name="" rows='5' cols='8' className="border rounded-b-lg opacity-50  border-gray  w-full p-4 outline-none texx-lg capitalize" ></textarea>
+           <textarea name="" rows='5' cols='8' className="border rounded-b-lg opacity-50  border-pink  w-full p-4 outline-none texx-lg capitalize" ></textarea>
         </div>
     </div>
    <div className="w-full border border-gray rounded p-2">
-    <input type="text" placeholder="Send a message" className="w-full border border-gray rounded p-2 outline-none relative "/> 
+    <input type="text" placeholder="Send a message" className="w-full border border-pink rounded p-2 outline-none relative "/> 
     <div className="flex gap-3 items-center absolute bottom-7 right-14">
         <img src={Smile} alt={Smile} />
         <img src={Send} alt={Send} />

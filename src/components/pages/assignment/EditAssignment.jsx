@@ -23,7 +23,7 @@ const EditAssignment = () => {
             <p>Your Answer</p>
         </div>
         <div className="w-full">
-            <textarea name=""  placeholder="https://drive.google.com/file/d/1kSBW5xDLtuOCJqyvqB-VvhiOii94y0/view?usp=sharing" className="border rounded-sm border-lightergrey  w-full p-4 outline-none texx-lg capitalize" type="text" ></textarea>
+            <textarea name=""  placeholder="https://drive.google.com/file/d/1kSBW5xDLtuOCJqyvqB-VvhiOii94y0/view?usp=sharing" className="border rounded-sm border-pink  w-full p-4 outline-none texx-lg capitalize" type="text" ></textarea>
         </div>
     </div>
     <div className="mt-3 relative float-right">
