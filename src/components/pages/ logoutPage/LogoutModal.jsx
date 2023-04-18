@@ -1,6 +1,6 @@
 // import React, { useEffect } from 'react'
 import {  useDispatch } from 'react-redux';
-import { closeModal } from '../../../apps/modal/modalSlice';
+import { closeModalFour } from '../../../apps/modal/modalSlice';
 import { Link } from 'react-router-dom';
 
 const LogoutModal = () => {
@@ -18,7 +18,7 @@ const LogoutModal = () => {
     <Link to='/login'><button  className='w-full text-center bg-deepred text-white border rounded mb-4 p-2'>Logout</button>
     </Link>
     <button 
-    onClick={()=> dispatch(closeModal())}
+    onClick={()=> dispatch(closeModalFour())}
     className='w-full text-center bg-white text-purple  border rounded mb-4 p-2'>Cancel</button>
 </div>
 
