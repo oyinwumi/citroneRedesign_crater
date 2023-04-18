@@ -27,6 +27,8 @@ const PHONE_REGEX = /^([+]\d{2})?\d{11}$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
+const baseURL = 'https://citrone-crater-prod.up.railway.app/';
+
 const SignUp = () => {
   const [passwordType, setPasswordType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
@@ -139,8 +141,9 @@ const SignUp = () => {
                   </div>
                 </div>
                 <p
-                  className={firstName && !validFirstName ? instructions : hide}
-                >
+                  className={
+                    firstName && !validFirstName ? instructions : hide
+                  }>
                   First name must not be less than 3 characters
                 </p>
 
@@ -220,8 +223,7 @@ const SignUp = () => {
                     confirmPassword && !validConfirmPassword
                       ? instructions
                       : hide
-                  }
-                >
+                  }>
                   Must match the first password input field
                 </p>
 
@@ -253,8 +255,7 @@ const SignUp = () => {
                       : false
                   }
                   onClick={saveNewUser}
-                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'
-                >
+                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'>
                   Sign Up
                 </button>
 
@@ -266,8 +267,7 @@ const SignUp = () => {
                   <button
                     type='submit'
                     id='google'
-                    className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-                  >
+                    className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
                     <img src={Google} alt='Google icon' />
                     <p className='ml-2 font-semibold'>Sign up with Google</p>
                   </button>
@@ -275,8 +275,7 @@ const SignUp = () => {
                   <button
                     type='submit'
                     id='facebook'
-                    className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-                  >
+                    className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
                     <img src={Facebook} alt='Facebook icon' />
                     <p className='ml-2 font-semibold text-white'>
                       Sign up with Facebook
