@@ -27,7 +27,7 @@ const PHONE_REGEX = /^([+]\d{2})?\d{11}$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const baseURL = 'https://citrone-crater-prod.up.railway.app/';
+const baseURL = 'https://citrone-crater-prod.up.railway.app/api/citrone/user';
 
 const SignUp = () => {
   const [passwordType, setPasswordType] = useState('password');
