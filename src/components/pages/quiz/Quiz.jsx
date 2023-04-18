@@ -5,10 +5,11 @@ import questions from './quiz';
 import { useSelector, useDispatch } from 'react-redux';
 import QuizModalOne from './QuizModalOne';
 import { openModal } from '../../../apps/modal/modalSlice';
-
+import { setChosenOption } from '../../../apps/quizSlice';
 const Quiz = () => {
   const { isOpen} = useSelector((store)=> store.modal);
   const dispatch = useDispatch() ;
+
   return (
 
     <div className=' w-full h-full relative'>
@@ -27,10 +28,10 @@ const Quiz = () => {
                 <h3 className='ml-2 text-[20px]'>{question.question}</h3>
                 </div>
                 <div className='flex lg:flex-row md:flex-col flex-col text-lg'>
-                    <p className='mr-12 lg:ml-0 md:ml-2 '>{question.option1}</p>
-                    <p className='mr-12'> {question.option2}</p>
-                    <p className='mr-12'> {question.option3}</p>
-                    <p> {question.option4}</p>
+                    <button onClick={() =>{dispatch(setChosenOption('C'))}} className='mr-12 lg:ml-0 md:ml-2 hover:text-blue'>{question.option1}</button>
+                    <button onClick={() =>{dispatch(setChosenOption('C'))}} className='mr-12 hover:text-blue'> {question.option2}</button>
+                    <button onClick={() =>{dispatch(setChosenOption('C'))}} className='mr-12 hover:text-blue'> {question.option3}</button>
+                    <button className='mr-12 hover:text-blue'  onClick={() =>{dispatch(setChosenOption('C'))}}> {question.option4}</button>
                 </div>
                 
             </div>

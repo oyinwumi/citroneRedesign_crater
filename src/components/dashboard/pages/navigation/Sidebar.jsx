@@ -13,13 +13,13 @@ import DashboardIcon from '../../../../assets/dashboard.svg'
 import { FaBars } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
-import { openModal } from '../../../../apps/modal/modalSlice';
+import { openModalFour } from '../../../../apps/modal/modalSlice';
 // import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
 
 
 
 const Sidebar = () => {
-  // const {isOpen } = useSelector((store) => store.modal);
+  // const {isOpenFour } = useSelector((store) => store.modal);
   const dispatch = useDispatch()
  const [open , setOpen] = useState(true);
  const toggle = () =>{
@@ -66,8 +66,8 @@ const Sidebar = () => {
 
   return (
     <>
-  
-    <div className={`lg:mt-10 lg:border-r pl-3 md:border-r-none border-r-none border-pink h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
+     {/* { isOpenFour && <LogoutModal/>} */}
+    <div className={`lg:pt-10 lg:border-r pl-3 md:border-r-none border-r-none border-pink h-full p lg:block md:hidden hidden transition-all ${ open ? 'lg:w-[300px]' : 'lg:w-20'}`}>
       
       <div className="bg-white ">
           <div className={`text-black text-3xl ml-2`}>
@@ -84,7 +84,7 @@ const Sidebar = () => {
                </NavLink>
             })
           }
-            <div  onClick={() => dispatch(openModal())} className="flex text-xl hover:bg-pink  p-4 hover:border-r-4 items-center mt-12 cursor-pointer ">
+            <div  onClick={() => dispatch(openModalFour())} className="flex text-xl hover:bg-pink  p-4 hover:border-r-4 items-center mt-12 cursor-pointer ">
                     <img src={Logout} alt={Logout} />
                     <p className={`ml-3 ${open ? 'display:block ': 'hidden '}`}>Logout</p>
                     </div>

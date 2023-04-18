@@ -24,19 +24,21 @@ import Settings from './components/dashboard/pages/settings/Settings';
 import Chat from './components/pages/chat/Chat';
 import HelpDesk from './components/pages/helpdesk/HelpDesk';
 import Faq from './components/pages/helpdesk/Faq';
-// import { useSelector } from 'react-redux';
-// import LogoutModal  from './components/pages/ logoutPage/LogoutModal'
+import { useSelector } from 'react-redux';
+import LogoutModal  from './components/pages/ logoutPage/LogoutModal'
 
 
 
 function App() {
-  // const {isOpen } = useSelector((store) => store.modal);
+  const {isOpenFour } = useSelector((store) => store.modal);
   return (
     // <div>
     //   <DashboardLandingPage />
     // </div>
     <div className='w-full overflow-x-hidden'>
-        {/* { isOpen && <LogoutModal/>} */}
+      <div>
+      { isOpenFour && <LogoutModal/>}
+      </div>
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />

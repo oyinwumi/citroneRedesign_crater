@@ -3,10 +3,18 @@ import {  FaCheck} from "react-icons/fa";
 import {  openModalThree } from '../../../apps/modal/modalSlice';
 import { useSelector ,useDispatch } from 'react-redux';
 import QuizModalThree from './QuizModalThree';
+import questions from './quiz';
+import { setChosenOption } from '../../../apps/quizSlice';
 
 const QuizModalTwo = () => {
   const { isOpenThree } = useSelector((store)=> store.modal);
   const dispatch = useDispatch();
+const choooseOption = (answer) =>{
+  if(questions.answer === choooseOption){
+    dispatch(setChosenOption())
+  }
+}
+
   return (
     <aside  className='w-full items-center text-center h-full bg-gray fixed z-10 '>
       {isOpenThree && <QuizModalThree/>}
@@ -15,7 +23,7 @@ const QuizModalTwo = () => {
     <h2 className='text-[24px] mb-4 ' >Success!</h2>
     <p className='mb-4 '>Your quiz has been submitted</p>
     <div>
-        <button onClick={()=> dispatch(openModalThree())}
+        <button onClick={()=> {dispatch(openModalThree()) ; choooseOption()}}
          className=' text-center bg-purple text-white border rounded mb-4 p-2'>View Grade</button>
     </div>
 </div>
