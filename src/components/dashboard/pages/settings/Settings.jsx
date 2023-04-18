@@ -1,21 +1,28 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+// import { Routes, Route } from 'react-router-dom';
 import SettingsHeader from './SettingsHeader';
-// import AccountSettings from './AccountSettings';
+import AccountSettings from './AccountSettings';
 import SecuritySettings from './SecuritySettings';
 
 const Settings = () => {
+  const [accountSettings, setAccountSettings] = useState('false');
+  const [securitySettings, setSecuritySettings] = useState('false');
+
+  // const handleClick = (e) => {
+  //   if (id === account )
+  // }
+
   return (
     <div className='p-5'>
       <div>
-        <SettingsHeader />
+        <SettingsHeader
+          setAccountSettings={setAccountSettings}
+          setSecuritySettings={setSecuritySettings}
+        />
       </div>
 
       <div className='mt-20 pl-[136px]'>
-        <Routes>
-          {/* <Route exact path='/' element={<AccountSettings />} /> */}
-          <Route exact path='/' element={<SecuritySettings />} />
-        </Routes>
+        {securitySettings ? <SecuritySettings /> : <AccountSettings />}
       </div>
     </div>
   );
