@@ -34,6 +34,7 @@ const SignUp = () => {
 
   const [confirmPassword, setConfirmPassword] = useState('');
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const [validFirstName, setValidFirstName] = useState(false);
   const [validLastName, setValidLastName] = useState(false);
@@ -41,8 +42,6 @@ const SignUp = () => {
   const [validMobileNo, setValidMobileNo] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
-
-  // const [users, setUsers] = useState([]);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
@@ -71,6 +70,7 @@ const SignUp = () => {
   }, [password, confirmPassword]);
 
   //CSS constants
+  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
   const instructions = 'text-red relative ';
   const hide = 'absolute left-[-9999px]';
 
@@ -86,19 +86,26 @@ const SignUp = () => {
     // console.log(newUser);
     // return;
     try {
-      // console.log();
-      const response = await api.post('/api/citrone/auth', newUser);
+      // const response = await api.post('/api/citrone/auth', newUser);
+      const response = await api.post('/users', newUser);
       console.log(response.data);
-      // const allUsers = [...users, response.data];
-      // setUsers(allUsers);
       setSuccess(true);
       setFirstName('');
       setLastName('');
       setEmail('');
       setMobileNo('');
       setPassword('');
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
+    } catch (error) {
+      if (!error?.response) {
+        console.log('No server response');
+        setErrorMsg('No server response');
+      } else {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        console.log(`Error: ${error.message}`);
+        setErrorMsg(error.response.data);
+      }
     }
   };
 
@@ -125,6 +132,8 @@ const SignUp = () => {
                 <img src={Logo} alt='' className='cursor-pointer' />
               </Link>
             </div>
+
+            <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
 
             <div className='px-6 sm:px-16'>
               <h4 className='text-center mt-4 font-bold text-xl text-black'>

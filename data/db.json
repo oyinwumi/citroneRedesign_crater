@@ -31,6 +31,29 @@
       "email": "tobi@gmail.com",
       "mobileNo": "+23456797900429",
       "password": "Sept@2030"
+    },
+    {
+      "firstName": "francis",
+      "lastName": "chioma",
+      "email": "ichiomafrancis@gmail.com",
+      "phoneNumber": "08139668285",
+      "password": "English@40",
+      "id": 5
+    },
+    {
+      "email": "ichiomafrancis@gmail.com",
+      "password": "English@40",
+      "id": 6
+    },
+    {
+      "email": "fghbnbjv",
+      "password": "cavdvcyj",
+      "id": 7
+    },
+    {
+      "email": "dguvcvbnuk",
+      "password": "cvbnjukjhfgiku",
+      "id": 8
     }
   ]
 }

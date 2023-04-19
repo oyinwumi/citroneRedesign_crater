@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
+import {
+  setEmail,
+  setPassword,
+  setAuth,
+} from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
@@ -10,34 +14,67 @@ import { eye } from 'react-icons-kit/fa/eye';
 import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
+import api from '../../../api/axios';
 
 const LogIn = () => {
-  // const [LoginSuccess, setLoginSuccess] = useState(false);
-  const [passwordType, setPasswordType] = useState('password');
-  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
-
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
-  const loginData = () => {
-    const { email, password } = state;
-    let allUsers = JSON.parse(localStorage.getItem('users'));
-    if (!allUsers) {
-      console.log('allUsers is empty');
-      return false;
-    }
+  const { email, password } = state;
+  // const [users, setUsers] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
-    const foundUser = allUsers.filter(
-      (user) => user.email === email && user.password === password
-    );
-    if (!foundUser.length) {
-      console.log('No filtered user found');
-      console.log('wrong email and password');
-      return false;
+  const [passwordType, setPasswordType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
+
+  //CSS constants
+  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
+  const hide = 'absolute left-[-9999px]';
+
+  // Clear out the error message once the user makes changes to the email or password
+  useEffect(() => {
+    setErrorMsg('');
+  }, [email, password]);
+
+  // Function to check if there are users in the database and also check that the email and password exists
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post(
+        '/api/citrone/auth/login',
+        JSON.stringify({ email, password }),
+        // const response = await api.post(
+        //   '/users',
+        //   JSON.stringify({ email, password }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response));
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ email, password, roles, accessToken });
+      setEmail('');
+      setPassword('');
+      navigate('/dashboard');
+    } catch (error) {
+      if (!error?.response) {
+        setErrorMsg('No Server Response');
+      } else if (error.response?.status === 400) {
+        setErrorMsg('Missing email or password');
+      } else if (error.response?.status === 401) {
+        setErrorMsg('Unauthorized');
+      } else {
+        setErrorMsg('Login Failed');
+      }
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
     }
-    navigate('/dashboard');
-    // setLoginSuccess(true);
   };
 
   // Handle display/hiding of the password
@@ -49,11 +86,6 @@ const LogIn = () => {
       setEyeIcon(eyeSlash);
       setPasswordType('password');
     }
-  };
-
-  //Prevents the page from reloading
-  const handleSubmit = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -70,7 +102,9 @@ const LogIn = () => {
             Welcome Back
           </h2>
 
-          <form onSubmit={handleSubmit}>
+          <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
+
+          <form onSubmit={handleLogin}>
             <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
               <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
@@ -110,46 +144,41 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'
-              >
+                className=' text-purple cursor-pointer'>
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              onClick={loginData}
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
-            >
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
               Login
             </button>
-
-            <p className='center-text text-center text-lightergrey mt-4'>
-              Or continue with
-            </p>
-
-            <div className='sm:flex sm:justify-between sm:mt-4'>
-              <button
-                type='submit'
-                id='google'
-                className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-              >
-                <img src={Google} alt='Google icon' />
-                <p className='ml-2 font-semibold'>Login with Google</p>
-              </button>
-
-              <button
-                type='submit'
-                id='facebook'
-                className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-              >
-                <img src={Facebook} alt='Facebook icon' />
-                <p className='ml-2 font-semibold text-white'>
-                  Login with Facebook
-                </p>
-              </button>
-            </div>
           </form>
+
+          <p className='center-text text-center text-lightergrey mt-4'>
+            Or continue with
+          </p>
+
+          <div className='sm:flex sm:justify-between sm:mt-4'>
+            <button
+              type='submit'
+              id='google'
+              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
+              <img src={Google} alt='Google icon' />
+              <p className='ml-2 font-semibold'>Login with Google</p>
+            </button>
+
+            <button
+              type='submit'
+              id='facebook'
+              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
+              <img src={Facebook} alt='Facebook icon' />
+              <p className='ml-2 font-semibold text-white'>
+                Login with Facebook
+              </p>
+            </button>
+          </div>
 
           <div className='flex justify-center mt-5'>
             <p className='text-lightergrey mr-4'>Don't have an account?</p>
