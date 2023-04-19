@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaChevronRight } from "react-icons/fa";
 import DashboardHeader from '../../dashboard/pages/navigation/DashboardHeader';
 import Sidebar from '../../dashboard/pages/navigation/Sidebar';
-import moduleOne from './moduleone';
+import moduleData from './moduleData.js';
 
 
 const ModuleOne = () => {
@@ -12,7 +12,7 @@ const ModuleOne = () => {
        <DashboardHeader/>
        <div className='flex p-3'>
        <Sidebar/>
-        <div className='mx-6  mb-14 overflow-x-hidden'>
+        <div className='px-6  mb-14 overflow-x-hidden'>
         <div className='my-6'>
                 <p className=' flex items-center '>courses <Link to='/moduleone' className='mx-2 text-sm'>< FaChevronRight/></Link>Module 1  <span className='mx-2 text-sm'>< FaChevronRight/></span>Lesson 1</p>
             </div>
@@ -27,7 +27,7 @@ const ModuleOne = () => {
                 <li  className='mb-2'>Be familiar with the differnt design tools</li>
             </ul>
         </div>
-          {moduleOne.map((lesson)=>{
+          {moduleData.map((lesson)=>{
             return    <div className=' mb-4 break-all'>
             <header className='mt-6 mb-2 Lg:text-[24px] md:text-xl text-xl'>{lesson.title}</header>
             <p className='mb-4 '>{lesson.description}</p>

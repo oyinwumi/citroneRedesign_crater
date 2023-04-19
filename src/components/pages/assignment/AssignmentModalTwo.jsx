@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const AssignmentModalTwo = () => {
   return (
     <aside  className='w-full items-center text-center h-full bg-gray fixed z-10 '>
-  <div className='bg-white  border border-white rounded-lg  lg:w-[20%] md:w-[40%] w-[75%] p-4 items-center mx-auto lg:mt-[13%] md:mt-[20%] mt-[25%] z-100  '>
+  <div className='bg-white  border border-white rounded-lg  lg:w-[432px] md:w-[40%] w-[75%] p-4 items-center mx-auto lg:mt-[13%] md:mt-[20%] mt-[25%] z-50  '>
       <span className=''><FaCheck  className='bg-white w-5 h-5 border text-green border-green rounded-full p-1 text-center mx-auto my-4'/></span>
   <h2 className='text-[24px] mb-4 ' >Success!</h2>
   <p className='mb-4 '>Your assignment has been submitted</p>

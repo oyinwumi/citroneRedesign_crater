@@ -23,7 +23,7 @@ const LandingPage = () => {
   const [open, setOpen] = useState(false);
   return (
     <section className='overflow-x-hidden'>
-      <nav className='bg-white flex justify-between h-[88px] border border-white items-center lg:px-32 md:px-20 px-8'>
+      <nav className='bg-white flex justify-between h-[88px] border border-white items-center xl:px-32 lg:px-30 md:px-20 px-8'>
         <div className='flex md:flex-col'>
           <img src={Logo} alt={Logo} className='lg:w-auto md:w-32 w-32'/>
           <div  onClick={() => setOpen(!open)}className='text-violet-900 text-5xl cursor-pointer md:hidden absolute right-8 top-6 text-center'>
@@ -42,9 +42,9 @@ const LandingPage = () => {
           </Link>
         </div>
       </nav>
-      <div className='flex lg:flex-row md:flex-col  flex-col justify-between leading-[64px] bg-light  lg:px-32 md:px-20 px-10 pt-10  '>
+      <div className='flex lg:flex-row md:flex-col  flex-col justify-between leading-[64px] bg-light xl:px-32 lg:px-30 md:px-20 px-10 pt-10  '>
         <div className='lg:w-1/2 md:w-full w-full '>
-          <h1 className='text-black lg:text-[64px] md:text-6xl text-5xl font-bold lg:w-[621px] md:w-full w-full lg:mt-20 '>
+          <h1 className='text-black xl:text-[64px]lg:text-[60px] md:text-6xl text-5xl font-bold lg:w-[621px] md:w-full w-full lg:mt-20 '>
             Deliver a <br /> <span className='text-purple'>Community-First </span>
             Learning Experience
           </h1>
@@ -63,13 +63,13 @@ const LandingPage = () => {
             </button>
           </div>
         </div>
-        <div className='relative lg:ml-[400px] md:ml-20px ml-10 lg:mt-0 md:mt-10 mt-10 lg-w-1/2 md:w-full w-full'  >
-          <img src={PrettyLady} alt={PrettyLady} className=' ' />
-          <img src={Jet} alt={Jet} className='absolute top-0 left-20  lg:w-auto md:w-24 w-20' />
+        <div className='relative xl:ml-[400px] lg:ml-[150px] md:ml-20px ml-10 lg:mt-0 md:mt-10 mt-10 lg-w-1/2 md:w-full w-full'  >
+          <img src={PrettyLady} alt={PrettyLady} className='lg:w-full md:w-auto w-auto  lg:h-full md:h-auto h-auto' />
+          <img src={Jet} alt={Jet} className='absolute top-0 left-[-35px]  lg:w-20 md:w-20 w-20' />
           <img
             src={Ellipse}
             alt={Ellipse}
-            className='absolute bottom-2 left-[-32px] lg:w-auto md:w-24 w-20'
+            className='absolute bottom-2 left-[-35px] lg:w-24 md:w-20 w-20'
           />
         </div>
       </div>
