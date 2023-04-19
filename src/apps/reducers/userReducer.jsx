@@ -8,8 +8,7 @@ const initialState = {
   email: '',
   mobileNo: '',
   password: '',
-  // passwordType: 'password',
-  // eyeIcon: eyeSlash,
+  auth: {},
 };
 
 const userReducer = createSlice({
@@ -31,10 +30,19 @@ const userReducer = createSlice({
     setPassword(state, action) {
       state.password = action.payload;
     },
+    setAuth(state, action) {
+      state.auth = action.payload;
+    },
   },
 });
 
-export const { setFirstName, setLastName, setEmail, setMobileNo, setPassword } =
-  userReducer.actions;
+export const {
+  setFirstName,
+  setLastName,
+  setEmail,
+  setMobileNo,
+  setPassword,
+  setAuth,
+} = userReducer.actions;
 
 export default userReducer.reducer;

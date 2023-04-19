@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setPassword } from '../../../apps/reducers/userReducer';
+import {
+  setEmail,
+  setPassword,
+  setAuth,
+} from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
@@ -18,7 +22,7 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   const { email, password } = state;
-  const [users, setUsers] = useState('');
+  // const [users, setUsers] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   const [passwordType, setPasswordType] = useState('password');
@@ -28,38 +32,50 @@ const LogIn = () => {
   const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
   const hide = 'absolute left-[-9999px]';
 
-  //  Fetch all the users saved in the database as soon as the UI loads
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        // const response = await api.get('/api/citrone/auth/login');
-        const response = await api.get('/users');
-        setUsers(response.data);
-      } catch (error) {
-        if (!error?.response) {
-          setErrorMsg('No Server Response');
-        } else {
-          //Not in the 200 response range
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-          setErrorMsg(error.response.data);
-        }
-        // } else {
-        //   console.log(`Error: ${err.message}`);
-        //   setErrorStatus(true);
-        //   setErrorMsg(err.message);
-        // }
-      }
-    };
-
-    fetchUsers();
-  }, []);
-
   // Clear out the error message once the user makes changes to the email or password
   useEffect(() => {
     setErrorMsg('');
   }, [email, password]);
+
+  // Function to check if there are users in the database and also check that the email and password exists
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post(
+        '/api/citrone/auth/login',
+        JSON.stringify({ email, password }),
+        // const response = await api.post(
+        //   '/users',
+        //   JSON.stringify({ email, password }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response));
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ email, password, roles, accessToken });
+      setEmail('');
+      setPassword('');
+      navigate('/dashboard');
+    } catch (error) {
+      if (!error?.response) {
+        setErrorMsg('No Server Response');
+      } else if (error.response?.status === 400) {
+        setErrorMsg('Missing email or password');
+      } else if (error.response?.status === 401) {
+        setErrorMsg('Unauthorized');
+      } else {
+        setErrorMsg('Login Failed');
+      }
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
+  };
 
   // Handle display/hiding of the password
   const handleToggle = () => {
@@ -70,28 +86,6 @@ const LogIn = () => {
       setEyeIcon(eyeSlash);
       setPasswordType('password');
     }
-  };
-
-  // Function to check if there are users in the database and also check that the email and password exists
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (!users) {
-      console.log('No user information stored');
-      return false;
-    }
-
-    const findUser = users.filter(
-      (user) => user.email === email && user.password === password
-    );
-    if (!findUser.length) {
-      console.log('No filtered user found');
-      console.log('wrong email and password');
-      setErrorMsg('wrong email and password');
-      return false;
-    }
-    setEmail('');
-    setPassword('');
-    navigate('/dashboard');
   };
 
   return (
@@ -150,16 +144,14 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'
-              >
+                className=' text-purple cursor-pointer'>
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
-            >
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
               Login
             </button>
           </form>
@@ -172,8 +164,7 @@ const LogIn = () => {
             <button
               type='submit'
               id='google'
-              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-            >
+              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
               <img src={Google} alt='Google icon' />
               <p className='ml-2 font-semibold'>Login with Google</p>
             </button>
@@ -181,8 +172,7 @@ const LogIn = () => {
             <button
               type='submit'
               id='facebook'
-              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-            >
+              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
               <img src={Facebook} alt='Facebook icon' />
               <p className='ml-2 font-semibold text-white'>
                 Login with Facebook
