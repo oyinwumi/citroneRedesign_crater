@@ -11,10 +11,9 @@ const SignUpSuccess = () => {
             <FaCheck />
           </div>
 
-          <h3 className='text-2xl text-[#000] font-semibold mt-7'>Success!</h3>
-          <p className='mt-2 text-base text-[#000]'>
-            Your password has been changed
-          </p>
+          <h3 className='text-2xl text-[#000] font-semibold mt-7'>
+            SignUp Successful!
+          </h3>
           <button className='flex justify-center items-center bg-purple w-[86px] h-[42px] text-white text-base font-bold mt-6 rounded'>
             <Link to='/login'>Login</Link>
           </button>

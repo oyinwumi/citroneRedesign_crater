@@ -19,6 +19,7 @@ import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 import { Link } from 'react-router-dom';
 import SignUpSuccess from './SignUpSuccess';
+import api from '../../../api/axios';
 
 // const USER_REGEX = /^[A-Z][a-zA-Z]{3,23}$/;
 const EMAIL_REGEX =
@@ -26,8 +27,6 @@ const EMAIL_REGEX =
 const PHONE_REGEX = /^([+]\d{2})?\d{11}$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-const baseURL = 'https://citrone-crater-prod.up.railway.app/api/citrone/user';
 
 const SignUp = () => {
   const [passwordType, setPasswordType] = useState('password');
@@ -42,6 +41,8 @@ const SignUp = () => {
   const [validMobileNo, setValidMobileNo] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
+
+  // const [users, setUsers] = useState([]);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
@@ -69,17 +70,37 @@ const SignUp = () => {
     setValidConfirmPassword(password === confirmPassword);
   }, [password, confirmPassword]);
 
-  const saveNewUser = () => {
-    let allUsers = JSON.parse(localStorage.getItem('users')) || [];
-    let user = { firstName, lastName, email, mobileNo, password };
-    allUsers.push(user);
-    localStorage.setItem('users', JSON.stringify(allUsers));
-    setSuccess(true);
-  };
-
   //CSS constants
   const instructions = 'text-red relative ';
   const hide = 'absolute left-[-9999px]';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      firstName: firstName,
+      lastName,
+      email,
+      phoneNumber: mobileNo,
+      password,
+    };
+    // console.log(newUser);
+    // return;
+    try {
+      // console.log();
+      const response = await api.post('/api/citrone/auth', newUser);
+      console.log(response.data);
+      // const allUsers = [...users, response.data];
+      // setUsers(allUsers);
+      setSuccess(true);
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMobileNo('');
+      setPassword('');
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
 
   // Handle display/hiding of the password
   const handleToggle = (e) => {
@@ -90,10 +111,6 @@ const SignUp = () => {
       setEyeIcon(eyeSlash);
       setPasswordType('password');
     }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -122,6 +139,7 @@ const SignUp = () => {
                       type='text'
                       placeholder='Enter your first name'
                       value={firstName}
+                      // autoComplete=''
                       required
                       onChange={(e) => dispatch(setFirstName(e.target.value))}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -141,9 +159,8 @@ const SignUp = () => {
                   </div>
                 </div>
                 <p
-                  className={
-                    firstName && !validFirstName ? instructions : hide
-                  }>
+                  className={firstName && !validFirstName ? instructions : hide}
+                >
                   First name must not be less than 3 characters
                 </p>
 
@@ -223,7 +240,8 @@ const SignUp = () => {
                     confirmPassword && !validConfirmPassword
                       ? instructions
                       : hide
-                  }>
+                  }
+                >
                   Must match the first password input field
                 </p>
 
@@ -234,7 +252,7 @@ const SignUp = () => {
                     value=''
                     className='w-4 h-4 checked:accent-purple'
                   />
-                  <label for='checkbox' className='ml-2'>
+                  <label htmlFor='checkbox' className='ml-2'>
                     By signing up, I agree to the{' '}
                     <span className='text-purple cursor-pointer'>
                       Terms of Service and privacy policy
@@ -254,35 +272,37 @@ const SignUp = () => {
                       ? true
                       : false
                   }
-                  onClick={saveNewUser}
-                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'>
+                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'
+                >
                   Sign Up
                 </button>
-
-                <p className='center-text text-center text-lightergrey mt-4'>
-                  Or continue with
-                </p>
-
-                <div className='sm:flex sm:justify-between sm:mt-4'>
-                  <button
-                    type='submit'
-                    id='google'
-                    className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
-                    <img src={Google} alt='Google icon' />
-                    <p className='ml-2 font-semibold'>Sign up with Google</p>
-                  </button>
-
-                  <button
-                    type='submit'
-                    id='facebook'
-                    className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
-                    <img src={Facebook} alt='Facebook icon' />
-                    <p className='ml-2 font-semibold text-white'>
-                      Sign up with Facebook
-                    </p>
-                  </button>
-                </div>
               </form>
+
+              <p className='center-text text-center text-lightergrey mt-4'>
+                Or continue with
+              </p>
+
+              <div className='sm:flex sm:justify-between sm:mt-4'>
+                <button
+                  type='submit'
+                  id='google'
+                  className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+                >
+                  <img src={Google} alt='Google icon' />
+                  <p className='ml-2 font-semibold'>Sign up with Google</p>
+                </button>
+
+                <button
+                  type='submit'
+                  id='facebook'
+                  className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+                >
+                  <img src={Facebook} alt='Facebook icon' />
+                  <p className='ml-2 font-semibold text-white'>
+                    Sign up with Facebook
+                  </p>
+                </button>
+              </div>
 
               <div className='flex justify-center mt-5'>
                 <p className='text-lightergrey mr-4'>
@@ -295,7 +315,7 @@ const SignUp = () => {
             </div>
           </div>
         </div>
-      )}{' '}
+      )}
     </>
   );
 };

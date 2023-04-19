@@ -10,7 +10,7 @@ import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
 import ModuleOne from './components/pages/courseModule/ModuleOne.jsx';
-import Quiz from './components/pages/courseModule/quiz/Quiz.jsx';
+import Quiz from './components/pages/quiz/Quiz.jsx';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
@@ -40,7 +40,7 @@ function App() {
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
         <Route path='/moduleone' element={<ModuleOne />} />
-        <Route path='/quiz' element={<Quiz />} />
+        {/* <Route path='/quiz' element={<Quiz />} /> */}
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />

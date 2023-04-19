@@ -104,7 +104,7 @@ const LogIn = () => {
                   value=''
                   className='w-4 h-4 checked:accent-purple'
                 />
-                <label for='checkbox' className=' text-darkgrey ml-2'>
+                <label htmlFor='checkbox' className=' text-darkgrey ml-2'>
                   Remember Me
                 </label>
               </div>

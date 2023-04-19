@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Tolulope",
+      "lastName": "Aina",
+      "email": "toluene@gmail.com",
+      "mobileNo": "+23456797900429",
+      "password": "May@2030"
+    },
+    {
+      "id": 2,
+      "firstName": "Blessing",
+      "lastName": "Dan",
+      "email": "blessing@gmail.com",
+      "mobileNo": "+23456797900429",
+      "password": "June@2030"
+    },
+    {
+      "id": 3,
+      "firstName": "Hauwa",
+      "lastName": "Azeez",
+      "email": "hauwa@gmail.com",
+      "mobileNo": "+23456797900429",
+      "password": "Dec@2030"
+    },
+    {
+      "id": 4,
+      "firstName": "Tobi",
+      "lastName": "Imohi",
+      "email": "tobi@gmail.com",
+      "mobileNo": "+23456797900429",
+      "password": "Sept@2030"
+    }
+  ]
+}
