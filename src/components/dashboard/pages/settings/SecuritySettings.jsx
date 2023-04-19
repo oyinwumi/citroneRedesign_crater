@@ -2,6 +2,7 @@ import React from 'react';
 import eyeIcon from '../../../../assets/eye-icon.svg';
 import eyeSlashIcon from '../../../../assets/eyeSlash-icon.svg';
 import leftChevron from '../../../../assets/chevron-left.svg';
+import { Link } from 'react-router-dom';
 
 const SecuritySettings = () => {
   return (
@@ -56,7 +57,9 @@ const SecuritySettings = () => {
 
         <div className='flex items-center '>
           <img src={leftChevron} alt='' />
-          <h3 className=' text-2xl ml-2'>Go back</h3>
+          <Link to='/profile'>
+            <h3 className=' text-2xl ml-2'>Go back</h3>
+          </Link>
         </div>
       </div>
     </div>

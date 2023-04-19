@@ -12,11 +12,14 @@ import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Call from '../../../assets/call-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
-import Eye from '../../../assets/eye-icon.svg';
+import { Icon } from 'react-icons-kit';
+import { eye } from 'react-icons-kit/fa/eye';
+import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 import { Link } from 'react-router-dom';
 import SignUpSuccess from './SignUpSuccess';
+import api from '../../../api/axios';
 
 // const USER_REGEX = /^[A-Z][a-zA-Z]{3,23}$/;
 const EMAIL_REGEX =
@@ -26,6 +29,9 @@ const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const SignUp = () => {
+  const [passwordType, setPasswordType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
+
   const [confirmPassword, setConfirmPassword] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -35,6 +41,8 @@ const SignUp = () => {
   const [validMobileNo, setValidMobileNo] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
   const [validConfirmPassword, setValidConfirmPassword] = useState(false);
+
+  // const [users, setUsers] = useState([]);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
@@ -62,20 +70,47 @@ const SignUp = () => {
     setValidConfirmPassword(password === confirmPassword);
   }, [password, confirmPassword]);
 
-  const saveNewUser = () => {
-    let allUsers = JSON.parse(localStorage.getItem('users')) || [];
-    let user = { firstName, lastName, email, mobileNo, password };
-    allUsers.push(user);
-    localStorage.setItem('users', JSON.stringify(allUsers));
-    setSuccess(true);
-  };
-
   //CSS constants
   const instructions = 'text-red relative ';
   const hide = 'absolute left-[-9999px]';
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const newUser = {
+      firstName: firstName,
+      lastName,
+      email,
+      phoneNumber: mobileNo,
+      password,
+    };
+    // console.log(newUser);
+    // return;
+    try {
+      // console.log();
+      const response = await api.post('/api/citrone/auth', newUser);
+      console.log(response.data);
+      // const allUsers = [...users, response.data];
+      // setUsers(allUsers);
+      setSuccess(true);
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMobileNo('');
+      setPassword('');
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
+  // Handle display/hiding of the password
+  const handleToggle = (e) => {
+    if (passwordType === 'password') {
+      setEyeIcon(eye);
+      setPasswordType('text');
+    } else {
+      setEyeIcon(eyeSlash);
+      setPasswordType('password');
+    }
   };
 
   return (
@@ -104,6 +139,7 @@ const SignUp = () => {
                       type='text'
                       placeholder='Enter your first name'
                       value={firstName}
+                      // autoComplete=''
                       required
                       onChange={(e) => dispatch(setFirstName(e.target.value))}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -165,14 +201,18 @@ const SignUp = () => {
                 <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
                   <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
                   <input
-                    type='password'
+                    type={passwordType}
                     placeholder='Enter your password'
                     value={password}
                     required
                     onChange={(e) => dispatch(setPassword(e.target.value))}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
-                  <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+                  <Icon
+                    icon={eyeIcon}
+                    onClick={(e) => handleToggle(e)}
+                    className='mx-4 cursor-pointer'
+                  />
                 </div>
                 <p className={password && !validPassword ? instructions : hide}>
                   8 to 24 characters. Must include uppercase and lowercase
@@ -182,14 +222,18 @@ const SignUp = () => {
                 <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
                   <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
                   <input
-                    type='password'
+                    type={passwordType}
                     placeholder='Confirm your password'
                     value={confirmPassword}
                     required
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
-                  <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
+                  <Icon
+                    icon={eyeIcon}
+                    onClick={(e) => handleToggle(e)}
+                    className='mx-4 cursor-pointer'
+                  />
                 </div>
                 <p
                   className={
@@ -208,7 +252,7 @@ const SignUp = () => {
                     value=''
                     className='w-4 h-4 checked:accent-purple'
                   />
-                  <label for='checkbox' className='ml-2'>
+                  <label htmlFor='checkbox' className='ml-2'>
                     By signing up, I agree to the{' '}
                     <span className='text-purple cursor-pointer'>
                       Terms of Service and privacy policy
@@ -228,38 +272,37 @@ const SignUp = () => {
                       ? true
                       : false
                   }
-                  onClick={saveNewUser}
                   className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'
                 >
                   Sign Up
                 </button>
-
-                <p className='center-text text-center text-lightergrey mt-4'>
-                  Or continue with
-                </p>
-
-                <div className='sm:flex sm:justify-between sm:mt-4'>
-                  <button
-                    type='submit'
-                    id='google'
-                    className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-                  >
-                    <img src={Google} alt='Google icon' />
-                    <p className='ml-2 font-semibold'>Sign up with Google</p>
-                  </button>
-
-                  <button
-                    type='submit'
-                    id='facebook'
-                    className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-                  >
-                    <img src={Facebook} alt='Facebook icon' />
-                    <p className='ml-2 font-semibold text-white'>
-                      Sign up with Facebook
-                    </p>
-                  </button>
-                </div>
               </form>
+
+              <p className='center-text text-center text-lightergrey mt-4'>
+                Or continue with
+              </p>
+
+              <div className='sm:flex sm:justify-between sm:mt-4'>
+                <button
+                  type='submit'
+                  id='google'
+                  className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+                >
+                  <img src={Google} alt='Google icon' />
+                  <p className='ml-2 font-semibold'>Sign up with Google</p>
+                </button>
+
+                <button
+                  type='submit'
+                  id='facebook'
+                  className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+                >
+                  <img src={Facebook} alt='Facebook icon' />
+                  <p className='ml-2 font-semibold text-white'>
+                    Sign up with Facebook
+                  </p>
+                </button>
+              </div>
 
               <div className='flex justify-center mt-5'>
                 <p className='text-lightergrey mr-4'>
@@ -272,7 +315,7 @@ const SignUp = () => {
             </div>
           </div>
         </div>
-      )}{' '}
+      )}
     </>
   );
 };

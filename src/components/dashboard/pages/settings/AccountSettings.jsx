@@ -2,6 +2,7 @@ import React from 'react';
 import profileIcon from '../../../../assets/profile-icon.svg';
 import warningIcon from '../../../../assets/warning-icon.svg';
 import leftChevron from '../../../../assets/chevron-left.svg';
+import { Link } from 'react-router-dom';
 
 const AccountSettings = () => {
   return (
@@ -36,7 +37,9 @@ const AccountSettings = () => {
 
       <div className='flex items-center absolute bottom-0 right-4 mb-20'>
         <img src={leftChevron} alt='' />
-        <h3 className=' text-2xl ml-2'>Go back</h3>
+        <Link to='/profile'>
+          <h3 className=' text-2xl ml-2'>Go back</h3>
+        </Link>
       </div>
     </div>
   );
