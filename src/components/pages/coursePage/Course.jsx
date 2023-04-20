@@ -44,7 +44,7 @@ import Simage from '../../../assets/s-image.svg'
        <div className="flex lg:flex-row md:flex-col flex-col ">
       <Link to="/courses/beginner" className="lg:w-1/2">
         <img src={Beginner} alt={Beginner} className=" w-full"/>
-        <div className="ml-6">lassName="mb-8lassName="mb-8
+        <div className="ml-6">
         <p className="mt-2">Beginner Level</p>
         <p className="mt-4 ">1.3 UI/UX Design</p>
         </div>

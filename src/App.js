@@ -26,6 +26,10 @@ import HelpDesk from './components/pages/helpdesk/HelpDesk';
 import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
 import LogoutModal from './components/pages/ logoutPage/LogoutModal';
+import LogoutModal  from './components/pages/ logoutPage/LogoutModal'
+import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
+
+
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -35,7 +39,12 @@ function App() {
     // </div>
     <div className='w-full overflow-x-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
+      <div>
+      { isOpenFour && <LogoutModal/>}
+         {/* <DashboardLandingPage /> */}
+      </div>
       <Routes>
+        <Route path='/home' element={<DashboardLandingPage/>} />
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
