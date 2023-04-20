@@ -29,7 +29,7 @@ const LogIn = () => {
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
 
   //CSS constants
-  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
+  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-2 font-bold';
   const hide = 'absolute left-[-9999px]';
 
   // Clear out the error message once the user makes changes to the email or password
@@ -71,9 +71,7 @@ const LogIn = () => {
       } else {
         setErrorMsg('Login Failed');
       }
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
+      console.log(`Error: ${error.message}`);
     }
   };
 
@@ -144,14 +142,16 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
+            >
               Login
             </button>
           </form>
@@ -164,7 +164,8 @@ const LogIn = () => {
             <button
               type='submit'
               id='google'
-              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
+              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+            >
               <img src={Google} alt='Google icon' />
               <p className='ml-2 font-semibold'>Login with Google</p>
             </button>
@@ -172,7 +173,8 @@ const LogIn = () => {
             <button
               type='submit'
               id='facebook'
-              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
+              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+            >
               <img src={Facebook} alt='Facebook icon' />
               <p className='ml-2 font-semibold text-white'>
                 Login with Facebook

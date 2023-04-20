@@ -70,7 +70,7 @@ const SignUp = () => {
   }, [password, confirmPassword]);
 
   //CSS constants
-  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
+  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-2 font-bold';
   const instructions = 'text-red relative ';
   const hide = 'absolute left-[-9999px]';
 
@@ -86,8 +86,8 @@ const SignUp = () => {
     // console.log(newUser);
     // return;
     try {
-      // const response = await api.post('/api/citrone/auth', newUser);
-      const response = await api.post('/users', newUser);
+      const response = await api.post('/api/citrone/auth', newUser);
+      // const response = await api.post('/users', newUser);
       console.log(response.data);
       setSuccess(true);
       setFirstName('');
@@ -99,10 +99,11 @@ const SignUp = () => {
       if (!error?.response) {
         console.log('No server response');
         setErrorMsg('No server response');
+      } else if (error.response?.status === 409) {
+        console.log(`Error: ${error.message}`);
+        console.log('Email already exists');
+        setErrorMsg('Email already exists');
       } else {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
         console.log(`Error: ${error.message}`);
         setErrorMsg(error.response.data);
       }
@@ -133,12 +134,12 @@ const SignUp = () => {
               </Link>
             </div>
 
-            <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
-
             <div className='px-6 sm:px-16'>
               <h4 className='text-center mt-4 font-bold text-xl text-black'>
                 Create Account
               </h4>
+
+              <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
 
               <form onSubmit={handleSubmit}>
                 <div className='sm:flex sm:justify-between sm:mt-12'>
