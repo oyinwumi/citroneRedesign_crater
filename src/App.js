@@ -25,7 +25,7 @@ import Chat from './components/pages/chat/Chat';
 import HelpDesk from './components/pages/helpdesk/HelpDesk';
 import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
-import LogoutModal from './components/pages/ logoutPage/LogoutModal';
+import LogoutModal from './components/pages/ logoutPage/Logou/tModal';
 import LogoutModal  from './components/pages/ logoutPage/LogoutModal'
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
 
