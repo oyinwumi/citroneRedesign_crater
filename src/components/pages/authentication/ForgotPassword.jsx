@@ -72,9 +72,8 @@ const ForgotPassword = () => {
               <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
-                name='email'
-                onChange={(e) => dispatch(setEmail(e.target.value))}
                 placeholder='Enter your email'
+                onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
             </div>

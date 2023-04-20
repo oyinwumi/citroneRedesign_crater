@@ -36,6 +36,11 @@ const LogIn = () => {
   // Function to check if there are users in the database and also check that the email and password exists
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      console.log('All fields are required');
+      setErrorMsg('All fields are required');
+      return false;
+    }
     try {
       const response = await api.post(
         '/api/citrone/auth/login',

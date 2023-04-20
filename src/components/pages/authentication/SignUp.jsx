@@ -33,8 +33,8 @@ const SignUp = () => {
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
 
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const [validFirstName, setValidFirstName] = useState(false);
   const [validLastName, setValidLastName] = useState(false);
@@ -76,8 +76,20 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      !validFirstName ||
+      !validLastName ||
+      !validEmail ||
+      !validMobileNo ||
+      !validPassword ||
+      !validConfirmPassword
+    ) {
+      console.log('All fields must be filled correctly');
+      setErrorMsg('All fields must be filled correctly');
+      return false;
+    }
     const newUser = {
-      firstName: firstName,
+      firstName,
       lastName,
       email,
       phoneNumber: mobileNo,
@@ -103,8 +115,8 @@ const SignUp = () => {
         console.log('All input fields are required');
         setErrorMsg('All input fields are required');
       } else if (error.response?.status === 409) {
-        console.log('Email already exists');
-        setErrorMsg('Email already exists');
+        console.log('User already exists');
+        setErrorMsg('User already exists');
       } else {
         console.log(`Error: ${error.message}`);
         setErrorMsg(error.response.data);
@@ -154,7 +166,7 @@ const SignUp = () => {
                       type='text'
                       placeholder='Enter your first name'
                       value={firstName}
-                      // autoComplete=''
+                      autoComplete='on'
                       required
                       onChange={(e) => dispatch(setFirstName(e.target.value))}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -167,6 +179,7 @@ const SignUp = () => {
                       type='text'
                       placeholder='Enter your last name'
                       value={lastName}
+                      autoComplete='on'
                       required
                       onChange={(e) => dispatch(setLastName(e.target.value))}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -195,6 +208,7 @@ const SignUp = () => {
                     type='email'
                     placeholder='Enter your email'
                     value={email}
+                    autoComplete='on'
                     required
                     onChange={(e) => dispatch(setEmail(e.target.value))}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -210,6 +224,7 @@ const SignUp = () => {
                     type='text'
                     placeholder='Enter your phone number'
                     value={mobileNo}
+                    autoComplete='on'
                     required
                     onChange={(e) => dispatch(setMobileNo(e.target.value))}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
@@ -291,16 +306,6 @@ const SignUp = () => {
 
                 <button
                   type='submit'
-                  disabled={
-                    !validFirstName ||
-                    !validLastName ||
-                    !validEmail ||
-                    !validMobileNo ||
-                    !validPassword ||
-                    !validConfirmPassword
-                      ? true
-                      : false
-                  }
                   className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'
                 >
                   Sign Up
