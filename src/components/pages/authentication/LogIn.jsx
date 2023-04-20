@@ -19,7 +19,7 @@ import api from '../../../api/axios';
 const LogIn = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { email, password } = state;
   // const [users, setUsers] = useState('');
@@ -27,10 +27,6 @@ const LogIn = () => {
 
   const [passwordType, setPasswordType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
-
-  //CSS constants
-  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-2 font-bold';
-  const hide = 'absolute left-[-9999px]';
 
   // Clear out the error message once the user makes changes to the email or password
   useEffect(() => {
@@ -40,7 +36,6 @@ const LogIn = () => {
   // Function to check if there are users in the database and also check that the email and password exists
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await api.post(
         '/api/citrone/auth/login',
@@ -57,17 +52,15 @@ const LogIn = () => {
       console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ email, password, roles, accessToken });
+      setAuth({ email, password, accessToken, roles });
       setEmail('');
       setPassword('');
-      navigate('/dashboard');
+      // navigate('/dashboard');
     } catch (error) {
       if (!error?.response) {
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
         setErrorMsg('Missing email or password');
-      } else if (error.response?.status === 401) {
-        setErrorMsg('Unauthorized');
       } else {
         setErrorMsg('Login Failed');
       }
@@ -100,7 +93,7 @@ const LogIn = () => {
             Welcome Back
           </h2>
 
-          <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
+          <p className={errorMsg ? 'errorInstructions' : 'hide'}>{errorMsg}</p>
 
           <form onSubmit={handleLogin}>
             <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
