@@ -42,6 +42,24 @@ body {
   background-color: #d3d0d9;
 }
 
-.shadow{
+.shadow {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructions,
+.errorInstructions {
+  color: red;
+  position: relative;
+}
+
+.errorInstructions {
+  background-color: #d3d3d3;
+  padding: 12px;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.hide {
+  position: absolute;
+  left: -9999px;
 }

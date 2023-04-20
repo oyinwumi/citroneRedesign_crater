@@ -70,9 +70,9 @@ const SignUp = () => {
   }, [password, confirmPassword]);
 
   //CSS constants
-  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
-  const instructions = 'text-red relative ';
-  const hide = 'absolute left-[-9999px]';
+  // const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-2 font-bold';
+  // const instructions = 'text-red relative ';
+  // const hide = 'absolute left-[-9999px]';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,8 +86,8 @@ const SignUp = () => {
     // console.log(newUser);
     // return;
     try {
-      // const response = await api.post('/api/citrone/auth', newUser);
-      const response = await api.post('/users', newUser);
+      const response = await api.post('/api/citrone/auth', newUser);
+      // const response = await api.post('/users', newUser);
       console.log(response.data);
       setSuccess(true);
       setFirstName('');
@@ -99,13 +99,17 @@ const SignUp = () => {
       if (!error?.response) {
         console.log('No server response');
         setErrorMsg('No server response');
+      } else if (error.response?.status === 401) {
+        console.log('All input fields are required');
+        setErrorMsg('All input fields are required');
+      } else if (error.response?.status === 409) {
+        console.log('Email already exists');
+        setErrorMsg('Email already exists');
       } else {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
         console.log(`Error: ${error.message}`);
         setErrorMsg(error.response.data);
       }
+      console.log(`Error: ${error.message}`);
     }
   };
 
@@ -133,12 +137,14 @@ const SignUp = () => {
               </Link>
             </div>
 
-            <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
-
             <div className='px-6 sm:px-16'>
               <h4 className='text-center mt-4 font-bold text-xl text-black'>
                 Create Account
               </h4>
+
+              <p className={errorMsg ? 'errorInstructions' : 'hide'}>
+                {errorMsg}
+              </p>
 
               <form onSubmit={handleSubmit}>
                 <div className='sm:flex sm:justify-between sm:mt-12'>
@@ -168,12 +174,18 @@ const SignUp = () => {
                   </div>
                 </div>
                 <p
-                  className={firstName && !validFirstName ? instructions : hide}
+                  className={
+                    firstName && !validFirstName ? 'instructions' : 'hide'
+                  }
                 >
                   First name must not be less than 3 characters
                 </p>
 
-                <p className={lastName && !validLastName ? instructions : hide}>
+                <p
+                  className={
+                    lastName && !validLastName ? 'instructions' : 'hide'
+                  }
+                >
                   Last name must not be less than 3 characters
                 </p>
 
@@ -188,7 +200,7 @@ const SignUp = () => {
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
                 </div>
-                <p className={email && !validEmail ? instructions : hide}>
+                <p className={email && !validEmail ? 'instructions' : 'hide'}>
                   Type in a valid email
                 </p>
 
@@ -203,7 +215,11 @@ const SignUp = () => {
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
                 </div>
-                <p className={mobileNo && !validMobileNo ? instructions : hide}>
+                <p
+                  className={
+                    mobileNo && !validMobileNo ? 'instructions' : 'hide'
+                  }
+                >
                   Type in a valid mobile number
                 </p>
 
@@ -223,7 +239,11 @@ const SignUp = () => {
                     className='mx-4 cursor-pointer'
                   />
                 </div>
-                <p className={password && !validPassword ? instructions : hide}>
+                <p
+                  className={
+                    password && !validPassword ? 'instructions' : 'hide'
+                  }
+                >
                   8 to 24 characters. Must include uppercase and lowercase
                   letters, a number and a special character ! @ # $ %.
                 </p>
@@ -247,8 +267,8 @@ const SignUp = () => {
                 <p
                   className={
                     confirmPassword && !validConfirmPassword
-                      ? instructions
-                      : hide
+                      ? 'instructions'
+                      : 'hide'
                   }
                 >
                   Must match the first password input field

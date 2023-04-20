@@ -19,7 +19,7 @@ import api from '../../../api/axios';
 const LogIn = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { email, password } = state;
   // const [users, setUsers] = useState('');
@@ -27,10 +27,6 @@ const LogIn = () => {
 
   const [passwordType, setPasswordType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
-
-  //CSS constants
-  const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-4 font-bold';
-  const hide = 'absolute left-[-9999px]';
 
   // Clear out the error message once the user makes changes to the email or password
   useEffect(() => {
@@ -40,7 +36,6 @@ const LogIn = () => {
   // Function to check if there are users in the database and also check that the email and password exists
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await api.post(
         '/api/citrone/auth/login',
@@ -57,23 +52,19 @@ const LogIn = () => {
       console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ email, password, roles, accessToken });
+      setAuth({ email, password, accessToken, roles });
       setEmail('');
       setPassword('');
-      navigate('/dashboard');
+      // navigate('/dashboard');
     } catch (error) {
       if (!error?.response) {
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
         setErrorMsg('Missing email or password');
-      } else if (error.response?.status === 401) {
-        setErrorMsg('Unauthorized');
       } else {
         setErrorMsg('Login Failed');
       }
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
+      console.log(`Error: ${error.message}`);
     }
   };
 
@@ -102,7 +93,7 @@ const LogIn = () => {
             Welcome Back
           </h2>
 
-          <p className={errorMsg ? errorInstructions : hide}>{errorMsg}</p>
+          <p className={errorMsg ? 'errorInstructions' : 'hide'}>{errorMsg}</p>
 
           <form onSubmit={handleLogin}>
             <div className='bg-white flex items-center mt-12 border border-pink rounded overflow-hidden shadow'>
@@ -144,14 +135,16 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'>
+                className=' text-purple cursor-pointer'
+              >
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
+            >
               Login
             </button>
           </form>
@@ -164,7 +157,8 @@ const LogIn = () => {
             <button
               type='submit'
               id='google'
-              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
+              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
+            >
               <img src={Google} alt='Google icon' />
               <p className='ml-2 font-semibold'>Login with Google</p>
             </button>
@@ -172,7 +166,8 @@ const LogIn = () => {
             <button
               type='submit'
               id='facebook'
-              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
+              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
+            >
               <img src={Facebook} alt='Facebook icon' />
               <p className='ml-2 font-semibold text-white'>
                 Login with Facebook
