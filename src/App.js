@@ -9,8 +9,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
-import ModuleOne from './components/pages/courseModule/ModuleOne.jsx';
-import Quiz from './components/pages/quiz/Quiz.jsx';
+import ModuleOne from './components/pages/courseModule/ModuleOne';
+import Quiz from './components/pages/quiz/Quiz';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
@@ -25,8 +25,7 @@ import Chat from './components/pages/chat/Chat';
 import HelpDesk from './components/pages/helpdesk/HelpDesk';
 import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
-import LogoutModal from './components/pages/ logoutPage/Logou/tModal';
-import LogoutModal  from './components/pages/ logoutPage/LogoutModal'
+import LogoutModal from './components/pages/ logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
 
 
@@ -37,19 +36,16 @@ function App() {
     // <div>
     //   <DashboardLandingPage />
     // </div>
-    <div className='w-full overflow-x-hidden'>
+    <div className='w-full overflow-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
-      <div>
-      { isOpenFour && <LogoutModal/>}
-         {/* <DashboardLandingPage /> */}
-      </div>
+     
       <Routes>
         <Route path='/home' element={<DashboardLandingPage/>} />
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
         <Route path='/moduleone' element={<ModuleOne />} />
-        {/* <Route path='/quiz' element={<Quiz />} /> */}
+        <Route path='/quiz' element={<Quiz />} />
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
