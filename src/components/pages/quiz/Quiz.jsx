@@ -21,8 +21,8 @@ const Quiz = () => {
       
        <header className='lg:text-[32px]'>Module 1: Introduction to design Quiz</header>
         <p className='text-lg'>Questions and Answers</p>
-        { questions.map((question)=>{
-            return <div className='mt-14 mb-20 flex flex-col '>
+        { questions.map((question , key)=>{
+            return <div  key={key}className='mt-14 mb-20 flex flex-col '>
                 <div className='mb-4 flex '>
                 <p className='text-[20px]'>{question.id}.</p>
                 <h3 className='ml-2 text-[20px]'>{question.question}</h3>
