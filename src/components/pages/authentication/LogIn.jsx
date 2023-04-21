@@ -16,10 +16,12 @@ import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 import api from '../../../api/axios';
 
+const LOGIN_URL = '/api/citrone/auth/login';
+
 const LogIn = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { email, password } = state;
   // const [users, setUsers] = useState('');
@@ -36,18 +38,22 @@ const LogIn = () => {
   // Function to check if there are users in the database and also check that the email and password exists
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      console.log('All fields are required');
+      setErrorMsg('All fields are required');
+      return false;
+    }
+    const user = { email, password };
+    // JSON.stringify({ email, password }
     try {
-      const response = await api.post(
-        '/api/citrone/auth/login',
-        JSON.stringify({ email, password }),
-        // const response = await api.post(
-        //   '/users',
-        //   JSON.stringify({ email, password }),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        }
-      );
+      const response = await api.post(LOGIN_URL, user);
+      // const response = await api.post(
+      //   '/users',
+      //   JSON.stringify({ email, password }),
+      // {
+      //   headers: { 'Content-Type': 'application/json' },
+      //   withCredentials: true,
+      // }
       console.log(JSON.stringify(response?.data));
       console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
@@ -55,12 +61,15 @@ const LogIn = () => {
       setAuth({ email, password, accessToken, roles });
       setEmail('');
       setPassword('');
-      // navigate('/dashboard');
+      navigate('/dashboard');
     } catch (error) {
+      console.log(error.response);
       if (!error?.response) {
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
         setErrorMsg('Missing email or password');
+      } else if (error.response?.status === 401) {
+        setErrorMsg('User does not exist');
       } else {
         setErrorMsg('Login Failed');
       }
