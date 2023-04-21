@@ -28,6 +28,8 @@ const PHONE_REGEX = /^([+]\d{2})?\d{11}$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
+const SIGNUP_URL = '/api/citrone/auth';
+
 const SignUp = () => {
   const [passwordType, setPasswordType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState(eyeSlash);
@@ -98,7 +100,16 @@ const SignUp = () => {
     // console.log(newUser);
     // return;
     try {
-      const response = await api.post('/api/citrone/auth', newUser);
+      // const response = await api.post(
+      //   '/api/citrone/auth',
+      //   JSON.stringify(newUser),
+      //   {
+      //     headers: { 'Content-Type': 'application/json' },
+      //     withCredentials: true,
+      //   }
+      // );
+
+      const response = await api.post(SIGNUP_URL, newUser);
       // const response = await api.post('/users', newUser);
       console.log(response.data);
       setSuccess(true);

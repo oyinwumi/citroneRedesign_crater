@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
+const RESETPASSWORD_URL = '/api/citrone/resetPassword/:token';
+
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [validPassword, setValidPassword] = useState(false);
@@ -36,7 +38,7 @@ const ResetPassword = () => {
     }
     try {
       const response = await api.post(
-        '/api/citrone/resetPassword/:token',
+        RESETPASSWORD_URL,
         JSON.stringify({ password }),
         {
           headers: { 'Content-Type': 'application/json' },

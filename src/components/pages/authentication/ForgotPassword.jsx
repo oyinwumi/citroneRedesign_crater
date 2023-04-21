@@ -6,6 +6,8 @@ import Mail from '../../../assets/mail-icon.svg';
 import { Link } from 'react-router-dom';
 import api from '../../../api/axios';
 
+const FORGOTPASSWORD_URL = '/api/citrone/auth/forget-password';
+
 const ForgotPassword = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
@@ -21,7 +23,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const response = await api.post(
-        '/api/citrone/auth/forget-password',
+        FORGOTPASSWORD_URL,
         JSON.stringify({ email }),
         {
           headers: { 'Content-Type': 'application/json' },
