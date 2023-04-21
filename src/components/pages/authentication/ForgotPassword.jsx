@@ -11,7 +11,7 @@ const FORGOTPASSWORD_URL = '/api/citrone/auth/forget-password';
 const ForgotPassword = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
-  const { email } = state;
+  const { email, auth } = state;
 
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -22,30 +22,22 @@ const ForgotPassword = () => {
   const handleEmailVerification = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post(
-        FORGOTPASSWORD_URL,
-        JSON.stringify({ email }),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        }
-      );
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
+      const response = await api.post(FORGOTPASSWORD_URL, { email });
+      // console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
       setAuth({ email, accessToken, roles });
+      console.log(`AUTH: ${auth}`);
       setEmail('');
     } catch (error) {
       if (!error?.response) {
-        console.log('No Server Response');
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
-        console.log('Fill in email address');
         setErrorMsg('Fill in email address');
       } else {
         setErrorMsg(`Error: ${error.message}`);
       }
+      console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

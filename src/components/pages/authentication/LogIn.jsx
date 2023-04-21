@@ -23,8 +23,7 @@ const LogIn = () => {
   const state = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
-  const { email, password } = state;
-  // const [users, setUsers] = useState('');
+  const { email, password, auth } = state;
   const [errorMsg, setErrorMsg] = useState('');
 
   const [passwordType, setPasswordType] = useState('password');
@@ -39,12 +38,11 @@ const LogIn = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      console.log('All fields are required');
       setErrorMsg('All fields are required');
       return false;
     }
     const user = { email, password };
-    // JSON.stringify({ email, password }
+
     try {
       const response = await api.post(LOGIN_URL, user);
       // const response = await api.post(
@@ -54,16 +52,15 @@ const LogIn = () => {
       //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // }
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
+      // console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
       setAuth({ email, password, accessToken, roles });
+      console.log(`AUTH: ${auth}`);
       setEmail('');
       setPassword('');
       navigate('/dashboard');
     } catch (error) {
-      console.log(error.response);
       if (!error?.response) {
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
@@ -73,6 +70,7 @@ const LogIn = () => {
       } else {
         setErrorMsg('Login Failed');
       }
+      console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

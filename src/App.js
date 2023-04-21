@@ -10,7 +10,7 @@ import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
 import ModuleOne from './components/pages/courseModule/ModuleOne';
-import Quiz from './components/pages/quiz/Quiz';
+import Quiz from './components/pages/quiz/Quiz.jsx';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
@@ -28,8 +28,6 @@ import { useSelector } from 'react-redux';
 import LogoutModal from './components/pages/ logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
 
-
-
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
   return (
@@ -38,9 +36,9 @@ function App() {
     // </div>
     <div className='w-full overflow-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
-     
+
       <Routes>
-        <Route path='/home' element={<DashboardLandingPage/>} />
+        <Route path='/home' element={<DashboardLandingPage />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />

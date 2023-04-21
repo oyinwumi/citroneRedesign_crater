@@ -71,11 +71,6 @@ const SignUp = () => {
     setValidConfirmPassword(password === confirmPassword);
   }, [password, confirmPassword]);
 
-  //CSS constants
-  // const errorInstructions = 'text-red relative bg-lightgrey p-3 mt-2 font-bold';
-  // const instructions = 'text-red relative ';
-  // const hide = 'absolute left-[-9999px]';
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
@@ -97,21 +92,9 @@ const SignUp = () => {
       phoneNumber: mobileNo,
       password,
     };
-    // console.log(newUser);
-    // return;
     try {
-      // const response = await api.post(
-      //   '/api/citrone/auth',
-      //   JSON.stringify(newUser),
-      //   {
-      //     headers: { 'Content-Type': 'application/json' },
-      //     withCredentials: true,
-      //   }
-      // );
-
-      const response = await api.post(SIGNUP_URL, newUser);
-      // const response = await api.post('/users', newUser);
-      console.log(response.data);
+      // const response = await api.post(SIGNUP_URL, newUser);
+      await api.post(SIGNUP_URL, newUser);
       setSuccess(true);
       setFirstName('');
       setLastName('');
@@ -120,18 +103,15 @@ const SignUp = () => {
       setPassword('');
     } catch (error) {
       if (!error?.response) {
-        console.log('No server response');
         setErrorMsg('No server response');
       } else if (error.response?.status === 401) {
-        console.log('All input fields are required');
         setErrorMsg('All input fields are required');
       } else if (error.response?.status === 409) {
-        console.log('User already exists');
         setErrorMsg('User already exists');
       } else {
-        console.log(`Error: ${error.message}`);
         setErrorMsg(error.response.data);
       }
+      console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

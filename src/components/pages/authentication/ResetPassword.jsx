@@ -37,31 +37,20 @@ const ResetPassword = () => {
       setErrorMsg('Password Mismatch');
     }
     try {
-      const response = await api.post(
-        RESETPASSWORD_URL,
-        JSON.stringify({ password }),
-        {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
-        }
-      );
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
-      const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ password, accessToken, roles });
+      await api.post(RESETPASSWORD_URL, { password });
+      // const response = await api.post(RESETPASSWORD_URL, { password });
+      // console.log(JSON.stringify(response?.data));
       setPassword('');
       setConfirmPassword('');
     } catch (error) {
       if (!error?.response) {
-        console.log('No Server Response');
         setErrorMsg('No Server Response');
       } else if (error.response?.status === 400) {
-        console.log('All fields are required');
         setErrorMsg('All fields are required');
       } else {
         setErrorMsg(`Error: ${error.message}`);
       }
+      console.log('error.response');
       console.log(`Error: ${error.message}`);
     }
   };
