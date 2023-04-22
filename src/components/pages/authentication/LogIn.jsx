@@ -52,11 +52,17 @@ const LogIn = () => {
       //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // }
+      // console.log(response.data);
+      // console.log(response.data.role);
+      // console.log(response.data.username);
       // console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ email, password, accessToken, roles });
-      console.log(`AUTH: ${auth}`);
+      const role = response?.data?.role;
+      const userName = response?.data?.username;
+      const details = { email, password, userName, role, accessToken };
+      setAuth({ email, password, userName, role, accessToken });
+      // console.log(`AUTH: ${JSON.stringify(auth)}`);
+      // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
       setPassword('');
       navigate('/dashboard');
@@ -70,7 +76,7 @@ const LogIn = () => {
       } else {
         setErrorMsg('Login Failed');
       }
-      console.log(error.response);
+      // console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

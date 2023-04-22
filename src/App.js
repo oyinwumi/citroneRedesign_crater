@@ -27,6 +27,8 @@ import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
 import LogoutModal from './components/pages/ logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
+import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
+import SecuritySettings from './components/dashboard/pages/settings/SecuritySettings';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -57,7 +59,11 @@ function App() {
         <Route path='/grade' element={<Grade />} />
         <Route exact path='/profile' element={<ProfilePage />} />
         <Route exact path='/editProfile' element={<EditProfile />} />
-        <Route exact path='/settings' element={<Settings />} />
+        <Route exact path='/settings' element={<Settings />}>
+          <Route index element={<AccountSettings />}></Route>
+          <Route path='account' element={<AccountSettings />} />
+          <Route path='security&safety' element={<SecuritySettings />} />
+        </Route>
         <Route path='/chat' element={<Chat />} />
         <Route path='/helpdesk' element={<HelpDesk />} />
         <Route path='/faq' element={<Faq />} />
