@@ -10,7 +10,7 @@ import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
 import ModuleOne from './components/pages/courseModule/ModuleOne';
-import Quiz from './components/pages/quiz/Quiz';
+import Quiz from './components/pages/quiz/Quiz.jsx';
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
@@ -27,8 +27,8 @@ import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
 import LogoutModal from './components/pages/ logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
-
-
+import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
+import SecuritySettings from './components/dashboard/pages/settings/SecuritySettings';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -38,9 +38,9 @@ function App() {
     // </div>
     <div className='w-full overflow-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
-     
+
       <Routes>
-        <Route path='/home' element={<DashboardLandingPage/>} />
+        <Route path='/home' element={<DashboardLandingPage />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
@@ -59,7 +59,11 @@ function App() {
         <Route path='/grade' element={<Grade />} />
         <Route exact path='/profile' element={<ProfilePage />} />
         <Route exact path='/editProfile' element={<EditProfile />} />
-        <Route exact path='/settings' element={<Settings />} />
+        <Route exact path='/settings' element={<Settings />}>
+          <Route index element={<AccountSettings />}></Route>
+          <Route path='account' element={<AccountSettings />} />
+          <Route path='security&safety' element={<SecuritySettings />} />
+        </Route>
         <Route path='/chat' element={<Chat />} />
         <Route path='/helpdesk' element={<HelpDesk />} />
         <Route path='/faq' element={<Faq />} />
