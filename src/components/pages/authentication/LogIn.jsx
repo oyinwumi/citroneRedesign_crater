@@ -44,9 +44,9 @@ const LogIn = () => {
     const user = { email, password };
 
     try {
-      const response = await api.post(LOGIN_URL, user , {
-        withCredentials : true
-      });
+      const response = await api.post(LOGIN_URL, user 
+        // {headers: {'Content-Type': 'application/json'}, withCredentials : true}
+        );
       // const response = await api.post(
       //   '/users',
       //   JSON.stringify({ email, password }),
