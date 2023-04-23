@@ -4,13 +4,18 @@ import DashboardHeader from '../../../dashboard/pages/navigation/DashboardHeader
 import Sidebar from '../../../dashboard/pages/navigation/Sidebar'
 import courseData from './coursedata';
 import { FaChevronRight } from "react-icons/fa";
+import { getCourses } from '../../../../apps/courseSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
 
 const CourseCategory = () => {
   const [data , setData] = useState([]);
   const { course_category } = useParams()
+  const dispatch = useDispatch()
+
   useEffect(()=>{
+    dispatch(getCourses())
      let filteredData = courseData.filter((c)=>{
 
       return c.categoryId === course_category 
