@@ -14,7 +14,7 @@ import recentActivity from '../dashboard/activity';
 import Blue from '../../assets/blue-square.svg';
 import Orange from '../../assets/orange-square.svg'
 import { useSelector } from 'react-redux';
-import LogoutModal  from '../pages/ logoutPage/LogoutModal'
+import LogoutModal  from '../pages/logoutPage/LogoutModal'
 
 
 const button= <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>Completed</button>

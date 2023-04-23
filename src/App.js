@@ -9,8 +9,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
-import ModuleOne from './components/pages/courseModule/ModuleOne';
-import Quiz from './components/pages/courseModule/quiz/Quiz';
+// import ModuleOne from './components/pages/courseModule/ModuleOne';
+// import Quiz from './components/pages/courseModule/quiz/Quiz'
 import Assignment from './components/pages/assignment/Assignment';
 import Sidebar from './components/dashboard/pages/navigation/Sidebar';
 import AssignmentQest from './components/pages/assignment/AssignmentQest';
@@ -21,6 +21,9 @@ import Grade from './components/pages/assignment/Grade';
 import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
 import EditProfile from './components/dashboard/pages/profilePage/EditProfile';
 import Settings from './components/dashboard/pages/settings/Settings';
+import LiveSession from './components/pages/liveSession/LiveSession';
+import LiveSessionUserPage from './components/pages/liveSession/LiveSessionUserPage';
+
 
 
 function App() {
@@ -33,8 +36,8 @@ function App() {
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
-        <Route path='/moduleone' element={<ModuleOne />} />
-        <Route path='/quiz' element={<Quiz />} />
+        {/* <Route path='/moduleone' element={<ModuleOne />} />
+         <Route path='/quiz' element={<Quiz />} />  */}
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
@@ -50,6 +53,8 @@ function App() {
         <Route exact path='/profile' element={<ProfilePage />} />
           <Route exact path='/editProfile' element={<EditProfile />} />
             <Route exact path='/settings' element={<Settings />} />
+            <Route exact path='/sessions' element={<LiveSession />} />
+            <Route exact path='/live-session-user-page' element={<LiveSessionUserPage/>}/>
       </Routes>
     </div>
   );
