@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isOpen: false,
     isOpenTwo: false,
-    isOpenThree: false
+    isOpenThree: false,
+    isOpenFour: false
 }
 
 const modalSlice = createSlice({
@@ -26,9 +27,15 @@ const modalSlice = createSlice({
             state.isOpenThree = true ;
         },
         closeModalThree: (state , action) =>{
-            state.isOpenTwo = false ;
+            state.isOpenThree = false ;
+        },
+        openModalFour: (state , action) =>{
+            state.isOpenFour = true ;
+        },
+        closeModalFour: (state , action) =>{
+            state.isOpenFour = false ;
         },
     }
 })
-export const { openModal , closeModal,openModalTwo , closeModalTwo, openModalThree, closeModalThree} = modalSlice.actions ;
+export const { openModal , closeModal,openModalTwo , closeModalTwo, openModalThree, closeModalThree, openModalFour, closeModalFour} = modalSlice.actions ;
 export default modalSlice.reducer;

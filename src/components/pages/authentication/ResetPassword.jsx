@@ -1,13 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../../../assets/logo.svg';
 import Lock from '../../../assets/lock-icon.svg';
 import Eye from '../../../assets/eye-icon.svg';
 import Check from '../../../assets/shield-tick.svg';
 import { Link } from 'react-router-dom';
 
+const PASSWORD_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
+const RESETPASSWORD_URL = '/api/citrone/resetPassword/:token';
+
 const ResetPassword = () => {
-  const [newPassword, setNewPassword] = useState('');
-  const [reTypeNewPassword, setReTypeNewPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [validPassword, setValidPassword] = useState(false);
+
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [validConfirmPassword, setValidConfirmPassword] = useState(false);
+
+  const [errorMsg, setErrorMsg] = useState('');
+
+  //Validate password and confirmPassword
+  useEffect(() => {
+    setValidPassword(PASSWORD_REGEX.test(password));
+    setValidConfirmPassword(password === confirmPassword);
+  }, [password, confirmPassword]);
+
+  // Clear out the error message once the user makes changes to the password
+  useEffect(() => {
+    setErrorMsg('');
+  }, [password, confirmPassword]);
+
+  //Check the server to change the password
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (confirmPassword && !validConfirmPassword) {
+      setErrorMsg('Password Mismatch');
+    }
+    try {
+      await api.post(RESETPASSWORD_URL, { password });
+      // const response = await api.post(RESETPASSWORD_URL, { password });
+      // console.log(JSON.stringify(response?.data));
+      setPassword('');
+      setConfirmPassword('');
+    } catch (error) {
+      if (!error?.response) {
+        setErrorMsg('No Server Response');
+      } else if (error.response?.status === 400) {
+        setErrorMsg('All fields are required');
+      } else {
+        setErrorMsg(`Error: ${error.message}`);
+      }
+      console.log('error.response');
+      console.log(`Error: ${error.message}`);
+    }
+  };
 
   return (
     <div className='body bg-light mx-auto sm:h-screen sm:flex sm:justify-center sm:items-center'>
@@ -27,45 +73,41 @@ const ResetPassword = () => {
             upper case.
           </p>
 
-          <form action=''>
+          <p className={errorMsg ? 'errorInstructions' : 'hide'}>{errorMsg}</p>
+
+          <form onSubmit={handleSubmit}>
             <div className='bg-white flex items-center border border-lightgrey mt-5 rounded overflow-hidden shadow'>
               <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='password'
-                id='new-password'
-                name='new-password'
+                value={password}
                 placeholder='Enter new password'
-                onChange={(e) => setNewPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
               <img src={Eye} alt='' className=' eye mx-4 cursor-pointer' />
             </div>
-            <p className='text-red'>
-              {newPassword && newPassword.length < 9
-                ? 'Password should be at least 9 characters'
-                : ' '}
+            <p className={password && !validPassword ? 'instructions' : 'hide'}>
+              8 to 24 characters. Must include uppercase and lowercase letters,
+              a number and a special character ! @ # $ %.
             </p>
 
             <div className='bg-white flex items-center mt-8 border border-lightgrey rounded overflow-hidden shadow'>
               <img src={Check} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='password'
-                id='re-password'
-                name='re-password'
+                value={confirmPassword}
                 placeholder='Confirm new password'
-                onChange={(e) => setReTypeNewPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
             </div>
-            <p className='text-red '>
-              {newPassword && newPassword !== reTypeNewPassword
-                ? 'The password does not match'
-                : ''}
-            </p>
 
             <button
               type='submit'
-              className='bg-purple flex justify-center items-center w-full mt-8 py-3 px-2 font-bold text-white rounded shadow'>
+              disabled={!validPassword || !validConfirmPassword ? true : false}
+              className='bg-purple flex justify-center items-center w-full mt-8 py-3 px-2 font-bold text-white rounded shadow'
+            >
               Reset Password
             </button>
           </form>

@@ -34,14 +34,14 @@ const AssignmentQest = () => {
                 <Link to='*'>Find Resources</Link>
             </div>
             <div className="w-full">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Comment" className="border rounded border-lightergrey  w-full p-4 outline-none texx-lg capitalize" type="text" required></textarea>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Comment" className="border rounded border-pink  w-full p-4 outline-none texx-lg capitalize" type="text" required></textarea>
             </div>
         </div>
-        <div className="flex justify-between mb-4 border rounded-b border-lightergrey p-4"  >
-            <div className="flex">
-             <img src={TextIcon} alt={TextIcon}  className="mr-2 w-6 h-76"/>
-             <img src={LinkIcon} alt={LinkIcon} className="mr-2 w-6 h-6"/>
-             <img src={MicIcon} alt={MicIcon}  className="mr-2 w-6 h-6"/>
+        <div className="flex justify-between mb-4 border rounded-b border-pink p-4"  >
+            <div className="flex items-center text-center">
+             <img src={TextIcon} alt={TextIcon}  className="mr-4 w-6 h-76"/>
+             <img src={LinkIcon} alt={LinkIcon} className="mr-4 w-6 h-6"/>
+             <img src={MicIcon} alt={MicIcon}  className="mr-4 w-6 h-6"/>
             </div>
             <div>
             <button onClick={() => dispatch(openModal())}

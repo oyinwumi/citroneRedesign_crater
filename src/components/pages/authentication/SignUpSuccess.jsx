@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const SignUpSuccess = () => {
   return (
@@ -11,13 +11,15 @@ const SignUpSuccess = () => {
             <FaCheck />
           </div>
 
-          <h3 className='text-2xl text-[#000] font-semibold mt-7'>Success!</h3>
+          <h3 className='text-2xl text-[#000] font-semibold mt-7'>
+            SignUp Successful!
+          </h3>
           <p className='mt-2 text-base text-[#000]'>
-            Your password has been changed
+            Click on the verification email sent to you to confirm your email
           </p>
-          <button className='flex justify-center items-center bg-purple w-[86px] h-[42px] text-white text-base font-bold mt-6 rounded'>
+          {/* <button className='flex justify-center items-center bg-purple w-[86px] h-[42px] text-white text-base font-bold mt-6 rounded'>
             <Link to='/login'>Login</Link>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

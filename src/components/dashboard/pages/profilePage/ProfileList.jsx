@@ -16,9 +16,9 @@ const ProfileList = () => {
   });
 
   return (
-    <div className='h-full flex flex-col justify-between'>
-      <div className=' mb-4 h-3/5 relative'>
-        <h1 className='border-b text-xl font-bold py-5 text-center'>
+    <div className='flex flex-col justify-between'>
+      <div className=' mb-10 relative'>
+        <h1 className='border-b border-lightgrey text-xl font-bold py-5 text-center'>
           Track Members
         </h1>
         <div className=' mt-4 h-[420px] overflow-auto'>{students}</div>
@@ -26,9 +26,11 @@ const ProfileList = () => {
         {/* <p className='absolute bottom-0 right-4 text-purple'>see more</p> */}
       </div>
 
-      <div className=' h-2/5 mb-4'>
-        <h1 className='border-y text-xl font-bold py-5 text-center'>Tutors</h1>
-        <div className=' mt-4 h-60 '>{tutors}</div>
+      <div className=' mb-8'>
+        <h1 className='border-y border-lightgrey text-xl font-bold py-5 text-center'>
+          Tutors
+        </h1>
+        <div className=' mt-4 h-[280px] overflow-auto'>{tutors}</div>
       </div>
     </div>
   );

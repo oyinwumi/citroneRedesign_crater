@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import CompleteImage from '../../assets/completeimage.png'
 import './calendar.css';
-import CoursePageNav from './pages/navigation/DashboardHeader'
+import DashboardHeader from './pages/navigation/DashboardHeader'
 import Sidebar from './pages/navigation/Sidebar';
 import dashboardUser from './dashboardUser';
 import courseData from '../pages/coursePage/courseCategory/coursedata';
@@ -12,19 +12,44 @@ import SmallGraph from '../../assets/smallgraph.svg';
 import Barchart from '../../assets/barchart.png'
 import recentActivity from '../dashboard/activity';
 import Blue from '../../assets/blue-square.svg';
-import Orange from '../../assets/orange-square.svg'
+import Orange from '../../assets/orange-square.svg';
 import { useSelector } from 'react-redux';
 import LogoutModal  from '../pages/logoutPage/LogoutModal'
+// import { useSelector } from 'react-redux';
+// import LogoutModal  from '../pages/ logoutPage/LogoutModal'
 
 
 const button= <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>Completed</button>
 const Dashboard = () => {
-    const {isOpen } = useSelector((store) => store.modal);
+    // const {isOpen } = useSelector((store) => store.modal);
     const [date, setDate] = useState(new Date());
+    const [visible , setVisible] = useState(4);
+
+    const seeMore = () =>{
+        setVisible(visible + 4)
+    }
+
+    const renderedData = (courseData) =>{
+        return  <div className='border border-lightgrey rounded p-2 flex  lg:flex-col md:flex-row flex-col  justify-between  mb-4  ' >
+               <div className='flex items-center '>
+        <img src={courseData.img} alt=""  className='w-[100px] h-[100px] '/>
+        <div className='ml-4 items-center mt-6'>
+          <header className=''>{courseData.name}</header>
+          <div className='flex gap-9 mt-3'>
+            <p className='text-lightergrey text-sm'>{courseData.time}</p>
+            <p className='text-xs'>{courseData.finalGrade} <br /> <span className='text-[10px] text-lightergrey'>Final Grade</span></p>
+          </div>
+        </div>
+    </div>
+      <Link to='/assignmentqest' className='p-2 lg:ml-[60%] md:ml[60%] ml-[50%] md:mt-8'>{button}</Link>
+  </div>
+  
+    }
+
   return (
     <div className='w-full'> 
-      { isOpen && <LogoutModal/>}
-     <CoursePageNav/>
+      {/* { isOpen && <LogoutModal/>} */}
+     <DashboardHeader/>
      <div className="flex p-3  mb-14">
         <Sidebar/>
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
@@ -117,23 +142,12 @@ const Dashboard = () => {
             <div className='mt-12'>
                 <h5 className='text-xl'>My Assignment</h5>
                 <div className='mt-4'>
-                   {courseData.slice(0,4).map((course)=>{
-                    return<div className='border border-lightgrey rounded p-2 flex  lg:flex-col md:flex-row flex-col  justify-between  mb-4  ' >
-                    <div className='flex items-center '>
-                        <img src={course.img} alt=""  className='w-[100px] h-[100px] '/>
-                        <div className='ml-4 items-center mt-6'>
-                          <header className=''>{course.name}</header>
-                          <div className='flex gap-9 mt-3'>
-                            <p className='text-lightergrey text-sm'>{course.time}</p>
-                            <p className='text-xs'>{course.finalGrade} <br /> <span className='text-[10px] text-lightergrey'>Final Grade</span></p>
-                          </div>
-                        </div>
-                    </div>
-                    <Link to='/assignmentqest' className='p-2 lg:ml-[60%] md:ml[60%] ml-[50%] md:mt-8'>{button}</Link>
-                </div>
-                   })}
-                   <button  
-                   className='bg-white text-purple border text-xl border-purple  text-center rounded-lg p-2 w-[109px] h-[46px]  relative float-right mt-8'>See more</button>
+                   {courseData.slice(0, visible).map(renderedData)}
+                   {visible < courseData.length && (
+                     <button  onClick={seeMore}
+                     className='bg-white text-purple border text-xl border-purple  text-center rounded-lg p-2 w-[109px] h-[46px]  relative float-right mt-8'>See more</button>
+                   )}
+                  
                 </div>
             </div>
             </div>
