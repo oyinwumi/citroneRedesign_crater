@@ -5,16 +5,12 @@ import {
   setLastName,
   setEmail,
   setMobileNo,
-  setPassword,
 } from '../../../apps/reducers/userReducer';
 import Logo from '../../../assets/logo.svg';
 import Person from '../../../assets/person-icon.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Call from '../../../assets/call-icon.svg';
-import Lock from '../../../assets/lock-icon.svg';
-import { Icon } from 'react-icons-kit';
-import { eye } from 'react-icons-kit/fa/eye';
-import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
+import ShowPassword from '../../ShowPassword';
 import Google from '../../../assets/logos_google-icon.svg';
 import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
 import { Link } from 'react-router-dom';
@@ -31,9 +27,7 @@ const PASSWORD_REGEX =
 const SIGNUP_URL = '/api/citrone/auth';
 
 const SignUp = () => {
-  const [passwordType, setPasswordType] = useState('password');
-  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
-
+  const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState(false);
@@ -48,7 +42,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
 
-  const { firstName, lastName, email, mobileNo, password } = state;
+  const { firstName, lastName, email, mobileNo } = state;
 
   useEffect(() => {
     setValidFirstName(firstName.length > 2);
@@ -113,17 +107,6 @@ const SignUp = () => {
       }
       console.log(error.response);
       console.log(`Error: ${error.message}`);
-    }
-  };
-
-  // Handle display/hiding of the password
-  const handleToggle = (e) => {
-    if (passwordType === 'password') {
-      setEyeIcon(eye);
-      setPasswordType('text');
-    } else {
-      setEyeIcon(eyeSlash);
-      setPasswordType('password');
     }
   };
 
@@ -229,22 +212,11 @@ const SignUp = () => {
                   Type in a valid mobile number
                 </p>
 
-                <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
-                  <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
-                  <input
-                    type={passwordType}
-                    placeholder='Enter your password'
-                    value={password}
-                    required
-                    onChange={(e) => dispatch(setPassword(e.target.value))}
-                    className='w-full px-3 placeholder:text-black focus: outline-0'
-                  />
-                  <Icon
-                    icon={eyeIcon}
-                    onClick={(e) => handleToggle(e)}
-                    className='mx-4 cursor-pointer'
-                  />
-                </div>
+                <ShowPassword
+                  placeHolder='Enter Password'
+                  password={password}
+                  setPassword={setPassword}
+                />
                 <p
                   className={
                     password && !validPassword ? 'instructions' : 'hide'
@@ -254,7 +226,12 @@ const SignUp = () => {
                   letters, a number and a special character ! @ # $ %.
                 </p>
 
-                <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
+                <ShowPassword
+                  placeHolder='Confirm Password'
+                  password={confirmPassword}
+                  setPassword={setConfirmPassword}
+                />
+                {/* <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
                   <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
                   <input
                     type={passwordType}
@@ -269,7 +246,7 @@ const SignUp = () => {
                     onClick={(e) => handleToggle(e)}
                     className='mx-4 cursor-pointer'
                   />
-                </div>
+                </div> */}
                 <p
                   className={
                     confirmPassword && !validConfirmPassword
