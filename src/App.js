@@ -29,6 +29,7 @@ import LogoutModal from './components/pages/ logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
 import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
 import SecuritySettings from './components/dashboard/pages/settings/SecuritySettings';
+import ResetPassword from './components/pages/authentication/ResetPassword';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -67,6 +68,7 @@ function App() {
         <Route path='/chat' element={<Chat />} />
         <Route path='/helpdesk' element={<HelpDesk />} />
         <Route path='/faq' element={<Faq />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
       </Routes>
     </div>
   );

@@ -29,6 +29,7 @@ const SIGNUP_URL = '/api/citrone/auth';
 const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -231,22 +232,6 @@ const SignUp = () => {
                   password={confirmPassword}
                   setPassword={setConfirmPassword}
                 />
-                {/* <div className='flex items-center bg-white border border-lightgrey mt-5 rounded overflow-hidden shadow'>
-                  <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
-                  <input
-                    type={passwordType}
-                    placeholder='Confirm your password'
-                    value={confirmPassword}
-                    required
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className='w-full px-3 placeholder:text-black focus: outline-0'
-                  />
-                  <Icon
-                    icon={eyeIcon}
-                    onClick={(e) => handleToggle(e)}
-                    className='mx-4 cursor-pointer'
-                  />
-                </div> */}
                 <p
                   className={
                     confirmPassword && !validConfirmPassword

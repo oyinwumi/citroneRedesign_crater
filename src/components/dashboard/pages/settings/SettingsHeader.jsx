@@ -5,6 +5,9 @@ const SettingsHeader = () => {
   const [activeAccount, setActiveAccount] = useState(true);
   const [activeSecurity, setActiveSecurity] = useState(false);
 
+  // if (Link === '/security') {
+  // }
+
   const handleToggle = (e) => {
     if (e.currentTarget.id === 'security') {
       setActiveSecurity(true);

@@ -23,7 +23,7 @@ const ShowPassword = ({ placeHolder, password, setPassword, isSettings }) => {
   return (
     <>
       {isSettings ? (
-        <div className='flex border overflow-hidden shadow bg-light rounded-lg'>
+        <div className='flex border bg-light rounded-lg overflow-hidden shadow'>
           <input
             type={passwordType}
             placeholder={placeHolder}
@@ -39,7 +39,7 @@ const ShowPassword = ({ placeHolder, password, setPassword, isSettings }) => {
           />
         </div>
       ) : (
-        <div className='flex border overflow-hidden shadow items-center bg-white border-lightgrey rounded mt-5'>
+        <div className='flex border items-center bg-white border-lightgrey rounded mt-5 overflow-hidden shadow '>
           <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
           <input
             type={passwordType}
