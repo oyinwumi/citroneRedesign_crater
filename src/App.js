@@ -9,6 +9,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import CoursePage from './components/pages/coursePage/Course';
 import ForgotPassword from './components/pages/authentication/ForgotPassword';
 import CourseCategory from './components/pages/coursePage/courseCategory/CourseCategory';
+// import ModuleOne from './components/pages/courseModule/ModuleOne';
+// import Quiz from './components/pages/courseModule/quiz/Quiz'
 import ModuleOne from './components/pages/courseModule/ModuleOne';
 import Quiz from './components/pages/quiz/Quiz.jsx';
 import Assignment from './components/pages/assignment/Assignment';
@@ -21,11 +23,15 @@ import Grade from './components/pages/assignment/Grade';
 import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
 import EditProfile from './components/dashboard/pages/profilePage/EditProfile';
 import Settings from './components/dashboard/pages/settings/Settings';
+import LiveSession from './components/pages/liveSession/LiveSession';
+import LiveSessionUserPage from './components/pages/liveSession/LiveSessionUserPage';
+
+
 import Chat from './components/pages/chat/Chat';
 import HelpDesk from './components/pages/helpdesk/HelpDesk';
 import Faq from './components/pages/helpdesk/Faq';
 import { useSelector } from 'react-redux';
-import LogoutModal from './components/pages/ logoutPage/LogoutModal';
+import LogoutModal from './components/pages/logoutPage/LogoutModal';
 import DashboardLandingPage from './components/dashboard/DashboardLandingPage';
 import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
 import SecuritySettings from './components/dashboard/pages/settings/SecuritySettings';
@@ -44,8 +50,8 @@ function App() {
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/course' element={<CoursePage />} />
         <Route path='/courses/:course_category' element={<CourseCategory />} />
-        <Route path='/moduleone' element={<ModuleOne />} />
-        <Route path='/quiz' element={<Quiz />} />
+        {/* <Route path='/moduleone' element={<ModuleOne />} />
+         <Route path='/quiz' element={<Quiz />} />  */}
         <Route path='/assignment' element={<Assignment />} />
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
@@ -58,6 +64,10 @@ function App() {
         <Route path='/editassignment' element={<EditAssignment />} />
         <Route path='/grade' element={<Grade />} />
         <Route exact path='/profile' element={<ProfilePage />} />
+          <Route exact path='/editProfile' element={<EditProfile />} />
+            <Route exact path='/settings' element={<Settings />} />
+            <Route exact path='/sessions' element={<LiveSession />} />
+            <Route exact path='/live-session-user-page' element={<LiveSessionUserPage/>}/>
         <Route exact path='/editProfile' element={<EditProfile />} />
         <Route exact path='/settings' element={<Settings />}>
           <Route index element={<AccountSettings />}></Route>

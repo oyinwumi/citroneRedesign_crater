@@ -9,7 +9,7 @@ import {
 import Logo from '../../../assets/logo.svg';
 import Mail from '../../../assets/mail-icon.svg';
 import Lock from '../../../assets/lock-icon.svg';
-import { Icon } from 'react-icons-kit';
+import { Icon }  from 'react-icons-kit';
 import { eye } from 'react-icons-kit/fa/eye';
 import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
 import Google from '../../../assets/logos_google-icon.svg';
