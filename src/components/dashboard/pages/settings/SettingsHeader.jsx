@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SettingsHeader = (props) => {
-  // const {}
+const SettingsHeader = () => {
   return (
     <div className='flex '>
       <div className='w-1/2 flex flex-col text-center'>
