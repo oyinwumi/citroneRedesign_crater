@@ -61,7 +61,7 @@ const LogIn = () => {
       // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
       setPassword('');
-      navigate('/dashboard');
+      navigate('/user/dashboard');
     } catch (error) {
       if (!error?.response) {
         setErrorMsg('No Server Response');
