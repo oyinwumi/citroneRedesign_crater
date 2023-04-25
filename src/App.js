@@ -48,8 +48,8 @@ function App() {
           <Route exact path='dashboard' element={<Dashboard />} />
           <Route path='course' element={<CoursePage />} />
           <Route path='courses/:course_category' element={<CourseCategory />} />
-          {/* <Route path='moduleone' element={<ModuleOne />} />
-         <Route path='quiz' element={<Quiz />} />  */}
+          <Route path='moduleone' element={<ModuleOne />} />
+         <Route path='quiz' element={<Quiz />} /> 
           {/* <Route path='/sidebar' element={<Sidebar />} /> */}
           <Route path='quizmodalone' element={<QuizModalOne />} />
           <Route path='grade' element={<Grade />} />
@@ -64,15 +64,15 @@ function App() {
             path='live-session-user-page'
             element={<LiveSessionUserPage />}
           />
-          <Route path='helpdesk' element={<HelpDesk />} />
+          {/* <Route path='helpdesk' element={<HelpDesk />} />
           <Route exact path='profile' element={<ProfilePage />} />
-          {/* <Route exact path='/editProfile' element={<EditProfile />} /> */}
+           <Route exact path='/editProfile' element={<EditProfile />} />
 
           <Route exact path='settings' element={<Settings />}>
             <Route index element={<AccountSettings />}></Route>
             <Route path='account' element={<AccountSettings />} />
             <Route path='security&safety' element={<SecuritySettings />} />
-          </Route>
+          </Route> */}
 
           <Route path='faq' element={<Faq />} />
         </Route>

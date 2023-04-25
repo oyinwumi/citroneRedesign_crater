@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setAuth } from '../../apps/reducers/userReducer';
-import Logo from '../../assets/logo.svg';
-import Mail from '../../assets/mail-icon.svg';
-import ShowPassword from '../ShowPassword';
-import Google from '../../assets/logos_google-icon.svg';
-import Facebook from '../../assets/grommet-icons_facebook-option.svg';
-import api from '../../api/axios';
+import {
+  setEmail,
+  setPassword,
+  setAuth,
+} from '../../../apps/reducers/userReducer';
+import Logo from '../../../assets/logo.svg';
+import Mail from '../../../assets/mail-icon.svg';
+import Lock from '../../../assets/lock-icon.svg';
+import { Icon } from 'react-icons-kit';
+import { eye } from 'react-icons-kit/fa/eye';
+import { eyeSlash } from 'react-icons-kit/fa/eyeSlash';
+import Google from '../../../assets/logos_google-icon.svg';
+import Facebook from '../../../assets/grommet-icons_facebook-option.svg';
+import api from '../../../api/axios';
 
 const LOGIN_URL = '/api/citrone/auth/login';
 
@@ -16,17 +23,18 @@ const LogIn = () => {
   const state = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
 
-  const { email, auth } = state;
-
-  const [password, setPassword] = useState('');
+  const { email, password, auth } = state;
   const [errorMsg, setErrorMsg] = useState('');
+
+  const [passwordType, setPasswordType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState(eyeSlash);
 
   // Clear out the error message once the user makes changes to the email or password
   useEffect(() => {
     setErrorMsg('');
   }, [email, password]);
 
-  // Function to check that the email and password exists
+  // Function to check if there are users in the database and also check that the email and password exists
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !password) {
@@ -36,11 +44,9 @@ const LogIn = () => {
     const user = { email, password };
 
     try {
-      const response = await api.post(
-        LOGIN_URL,
-        user,
-        // {headers: {'Content-Type': 'application/json'}, withCredentials : true}
-      );
+      const response = await api.post(LOGIN_URL, user 
+        {headers: {'Content-Type': 'application/json'}, withCredentials : true}
+        );
       // const response = await api.post(
       //   '/users',
       //   JSON.stringify({ email, password }),
@@ -51,7 +57,7 @@ const LogIn = () => {
       console.log(response.data);
       // console.log(response.data.role);
       // console.log(response.data.username);
-      // console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
       const role = response?.data?.role;
       const userName = response?.data?.username;
@@ -61,7 +67,7 @@ const LogIn = () => {
       // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
       setPassword('');
-      navigate('/user/dashboard');
+      navigate('/dashboard');
     } catch (error) {
       if (!error?.response) {
         setErrorMsg('No Server Response');
@@ -74,6 +80,17 @@ const LogIn = () => {
       }
       // console.log(error.response);
       console.log(`Error: ${error.message}`);
+    }
+  };
+
+  // Handle display/hiding of the password
+  const handleToggle = () => {
+    if (passwordType === 'password') {
+      setEyeIcon(eye);
+      setPasswordType('text');
+    } else {
+      setEyeIcon(eyeSlash);
+      setPasswordType('password');
     }
   };
 
@@ -104,11 +121,18 @@ const LogIn = () => {
               />
             </div>
 
-            <div>
-              <ShowPassword
-                placeHolder='Enter Password'
-                password={password}
-                setPassword={setPassword}
+            <div className='bg-white flex items-center mt-5 border border-pink rounded overflow-hidden shadow'>
+              <img src={Lock} alt='' className='bg-light px-3 py-3.5' />
+              <input
+                type={passwordType}
+                placeholder='Enter your password'
+                onChange={(e) => dispatch(setPassword(e.target.value))}
+                className='w-full pl-3 placeholder:text-black focus:outline-0'
+              />
+              <Icon
+                icon={eyeIcon}
+                onClick={handleToggle}
+                className='mx-4 cursor-pointer'
               />
             </div>
 

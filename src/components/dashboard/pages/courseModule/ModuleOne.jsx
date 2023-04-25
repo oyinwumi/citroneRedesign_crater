@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import moduleData from './moduleData.js';
 
 const ModuleOne = () => {
   return (
     <div className='  w-full'>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className='px-6  mb-14 overflow-x-hidden'>
           <div className='my-6'>
             <p className=' flex items-center '>
