@@ -1,14 +1,14 @@
 import React from 'react';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const Chat = () => {
   return (
     <div className='w-full'>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className='p-3 mt-8'>
           <h5 className='flex gap-3 items-center lg:text-[24px] md:text-xl text-xl mb-4'>
             <FaArrowLeft />

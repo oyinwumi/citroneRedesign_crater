@@ -19,7 +19,7 @@ const SettingsHeader = () => {
   };
 
   return (
-    <div className='flex '>
+    <div className='flex w-full '>
       <div
         className='w-1/2 flex flex-col text-center'
         id='account'

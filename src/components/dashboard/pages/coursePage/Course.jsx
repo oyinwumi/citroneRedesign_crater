@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import CourseImage from '../../../../assets/course.png';
 import Beginner from '../../../../assets/beginner.png';
 import Intermidiate from '../../../../assets/intermidiate.png';
@@ -9,9 +9,9 @@ import Simage from '../../../../assets/s-image.svg';
 const Course = () => {
   return (
     <div className='  w-full'>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
-        <Sidebar />
+        {/* <Sidebar /> */}
 
         <div className='flex flex-col w-full p-6'>
           <div>

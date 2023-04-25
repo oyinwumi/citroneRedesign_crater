@@ -1,6 +1,6 @@
 import React from 'react';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import beginnerCourse from '../coursePage/courseCategory/coursedata';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 const Scoreboard = () => {
   return (
     <div className=' w-full'>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
-        <Sidebar />
+        {/* <Sidebar /> */}
 
         <div className='w-full mx-6'>
           <h5 className='flex items-center mt-6  text-xl'>

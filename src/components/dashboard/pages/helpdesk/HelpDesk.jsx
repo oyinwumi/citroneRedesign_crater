@@ -1,15 +1,15 @@
 import React from 'react';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import Cuate from '../../../../assets/cuate.png';
 import HelpdeskModal from './HelpdeskModal';
 
 const HelpDesk = () => {
   return (
     <div className='w-full '>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3 '>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className='items-center w-full bg-gray h-[942px]  z-10 relative '>
           <HelpdeskModal />
           <div className='opacity-[50%]'>

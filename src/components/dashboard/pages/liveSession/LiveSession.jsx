@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Sidebar from '../../Sidebar';
-import CoursePageNav from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
+// import CoursePageNav from '../../DashboardHeader';
 import play from '../../../../assets/play.svg';
 import send from '../../../../assets/send.svg';
 import more from '../../../../assets/more.svg';
@@ -20,12 +20,10 @@ import '../liveSession/css/session.css';
 export default function LiveSession() {
   return (
     <>
-      <div>
-        <CoursePageNav />
-      </div>
+      <div>{/* <CoursePageNav /> */}</div>
 
       <div className='flex'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className='xl:flex gap-9 w-full p-5 font-font '>
           {/* videoframe */}
 

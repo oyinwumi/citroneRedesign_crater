@@ -15,7 +15,7 @@ const Layout = () => {
           <Sidebar />
         </div>
 
-        <div className='flex'>
+        <div className=' grow'>
           <Outlet />
         </div>
       </div>

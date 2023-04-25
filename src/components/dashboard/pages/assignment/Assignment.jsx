@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import beginnerCourse from '../coursePage/courseCategory/coursedata';
 
 const button = (
@@ -12,9 +12,9 @@ const button = (
 const Assignment = () => {
   return (
     <div className='w-full'>
-      <DashboardHeader />
-      <div className='flex p-3'>
-        <Sidebar />
+      {/* <DashboardHeader /> */}
+      <div className='flex  w-full p-3'>
+        {/* <Sidebar /> */}
         <div className='w-full px-6 '>
           <header className=' mt-6'>Modules</header>
           <div className='mt-6 w-full '>

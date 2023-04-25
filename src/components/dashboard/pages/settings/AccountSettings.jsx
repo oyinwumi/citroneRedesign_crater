@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AccountSettings = () => {
   return (
-    <div className='pb-[358px] pr-28 relative'>
+    <div className='pb-[358px] pr-28 pl-[136px] relative'>
       <div>
         <h3 className='text-3xl font-bold mb-1'>Your account</h3>
         <p className='text-2xl'>
