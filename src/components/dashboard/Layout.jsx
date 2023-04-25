@@ -10,12 +10,12 @@ const Layout = () => {
         <DashboardHeader />
       </div>
 
-      <div className='flex'>
+      <div className='w-full flex'>
         <div>
           <Sidebar />
         </div>
 
-        <div className=' grow'>
+        <div className='grow'>
           <Outlet />
         </div>
       </div>

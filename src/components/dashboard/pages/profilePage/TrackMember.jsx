@@ -4,7 +4,7 @@ import React from 'react';
 const TrackMember = (props) => {
   const { picture, name, username } = props;
   return (
-    <div className='flex justify-between items-center px-4 h-12 w-full mb-4'>
+    <div className='flex justify-between items-center px-4 h-12 w-full mb-6'>
       <div className='flex items-center'>
         <img src={require(`../../../../assets/${picture}`)} alt='' />
         <div className='flex flex-col ml-4'>
