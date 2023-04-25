@@ -1,6 +1,6 @@
 import React from 'react';
-import DashboardHeader from './pages/navigation/DashboardHeader';
-import Sidebar from './pages/navigation/Sidebar';
+import DashboardHeader from './DashboardHeader';
+import Sidebar from './Sidebar';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
