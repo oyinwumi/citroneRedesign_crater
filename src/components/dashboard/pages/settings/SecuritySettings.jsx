@@ -1,10 +1,14 @@
-import React from 'react';
-import eyeIcon from '../../../../assets/eye-icon.svg';
-import eyeSlashIcon from '../../../../assets/eyeSlash-icon.svg';
+import React, { useState } from 'react';
+import ShowPassword from '../../../ShowPassword';
 import leftChevron from '../../../../assets/chevron-left.svg';
 import { Link } from 'react-router-dom';
 
 const SecuritySettings = () => {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const isSettings = true;
+
   return (
     <div>
       <div>
@@ -14,44 +18,39 @@ const SecuritySettings = () => {
 
       <div className='mt-12'>
         <h2 className='text-3xl mb-1'>Current password</h2>
-        <div className='flex justify-between border bg-light rounded-lg overflow-hidden'>
-          <input
-            type='text'
-            placeholder='current password'
-            className='w-full p-3 bg-light text-2xl'
-          />
-          <img src={eyeIcon} alt='' className='p-3 bg-light' />
-        </div>
+        <ShowPassword
+          placeHolder='Current Password'
+          password={currentPassword}
+          setPassword={setCurrentPassword}
+          isSettings={isSettings}
+        />
       </div>
 
       <div className='mt-20'>
         <h2 className='text-3xl mb-1'>New password</h2>
-        <div className='flex justify-between border bg-light rounded-lg overflow-hidden'>
-          <input
-            type='text'
-            placeholder='new password'
-            className='w-full p-3 bg-light text-2xl'
-          />
-          <img src={eyeSlashIcon} alt='' className='p-3 bg-light' />
-        </div>
+        <ShowPassword
+          placeHolder='New Password'
+          password={newPassword}
+          setPassword={setNewPassword}
+          isSettings={isSettings}
+        />
       </div>
 
       <div className='mt-20'>
         <h2 className='text-3xl mb-1'>Confirm password</h2>
-        <div className='flex justify-between border bg-light rounded-lg overflow-hidden'>
-          <input
-            type='text'
-            placeholder='confirm new password'
-            className='w-full p-3 bg-light text-2xl'
-          />
-          <img src={eyeSlashIcon} alt='' className='p-3 bg-light ' />
-        </div>
+        <ShowPassword
+          placeHolder='Current Password'
+          password={confirmPassword}
+          setPassword={setConfirmPassword}
+          isSettings={isSettings}
+        />
       </div>
 
       <div className='flex justify-between my-20'>
         <button
           type='button'
-          className='bg-purple text-white text-2xl py-1 px-6 rounded-lg'>
+          className='bg-purple text-white text-2xl py-1 px-6 rounded-lg'
+        >
           Save changes
         </button>
 

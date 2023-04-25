@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SettingsHeader from './SettingsHeader';
 
@@ -9,7 +9,7 @@ const Settings = () => {
         <SettingsHeader />
       </div>
 
-      <div className='mt-20 pl-[136px]'></div>
+      <div className='w-full mt-20 '></div>
       <Outlet />
     </div>
   );
