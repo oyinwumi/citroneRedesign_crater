@@ -48,9 +48,9 @@ function App() {
           <Route exact path='dashboard' element={<Dashboard />} />
           <Route path='course' element={<CoursePage />} />
           <Route path='courses/:course_category' element={<CourseCategory />} />
-          {/* <Route path='moduleone' element={<ModuleOne />} />
+          <Route path='moduleone' element={<ModuleOne />} />
          <Route path='quiz' element={<Quiz />} />  */}
-          {/* <Route path='/sidebar' element={<Sidebar />} /> */}
+          {/* <Route path='/sidebar' element={<Sidebar />} />
           <Route path='quizmodalone' element={<QuizModalOne />} />
           <Route path='grade' element={<Grade />} />
           <Route path='assignment' element={<Assignment />} />
