@@ -39,7 +39,7 @@ const LogIn = () => {
       const response = await api.post(
         LOGIN_URL,
         user,
-        // {headers: {'Content-Type': 'application/json'}, withCredentials : true}
+        {headers: {'Content-Type': 'application/json'}, withCredentials : true}
       );
       // const response = await api.post(
       //   '/users',
