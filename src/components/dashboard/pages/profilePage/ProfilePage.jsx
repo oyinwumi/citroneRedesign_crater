@@ -1,6 +1,4 @@
 import React from 'react';
-// import DashboardHeader from '../navigation/DashboardHeader';
-// import Sidebar from '../navigation/Sidebar';
 import CurrentProfileView from './CurrentProfileView';
 import ProfileList from './ProfileList';
 
@@ -16,28 +14,6 @@ const ProfilePage = () => {
         <ProfileList />
       </div>
     </div>
-
-    // <div>
-    //   <div className='w-full'>
-    //     <DashboardHeader />
-    //   </div>
-
-    //   <div className='flex'>
-    //     <div className=''>
-    //       <Sidebar />
-    //     </div>
-
-    //     <div className='flex'>
-    //       <div className=''>
-    //         <CurrentProfileView />
-    //       </div>
-
-    //       <div className='h-full bg-lightpink w-[360px] rounded-lg my-4 mr-8'>
-    //         <ProfileList />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
