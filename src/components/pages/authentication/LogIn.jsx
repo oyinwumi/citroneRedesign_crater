@@ -104,11 +104,13 @@ const LogIn = () => {
               />
             </div>
 
-            <ShowPassword
-              placeHolder='Enter Password'
-              password={password}
-              setPassword={setPassword}
-            />
+            <div>
+              <ShowPassword
+                placeHolder='Enter Password'
+                password={password}
+                setPassword={setPassword}
+              />
+            </div>
 
             <div className='flex justify-between items-center mt-4'>
               <div className='flex items-center'>

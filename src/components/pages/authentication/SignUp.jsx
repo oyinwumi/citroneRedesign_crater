@@ -213,11 +213,13 @@ const SignUp = () => {
                   Type in a valid mobile number
                 </p>
 
-                <ShowPassword
-                  placeHolder='Enter Password'
-                  password={password}
-                  setPassword={setPassword}
-                />
+                <div>
+                  <ShowPassword
+                    placeHolder='Enter Password'
+                    password={password}
+                    setPassword={setPassword}
+                  />
+                </div>
                 <p
                   className={
                     password && !validPassword ? 'instructions' : 'hide'
@@ -227,11 +229,13 @@ const SignUp = () => {
                   letters, a number and a special character ! @ # $ %.
                 </p>
 
-                <ShowPassword
-                  placeHolder='Confirm Password'
-                  password={confirmPassword}
-                  setPassword={setConfirmPassword}
-                />
+                <div>
+                  <ShowPassword
+                    placeHolder='Confirm Password'
+                    password={confirmPassword}
+                    setPassword={setConfirmPassword}
+                  />
+                </div>
                 <p
                   className={
                     confirmPassword && !validConfirmPassword
