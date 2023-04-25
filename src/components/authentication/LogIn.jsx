@@ -48,7 +48,7 @@ const LogIn = () => {
       //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // }
-      // console.log(response.data);
+      console.log(response.data);
       // console.log(response.data.role);
       // console.log(response.data.username);
       // console.log(JSON.stringify(response?.data));
