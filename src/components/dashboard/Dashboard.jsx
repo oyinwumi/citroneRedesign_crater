@@ -12,7 +12,9 @@ import SmallGraph from '../../assets/smallgraph.svg';
 import Barchart from '../../assets/barchart.png'
 import recentActivity from '../dashboard/activity';
 import Blue from '../../assets/blue-square.svg';
-import Orange from '../../assets/orange-square.svg'
+import Orange from '../../assets/orange-square.svg';
+import { useSelector } from 'react-redux';
+import LogoutModal  from '../pages/logoutPage/LogoutModal'
 // import { useSelector } from 'react-redux';
 // import LogoutModal  from '../pages/ logoutPage/LogoutModal'
 
