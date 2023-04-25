@@ -38,8 +38,8 @@ const LogIn = () => {
     try {
       const response = await api.post(
         LOGIN_URL,
-        user
-        // {headers: {'Content-Type': 'application/json'}, withCredentials : true}
+        user,
+        {headers: {'Content-Type': 'application/json'}, withCredentials : true}
       );
       // const response = await api.post(
       //   '/users',
@@ -48,7 +48,7 @@ const LogIn = () => {
       //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // }
-      // console.log(response.data);
+      console.log(response.data);
       // console.log(response.data.role);
       // console.log(response.data.username);
       // console.log(JSON.stringify(response?.data));
