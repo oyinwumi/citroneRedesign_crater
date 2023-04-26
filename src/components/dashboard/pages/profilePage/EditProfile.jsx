@@ -21,10 +21,9 @@ const EditProfile = ({ setShowModal }) => {
       className='container fixed top-0 left-0 bottom-0 right-0 h-full flex justify-center items-center bg-grey/50
      '
       //min-h-screen mx-auto sm:flex sm:justify-center sm:items-center
-      onClick={closeModal}
-    >
+      onClick={closeModal}>
       <div
-        className='modal w-[708px] h-[710px] bg-white rounded-md relative'
+        className='modal w-[708px] h-screen pt-4 bg-white rounded-md relative'
         // shadow mx-auto pt-6
       >
         <span className='flex items-center ml-7'>
@@ -44,8 +43,7 @@ const EditProfile = ({ setShowModal }) => {
         <div className='flex justify-end'>
           <button
             type='button'
-            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'
-          >
+            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'>
             Upload Photo
           </button>
         </div>
@@ -85,15 +83,13 @@ const EditProfile = ({ setShowModal }) => {
             <div className='flex justify-end mt-10'>
               <button
                 type='button'
-                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '
-              >
+                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '>
                 Cancel
               </button>
               <Link to='/profiledata'>
                 <button
                   type='submit'
-                  className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'
-                >
+                  className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
                   Save Changes
                 </button>
               </Link>
