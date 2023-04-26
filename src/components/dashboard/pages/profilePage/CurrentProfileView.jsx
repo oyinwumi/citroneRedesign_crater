@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import EditProfile from './EditProfile';
 import arrowLeft from '../../../../assets/arrow-left.svg';
 import dashboardImg from '../../../../assets/dashboard-img.svg';
 import profileImg from '../../../../assets/user-image.svg';
@@ -7,6 +8,12 @@ import location from '../../../../assets/location-icon.svg';
 // This returns the view of the active (i.e clicked) user profile.
 // It is also a component of the ProfilePage.jsx
 const CurrentProfileView = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
   return (
     <div div className='container bg-white h-full pt-6 pb-[126px]'>
       <span className='flex items-center ml-7'>
@@ -20,11 +27,15 @@ const CurrentProfileView = () => {
           <img src={profileImg} alt='' className='absolute -bottom-16 left-7' />
         </div>
         <div className='flex justify-end'>
-          <button to='/editprofile'
+          <button
+            to='/editprofile'
             type='button'
-            className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'>
+            className='border border-purple rounded-lg py-2 px-4 mt-2 text-base text-purple'
+            onClick={openModal}
+          >
             Edit Profile
           </button>
+          {showModal ? <EditProfile setShowModal={setShowModal} /> : null}
         </div>
       </div>
 

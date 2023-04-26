@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import close from '../../../../assets/x-close.svg';
 import addImg from '../../../../assets/gallery-add.svg';
 
-const EditProfile = () => {
-  return (
-    <div className='body bg-grey bg-opacity-50 min-h-screen mx-auto sm:flex sm:justify-center sm:items-center'>
-      <div className='container w-[708px] h-[710px] bg-white shadow mx-auto pt-6 '>
+const EditProfile = ({ setShowModal }) => {
+  const modalRef = useRef();
+
+  //Close the modal when clicking outside the modal
+  const closeModal = (e) => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
+
+  //Render the modal component in the portal div
+  return ReactDOM.createPortal(
+    <div
+      ref={modalRef}
+      className='container fixed top-0 left-0 bottom-0 right-0 h-full flex justify-center items-center bg-grey/50
+     '
+      //min-h-screen mx-auto sm:flex sm:justify-center sm:items-center
+      onClick={closeModal}
+    >
+      <div
+        className='modal w-[708px] h-[710px] bg-white rounded-md relative'
+        // shadow mx-auto pt-6
+      >
         <span className='flex items-center ml-7'>
           <img src={close} alt='' />
           <span className='ml-3 text-xl font-bold'>Edit profile</span>
@@ -24,7 +44,8 @@ const EditProfile = () => {
         <div className='flex justify-end'>
           <button
             type='button'
-            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'>
+            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'
+          >
             Upload Photo
           </button>
         </div>
@@ -64,21 +85,24 @@ const EditProfile = () => {
             <div className='flex justify-end mt-10'>
               <button
                 type='button'
-                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '>
+                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '
+              >
                 Cancel
               </button>
               <Link to='/profiledata'>
                 <button
-                    type='submit'
-                    className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
-                    Save Changes
-                  </button>
-            </Link>
+                  type='submit'
+                  className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'
+                >
+                  Save Changes
+                </button>
+              </Link>
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById('portal')
   );
 };
 

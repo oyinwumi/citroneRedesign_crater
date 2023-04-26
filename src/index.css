@@ -63,3 +63,17 @@ body {
   position: absolute;
   left: -9999px;
 }
+
+/* In the EditProfile Component */
+.container .modal {
+  animation: animate 0.3s;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
