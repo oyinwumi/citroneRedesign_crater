@@ -6,7 +6,7 @@ import ProfileList from './ProfileList';
 const ProfilePage = () => {
   return (
     <div className='flex'>
-      <div className=''>
+      <div className='grow'>
         <CurrentProfileView />
       </div>
 

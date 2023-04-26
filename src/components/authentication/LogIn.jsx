@@ -36,18 +36,18 @@ const LogIn = () => {
     const user = { email, password };
 
     try {
-      const response = await api.post(
-        LOGIN_URL,
-        user,
-        {headers: {'Content-Type': 'application/json'}, withCredentials : true}
-      );
-      // const response = await api.post(
+      const response = await api.post(LOGIN_URL, user, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
+      // const response = await api.post( +
       //   '/users',
       //   JSON.stringify({ email, password }),
-      // {
-      //   headers: { 'Content-Type': 'application/json' },
-      //   withCredentials: true,
-      // }
+      //   {
+      //     headers: { 'Content-Type': 'application/json' },
+      //     withCredentials: true,
+      //   }
+      // );
       console.log(response.data);
       // console.log(response.data.role);
       // console.log(response.data.username);
@@ -62,6 +62,7 @@ const LogIn = () => {
       setEmail('');
       setPassword('');
       navigate('/user/dashboard');
+      // return <Navigate replace to='/login' />;
     } catch (error) {
       if (!error?.response) {
         setErrorMsg('No Server Response');
@@ -72,7 +73,7 @@ const LogIn = () => {
       } else {
         setErrorMsg('Login Failed');
       }
-      // console.log(error.response);
+      console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

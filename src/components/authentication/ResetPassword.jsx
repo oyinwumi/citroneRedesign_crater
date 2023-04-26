@@ -49,7 +49,7 @@ const ResetPassword = () => {
       } else {
         setErrorMsg(`Error: ${error.message}`);
       }
-      console.log('error.response');
+      console.log(error.response);
       console.log(`Error: ${error.message}`);
     }
   };

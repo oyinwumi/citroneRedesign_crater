@@ -54,7 +54,7 @@ const DashboardHeader = () => {
             </div>
           </div>
           <Link
-            to='/user/settings'
+            to='/user/settings/account'
             className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-4 md:ml-3 ml-3  cursor-pointer items-center text-center'
           >
             <FaRegSun />
