@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://citrone.vercel.app',
+  baseURL: 'https://citrone.vercel.app',
 });
 
 // export default axios.create({
