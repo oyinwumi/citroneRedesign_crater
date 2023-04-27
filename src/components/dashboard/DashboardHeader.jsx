@@ -44,7 +44,7 @@ const DashboardHeader = () => {
           <div className='flex flex-row items-center justify-center text-center'>
             <div className=' relative '>
               <Link
-                to='/user/notification'
+                to='/user/notifications'
                 className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
               >
                 <FaRegBell />{' '}
