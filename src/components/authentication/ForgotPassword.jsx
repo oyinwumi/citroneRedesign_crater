@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setEmail, setAuth } from '../../apps/reducers/userReducer';
 import Logo from '../../assets/logo.svg';
 import Mail from '../../assets/mail-icon.svg';
 import { Link } from 'react-router-dom';
@@ -9,10 +7,7 @@ import api from '../../api/axios';
 const FORGOTPASSWORD_URL = '/api/citrone/auth/forget-password';
 
 const ForgotPassword = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.userReducer);
-  const { email, auth } = state;
-
+  const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
@@ -23,11 +18,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     try {
       const response = await api.post(FORGOTPASSWORD_URL, { email });
-      // console.log(JSON.stringify(response?.data));
-      const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-      setAuth({ email, accessToken, roles });
-      console.log(`AUTH: ${auth}`);
+      console.log(JSON.stringify(response?.data));
       setEmail('');
     } catch (error) {
       if (!error?.response) {
@@ -67,7 +58,7 @@ const ForgotPassword = () => {
               <input
                 type='text'
                 placeholder='Enter your email'
-                onChange={(e) => dispatch(setEmail(e.target.value))}
+                onChange={(e) => setEmail(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus: outline-0'
               />
             </div>

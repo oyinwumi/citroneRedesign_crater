@@ -1,11 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  setFirstName,
-  setLastName,
-  setEmail,
-  setMobileNo,
-} from '../../apps/reducers/userReducer';
 import Logo from '../../assets/logo.svg';
 import Person from '../../assets/person-icon.svg';
 import Mail from '../../assets/mail-icon.svg';
@@ -27,23 +20,26 @@ const PASSWORD_REGEX =
 const SIGNUP_URL = '/api/citrone/auth';
 
 const SignUp = () => {
+  const [firstName, setFirstName] = useState('');
+  const [validFirstName, setValidFirstName] = useState(false);
+
+  const [lastName, setLastName] = useState('');
+  const [validLastName, setValidLastName] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(false);
+
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [validPhoneNumber, setValidPhoneNumber] = useState(false);
+
   const [password, setPassword] = useState('');
+  const [validPassword, setValidPassword] = useState(false);
+
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [validConfirmPassword, setValidConfirmPassword] = useState(false);
 
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState(false);
-
-  const [validFirstName, setValidFirstName] = useState(false);
-  const [validLastName, setValidLastName] = useState(false);
-  const [validEmail, setValidEmail] = useState(false);
-  const [validMobileNo, setValidMobileNo] = useState(false);
-  const [validPassword, setValidPassword] = useState(false);
-  const [validConfirmPassword, setValidConfirmPassword] = useState(false);
-
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.userReducer);
-
-  const { firstName, lastName, email, mobileNo } = state;
 
   useEffect(() => {
     setValidFirstName(firstName.length > 2);
@@ -58,8 +54,8 @@ const SignUp = () => {
   }, [email]);
 
   useEffect(() => {
-    setValidMobileNo(PHONE_REGEX.test(mobileNo));
-  }, [mobileNo]);
+    setValidPhoneNumber(PHONE_REGEX.test(phoneNumber));
+  }, [phoneNumber]);
 
   useEffect(() => {
     setValidPassword(PASSWORD_REGEX.test(password));
@@ -72,7 +68,7 @@ const SignUp = () => {
       !validFirstName ||
       !validLastName ||
       !validEmail ||
-      !validMobileNo ||
+      !validPhoneNumber ||
       !validPassword ||
       !validConfirmPassword
     ) {
@@ -84,7 +80,7 @@ const SignUp = () => {
       firstName,
       lastName,
       email,
-      phoneNumber: mobileNo,
+      phoneNumber,
       password,
     };
     try {
@@ -94,7 +90,7 @@ const SignUp = () => {
       setFirstName('');
       setLastName('');
       setEmail('');
-      setMobileNo('');
+      setPhoneNumber('');
       setPassword('');
     } catch (error) {
       if (!error?.response) {
@@ -143,7 +139,7 @@ const SignUp = () => {
                       value={firstName}
                       autoComplete='on'
                       required
-                      onChange={(e) => dispatch(setFirstName(e.target.value))}
+                      onChange={(e) => setFirstName(e.target.value)}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
                     />
                   </div>
@@ -156,7 +152,7 @@ const SignUp = () => {
                       value={lastName}
                       autoComplete='on'
                       required
-                      onChange={(e) => dispatch(setLastName(e.target.value))}
+                      onChange={(e) => setLastName(e.target.value)}
                       className='w-full px-3 placeholder:text-black focus: outline-0'
                     />
                   </div>
@@ -185,7 +181,7 @@ const SignUp = () => {
                     value={email}
                     autoComplete='on'
                     required
-                    onChange={(e) => dispatch(setEmail(e.target.value))}
+                    onChange={(e) => setEmail(e.target.value)}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
                 </div>
@@ -198,16 +194,16 @@ const SignUp = () => {
                   <input
                     type='text'
                     placeholder='Enter your phone number'
-                    value={mobileNo}
+                    value={phoneNumber}
                     autoComplete='on'
                     required
-                    onChange={(e) => dispatch(setMobileNo(e.target.value))}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     className='w-full px-3 placeholder:text-black focus: outline-0'
                   />
                 </div>
                 <p
                   className={
-                    mobileNo && !validMobileNo ? 'instructions' : 'hide'
+                    phoneNumber && !validPhoneNumber ? 'instructions' : 'hide'
                   }
                 >
                   Type in a valid mobile number

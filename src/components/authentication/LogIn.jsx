@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setEmail, setAuth } from '../../apps/reducers/userReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuth } from '../../apps/reducers/userReducer';
 import Logo from '../../assets/logo.svg';
 import Mail from '../../assets/mail-icon.svg';
 import ShowPassword from '../ShowPassword';
@@ -14,10 +14,11 @@ const LOGIN_URL = '/api/citrone/auth/login';
 const LogIn = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
+  const { auth } = state;
+
   const navigate = useNavigate();
 
-  const { email, auth } = state;
-
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -49,14 +50,23 @@ const LogIn = () => {
       //   }
       // );
       console.log(response.data);
-      // console.log(response.data.role);
+      // console.log(response.data.firstName);
+      // console.log(response.data.lastName);
+      // console.log(response.data.email);
       // console.log(response.data.username);
+      // console.log(response.data.role);
+      // console.log(response.data.accessToken);
       // console.log(JSON.stringify(response?.data));
-      const accessToken = response?.data?.accessToken;
-      const role = response?.data?.role;
+      const firstName = response?.data?.firstName;
+      const lastName = response?.data?.lastName;
+      const email = response?.data?.email;
       const userName = response?.data?.username;
+      const role = response?.data?.role;
+      const accessToken = response?.data?.accessToken;
       const details = { email, password, userName, role, accessToken };
-      setAuth({ email, password, userName, role, accessToken });
+      dispatch(
+        setAuth({ firstName, lastName, email, userName, role, accessToken })
+      );
       // console.log(`AUTH: ${JSON.stringify(auth)}`);
       // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
@@ -99,8 +109,9 @@ const LogIn = () => {
               <img src={Mail} alt='' className='bg-light px-3 py-3.5' />
               <input
                 type='text'
+                value={email}
                 placeholder='Enter your email'
-                onChange={(e) => dispatch(setEmail(e.target.value))}
+                onChange={(e) => setEmail(e.target.value)}
                 className='w-full px-3 placeholder:text-black focus:outline-0'
               />
             </div>
