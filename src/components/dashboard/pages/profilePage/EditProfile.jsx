@@ -17,7 +17,6 @@ const EditProfile = ({ setShowModal }) => {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.userReducer);
-
   const { userName, email, phoneNumber } = state;
 
   //Close the modal when clicking outside the modal
