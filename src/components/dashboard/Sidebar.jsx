@@ -65,7 +65,7 @@ const Sidebar = () => {
       {/* { isOpenFour && <LogoutModal/>} */}
       <div
         className={`lg:pt-10 lg:border-r pl-3 md:border-r-none border-r-none border-pink h-full p lg:block md:hidden hidden transition-all ${
-          open ? 'lg:w-[300px]' : 'lg:w-20'
+          open ? 'lg:w-[245px]' : 'lg:w-20'
         }`}
       >
         <div className='bg-white '>

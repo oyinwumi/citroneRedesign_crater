@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SettingsHeader = () => {
-  const [activeAccount, setActiveAccount] = useState(true);
-  const [activeSecurity, setActiveSecurity] = useState(false);
-
-  // if (Link === '/security') {
-  // }
+  const [isAccount, setIsAccount] = useState(true);
+  const [isSecurity, setIsSecurity] = useState(false);
 
   const handleToggle = (e) => {
     if (e.currentTarget.id === 'security') {
-      setActiveSecurity(true);
-      setActiveAccount(false);
+      setIsSecurity(true);
+      setIsAccount(false);
     } else if (e.currentTarget.id === 'account') {
-      setActiveAccount(true);
-      setActiveSecurity(false);
+      setIsAccount(true);
+      setIsSecurity(false);
     }
   };
 
@@ -29,7 +26,7 @@ const SettingsHeader = () => {
           <h4 className='text-2xl font-bold'>Your account</h4>
           <div
             className={`h-4 border border-pink rounded-full ${
-              activeAccount ? 'bg-purple' : 'bg-light'
+              isAccount ? 'bg-purple' : 'bg-light'
             }`}
           ></div>
         </Link>
@@ -44,7 +41,7 @@ const SettingsHeader = () => {
           <h4 className='text-2xl font-bold'>Security & Safety</h4>
           <div
             className={`h-4  border border-pink rounded-full ${
-              activeSecurity ? 'bg-purple' : 'bg-light'
+              isSecurity ? 'bg-purple' : 'bg-light'
             }`}
           ></div>
         </Link>

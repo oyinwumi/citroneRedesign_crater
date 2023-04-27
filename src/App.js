@@ -23,12 +23,14 @@ import LiveSessionUserPage from './components/dashboard/pages/liveSession/LiveSe
 import HelpDesk from './components/dashboard/pages/helpdesk/HelpDesk';
 import Faq from './components/dashboard/pages/helpdesk/Faq';
 import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
-// import EditProfile from './components/dashboard/pages/profilePage/EditProfile';
 import Settings from './components/dashboard/pages/settings/Settings';
 import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
 import SecuritySettings from './components/dashboard/pages/settings/SecuritySettings';
 import { useSelector } from 'react-redux';
 import LogoutModal from './components/dashboard/pages/logoutPage/LogoutModal';
+import Notifications from './components/dashboard/pages/notification/Notifications';
+import AllNotifications from './components/dashboard/pages/notification/AllNotifications';
+import UnreadNotifications from './components/dashboard/pages/notification/UnreadNotifications';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -50,7 +52,6 @@ function App() {
           <Route path='courses/:course_category' element={<CourseCategory />} />
           <Route path='moduleone' element={<ModuleOne />} />
           <Route path='quiz' element={<Quiz />} />
-          {/* <Route path='/sidebar' element={<Sidebar />} /> */}
           <Route path='quizmodalone' element={<QuizModalOne />} />
           <Route path='grade' element={<Grade />} />
           <Route path='assignment' element={<Assignment />} />
@@ -66,12 +67,17 @@ function App() {
           />
           <Route path='helpdesk' element={<HelpDesk />} />
           <Route exact path='profile' element={<ProfilePage />} />
-          {/* <Route exact path='/editProfile' element={<EditProfile />} /> */}
 
           <Route exact path='settings' element={<Settings />}>
             <Route index element={<AccountSettings />}></Route>
             <Route path='account' element={<AccountSettings />} />
             <Route path='security&safety' element={<SecuritySettings />} />
+          </Route>
+
+          <Route exact path='notifications' element={<Notifications />}>
+            <Route index element={<UnreadNotifications />}></Route>
+            <Route path='unread' element={<UnreadNotifications />} />
+            <Route path='all' element={<AllNotifications />} />
           </Route>
 
           <Route path='faq' element={<Faq />} />
