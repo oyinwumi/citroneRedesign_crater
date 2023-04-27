@@ -3,8 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   firstName: '',
   lastName: '',
-  email: '',
-  mobileNo: '',
+  email: 'hadizaabdulazeez@gmail.com',
+  userName: '@haddy',
+  phoneNumber: '234567899900',
+  profileImg: '',
+  backgroundImg: '',
   auth: {},
 };
 
@@ -21,8 +24,17 @@ const userReducer = createSlice({
     setEmail(state, action) {
       state.email = action.payload;
     },
-    setMobileNo(state, action) {
-      state.mobileNo = action.payload;
+    setUserName(state, action) {
+      state.userName = action.payload;
+    },
+    setPhoneNumber(state, action) {
+      state.phoneNumber = action.payload;
+    },
+    setProfileImg(state, action) {
+      state.profileImg = action.payload;
+    },
+    setBackgroundImg(state, action) {
+      state.backgroundImg = action.payload;
     },
     setAuth(state, action) {
       state.auth = action.payload;
@@ -30,7 +42,15 @@ const userReducer = createSlice({
   },
 });
 
-export const { setFirstName, setLastName, setEmail, setMobileNo, setAuth } =
-  userReducer.actions;
+export const {
+  setFirstName,
+  setLastName,
+  setEmail,
+  setUserName,
+  setPhoneNumber,
+  setProfileImg,
+  setBackgroundImg,
+  setAuth,
+} = userReducer.actions;
 
 export default userReducer.reducer;

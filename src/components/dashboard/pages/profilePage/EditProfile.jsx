@@ -1,11 +1,24 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setUserName,
+  setEmail,
+  setPhoneNumber,
+  // setProfileImg,
+  // setBackgroundImg,
+} from '../../../../apps/reducers/userReducer';
 import close from '../../../../assets/x-close.svg';
 import addImg from '../../../../assets/gallery-add.svg';
 
 const EditProfile = ({ setShowModal }) => {
   const modalRef = useRef();
+
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userReducer);
+
+  const { userName, email, phoneNumber } = state;
 
   //Close the modal when clicking outside the modal
   const closeModal = (e) => {
@@ -18,16 +31,19 @@ const EditProfile = ({ setShowModal }) => {
   return ReactDOM.createPortal(
     <div
       ref={modalRef}
-      className='container fixed top-0 left-0 bottom-0 right-0 h-full flex justify-center items-center bg-grey/50
+      className='z-[1] fixed top-0 left-0 bottom-0 right-0 min-h-screen flex flex-col justify-center items-center bg-grey/50
      '
-      //min-h-screen mx-auto sm:flex sm:justify-center sm:items-center
-      onClick={closeModal}>
-      <div
-        className='modal w-[708px] h-screen pt-4 bg-white rounded-md relative'
-        // shadow mx-auto pt-6
-      >
+      // sm:flex sm:justify-center sm:items-center
+      onClick={closeModal}
+    >
+      <div className='modal w-[708px] h-[710px] pt-6 bg-white mx-auto rounded-md relative'>
         <span className='flex items-center ml-7'>
-          <img src={close} alt='' />
+          <img
+            src={close}
+            alt=''
+            className='cursor-pointer'
+            onClick={() => setShowModal(false)}
+          />
           <span className='ml-3 text-xl font-bold'>Edit profile</span>
         </span>
 
@@ -43,7 +59,8 @@ const EditProfile = ({ setShowModal }) => {
         <div className='flex justify-end'>
           <button
             type='button'
-            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'>
+            className='border border-purple rounded-lg py-2 px-4 mt-2 mr-4 text-base font-bold text-purple'
+          >
             Upload Photo
           </button>
         </div>
@@ -54,8 +71,8 @@ const EditProfile = ({ setShowModal }) => {
               <label htmlFor='username'>Username</label>
               <input
                 type='text'
-                value=''
-                placeholder='@haddy'
+                value={userName}
+                onChange={(e) => dispatch(setUserName(e.target.value))}
                 className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
@@ -64,8 +81,8 @@ const EditProfile = ({ setShowModal }) => {
               <label htmlFor='email'>Email Address</label>
               <input
                 type='text'
-                value=''
-                placeholder='hadizaabdulazeez@gmail.com'
+                value={email}
+                onChange={(e) => dispatch(setEmail(e.target.value))}
                 className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
@@ -75,21 +92,24 @@ const EditProfile = ({ setShowModal }) => {
               </label>
               <input
                 type='text'
-                value=''
-                placeholder='+234567899900'
+                value={phoneNumber}
+                onChange={(e) => dispatch(setPhoneNumber(e.target.value))}
                 className='block bg-verylightgrey w-full p-3 mt-2 border border-pink rounded outline-0 shadow'
               />
             </div>
             <div className='flex justify-end mt-10'>
               <button
                 type='button'
-                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '>
+                className='text-purple border border-purple text-base font-bold  rounded-lg py-2 px-4 mr-6 '
+                onClick={() => setShowModal(false)}
+              >
                 Cancel
               </button>
               <Link to='/profiledata'>
                 <button
                   type='submit'
-                  className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'>
+                  className='text-white bg-purple text-base font-bold py-2 px-4 rounded-lg'
+                >
                   Save Changes
                 </button>
               </Link>
