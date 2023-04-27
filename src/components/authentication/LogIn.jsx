@@ -63,10 +63,10 @@ const LogIn = () => {
       const userName = response?.data?.username;
       const role = response?.data?.role;
       const accessToken = response?.data?.accessToken;
+      const role = response?.data?.role;
+      const userName = response?.data?.username;
       const details = { email, password, userName, role, accessToken };
-      dispatch(
-        setAuth({ firstName, lastName, email, userName, role, accessToken })
-      );
+      setAuth({ email, password, userName, role, accessToken });
       // console.log(`AUTH: ${JSON.stringify(auth)}`);
       // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');

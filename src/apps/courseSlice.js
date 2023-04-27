@@ -28,23 +28,38 @@ const courseSlice = createSlice({
     name: 'course',
     initialState,
     reducers:{
-        setCourse : (state ) =>{
+        setCourse : (state, action) =>{
             state.courses = [];
         }
 
     },
-    extraReducers: {
-        [getCourses.pending]: (state) =>{
-            state.isLoading = true;
-        },
-        [getCourses.fulfilled]: (state ,action) =>{
+    // extraReducers: {
+    //     [getCourses.pending]: (state) =>{
+    //         state.isLoading = true;
+    //     },
+    //     [getCourses.fulfilled]: (state ,action) =>{
+    //         state.isLoading = false;
+    //         state.getCourses = action.payload;
+    //     },
+    //     [getCourses.rejected]: (state) =>{
+    //         state.isLoading =false
+    //     }
+    // }
+    extraReducers: builder => {
+        builder
+          .addCase('getCourses.pending', state => {
+            state.isLoading  = true;
+          });
+          builder.addCase('getCourses.fulfilled',  state =>{
             state.isLoading = false;
-            state.getCourses = action.payload;
-        },
-        [getCourses.rejected]: (state) =>{
-            state.isLoading =false
-        }
-    }
+            console.log(setCourse());
+            return setCourse 
+          });
+          builder.addCase('getCourses.rejected',  state =>{
+            state.isLoading = false;
+        
+          })
+      },
 })
 
 export const { setCourse} = courseSlice.actions;
