@@ -43,41 +43,48 @@ function App() {
         <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/login' element={<LogIn />} />
         <Route exact path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route exact path='/reset-password' element={<ResetPassword />} />
 
-        <Route path='/user' element={<Layout />}>
-          <Route index element={<Dashboard />}></Route>
+        <Route path='/' element={<Layout />}>
           <Route exact path='dashboard' element={<Dashboard />} />
-          <Route path='course' element={<CoursePage />} />
-          <Route path='courses/:course_category' element={<CourseCategory />} />
-          <Route path='moduleone' element={<ModuleOne />} />
-          <Route path='quiz' element={<Quiz />} />
-          <Route path='quizmodalone' element={<QuizModalOne />} />
-          <Route path='grade' element={<Grade />} />
-          <Route path='assignment' element={<Assignment />} />
-          <Route path='assignmentqest' element={<AssignmentQest />} />
-          <Route path='editassignment' element={<EditAssignment />} />
-          <Route path='chat' element={<Chat />} />
-          <Route path='scoreboard' element={<Scoreboard />} />
+          <Route exact path='course' element={<CoursePage />} />
+          <Route
+            exact
+            path='courses/:course_category'
+            element={<CourseCategory />}
+          />
+          <Route exact path='moduleone' element={<ModuleOne />} />
+          <Route exact path='quiz' element={<Quiz />} />
+          <Route exact path='quizmodalone' element={<QuizModalOne />} />
+          <Route exact path='grade' element={<Grade />} />
+          <Route exact path='assignment' element={<Assignment />} />
+          <Route exact path='assignmentqest' element={<AssignmentQest />} />
+          <Route exact path='editassignment' element={<EditAssignment />} />
+          <Route exact path='chat' element={<Chat />} />
+          <Route exact path='scoreboard' element={<Scoreboard />} />
           <Route exact path='sessions' element={<LiveSession />} />
           <Route
             exact
             path='live-session-user-page'
             element={<LiveSessionUserPage />}
           />
-          <Route path='helpdesk' element={<HelpDesk />} />
+          <Route exact path='helpdesk' element={<HelpDesk />} />
           <Route exact path='profile' element={<ProfilePage />} />
 
           <Route exact path='settings' element={<Settings />}>
             <Route index element={<AccountSettings />}></Route>
-            <Route path='account' element={<AccountSettings />} />
-            <Route path='security&safety' element={<SecuritySettings />} />
+            <Route exact path='account' element={<AccountSettings />} />
+            <Route
+              exact
+              path='security&safety'
+              element={<SecuritySettings />}
+            />
           </Route>
 
           <Route exact path='notifications' element={<Notifications />}>
             <Route index element={<UnreadNotifications />}></Route>
-            <Route path='unread' element={<UnreadNotifications />} />
-            <Route path='all' element={<AllNotifications />} />
+            <Route exact path='unread' element={<UnreadNotifications />} />
+            <Route exact path='all' element={<AllNotifications />} />
           </Route>
 
           <Route path='faq' element={<Faq />} />

@@ -24,37 +24,37 @@ const Sidebar = () => {
   };
   const menu = [
     {
-      path: '/user/dashboard',
+      path: '/dashboard',
       name: 'Dashboard',
       icon: <img src={DashboardIcon} alt={DashboardIcon} />,
     },
     {
-      path: '/user/course',
+      path: '/course',
       name: 'Course',
       icon: <img src={Book} alt={Book} />,
     },
     {
-      path: '/user/assignment',
+      path: '/assignment',
       name: 'Assignment',
       icon: <img src={Note} alt={Note} className='w-[24px]' />,
     },
     {
-      path: '/user/chat',
+      path: '/chat',
       name: 'Chat',
       icon: <img src={Chat} alt={Chat} />,
     },
     {
-      path: '/user/scoreboard',
+      path: '/scoreboard',
       name: 'Scoreboard',
       icon: <img src={Award} alt={Award} />,
     },
     {
-      path: '/user/sessions',
+      path: '/sessions',
       name: 'Sessions',
       icon: <img src={Video} alt={Video} />,
     },
     {
-      path: '/user/helpdesk',
+      path: '/helpdesk',
       name: 'Help Desk',
       icon: <img src={Support} alt={Support} />,
     },
