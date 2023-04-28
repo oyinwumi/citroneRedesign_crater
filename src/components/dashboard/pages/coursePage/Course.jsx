@@ -6,12 +6,6 @@ import Beginner from '../../../../assets/beginner.png';
 import Intermidiate from '../../../../assets/intermidiate.png';
 import Simage from '../../../../assets/s-image.svg';
 
-const courseLevel = [
-  { image: Beginner , descrption:'1.3 UI/UX Design', level: 'Beginner Level' , link: '/user/'},
-  { image: Intermidiate , descrption:'1.3 UI/UX Design', level: 'Intermediate Level', link: '/user/'},
-]
-
-
 const Course = () => {
   return (
     <div className='  w-full'>
@@ -68,23 +62,20 @@ const Course = () => {
               Levels
             </header>
             <div className='flex lg:flex-row md:flex-col flex-col '>
-              {courseLevel.map((level)=>{
-                 return <Link to='/user/courses/:course_category' className='lg:w-1/2'>
-                 <img src={level.image} alt={level.image} className=' w-full' />
-                 <div className='ml-6'>
-                   <p className='mt-2'>{level.level}</p>
-                   <p className='mt-4 '>{level.descrption}</p>
-                 </div>
-               </Link>
-              })}
-         
-              {/* <Link to='/courses/intermediate' className='lg:w-1/2'>
+              <Link to='/courses/beginner' className='lg:w-1/2'>
+                <img src={Beginner} alt={Beginner} className=' w-full' />
+                <div className='ml-6'>
+                  <p className='mt-2'>Beginner Level</p>
+                  <p className='mt-4 '>1.3 UI/UX Design</p>
+                </div>
+              </Link>
+              <Link to='/courses/intermediate' className='lg:w-1/2'>
                 <img src={Intermidiate} alt={Intermidiate} className='w-full' />
                 <div className='ml-6'>
                   <p className='mt-2'>Intermediate Level</p>
                   <p className='mt-4'>1.3 UI/UX Design</p>
                 </div>
-              </Link> */}
+              </Link>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const courseData = [
     img: ModuleOne,
     header: 'Module 1',
     text: 'Introduction to Product Design Beginner',
-    link: '/user/moduleone',
+    link: '/moduleone',
     name: 'Module 1: Assignment 1',
     date: 'Due Date: 25th Dec 2022',
     time: 'Today , 7:19am',

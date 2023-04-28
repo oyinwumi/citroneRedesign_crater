@@ -34,7 +34,7 @@ const Assignment = () => {
                       <p className='text-extralight'>{course.date}</p>
                     </div>
                   </div>
-                  <Link to='/user/assignmentqest' className='p-2'>
+                  <Link to='/assignmentqest' className='p-2'>
                     {button}
                   </Link>
                 </div>
