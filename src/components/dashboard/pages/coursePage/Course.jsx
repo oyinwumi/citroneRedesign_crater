@@ -7,8 +7,8 @@ import Intermidiate from '../../../../assets/intermidiate.png';
 import Simage from '../../../../assets/s-image.svg';
 
 const courseLevel = [
-  { image: Beginner , descrption:'1.3 UI/UX Design', level: 'Beginner Level'},
-  { image: Intermidiate , descrption:'1.3 UI/UX Design', level: 'Intermediate Level'},
+  { image: Beginner , descrption:'1.3 UI/UX Design', level: 'Beginner Level' , link: '/user/'},
+  { image: Intermidiate , descrption:'1.3 UI/UX Design', level: 'Intermediate Level', link: '/user/'},
 ]
 
 
@@ -69,7 +69,7 @@ const Course = () => {
             </header>
             <div className='flex lg:flex-row md:flex-col flex-col '>
               {courseLevel.map((level)=>{
-                 return <Link to='/courses/beginner' className='lg:w-1/2'>
+                 return <Link to='/user/courses/:course_category' className='lg:w-1/2'>
                  <img src={level.image} alt={level.image} className=' w-full' />
                  <div className='ml-6'>
                    <p className='mt-2'>{level.level}</p>

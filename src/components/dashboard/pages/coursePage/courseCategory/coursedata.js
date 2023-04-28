@@ -5,7 +5,7 @@ import ModuleFour from '../../../../../assets/module-four.png';
 import ModuleFive from '../../../../../assets/module-five.png';
 import ModuleSix from '../../../../../assets/module-six.png';
 import ModuleSeven from '../../../../../assets/module-seven.png';
-import ModuleEight from '../../../../../assets/module-eight.png';
+import ModuleEight from '../../../../../assets/module-eight.png'
 
 const courseData = [
   {
@@ -14,7 +14,7 @@ const courseData = [
     img: ModuleOne,
     header: 'Module 1',
     text: 'Introduction to Product Design Beginner',
-    link: '/moduleone',
+    link: '/user/moduleone',
     name: 'Module 1: Assignment 1',
     date: 'Due Date: 25th Dec 2022',
     time: 'Today , 7:19am',
