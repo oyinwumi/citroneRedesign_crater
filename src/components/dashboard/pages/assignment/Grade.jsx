@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
 import Smile from '../../../../assets/smile.svg';
 import Send from '../../../../assets/sendicon.svg';
 
 const Grade = () => {
   return (
     <div className='w-full h-full relative'>
-      <DashboardHeader />
       <div className='flex p-3'>
-        <Sidebar />
         <div className='w-full px-6 '>
           <div className='my-6'>
             <p className=' flex items-center text-center '>
