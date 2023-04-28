@@ -20,6 +20,8 @@ import {
   setIsAccount,
   setIsSecurity,
 } from '../../apps/reducers/userReducer';
+import Popup from 'reactjs-popup';
+import ProfilePopUp from './pages/profilePage/ProfilePopUp';
 
 const DashboardHeader = () => {
   const [open, setOpen] = useState(false);
@@ -37,7 +39,7 @@ const DashboardHeader = () => {
 
   return (
     <div className='border-b border-pink py-2 shadow'>
-      <nav className='flex justify-between h-[88px] items-center  px-6 py-4 '>
+      <nav className='flex justify-between h-[88px] items-center px-8 py-4 '>
         <div className=''>
           <Link to='/'>
             <img
@@ -59,18 +61,18 @@ const DashboardHeader = () => {
         </div>
         <div className=''>
           <div className='flex flex-row items-center justify-center text-center'>
-            <div className=' relative '>
+            <div className=''>
               <Link
                 to='/notifications'
-                className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
+                className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 relative cursor-pointer'
                 onClick={handleNotificationsSwitch}
               >
                 <FaRegBell />{' '}
+                <div className='w-4 h-4 rounded-full border  text-center absolute -top-2 left-2 bg-lightpurple'>
+                  {' '}
+                  <p className='text-xs text-purple'>0</p>
+                </div>
               </Link>
-              <div className='w-4 h-4 rounded-full border  text-center absolute bottom-4 left-5 bg-lightpurple'>
-                {' '}
-                <p className='text-xs text-purple'>0</p>
-              </div>
             </div>
             <Link
               to='/settings'
@@ -79,23 +81,30 @@ const DashboardHeader = () => {
             >
               <FaRegSun />
             </Link>
-            <Link
-              to='/profile'
-              className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'
-            >
-              <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
-                <img
-                  src={ProfileImage}
-                  alt={ProfileImage}
-                  className=' lg:ml-0 md:ml-3 ml-3  '
-                />
-                <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0'></span>
-              </div>
-              <div className='lg:flex md:hidden hidden  lg:flex-col lg:ml-2 md:ml-0 ml-0 items-start'>
-                <header className='text-xs '>User Fullname</header>
-                <p className='text-xs '>online</p>
-              </div>
-            </Link>
+
+            {/* This is the popup for the profile */}
+            <div className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 relative'>
+              <Popup
+                trigger={
+                  <div className='items-center lg:mb-0 md:mb-4 mb-4 cursor-pointer relative'>
+                    <img
+                      src={ProfileImage}
+                      alt={ProfileImage}
+                      className=' lg:ml-0 md:ml-3 ml-3'
+                    />
+                    <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0'></span>
+                  </div>
+                }
+              >
+                <div className='absolute -right-44'>
+                  <ProfilePopUp />
+                </div>
+              </Popup>
+            </div>
+            <div className='text-xl lg:flex md:hidden hidden lg:flex-col lg:ml-3 md:ml-0 ml-0 items-start'>
+              <header className=''>User Fullname</header>
+              <p className=''>online</p>
+            </div>
           </div>
         </div>
         <div
