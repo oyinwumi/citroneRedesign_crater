@@ -1,6 +1,4 @@
 import React from 'react';
-import Sidebar from '../../Sidebar';
-import CoursePageNav from '../../DashboardHeader';
 import productDesignImage1 from '../../../../assets/intro-to-product-design 1.png';
 import productDesignImage2 from '../../../../assets/intro-to-product-design 2.png';
 import productDesignImage3 from '../../../../assets/intro-to-product-design 3.png';
@@ -21,12 +19,8 @@ import more from '../../../../assets/more.svg';
 export default function LiveSessionUserPage() {
   return (
     <>
-      <div>
-        <CoursePageNav />
-      </div>
+      <div></div>
       <div className='flex w-full'>
-        <Sidebar />
-
         <div className='w-full p-5 lg:flex gap-4'>
           {/* LiveVideoSection */}
           <div className='w-full '>

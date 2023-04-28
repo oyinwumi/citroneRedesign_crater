@@ -44,7 +44,7 @@ const DashboardHeader = () => {
           <div className='flex flex-row items-center justify-center text-center'>
             <div className=' relative '>
               <Link
-                to='/user/notifications'
+                to='/notifications'
                 className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
               >
                 <FaRegBell />{' '}
@@ -55,13 +55,13 @@ const DashboardHeader = () => {
               </div>
             </div>
             <Link
-              to='/user/settings/account'
+              to='/settings'
               className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-4 md:ml-3 ml-3  cursor-pointer items-center text-center'
             >
               <FaRegSun />
             </Link>
             <Link
-              to='/user/profile'
+              to='/profile'
               className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'
             >
               <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
@@ -92,14 +92,14 @@ const DashboardHeader = () => {
         } `}
         >
           <Link
-            to='/user/dashboard'
+            to='/dashboard'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
           >
             <img src={Dashboard} alt={Dashboard} />
             <p className='ml-4'>Dashbord</p>
           </Link>
           <Link
-            to='/user/course'
+            to='/course'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
           >
             <img src={Book} alt={Book} />
@@ -108,35 +108,35 @@ const DashboardHeader = () => {
             </p>
           </Link>
           <Link
-            to='/user/assignment'
+            to='/assignment'
             className='flex hover:bg-pink  p-4  hover:border-r-4 items-center'
           >
             <img src={Note} alt={Note} />
             <p className='ml-4'>Assignment</p>
           </Link>
           <Link
-            to='/user/chatroom'
+            to='/chatroom'
             className='flex hover:bg-pink  p-4 hover:border-r-4 border-purple items-center'
           >
             <img src={Chat} alt={Chat} />
             <p className='ml-4'>Chat Room</p>
           </Link>
           <Link
-            to='/user/scoreboard'
+            to='/scoreboard'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
           >
             <img src={Award} alt={Award} />
             <p className='ml-4'>Scoreboard</p>
           </Link>
           <Link
-            to='/user/sessions'
+            to='/sessions'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
           >
             <img src={Video} alt={Video} />
             <p className='ml-4'>Sessions</p>
           </Link>
           <Link
-            to='/user/helpdesk'
+            to='/helpdesk'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
           >
             <img src={Support} alt={Support} />

@@ -1,6 +1,4 @@
 import React from 'react';
-import DashboardHeader from '../../DashboardHeader';
-import Sidebar from '../../Sidebar';
 // import {  FaArrowLeft   } from "react-icons/fa";
 import questions from './helpdeskData';
 import { data } from './helpdeskData';
@@ -11,9 +9,7 @@ import Arrow from '../../../../assets/arrow-left.svg';
 const Faq = () => {
   return (
     <div className='w-full overflow-x-auto'>
-      <DashboardHeader />
       <div className='flex p-3'>
-        <Sidebar />
         <div className='  ml-6 w-full  border border-pink rounded p-3 mt-8 mb-14'>
           <h5 className='flex gap-3 items-center lg:text-[24px] md:text-xl text-xl mb-4'>
             <img src={Arrow} alt={Arrow} />
