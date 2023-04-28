@@ -9,6 +9,10 @@ const initialState = {
   profileImg: '',
   backgroundImg: '',
   auth: {},
+  isAccount: true,
+  isSecurity: false,
+  isAll: false,
+  isUnread: true,
 };
 
 const userReducer = createSlice({
@@ -39,6 +43,18 @@ const userReducer = createSlice({
     setAuth(state, action) {
       state.auth = action.payload;
     },
+    setIsAccount(state, action) {
+      state.isAccount = action.payload;
+    },
+    setIsSecurity(state, action) {
+      state.isSecurity = action.payload;
+    },
+    setIsAll(state, action) {
+      state.isAll = action.payload;
+    },
+    setIsUnread(state, action) {
+      state.isUnread = action.payload;
+    },
   },
 });
 
@@ -51,6 +67,10 @@ export const {
   setProfileImg,
   setBackgroundImg,
   setAuth,
+  setIsAccount,
+  setIsSecurity,
+  setIsAll,
+  setIsUnread,
 } = userReducer.actions;
 
 export default userReducer.reducer;

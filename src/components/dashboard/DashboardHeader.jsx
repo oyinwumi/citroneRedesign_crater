@@ -14,10 +14,17 @@ import Logout from '../../assets/logout.svg';
 import { useDispatch } from 'react-redux';
 import { openModalFour } from '../../apps/modal/modalSlice';
 // import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
+import { setIsAll, setIsUnread } from '../../apps/reducers/userReducer';
 
 const DashboardHeader = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const handleSwitch = () => {
+    dispatch(setIsUnread(true));
+    dispatch(setIsAll(false));
+  };
+
   return (
     <div className='border-b border-pink py-2 shadow'>
       <nav className='flex justify-between h-[88px] items-center  px-6 py-4 '>
@@ -46,6 +53,7 @@ const DashboardHeader = () => {
               <Link
                 to='/notifications'
                 className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
+                onClick={handleSwitch}
               >
                 <FaRegBell />{' '}
               </Link>

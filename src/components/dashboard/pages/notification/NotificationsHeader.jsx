@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsAll, setIsUnread } from '../../../../apps/reducers/userReducer';
 import arrowLeft from '../../../../assets/arrow-left.svg';
 
 const NotificationsHeader = () => {
-  const [isAll, setIsAll] = useState(false);
-  const [isUnread, setIsUnread] = useState(true);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userReducer);
+  const { isAll, isUnread } = state;
 
   const handleToggle = (e) => {
     if (e.currentTarget.id === 'all') {
-      setIsAll(true);
-      setIsUnread(false);
+      dispatch(setIsAll(true));
+      dispatch(setIsUnread(false));
     } else if (e.currentTarget.id === 'unread') {
-      setIsUnread(true);
-      setIsAll(false);
+      dispatch(setIsUnread(true));
+      dispatch(setIsAll(false));
     }
   };
 
