@@ -14,15 +14,25 @@ import Logout from '../../assets/logout.svg';
 import { useDispatch } from 'react-redux';
 import { openModalFour } from '../../apps/modal/modalSlice';
 // import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
-import { setIsAll, setIsUnread } from '../../apps/reducers/userReducer';
+import {
+  setIsAll,
+  setIsUnread,
+  setIsAccount,
+  setIsSecurity,
+} from '../../apps/reducers/userReducer';
 
 const DashboardHeader = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSwitch = () => {
+  const handleNotificationsSwitch = () => {
     dispatch(setIsUnread(true));
     dispatch(setIsAll(false));
+  };
+
+  const handleSettingsSwitch = () => {
+    dispatch(setIsAccount(true));
+    dispatch(setIsSecurity(false));
   };
 
   return (
@@ -53,7 +63,7 @@ const DashboardHeader = () => {
               <Link
                 to='/notifications'
                 className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
-                onClick={handleSwitch}
+                onClick={handleNotificationsSwitch}
               >
                 <FaRegBell />{' '}
               </Link>
@@ -65,6 +75,7 @@ const DashboardHeader = () => {
             <Link
               to='/settings'
               className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-4 md:ml-3 ml-3  cursor-pointer items-center text-center'
+              onClick={handleSettingsSwitch}
             >
               <FaRegSun />
             </Link>
