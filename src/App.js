@@ -13,7 +13,7 @@ import Assignment from './components/dashboard/pages/assignment/Assignment';
 import AssignmentQest from './components/dashboard/pages/assignment/AssignmentQest';
 import EditAssignment from './components/dashboard/pages/assignment/EditAssignment';
 import ModuleOne from './components/dashboard/pages/courseModule/ModuleOne';
-import Quiz from './components/dashboard/pages/quiz/Quiz.jsx';
+import Quiz from './components/dashboard/pages/quiz/Quiz';
 import QuizModalOne from './components/dashboard/pages/quiz/QuizModalOne';
 import Chat from './components/dashboard/pages/chat/Chat';
 import Scoreboard from './components/dashboard/pages/scoreboard/Scoreboard';
@@ -21,7 +21,6 @@ import Grade from './components/dashboard/pages/assignment/Grade';
 import LiveSession from './components/dashboard/pages/liveSession/LiveSession';
 import LiveSessionUserPage from './components/dashboard/pages/liveSession/LiveSessionUserPage';
 import HelpDesk from './components/dashboard/pages/helpdesk/HelpDesk';
-import Faq from './components/dashboard/pages/helpdesk/Faq';
 import ProfilePage from './components/dashboard/pages/profilePage/ProfilePage';
 import Settings from './components/dashboard/pages/settings/Settings';
 import AccountSettings from './components/dashboard/pages/settings/AccountSettings';
@@ -31,11 +30,13 @@ import LogoutModal from './components/dashboard/pages/logoutPage/LogoutModal';
 import Notifications from './components/dashboard/pages/notification/Notifications';
 import AllNotifications from './components/dashboard/pages/notification/AllNotifications';
 import UnreadNotifications from './components/dashboard/pages/notification/UnreadNotifications';
+import Faq from './components/dashboard/pages/helpdesk/Faq';
+import HelpdeskModal from './components/dashboard/pages/helpdesk/HelpdeskModal';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
   return (
-    <div className='w-full overflow-hidden'>
+    <div className='w-full overflow-x-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
 
       <Routes>
@@ -63,6 +64,8 @@ function App() {
           <Route exact path='chat' element={<Chat />} />
           <Route exact path='scoreboard' element={<Scoreboard />} />
           <Route exact path='sessions' element={<LiveSession />} />
+          <Route path='faq' element={<Faq/>} />
+          <Route path='helpmodal' element={<HelpdeskModal/>} />
           <Route
             exact
             path='live-session-user-page'
@@ -87,7 +90,7 @@ function App() {
             <Route exact path='all' element={<AllNotifications />} />
           </Route>
 
-          <Route path='faq' element={<Faq />} />
+          
         </Route>
       </Routes>
     </div>
