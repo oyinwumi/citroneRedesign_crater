@@ -71,7 +71,10 @@ const Quiz = () => {
           <div>
             <button
               onClick={() => dispatch(openModal())}
-              className='bg-purple text-white text-center rounded p-2 w-20 absolute right-0 my-6 mr-6' > Submit
+              className='bg-purple text-white text-center rounded p-2 w-20 absolute right-0 my-6 mr-6'
+            >
+              {' '}
+              Submit
             </button>
           </div>
         </div>

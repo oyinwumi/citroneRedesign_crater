@@ -64,8 +64,8 @@ function App() {
           <Route exact path='chat' element={<Chat />} />
           <Route exact path='scoreboard' element={<Scoreboard />} />
           <Route exact path='sessions' element={<LiveSession />} />
-          <Route path='faq' element={<Faq/>} />
-          <Route path='helpmodal' element={<HelpdeskModal/>} />
+          <Route path='faq' element={<Faq />} />
+          <Route path='helpmodal' element={<HelpdeskModal />} />
           <Route
             exact
             path='live-session-user-page'
@@ -89,8 +89,6 @@ function App() {
             <Route exact path='unread' element={<UnreadNotifications />} />
             <Route exact path='all' element={<AllNotifications />} />
           </Route>
-
-          
         </Route>
       </Routes>
     </div>
