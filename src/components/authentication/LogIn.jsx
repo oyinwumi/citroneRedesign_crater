@@ -71,7 +71,7 @@ const LogIn = () => {
       // console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
       setPassword('');
-      navigate('/user/dashboard');
+      navigate('/dashboard');
       // return <Navigate replace to='/login' />;
     } catch (error) {
       if (!error?.response) {
