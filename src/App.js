@@ -13,7 +13,7 @@ import Assignment from './components/dashboard/pages/assignment/Assignment';
 import AssignmentQest from './components/dashboard/pages/assignment/AssignmentQest';
 import EditAssignment from './components/dashboard/pages/assignment/EditAssignment';
 import ModuleOne from './components/dashboard/pages/courseModule/ModuleOne';
-import Quiz from './components/dashboard/pages/quiz/Quiz';
+import Quiz from './components/dashboard/pages/quiz/Quiz.jsx';
 import QuizModalOne from './components/dashboard/pages/quiz/QuizModalOne';
 import Chat from './components/dashboard/pages/chat/Chat';
 import Scoreboard from './components/dashboard/pages/scoreboard/Scoreboard';
@@ -64,8 +64,8 @@ function App() {
           <Route exact path='chat' element={<Chat />} />
           <Route exact path='scoreboard' element={<Scoreboard />} />
           <Route exact path='sessions' element={<LiveSession />} />
-          <Route path='faq' element={<Faq/>} />
-          <Route path='helpmodal' element={<HelpdeskModal/>} />
+          <Route path='faq' element={<Faq />} />
+          <Route path='helpmodal' element={<HelpdeskModal />} />
           <Route
             exact
             path='live-session-user-page'
@@ -89,8 +89,6 @@ function App() {
             <Route exact path='unread' element={<UnreadNotifications />} />
             <Route exact path='all' element={<AllNotifications />} />
           </Route>
-
-          
         </Route>
       </Routes>
     </div>

@@ -57,18 +57,18 @@ const LogIn = () => {
       // console.log(response.data.role);
       // console.log(response.data.accessToken);
       // console.log(JSON.stringify(response?.data));
-      const firstName = response?.data?.firstName;
-      const lastName = response?.data?.lastName;
-      const email = response?.data?.email;
-      const userName = response?.data?.username;
-      const role = response?.data?.role;
-      const accessToken = response?.data?.accessToken;
+      const firstName = response?.data?.user?.firstName;
+      const lastName = response?.data?.user?.lastName;
+      const email = response?.data?.user?.email;
+      const userName = response?.data?.user?.username;
+      const role = response?.data?.user?.role;
+      const accessToken = response?.data?.user?.accessToken;
       const details = { email, password, userName, role, accessToken };
       dispatch(
         setAuth({ firstName, lastName, email, userName, role, accessToken })
       );
       // console.log(`AUTH: ${JSON.stringify(auth)}`);
-      // console.log(`AUTH: ${JSON.stringify(details)}`);
+      console.log(`AUTH: ${JSON.stringify(details)}`);
       setEmail('');
       setPassword('');
       navigate('/dashboard');
