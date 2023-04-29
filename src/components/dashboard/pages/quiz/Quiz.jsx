@@ -1,4 +1,6 @@
 import React from 'react';
+// import DashboardHeader from '../../DashboardHeader';
+// import Sidebar from '../../Sidebar';
 import questions from './quiz';
 import { useSelector, useDispatch } from 'react-redux';
 import QuizModalOne from './QuizModalOne';
@@ -11,7 +13,9 @@ const Quiz = () => {
   return (
     <div className=' w-full h-full relative'>
       {isOpen && <QuizModalOne />}
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
+        {/* <Sidebar /> */}
         <div className='px-6 pt-6 relative w-full'>
           <header className='lg:text-[32px]'>
             Module 1: Introduction to design Quiz
@@ -67,9 +71,7 @@ const Quiz = () => {
           <div>
             <button
               onClick={() => dispatch(openModal())}
-              className='bg-purple text-white text-center rounded p-2 w-20 absolute right-0 my-6 mr-6'
-            >
-              Submit
+              className='bg-purple text-white text-center rounded p-2 w-20 absolute right-0 my-6 mr-6' > Submit
             </button>
           </div>
         </div>

@@ -4,7 +4,9 @@ import { FaChevronRight } from 'react-icons/fa';
 const EditAssignment = () => {
   return (
     <div className='w-full h-full relative'>
+      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
+        {/* <Sidebar /> */}
         <div className='w-full px-6 '>
           <div className='my-6'>
             <p className=' flex items-center text-center '>

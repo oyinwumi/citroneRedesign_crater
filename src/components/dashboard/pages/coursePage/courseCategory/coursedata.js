@@ -5,7 +5,7 @@ import ModuleFour from '../../../../../assets/module-four.png';
 import ModuleFive from '../../../../../assets/module-five.png';
 import ModuleSix from '../../../../../assets/module-six.png';
 import ModuleSeven from '../../../../../assets/module-seven.png';
-import ModuleEight from '../../../../../assets/module-eight.png';
+import ModuleEight from '../../../../../assets/module-eight.png'
 
 const courseData = [
   {
