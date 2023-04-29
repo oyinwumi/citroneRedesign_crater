@@ -74,10 +74,10 @@ const LogIn = () => {
       };
       console.log(`Details: ${JSON.stringify(details)}`);
       console.log(`DetailsPlus: ${JSON.stringify(detailsPlus)}`);
-      dispatch(
-        setAuth({ firstName, lastName, email, userName, role, accessToken })
-      );
+
+      dispatch(setAuth(detailsPlus));
       console.log(`AUTH: ${JSON.stringify(auth)}`);
+
       setEmail('');
       setPassword('');
       navigate('/dashboard');
