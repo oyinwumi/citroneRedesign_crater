@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setIsAccount,
+  setIsSecurity,
+} from '../../../../apps/reducers/userReducer';
 
 const SettingsHeader = () => {
-  const [isAccount, setIsAccount] = useState(true);
-  const [isSecurity, setIsSecurity] = useState(false);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.userReducer);
+  const { isAccount, isSecurity } = state;
 
   const handleToggle = (e) => {
     if (e.currentTarget.id === 'security') {
-      setIsSecurity(true);
-      setIsAccount(false);
+      dispatch(setIsSecurity(true));
+      dispatch(setIsAccount(false));
     } else if (e.currentTarget.id === 'account') {
-      setIsAccount(true);
-      setIsSecurity(false);
+      dispatch(setIsAccount(true));
+      dispatch(setIsSecurity(false));
     }
   };
 

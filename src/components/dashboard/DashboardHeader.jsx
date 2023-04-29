@@ -1,26 +1,50 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import Logo from '../../assets/logo.svg';
-import ProfileImage from '../../assets/profileImage.svg';
-import { FaSearch, FaRegBell, FaRegSun } from 'react-icons/fa';
+import ProfileImage from '../../assets/user-image.svg';
+import { FaSearch } from 'react-icons/fa';
+import bell from './../../assets/bell-icon.svg';
+import gear from './../../assets/gear-icon.svg';
 import { Link } from 'react-router-dom';
-import Dashboard from '../../assets/dashboard.svg';
-import Chat from '../../assets/chat.svg';
-import Award from '../../assets/award.svg';
-import Support from '../../assets/24-support.svg';
-import Video from '../../assets/video-square.svg';
-import Book from '../../assets/book.svg';
-import Note from '../../assets/note.svg';
-import Logout from '../../assets/logout.svg';
 import { useDispatch } from 'react-redux';
-import { openModalFour } from '../../apps/modal/modalSlice';
+import { all } from './../dashboard/pages/notification/NotificationsData';
+// import Dashboard from '../../assets/dashboard.svg';
+// import Chat from '../../assets/chat.svg';
+// import Award from '../../assets/award.svg';
+// import Support from '../../assets/24-support.svg';
+// import Video from '../../assets/video-square.svg';
+// import Book from '../../assets/book.svg';
+// import Note from '../../assets/note.svg';
+// import Logout from '../../assets/logout.svg';
+// import { openModalFour } from '../../apps/modal/modalSlice';
 // import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
+import {
+  setIsAll,
+  setIsUnread,
+  setIsAccount,
+  setIsSecurity,
+} from '../../apps/reducers/userReducer';
+import Popup from 'reactjs-popup';
+import ProfilePopUp from './pages/profilePage/ProfilePopUp';
 
 const DashboardHeader = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const no = all.unread.length;
+
+  const handleNotificationsSwitch = () => {
+    dispatch(setIsUnread(true));
+    dispatch(setIsAll(false));
+  };
+
+  const handleSettingsSwitch = () => {
+    dispatch(setIsAccount(true));
+    dispatch(setIsSecurity(false));
+  };
+
   return (
     <div className='border-b border-pink py-2 shadow'>
-      <nav className='flex justify-between h-[88px] items-center  px-6 py-4 '>
+      <nav className='flex justify-between h-[88px] items-center px-8 py-4 '>
         <div className=''>
           <Link to='/'>
             <img
@@ -37,49 +61,53 @@ const DashboardHeader = () => {
           <input
             type='text'
             placeholder='search'
-            className='border rounded-lg  border-lightgrey lg:w-[300px] md:w-[200px]  w-[150px] placeholder:lg:pl-8  h-10'
+            className='border rounded-lg border-lightgrey lg:w-[300px] md:w-[200px] w-[150px] placeholder:lg:pl-8 h-10'
           />
         </div>
-        <div className=''>
-          <div className='flex flex-row items-center justify-center text-center'>
-            <div className=' relative '>
-              <Link
-                to='/notifications'
-                className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 cursor-pointer'
-              >
-                <FaRegBell />{' '}
-              </Link>
-              <div className='w-4 h-4 rounded-full border  text-center absolute bottom-4 left-5 bg-lightpurple'>
-                {' '}
-                <p className='text-xs text-purple'>0</p>
-              </div>
-            </div>
-            <Link
-              to='/settings'
-              className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-4 md:ml-3 ml-3  cursor-pointer items-center text-center'
-            >
-              <FaRegSun />
-            </Link>
-            <Link
-              to='/profile'
-              className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4'
-            >
-              <div className='items-center lg:mb-0 md:mb-4 mb-4 relative'>
-                <img
-                  src={ProfileImage}
-                  alt={ProfileImage}
-                  className=' lg:ml-0 md:ml-3 ml-3  '
-                />
-                <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0'></span>
-              </div>
-              <div className='lg:flex md:hidden hidden  lg:flex-col lg:ml-2 md:ml-0 ml-0 items-start'>
-                <header className='text-xs '>User Fullname</header>
-                <p className='text-xs '>online</p>
+
+        <div className='flex items-center justify-center'>
+          <div className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 relative cursor-pointer'>
+            <Link to='/notifications' onClick={handleNotificationsSwitch}>
+              <img src={bell} alt={bell} />
+              <div className='w-5 h-5 rounded-full border border-[#000] flex justify-center items-center absolute -top-2 left-7 bg-[#ebdcf9]'>
+                <p className='text-xs font-medium text-[#000]'>{no}</p>
               </div>
             </Link>
           </div>
+
+          <div className='lg:text-3xl md:text-3xl text-[25px] text-dark lg:ml-8 md:ml-3 ml-3  cursor-pointer items-center text-center'>
+            <Link to='/settings' onClick={handleSettingsSwitch}>
+              <img src={gear} alt='' />
+            </Link>
+          </div>
+
+          {/* This is the popup for the profile */}
+          <div className='flex items-center lg:ml-4 md:ml-0 ml-0 lg:mt-0 md:mt-4 mt-4 relative'>
+            <Popup
+              trigger={
+                <div className='items-center lg:mb-0 md:mb-4 mb-4 cursor-pointer relative'>
+                  <img
+                    src={ProfileImage}
+                    alt={ProfileImage}
+                    className='w-10 h-10 lg:ml-0 md:ml-3 ml-3'
+                  />
+                  <span className='w-2 h-2 rounded-full bg-teagreen absolute top-8 right-0'></span>
+                </div>
+              }
+            >
+              <div className='absolute -right-[184px]'>
+                <ProfilePopUp />
+              </div>
+            </Popup>
+          </div>
+
+          <div className='text-xl lg:flex md:hidden hidden lg:flex-col lg:ml-3 md:ml-0 ml-0 items-start'>
+            <header className=''>User Fullname</header>
+            <p className=''>Online</p>
+          </div>
         </div>
-        <div
+
+        {/* <div
           onClick={() => setOpen(!open)}
           className='text-black text-4xl ml-2 lg:hidden'
         >
@@ -149,7 +177,7 @@ const DashboardHeader = () => {
             <img src={Logout} alt={Logout} />
             <p className='ml-4'>Logout</p>
           </div>
-        </div>
+        </div> */}
       </nav>
     </div>
   );

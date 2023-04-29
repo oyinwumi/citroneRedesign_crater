@@ -8,6 +8,7 @@ const AllNotifications = () => {
   const previous = all.previous.map((data) => {
     return <DisplayStyle key={uuidv4()} {...data} />;
   });
+
   return (
     <div>
       <div className=''>
