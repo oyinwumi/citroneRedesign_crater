@@ -13,7 +13,7 @@ import Assignment from './components/dashboard/pages/assignment/Assignment';
 import AssignmentQest from './components/dashboard/pages/assignment/AssignmentQest';
 import EditAssignment from './components/dashboard/pages/assignment/EditAssignment';
 import ModuleOne from './components/dashboard/pages/courseModule/ModuleOne';
-import Quiz from './components/dashboard/pages/quiz/Quiz';
+import Quiz from './components/dashboard/pages/quiz/Quiz.jsx';
 import QuizModalOne from './components/dashboard/pages/quiz/QuizModalOne';
 import Chat from './components/dashboard/pages/chat/Chat';
 import Scoreboard from './components/dashboard/pages/scoreboard/Scoreboard';
