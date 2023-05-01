@@ -8,7 +8,11 @@ import Google from '../../assets/logos_google-icon.svg';
 import Facebook from '../../assets/grommet-icons_facebook-option.svg';
 import { Link } from 'react-router-dom';
 import SignUpSuccess from './SignUpSuccess';
-import api from '../../api/axios';
+// import api from '../../api/axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { register, reset } from '../../apps/auth/authSlice';
 
 // const USER_REGEX = /^[A-Z][a-zA-Z]{3,23}$/;
 const EMAIL_REGEX =
@@ -17,7 +21,7 @@ const PHONE_REGEX = /^([+]\d{2})?\d{11}$/;
 const PASSWORD_REGEX =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const SIGNUP_URL = '/api/citrone/auth';
+// const SIGNUP_URL = '/api/citrone/auth';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
@@ -41,6 +45,13 @@ const SignUp = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
   useEffect(() => {
     setValidFirstName(firstName.length > 2);
   }, [firstName]);
@@ -62,6 +73,17 @@ const SignUp = () => {
     setValidConfirmPassword(password === confirmPassword);
   }, [password, confirmPassword]);
 
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      setSuccess(true);
+      navigate('/');
+    }
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
@@ -76,35 +98,44 @@ const SignUp = () => {
       setErrorMsg('All fields must be filled correctly');
       return false;
     }
-    const newUser = {
+    const userData = {
       firstName,
       lastName,
       email,
       phoneNumber,
       password,
     };
-    try {
-      // const response = await api.post(SIGNUP_URL, newUser);
-      await api.post(SIGNUP_URL, newUser);
-      setSuccess(true);
-      setFirstName('');
-      setLastName('');
-      setEmail('');
-      setPhoneNumber('');
-      setPassword('');
-    } catch (error) {
-      if (!error?.response) {
-        setErrorMsg('No server response');
-      } else if (error.response?.status === 401) {
-        setErrorMsg('All input fields are required');
-      } else if (error.response?.status === 409) {
-        setErrorMsg('User already exists');
-      } else {
-        setErrorMsg(error.response.data);
-      }
-      console.log(error.response);
-      console.log(`Error: ${error.message}`);
-    }
+    dispatch(register(userData));
+
+    // const newUser = {
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   phoneNumber,
+    //   password,
+    // };
+    // try {
+    //   // const response = await api.post(SIGNUP_URL, newUser);
+    //   await api.post(SIGNUP_URL, newUser);
+    //   setSuccess(true);
+    //   setFirstName('');
+    //   setLastName('');
+    //   setEmail('');
+    //   setPhoneNumber('');
+    //   setPassword('');
+    // } catch (error) {
+    //   if (!error?.response) {
+    //     setErrorMsg('No server response');
+    //   } else if (error.response?.status === 401) {
+    //     setErrorMsg('All input fields are required');
+    //   } else if (error.response?.status === 409) {
+    //     setErrorMsg('User already exists');
+    //   } else {
+    //     setErrorMsg(error.response.data);
+    //   }
+    //   console.log(error.response);
+    //   console.log(`Error: ${error.message}`);
+    // }
   };
 
   return (

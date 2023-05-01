@@ -60,6 +60,7 @@ const LogIn = () => {
       const firstName = response?.data?.user?.firstName;
       const lastName = response?.data?.user?.lastName;
       const email = response?.data?.user?.email;
+      const phoneNumber = response?.data?.user?.phoneNumber;
       const userName = response?.data?.user?.username;
       const role = response?.data?.user?.role;
       const accessToken = response?.data?.user?.accessToken;
@@ -68,6 +69,7 @@ const LogIn = () => {
         firstName,
         lastName,
         email,
+        phoneNumber,
         userName,
         role,
         accessToken,

@@ -32,6 +32,8 @@ import AllNotifications from './components/dashboard/pages/notification/AllNotif
 import UnreadNotifications from './components/dashboard/pages/notification/UnreadNotifications';
 import Faq from './components/dashboard/pages/helpdesk/Faq';
 import HelpdeskModal from './components/dashboard/pages/helpdesk/HelpdeskModal';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
@@ -91,6 +93,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

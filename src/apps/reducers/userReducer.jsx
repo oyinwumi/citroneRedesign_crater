@@ -1,14 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  firstName: '',
-  lastName: '',
   email: 'hadizaabdulazeez@gmail.com',
   userName: '@haddy',
   phoneNumber: '234567899900',
   profileImg: '',
   backgroundImg: '',
-  auth: {},
+  // auth: {},
+  // auth: {
+  //   firstName,
+  //   lastName,
+  //   email,
+  //   // phoneNumber,
+  //   userName,
+  //   role,
+  //   accessToken,
+  // },
   isAccount: true,
   isSecurity: false,
   isAll: false,
@@ -19,12 +26,6 @@ const userReducer = createSlice({
   name: 'userReducer',
   initialState,
   reducers: {
-    setFirstName(state, action) {
-      state.firstName = action.payload;
-    },
-    setLastName(state, action) {
-      state.lastName = action.payload;
-    },
     setEmail(state, action) {
       state.email = action.payload;
     },
@@ -40,9 +41,9 @@ const userReducer = createSlice({
     setBackgroundImg(state, action) {
       state.backgroundImg = action.payload;
     },
-    setAuth(state, action) {
-      state.auth = action.payload;
-    },
+    // setAuth(state, action) {
+    //   state.auth = action.payload;
+    // },
     setIsAccount(state, action) {
       state.isAccount = action.payload;
     },
@@ -59,8 +60,6 @@ const userReducer = createSlice({
 });
 
 export const {
-  setFirstName,
-  setLastName,
   setEmail,
   setUserName,
   setPhoneNumber,
