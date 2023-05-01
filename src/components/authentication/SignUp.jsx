@@ -10,9 +10,10 @@ import { Link } from 'react-router-dom';
 import SignUpSuccess from './SignUpSuccess';
 // import api from '../../api/axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { register, reset } from '../../apps/auth/authSlice';
+import Spinner from './Spinner';
 
 // const USER_REGEX = /^[A-Z][a-zA-Z]{3,23}$/;
 const EMAIL_REGEX =
@@ -45,7 +46,7 @@ const SignUp = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -80,9 +81,10 @@ const SignUp = () => {
 
     if (isSuccess || user) {
       setSuccess(true);
-      navigate('/');
+      // navigate('/');
     }
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,6 +140,10 @@ const SignUp = () => {
     // }
   };
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <>
       {success ? (
@@ -191,16 +197,14 @@ const SignUp = () => {
                 <p
                   className={
                     firstName && !validFirstName ? 'instructions' : 'hide'
-                  }
-                >
+                  }>
                   First name must not be less than 3 characters
                 </p>
 
                 <p
                   className={
                     lastName && !validLastName ? 'instructions' : 'hide'
-                  }
-                >
+                  }>
                   Last name must not be less than 3 characters
                 </p>
 
@@ -235,8 +239,7 @@ const SignUp = () => {
                 <p
                   className={
                     phoneNumber && !validPhoneNumber ? 'instructions' : 'hide'
-                  }
-                >
+                  }>
                   Type in a valid mobile number
                 </p>
 
@@ -250,8 +253,7 @@ const SignUp = () => {
                 <p
                   className={
                     password && !validPassword ? 'instructions' : 'hide'
-                  }
-                >
+                  }>
                   8 to 24 characters. Must include uppercase and lowercase
                   letters, a number and a special character ! @ # $ %.
                 </p>
@@ -268,8 +270,7 @@ const SignUp = () => {
                     confirmPassword && !validConfirmPassword
                       ? 'instructions'
                       : 'hide'
-                  }
-                >
+                  }>
                   Must match the first password input field
                 </p>
 
@@ -290,8 +291,7 @@ const SignUp = () => {
 
                 <button
                   type='submit'
-                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'
-                >
+                  className='w-full flex justify-center items-center bg-purple py-3 px-2 text-white rounded font-bold mt-4 shadow cursor-pointer'>
                   Sign Up
                 </button>
               </form>
@@ -304,8 +304,7 @@ const SignUp = () => {
                 <button
                   type='submit'
                   id='google'
-                  className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-                >
+                  className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
                   <img src={Google} alt='Google icon' />
                   <p className='ml-2 font-semibold'>Sign up with Google</p>
                 </button>
@@ -313,8 +312,7 @@ const SignUp = () => {
                 <button
                   type='submit'
                   id='facebook'
-                  className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-                >
+                  className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
                   <img src={Facebook} alt='Facebook icon' />
                   <p className='ml-2 font-semibold text-white'>
                     Sign up with Facebook

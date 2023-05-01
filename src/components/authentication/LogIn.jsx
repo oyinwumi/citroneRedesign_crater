@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuth } from '../../apps/reducers/userReducer';
+// import { setAuth } from '../../apps/reducers/userReducer';
 import Logo from '../../assets/logo.svg';
 import Mail from '../../assets/mail-icon.svg';
 import ShowPassword from '../ShowPassword';
 import Google from '../../assets/logos_google-icon.svg';
 import Facebook from '../../assets/grommet-icons_facebook-option.svg';
-import api from '../../api/axios';
+// import api from '../../api/axios';
+import { toast } from 'react-toastify';
+import { login, reset } from '../../apps/auth/authSlice';
+import Spinner from './Spinner';
 
-const LOGIN_URL = '/api/citrone/auth/login';
+// const LOGIN_URL = '/api/citrone/auth/login';
 
 const LogIn = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.userReducer);
-  const { auth } = state;
+  // const state = useSelector((state) => state.userReducer);
+  // const { auth } = state;
 
   const navigate = useNavigate();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   // Clear out the error message once the user makes changes to the email or password
+  // useEffect(() => {
+  //   setErrorMsg('');
+  // }, [email, password]);
+
   useEffect(() => {
-    setErrorMsg('');
-  }, [email, password]);
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate('/');
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, dispatch]);
 
   // Function to check that the email and password exists
   const handleLogin = async (e) => {
@@ -34,70 +51,77 @@ const LogIn = () => {
       setErrorMsg('All fields are required');
       return false;
     }
-    const user = { email, password };
+    // const user = { email, password };
+    const userData = { email, password };
 
-    try {
-      const response = await api.post(LOGIN_URL, user, {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      });
-      // const response = await api.post( +
-      //   '/users',
-      //   JSON.stringify({ email, password }),
-      //   {
-      //     headers: { 'Content-Type': 'application/json' },
-      //     withCredentials: true,
-      //   }
-      // );
-      console.log(response.data);
-      // console.log(response.data.firstName);
-      // console.log(response.data.lastName);
-      // console.log(response.data.email);
-      // console.log(response.data.username);
-      // console.log(response.data.role);
-      // console.log(response.data.accessToken);
-      // console.log(JSON.stringify(response?.data));
-      const firstName = response?.data?.user?.firstName;
-      const lastName = response?.data?.user?.lastName;
-      const email = response?.data?.user?.email;
-      const phoneNumber = response?.data?.user?.phoneNumber;
-      const userName = response?.data?.user?.username;
-      const role = response?.data?.user?.role;
-      const accessToken = response?.data?.user?.accessToken;
-      const details = { email, password, userName, role, accessToken };
-      const detailsPlus = {
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        userName,
-        role,
-        accessToken,
-      };
-      console.log(`Details: ${JSON.stringify(details)}`);
-      console.log(`DetailsPlus: ${JSON.stringify(detailsPlus)}`);
+    dispatch(login(userData));
 
-      dispatch(setAuth(detailsPlus));
-      console.log(`AUTH: ${JSON.stringify(auth)}`);
+    // try {
+    //   const response = await api.post(LOGIN_URL, user, {
+    //     headers: { 'Content-Type': 'application/json' },
+    //     withCredentials: true,
+    //   });
+    //   // const response = await api.post( +
+    //   //   '/users',
+    //   //   JSON.stringify({ email, password }),
+    //   //   {
+    //   //     headers: { 'Content-Type': 'application/json' },
+    //   //     withCredentials: true,
+    //   //   }
+    //   // );
+    //   console.log(response.data);
+    //   // console.log(response.data.firstName);
+    //   // console.log(response.data.lastName);
+    //   // console.log(response.data.email);
+    //   // console.log(response.data.username);
+    //   // console.log(response.data.role);
+    //   // console.log(response.data.accessToken);
+    //   // console.log(JSON.stringify(response?.data));
+    //   const firstName = response?.data?.user?.firstName;
+    //   const lastName = response?.data?.user?.lastName;
+    //   const email = response?.data?.user?.email;
+    //   const phoneNumber = response?.data?.user?.phoneNumber;
+    //   const userName = response?.data?.user?.username;
+    //   const role = response?.data?.user?.role;
+    //   const accessToken = response?.data?.user?.accessToken;
+    //   const details = { email, password, userName, role, accessToken };
+    //   const detailsPlus = {
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     phoneNumber,
+    //     userName,
+    //     role,
+    //     accessToken,
+    //   };
+    //   console.log(`Details: ${JSON.stringify(details)}`);
+    //   console.log(`DetailsPlus: ${JSON.stringify(detailsPlus)}`);
 
-      setEmail('');
-      setPassword('');
-      navigate('/dashboard');
-      // return <Navigate replace to='/login' />;
-    } catch (error) {
-      if (!error?.response) {
-        setErrorMsg('No Server Response');
-      } else if (error.response?.status === 400) {
-        setErrorMsg('Missing email or password');
-      } else if (error.response?.status === 401) {
-        setErrorMsg('Wrong Username or Password');
-      } else {
-        setErrorMsg('Login Failed');
-      }
-      console.log(error.response);
-      console.log(`Error: ${error.message}`);
-    }
+    //   dispatch(setAuth(detailsPlus));
+    //   console.log(`AUTH: ${JSON.stringify(auth)}`);
+
+    //   setEmail('');
+    //   setPassword('');
+    //   navigate('/dashboard');
+    //   // return <Navigate replace to='/login' />;
+    // } catch (error) {
+    //   if (!error?.response) {
+    //     setErrorMsg('No Server Response');
+    //   } else if (error.response?.status === 400) {
+    //     setErrorMsg('Missing email or password');
+    //   } else if (error.response?.status === 401) {
+    //     setErrorMsg('Wrong Username or Password');
+    //   } else {
+    //     setErrorMsg('Login Failed');
+    //   }
+    //   console.log(error.response);
+    //   console.log(`Error: ${error.message}`);
+    // }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className='body min-h-screen bg-light mx-auto sm:flex sm:justify-center sm:items-center'>
@@ -149,16 +173,14 @@ const LogIn = () => {
               </div>
               <Link
                 to='/forgot-password'
-                className=' text-purple cursor-pointer'
-              >
+                className=' text-purple cursor-pointer'>
                 Forgot password?
               </Link>
             </div>
 
             <button
               type='submit'
-              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'
-            >
+              className='w-full bg-purple flex justify-center items-center mt-8 py-3 px-2 text-white font-bold rounded shadow'>
               Login
             </button>
           </form>
@@ -171,8 +193,7 @@ const LogIn = () => {
             <button
               type='submit'
               id='google'
-              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'
-            >
+              className='w-full mt-4 flex justify-center items-center py-2 px-2 border border-lightgrey rounded shadow sm:w-1/2 sm:mt-0'>
               <img src={Google} alt='Google icon' />
               <p className='ml-2 font-semibold'>Login with Google</p>
             </button>
@@ -180,8 +201,7 @@ const LogIn = () => {
             <button
               type='submit'
               id='facebook'
-              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'
-            >
+              className='w-full mt-4 flex justify-center items-center bg-blue py-2 px-2 rounded shadow sm:w-1/2 sm:mt-0 sm:ml-4'>
               <img src={Facebook} alt='Facebook icon' />
               <p className='ml-2 font-semibold text-white'>
                 Login with Facebook

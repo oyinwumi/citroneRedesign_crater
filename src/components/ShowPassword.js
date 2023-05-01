@@ -28,6 +28,7 @@ const ShowPassword = ({ placeHolder, password, setPassword, isSettings }) => {
             type={passwordType}
             placeholder={placeHolder}
             value={password}
+            autoComplete='off'
             required
             onChange={(e) => setPassword(e.target.value)}
             className='w-full px-3 focus: outline-0 bg-light text-2xl'
@@ -45,6 +46,7 @@ const ShowPassword = ({ placeHolder, password, setPassword, isSettings }) => {
             type={passwordType}
             placeholder={placeHolder}
             value={password}
+            autoComplete='off'
             required
             onChange={(e) => setPassword(e.target.value)}
             className='w-full px-3 focus: outline-0 placeholder:text-black '
