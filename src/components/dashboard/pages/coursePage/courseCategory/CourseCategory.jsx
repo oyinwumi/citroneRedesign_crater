@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DashboardHeader from '../../../DashboardHeader';
-import Sidebar from '../../../Sidebar';
+// import DashboardHeader from '../../../DashboardHeader';
+// import Sidebar from '../../../Sidebar';
 import courseData from './coursedata';
 import { FaChevronRight } from 'react-icons/fa';
 import { getCourses } from '../../../../../apps/courseSlice';
@@ -24,9 +24,9 @@ const CourseCategory = () => {
   console.log(course_category);
   return (
     <div className='w-full '>
-      <DashboardHeader />
+      {/* <DashboardHeader /> */}
       <div className='flex p-3 '>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className=' w-full'>
           <div className='my-6'>
             <p className='ml-6 flex items-center'>

@@ -1,12 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {  FaCheck} from "react-icons/fa";
-import { useSelector  } from 'react-redux';
-// import { setGrade } from '../../../apps/quizSlice';
+import {useDispatch, useSelector  } from 'react-redux';
+import { closeModalFive, closeModalSix, closeModalThree } from '../../../../apps/modal/modalSlice';
+
 
 
 const QuizModalThree = () => {
-  // const dispatch = useDispatch();
+  const close = () =>{
+    dispatch(closeModalThree());
+    dispatch(closeModalFive())
+    dispatch(closeModalSix())
+   }
+  const dispatch = useDispatch();
   const {grade } = useSelector((store)=> store.quiz)
   return (
     <aside  className='w-full items-center text-center h-full bg-gray fixed z-10 '>
@@ -15,7 +21,7 @@ const QuizModalThree = () => {
     <h2 className='text-[24px] mb-4 ' >{grade}</h2>
     <p className='mb-4 '>Remarks: Welldone, Keep up with the good work</p>
     <div>
-    <Link to='/dashboard'> <button className=' text-center bg-purple text-white border rounded mb-4 p-2'>Go Back</button></Link>
+    <Link to='/dashboard' onClick={close}> <button className=' text-center bg-purple text-white border rounded mb-4 p-2'>Go Back</button></Link>
     </div>
 </div>
 </aside>

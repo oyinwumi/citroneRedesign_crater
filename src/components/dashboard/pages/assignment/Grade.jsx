@@ -1,16 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
-// import DashboardHeader from '../../DashboardHeader';
-// import Sidebar from '../../Sidebar';
 import Smile from '../../../../assets/smile.svg';
 import Send from '../../../../assets/sendicon.svg';
 
+
 const Grade = () => {
+  const navigate = useNavigate()
   return (
-    <div className='w-full h-full relative'>
-      {/* <DashboardHeader /> */}
+    <div className='w-full h-full relative '>
       <div className='flex p-3'>
-        {/* <Sidebar /> */}
         <div className='w-full px-6 '>
           <div className='my-6'>
             <p className=' flex items-center text-center '>
@@ -74,7 +72,7 @@ const Grade = () => {
             />
             <div className='flex gap-3 items-center absolute bottom-7 right-14'>
               <img src={Smile} alt={Smile} />
-              <img src={Send} alt={Send} />
+              <img  onClick={ () => navigate('/dashboard')} src={Send} alt={Send} />
             </div>
           </div>
         </div>

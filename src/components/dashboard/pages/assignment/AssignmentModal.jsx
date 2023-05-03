@@ -1,15 +1,12 @@
 import React from 'react';
 import { openModalTwo, closeModal } from '../../../../apps/modal/modalSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import AssignmentModalTwo from './AssignmentModalTwo';
+import {  useDispatch } from 'react-redux';
 
 const AssignmentModal = () => {
-  const { isOpenTwo } = useSelector((store) => store.modal);
   const dispatch = useDispatch();
 
   return (
     <aside className='w-full  h-full bg-gray fixed z-10  '>
-      {isOpenTwo && <AssignmentModalTwo />}
       <div className='bg-white  border border-white rounded-lg  lg:w-[432px]  md:w-[40%] w-[75%]  p-4 items-center mx-auto lg:mt-[13%] md:mt-[20%] mt-[25%] z-40  '>
         <h2 className='text-xl mb-4 '>Submit</h2>
         <p className='mb-4 '>
