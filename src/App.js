@@ -35,6 +35,7 @@ import HelpdeskModal from './components/dashboard/pages/helpdesk/HelpdeskModal';
 
 function App() {
   const { isOpenFour } = useSelector((store) => store.modal);
+  
   return (
     <div className='w-full overflow-x-hidden'>
       <div>{isOpenFour && <LogoutModal />}</div>
