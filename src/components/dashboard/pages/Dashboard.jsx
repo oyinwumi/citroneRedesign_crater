@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import CompleteImage from '../../../assets/completeimage.png';
-// import '../calendar.css';
-// import DashboardHeader from '../DashboardHeader';
-// import Sidebar from '../Sidebar';
+
 import dashboardUser from '../dashboardUser';
 import courseData from '../pages/coursePage/courseCategory/coursedata';
 import classes from '../scheduledClass';
@@ -13,10 +11,8 @@ import Barchart from '../../../assets/barchart.png';
 import recentActivity from '../activity';
 import Blue from '../../../assets/blue-square.svg';
 import Orange from '../../../assets/orange-square.svg';
-// import { useSelector } from 'react-redux';
-// import LogoutModal from '../pages/logoutPage/LogoutModal';
-// import { useSelector } from 'react-redux';
-// import LogoutModal  from '../pages/ logoutPage/LogoutModal'
+import {  useSelector } from 'react-redux';
+
 
 const button = (
   <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>
@@ -24,13 +20,15 @@ const button = (
   </button>
 );
 const Dashboard = () => {
-  // const {isOpen } = useSelector((store) => store.modal);
+  const {userName } = useSelector((store) => store.userReducer);
+
   const [date, setDate] = useState(new Date());
   const [visible, setVisible] = useState(4);
 
   const seeMore = () => {
     setVisible(visible + 4);
   };
+
 
   const renderedData = (courseData) => {
     return (
@@ -68,7 +66,7 @@ const Dashboard = () => {
         {/* <Sidebar/> */}
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
           <div className='w-full mt-8'>
-            <header className='mb-4 text-xl'>Hi, username</header>
+            <header className='mb-4 text-xl'>Hi, {userName}</header>
             <div className='flex gap-8  lg:flex-row md:flex-row flex-col'>
               {dashboardUser.map((user) => {
                 return (
