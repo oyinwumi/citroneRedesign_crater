@@ -1,36 +1,44 @@
 
 const questions = [
-    {id: '1', 
-     question: 'Which of the following are examples of UI?',
-     option1: 'A. Key (for opening door)',
-     option2: 'B. TV Remote',
-     option3: 'C. Button (in an app)',
-     option4: 'D. All of the above',
-     answer: 'C'
-},
-{id: '2', 
-question: 'Which of the following are examples of UI?',
-option1: 'A. Key (for opening door)',
-option2: 'B. TV Remote',
-option3: 'C. Button (in an app)',
-option4: 'D. All of the above',
-answer: 'C'
-},
-{id: '3', 
-question: ' Which of the following are examples of UI?',
-option1: 'A. Key (for opening door)',
-option2: 'B. TV Remote',
-option3: 'C. Button (in an app)',
-option4: 'D. All of the above'
-},
-{id: '4', 
-question: 'Which of the following are examples of UI?',
-option1: 'A. Key (for opening door)',
-option2: 'B. TV Remote',
-option3: 'C. Button (in an app)',
-option4: 'D. All of the above',
-answer: 'C'
-},
+    {
+     questionText: 'Which of the following are examples of UI?',
+     answerOptions:[
+      {  answerText: 'A. Key (for opening door)' , isCorrect: false },
+      {  answerText: 'B. TV Remote' , isCorrect: false},
+      {  answerText: 'C. Button (in an app)' , isCorrect: true},
+      {  answerText: 'D. All of the above',  isCorrect: false},
+     ]
+    },
+
+    {
+     questionText: 'Which of the following are examples of UI?',
+     answerOptions:[
+      {  answerText: 'A. Key (for opening door)' , isCorrect: false },
+      {  answerText: 'B. TV Remote' , isCorrect: false},
+      {  answerText: 'C. Button (in an app)' , isCorrect: true},
+      {  answerText: 'D. All of the above',  isCorrect: false},
+     ]
+    },
+
+   { 
+     questionText: 'Which of the following are examples of UI?',
+     answerOptions:[
+      {  answerText: 'A. Key (for opening door)' , isCorrect: false },
+      {  answerText: 'B. TV Remote' , isCorrect: false},
+      {  answerText: 'C. Button (in an app)' , isCorrect: true},
+      {  answerText: 'D. All of the above',  isCorrect: false},
+     ]
+    },
+
+   { 
+     questionText: 'Which of the following are examples of UI?',
+     answerOptions:[
+      {  answerText: 'A. Key (for opening door)' , isCorrect: false },
+      {  answerText: 'B. TV Remote' , isCorrect: false},
+      {  answerText: 'C. Button (in an app)' , isCorrect: true},
+      {  answerText: 'D. All of the above',  isCorrect: false},
+     ]
+    },
 ];
 
 export default questions

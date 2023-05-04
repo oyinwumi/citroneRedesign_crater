@@ -1,24 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
+import questions from "../components/dashboard/pages/quiz/quiz";
 
 const initialState = {
-    grade: 0,
-    chosenOption: '',
+    score: 0,
+    answer: questions
 }
 
 const quizSlice = createSlice({
     name :'quiz',
     initialState,
     reducers:{
-      setGrade:(state,action) =>{
-        state.grade = action.payload
-        
+      setAnswer:(state, action)=>{
+        state.answer = action.payload
       },
-      setChosenOption:(state,action) =>{
-        state.chosenOption = action.payload
-      },
+      setScore: (state, action) =>{
+     let score = questions.map((question)=>{
+      return question.answerOptions.map((answer)=>{
+       score = answer.isCorrect
+        if(score === true){
+          state.score = + 1
+         console.log(score);
+        }
+      })
+  
+     })
+      }
     }
 
 })
 
-export const { setGrade, setChosenOption} = quizSlice.actions;
+export const {setScore , setAnswer } = quizSlice.actions;
 export default quizSlice.reducer;

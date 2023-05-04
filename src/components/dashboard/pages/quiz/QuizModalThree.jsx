@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {  FaCheck} from "react-icons/fa";
-import {useDispatch, useSelector  } from 'react-redux';
+import {useDispatch } from 'react-redux';
 import { closeModalFive, closeModalSix, closeModalThree } from '../../../../apps/modal/modalSlice';
 
 
@@ -13,12 +13,12 @@ const QuizModalThree = () => {
     dispatch(closeModalSix())
    }
   const dispatch = useDispatch();
-  const {grade } = useSelector((store)=> store.quiz)
+  // const {score } = useSelector((store)=> store.quiz)
   return (
     <aside  className='w-full items-center text-center h-full bg-gray fixed z-10 '>
     <div className='bg-white  border border-white rounded-lg  lg:w-[20%] md:w-[40%] w-[75%] p-4 items-center mx-auto lg:mt-[13%] md:mt-[20%] mt-[25%]  z-100  '>
         <span className=''><FaCheck  className='bg-white w-5 h-5 border text-green border-green rounded-full p-1 text-center mx-auto my-4'/></span>
-    <h2 className='text-[24px] mb-4 ' >{grade}</h2>
+    <h2 className='text-[24px] mb-4 ' >100%</h2>
     <p className='mb-4 '>Remarks: Welldone, Keep up with the good work</p>
     <div>
     <Link to='/dashboard' onClick={close}> <button className=' text-center bg-purple text-white border rounded mb-4 p-2'>Go Back</button></Link>
