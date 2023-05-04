@@ -103,14 +103,14 @@ const LandingPage = () => {
             </p>
           </div>
           <div className='border border-lightgrey rounded text-justify px-6 py-10 text-black lg:mr-4 md:mr-0 mr-0  lg:mb-0 md:mb-4 mb-4 lg:w-1/3 md:w-2/3 w-full   h-60'>
-            <h3 className='font-bold text-purple mb-3 text-5xl'>01</h3>
+            <h3 className='font-bold text-purple mb-3 text-5xl'>02</h3>
             <p className='text-lg font-bold mb-3'>Engagements</p>
             <p className='font-normal text-base'>
               Seamless engagement between tutors and students.
             </p>
           </div>
           <div className='border bordeh-[56px]r-lightgrey rounded text-justify px-6 py-10 text-black lg:mr-4 md:mr-0 mr-0  lg:mb-0 md:mb-4 mb-4 lg:w-1/3 md:w-2/3 w-full h-60 items-center'>
-            <h3 className='font-bold text-purple mb-3 text-5xl'>01</h3>
+            <h3 className='font-bold text-purple mb-3 text-5xl'>03</h3>
             <p className='text-lg font-bold mb-3'>Feedback</p>
             <p className='font-normal text-base'>
               Give feedback as quickly as possible.
