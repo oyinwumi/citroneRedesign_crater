@@ -3,16 +3,16 @@ import { FaCheck } from 'react-icons/fa';
 import { openModalSix } from '../../../../apps/modal/modalSlice';
 import { useDispatch } from 'react-redux';
 import questions from './quiz';
-import { setChosenOption } from '../../../../apps/quizSlice';
+// import { setChosenOption } from '../../../../apps/quizSlice';
 
 const QuizModalTwo = () => {
 
   const dispatch = useDispatch();
-  const choooseOption = (answer) => {
-    if (questions.answer === choooseOption) {
-      dispatch(setChosenOption());
-    }
-  };
+  // const choooseOption = (answer) => {
+  //   if (questions.answer === choooseOption) {
+  //     dispatch(setChosenOption());
+  //   }
+  // };
 
   return (
     <aside className='w-full items-center text-center h-full bg-gray fixed z-10 '>
@@ -27,7 +27,7 @@ const QuizModalTwo = () => {
           <button
             onClick={() => {
               dispatch(openModalSix());
-              choooseOption();
+            
             }}
             className=' text-center bg-purple text-white border rounded mb-4 p-2'
           >
