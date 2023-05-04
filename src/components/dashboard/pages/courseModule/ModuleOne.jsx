@@ -63,7 +63,7 @@ const ModuleOne = () => {
                   <p className='mb-2 text-[12px]'>{lesson.linkTitleTwo}</p>
                   <a
                     className='lg:border border-lightergrey p-2 rounded hover:text-blue lg:pr-6'
-                    href={lesson.linkTwo}
+                    href='/live-session-user-page'
                   >
                     {lesson.linkTwo}
                   </a>
