@@ -2,7 +2,6 @@ import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import CompleteImage from '../../../assets/completeimage.png';
-
 import dashboardUser from '../dashboardUser';
 import courseData from '../pages/coursePage/courseCategory/coursedata';
 import classes from '../scheduledClass';
@@ -40,7 +39,7 @@ const Dashboard = () => {
             <div className='flex gap-9 mt-3'>
               <p className='text-lightergrey text-sm'>{courseData.time}</p>
               <p className='text-xs'>
-                {courseData.finalGrade} <br />{' '}
+                {courseData.finalGrade} <br />
                 <span className='text-[10px] text-lightergrey'>
                   Final Grade
                 </span>
@@ -60,17 +59,14 @@ const Dashboard = () => {
 
   return (
     <div className='w-full'>
-      {/* { isOpen && <LogoutModal/>} */}
-      {/* <DashboardHeader/> */}
       <div className='flex p-3  mb-14'>
-        {/* <Sidebar/> */}
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
           <div className='w-full mt-8'>
             <header className='mb-4 text-xl'>Hi, {localStorage.getItem("user")}</header>
             <div className='flex gap-8  lg:flex-row md:flex-row flex-col'>
               {dashboardUser.map((user) => {
                 return (
-                  <div className='p-4 border border-pink rounded-lg flex  lg:w-1/3 md:w-1/3 w-full h-24 items-center'>
+                  <div className='p-3 border border-pink rounded-lg flex  lg:w-1/3 md:w-1/3 w-full h-24 items-center '>
                     <div className='w-14 h-14 justify-between border border-pink rounded-full bg-pink p-4 items-center mr-4'>
                       <img src={user.icon} alt={user} />
                     </div>
@@ -78,7 +74,7 @@ const Dashboard = () => {
                       <h5 className='text-darkgray ;g:text-lg md:text-sm text-sm'>
                         {user.title}
                       </h5>
-                      <p className=' lg:text-[24px] md:text-xl text-xl'>
+                      <p className=' lg:text-[22px] md:text-xl text-xl'>
                         {user.detail}
                       </p>
                     </div>
@@ -107,7 +103,7 @@ const Dashboard = () => {
                   </div>
                 );
               })}
-              <button className='bg-white text-purple border lg:text-xl md:text-lg text-[16px] border-purple  text-center rounded-lg p-2 lg:w-[109px] md:w-24 w-28 h-[46px] lg:ml-[89%] md:ml-[85%] ml-[70%] lg:mt-8 md:mt-6 mt-4'>
+              <button className='bg-white text-purple border lg:text-xl md:text-lg text-[16px] border-purple  text-center rounded-lg p-2 lg:w-[109px] md:w-24 w-28 h-[46px]xl:ml-[89%] lg:ml-[80%] md:ml-[85%] ml-[70%] lg:mt-8 md:mt-6 mt-4'>
                 View All
               </button>
             </div>

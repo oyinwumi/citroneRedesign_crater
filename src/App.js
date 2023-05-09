@@ -52,7 +52,7 @@ function App() {
           <Route exact path='course' element={<CoursePage />} />
           <Route
             exact
-            path='courses/:course_category'
+            path='/coursecategory'
             element={<CourseCategory />}
           />
           <Route exact path='moduleone' element={<ModuleOne />} />

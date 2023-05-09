@@ -1,14 +1,11 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CourseImage from '../../../../assets/course.png';
-import Beginner from '../../../../assets/beginner.png';
-// import Intermidiate from '../../../../assets/intermidiate.png';
 import Simage from '../../../../assets/s-image.svg';
 import { useSelector } from 'react-redux';
 import { getCourses } from '../../../../apps/courseSlice';
 import { useDispatch } from 'react-redux';
 
-// const url = '/api/citrone/user/courses';
 
 const Course = () => {
 const course = useSelector(state => state.course.courses)
@@ -60,7 +57,7 @@ useEffect(()=>{
                     to User Interface (UI) and User Experience (UX) design.
                   </li>
                 </ul>
-                <button className='bg-purple text-white xl:mt-16  lg:mt-6 md:mt-6 mt-6 px-20 py-2  items-center rounded'>
+                <button className='bg-purple text-white 2xl:mt-16 xl:mt-4 lg:mt-0 md:mt-6 mt-6 px-20 py-2  items-center rounded'>
                   Learn more
                 </button>
               </div>
@@ -73,11 +70,11 @@ useEffect(()=>{
             <div className='flex lg:flex-row md:flex-col flex-col '>
              
                 {course.map((level)=>{
-                  return  <Link to='/courses/beginner' className='lg:w-1/2 capitalize'>
-                    <img src={Beginner} alt={Beginner} className=' w-full' />
-                    <div className='ml-6'>
-                      <p key={level._id} className='mt-2'>{level.level}</p>
-                  {/* <p className='mt-4 '>1.3 UI/UX Design</p> */}
+                  return  <Link to='/coursecategory' className='lg:w-1/2 capitalize lg:text-xl md:text-lg text-lg'>
+                    <img src={level.imageUrl} alt={level.imageUrl} className=' w-full' />
+                    <div className='ml-8'>
+                      <p key={level._id} className=''>{level.level}</p>
+                    <p className='mt-4 '>1.3 UI/UX Design</p>
                 </div> 
                     </Link>
                 })}

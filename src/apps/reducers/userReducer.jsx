@@ -13,6 +13,7 @@ const initialState = {
   isSecurity: false,
   isAll: false,
   isUnread: true,
+  fullName: '',
 };
 
 const userReducer = createSlice({
@@ -55,6 +56,10 @@ const userReducer = createSlice({
     setIsUnread(state, action) {
       state.isUnread = action.payload;
     },
+    setFullName(state, action) {
+    state.fullName = action.payload;
+    
+    },
   },
 });
 
@@ -71,6 +76,7 @@ export const {
   setIsSecurity,
   setIsAll,
   setIsUnread,
+  setFullName,
 } = userReducer.actions;
 
 export default userReducer.reducer;

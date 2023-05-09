@@ -5,6 +5,7 @@ import { data } from './helpdeskData';
 import Smile from '../../../../assets/smile.svg';
 import Send from '../../../../assets/sendicon.svg';
 import Arrow from '../../../../assets/arrow-left.svg';
+import { Link } from 'react-router-dom';
 
 const Faq = () => {
   return (
@@ -12,7 +13,7 @@ const Faq = () => {
       <div className='flex p-3'>
         <div className='  ml-6 w-full  border border-pink rounded p-3 mt-8 mb-14'>
           <h5 className='flex gap-3 items-center lg:text-[24px] md:text-xl text-xl mb-4'>
-            <img src={Arrow} alt={Arrow} />
+           <Link to='/helpdesk'> <img src={Arrow} alt={Arrow} /></Link>
             Question
           </h5>
           <div className='w-full  '>
