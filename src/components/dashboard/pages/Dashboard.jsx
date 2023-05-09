@@ -66,8 +66,8 @@ const Dashboard = () => {
             <div className='flex gap-8  lg:flex-row md:flex-row flex-col'>
               {dashboardUser.map((user) => {
                 return (
-                  <div className='p-3 border border-pink rounded-lg flex  lg:w-1/3 md:w-1/3 w-full h-24 items-center '>
-                    <div className='w-14 h-14 justify-between border border-pink rounded-full bg-pink p-4 items-center mr-4'>
+                  <div className='p-3 border border-pink rounded-lg flex  lg:w-1/3 md:w-1/3 w-[85%] h-24 items-center '>
+                    <div className='w-14 h-14 justify-between border border-pink rounded-full bg-pink p-4 items-center lg:mr-4 md:mr-0 mr-0'>
                       <img src={user.icon} alt={user} />
                     </div>
                     <div className='flex flex-col mt-2'>
@@ -103,7 +103,7 @@ const Dashboard = () => {
                   </div>
                 );
               })}
-              <button className='bg-white text-purple border lg:text-xl md:text-lg text-[16px] border-purple  text-center rounded-lg p-2 lg:w-[109px] md:w-24 w-28 h-[46px]xl:ml-[89%] lg:ml-[80%] md:ml-[85%] ml-[70%] lg:mt-8 md:mt-6 mt-4'>
+              <button className='bg-white text-purple border lg:text-xl md:text-lg text-[16px] border-purple  text-center rounded-lg p-2 lg:w-[109px] md:w-24 w-28 h-[46px]xl:ml-[89%] lg:ml-[80%] md:ml-[85%] ml-[50%] lg:mt-8 md:mt-6 mt-4'>
                 View All
               </button>
             </div>

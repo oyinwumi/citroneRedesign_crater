@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import Logo from '../../assets/logo.svg';
 import ProfileImage from '../../assets/user-image.svg';
 import { FaSearch } from 'react-icons/fa';
@@ -7,15 +7,15 @@ import gear from './../../assets/gear-icon.svg';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { all } from './../dashboard/pages/notification/NotificationsData';
-// import Dashboard from '../../assets/dashboard.svg';
-// import Chat from '../../assets/chat.svg';
-// import Award from '../../assets/award.svg';
-// import Support from '../../assets/24-support.svg';
-// import Video from '../../assets/video-square.svg';
-// import Book from '../../assets/book.svg';
-// import Note from '../../assets/note.svg';
-// import Logout from '../../assets/logout.svg';
-// import { openModalFour } from '../../apps/modal/modalSlice';
+import Dashboard from '../../assets/dashboard.svg';
+import Chat from '../../assets/chat.svg';
+import Award from '../../assets/award.svg';
+import Support from '../../assets/24-support.svg';
+import Video from '../../assets/video-square.svg';
+import Book from '../../assets/book.svg';
+import Note from '../../assets/note.svg';
+import Logout from '../../assets/logout.svg';
+import { openModalFour } from '../../apps/modal/modalSlice';
 // import LogoutModal from '../../../pages/ logoutPage/LogoutModal';
 import {
   setIsAll,
@@ -27,7 +27,7 @@ import Popup from 'reactjs-popup';
 import ProfilePopUp from './pages/profilePage/ProfilePopUp';
 
 const DashboardHeader = () => {
-  // const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   const no = all.unread.length;
@@ -66,7 +66,7 @@ const DashboardHeader = () => {
         </div>
 
         <div className='flex items-center justify-center'>
-          <div className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 relative cursor-pointer'>
+          <div className='text-lightgrey text-3xl lg:mt-0 md:mt-4 mt-4 relative cursor-pointer lg:block md:block hidden'>
             <Link to='/notifications' onClick={handleNotificationsSwitch}>
               <img src={bell} alt={bell} />
               <div className='w-5 h-5 rounded-full border border-[#000] flex justify-center items-center absolute -top-2 left-7 bg-[#ebdcf9]'>
@@ -107,7 +107,7 @@ const DashboardHeader = () => {
           </div>
         </div>
 
-        {/* <div
+        <div
           onClick={() => setOpen(!open)}
           className='text-black text-4xl ml-2 lg:hidden'
         >
@@ -177,7 +177,7 @@ const DashboardHeader = () => {
             <img src={Logout} alt={Logout} />
             <p className='ml-4'>Logout</p>
           </div>
-        </div> */}
+        </div>
       </nav>
     </div>
   );
