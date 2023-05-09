@@ -3,13 +3,23 @@ import { FaChevronRight } from 'react-icons/fa';
 import LinkIcon from '../../../../assets/linkicon.svg';
 import TextIcon from '../../../../assets/texticon.svg';
 import MicIcon from '../../../../assets/microphone-2.svg';
-import {  useDispatch } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
+import { setInputValue } from '../../../../apps/courseSlice';
 import { openModal } from '../../../../apps/modal/modalSlice';
 
 
 const AssignmentQest = () => {
- 
+  const {inputValue} =  useSelector((store)=> store.course)
   const dispatch = useDispatch();
+
+  const updateAssignment = (e)=>{
+    e.preventDefault();
+    dispatch(setInputValue(e.target.value))
+  }
+  const submit = () =>{
+    dispatch(openModal());
+    dispatch(setInputValue(inputValue))
+  }
   return (
     <div className='w-full h-full relative'>
       <div className='flex p-3 '>
@@ -44,8 +54,10 @@ const AssignmentQest = () => {
             </div>
             <div className='w-full'>
               <textarea
+              onChange={updateAssignment}
                 name=''
                 id=''
+                value={inputValue}
                 cols='30'
                 rows='10'
                 placeholder='Comment'
@@ -63,7 +75,7 @@ const AssignmentQest = () => {
             </div>
             <div>
               <button
-                onClick={() => dispatch(openModal())}
+                onClick={submit}
                 className='bg-purple text-white text-center rounded-lg p-2 w-20 '
               >
                 Submit

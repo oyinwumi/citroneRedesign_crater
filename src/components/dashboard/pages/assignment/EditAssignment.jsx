@@ -1,7 +1,23 @@
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 const EditAssignment = () => {
+  const {inputValue} =  useSelector((store)=> store.course)
+  const [updateInput , setUpdateInput] = useState(inputValue);
+  // const navigate = useNavigate()
+  const reSubmit = (e) =>{
+    console.log(e.target.value);
+    setUpdateInput(e.target.value)
+  
+  }
+  const handleSubmit = ()=>{
+    setUpdateInput(updateInput)
+    alert('submitted')
+    // navigate('/assignment')
+  }
   return (
     <div className='w-full h-full relative'>
       
@@ -10,11 +26,11 @@ const EditAssignment = () => {
         <div className='w-full px-6 '>
           <div className='my-6'>
             <p className=' flex items-center text-center '>
-              courses{' '}
+              courses
               <Link to='/moduleone' className='mx-2 text-sm '>
                 <FaChevronRight />
               </Link>
-              Module 1{' '}
+              Module 1
               <span className='mx-2 text-sm'>
                 <FaChevronRight />
               </span>
@@ -37,15 +53,18 @@ const EditAssignment = () => {
             </div>
             <div className='w-full'>
               <textarea
+            
                 name=''
-                placeholder='https://drive.google.com/file/d/1kSBW5xDLtuOCJqyvqB-VvhiOii94y0/view?usp=sharing'
+              value= {updateInput}
+                placeholder={inputValue}
                 className='border rounded-sm border-pink  w-full p-4 outline-none texx-lg capitalize'
                 type='text'
+                onChange={() => reSubmit }
               ></textarea>
             </div>
           </div>
           <div className='mt-3 relative float-right'>
-            <button className='bg-white text-purple border border-purple text-center rounded-lg p-1 w-24 '>
+            <button onClick={handleSubmit}  className='bg-white text-purple border border-purple text-center rounded-lg p-1 w-24 '>
               Re-Submit
             </button>
           </div>

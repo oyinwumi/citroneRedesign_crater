@@ -11,6 +11,7 @@ const store = configureStore({
      quiz: quizReducer,
      course: courseReducer,
   },
+  
 });
 
 export default store;

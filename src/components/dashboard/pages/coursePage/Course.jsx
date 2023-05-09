@@ -1,18 +1,27 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import DashboardHeader from '../../DashboardHeader';
-// import Sidebar from '../../Sidebar';
 import CourseImage from '../../../../assets/course.png';
 import Beginner from '../../../../assets/beginner.png';
-import Intermidiate from '../../../../assets/intermidiate.png';
+// import Intermidiate from '../../../../assets/intermidiate.png';
 import Simage from '../../../../assets/s-image.svg';
+import { useSelector } from 'react-redux';
+import { getCourses } from '../../../../apps/courseSlice';
+import { useDispatch } from 'react-redux';
+
+// const url = '/api/citrone/user/courses';
 
 const Course = () => {
+const course = useSelector(state => state.course.courses)
+console.log(course);
+const dispatch = useDispatch()
+
+useEffect(()=>{
+ dispatch( getCourses())
+},[])
+
   return (
     <div className='  w-full'>
-      {/* <DashboardHeader /> */}
       <div className='flex p-3'>
-        {/* <Sidebar /> */}
-
         <div className='flex flex-col w-full p-6'>
           <div>
             <header className='text-[24px] my-4'>Courses</header>
@@ -51,7 +60,7 @@ const Course = () => {
                     to User Interface (UI) and User Experience (UX) design.
                   </li>
                 </ul>
-                <button className='bg-purple text-white xl:mt-28 lg:mt-6 md:mt-6 mt-6 px-20 py-2  items-center rounded'>
+                <button className='bg-purple text-white xl:mt-16  lg:mt-6 md:mt-6 mt-6 px-20 py-2  items-center rounded'>
                   Learn more
                 </button>
               </div>
@@ -62,20 +71,32 @@ const Course = () => {
               Levels
             </header>
             <div className='flex lg:flex-row md:flex-col flex-col '>
-              <Link to='/courses/beginner' className='lg:w-1/2'>
-                <img src={Beginner} alt={Beginner} className=' w-full' />
+             
+                {course.map((level)=>{
+                  return  <Link to='/courses/beginner' className='lg:w-1/2 capitalize'>
+                    <img src={Beginner} alt={Beginner} className=' w-full' />
+                    <div className='ml-6'>
+                      <p key={level._id} className='mt-2'>{level.level}</p>
+                  {/* <p className='mt-4 '>1.3 UI/UX Design</p> */}
+                </div> 
+                    </Link>
+                })}
+                {/* <img src={Beginner} alt={Beginner} className=' w-full' />
                 <div className='ml-6'>
-                  <p className='mt-2'>Beginner Level</p>
+                  { course.map((level)=>{
+                    return  <p key={level._id} className='mt-2'>{level.level}</p>
+                  })}
+                 
                   <p className='mt-4 '>1.3 UI/UX Design</p>
-                </div>
-              </Link>
-              <Link to='/courses/intermediate' className='lg:w-1/2'>
+                </div> */}
+             
+              {/* <Link to='/courses/intermediate' className='lg:w-1/2'>
                 <img src={Intermidiate} alt={Intermidiate} className='w-full' />
                 <div className='ml-6'>
                   <p className='mt-2'>Intermediate Level</p>
                   <p className='mt-4'>1.3 UI/UX Design</p>
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
