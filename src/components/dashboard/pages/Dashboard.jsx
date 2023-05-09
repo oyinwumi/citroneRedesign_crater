@@ -67,7 +67,7 @@ const Dashboard = () => {
               {dashboardUser.map((user) => {
                 return (
                   <div className='p-3 border border-pink rounded-lg flex  lg:w-1/3 md:w-1/3 w-full h-24 items-center '>
-                    <div className='w-14 h-14 justify-between border border-pink rounded-full bg-pink p-4 items-center mr-4'>
+                    <div className='w-14 h-14 justify-between border border-pink rounded-full bg-pink p-4 items-center lg:mr-4 md:mr-0 mr-0'>
                       <img src={user.icon} alt={user} />
                     </div>
                     <div className='flex flex-col mt-2'>
