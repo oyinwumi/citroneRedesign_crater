@@ -1,27 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import DashboardHeader from '../../../DashboardHeader';
 // import Sidebar from '../../../Sidebar';
-import courseData from './coursedata';
+// import courseData from './coursedata';
 import { FaChevronRight } from 'react-icons/fa';
-import { getCourses } from '../../../../../apps/courseSlice';
+import { getModule } from '../../../../../apps/moduleSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useParams } from 'react-router-dom';
+
 
 const CourseCategory = () => {
-  const [data, setData] = useState([]);
-  const { course_category } = useParams();
+  // const [data, setData] = useState([]);
+  // const { course_category } = useParams();
   const dispatch = useDispatch();
+  const {module} =  useSelector((store)=> store.module)
 
-  useEffect(() => {
-    dispatch(getCourses());
-    let filteredData = courseData.filter((c) => {
-      return c.categoryId === course_category;
-    });
-    setData(filteredData);
-  }, [course_category]);
-  console.log(course_category);
+  // useEffect(() => {
+  //   dispatch(getCourses());
+  //   let filteredData = courseData.filter((c) => {
+  //     return c.categoryId === course_category;
+  //   });
+  //   setData(filteredData);
+  // }, [course_category]);
+  // console.log(course_category);
+
+  useEffect(()=>{
+   dispatch(getModule())
+   console.log(module)
+  }, [])
+
   return (
     <div className='w-full '>
       {/* <DashboardHeader /> */}
@@ -39,16 +46,16 @@ const CourseCategory = () => {
           </div>
           <h5 className='text-[24px] mb-4 ml-6'>Beginner Level: All Courses</h5>
           <div className='flex  flex-wrap items-center mb-14 '>
-            {data.map((course) => {
+            {module.map((course) => {
               return (
-                <Link
-                  to={course.link}
+                <Link 
+                  to='/moduleone'
                   className=' lg:w-1/4 md:w-full w-full items-center transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110'
                 >
-                  <img src={course.img} alt={course.img} className=' w-full' />
-                  <div className='ml-6'>
-                    <header>{course.header}</header>
-                    <p>{course.text}</p>
+                  <img src={course.imageUrl} alt={course.imageUrl} className=' w-full' />
+                  <div className='ml-8 capitalize mb-4' key={course._id}>
+                    <header className='font-[600] text-[16px]'>{course.module}</header>
+                    <p className='text-xl text-black font-bold'>{course.title}</p>
                   </div>
                 </Link>
               );

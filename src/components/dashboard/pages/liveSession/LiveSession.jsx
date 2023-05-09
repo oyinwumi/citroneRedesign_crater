@@ -17,17 +17,17 @@ import '../liveSession/css/session.css';
 
 export default function LiveSession() {
   return (
-    <>
-      <div className='flex'>
-        <div className='xl:flex gap-9 w-full p-5 font-font '>
+      
+        <div className='flex gap-9 w-full p-5 font-font '>
           {/* videoframe */}
-
-          <div className='bg-grey2  md:w-[540px] p-8 rounded-md w-full h-min '>
+       
+          <div className='bg-purple p-8 rounded-md w-1/3 h-min '>
+            <div>
             <div className='h-[311px] w-full bg-white rounded-md hover:cursor-pointer'>
               <div>
                 <p className='uppercase flex justify-center play-all-button font-bold'>
                   {' '}
-                  <img src={play} alt={play} className='mr-4' /> play all
+                 <button className='bg-white'><img src={play} alt={play} className='mr-4' /> play all</button>
                 </p>
               </div>
             </div>
@@ -49,26 +49,26 @@ export default function LiveSession() {
 
             {/* icons */}
             <div className='flex mt-5'>
-              <div className='bg-grey3 rounded-full h-[50px] w-[50px] grid place-items-center mr-3 hover:cursor-pointer'>
+              <div className='bg-pink rounded-full h-[50px] w-[50px] grid place-items-center mr-3 hover:cursor-pointer'>
                 {' '}
                 <img src={math} className='w-[30px]' alt={math} />{' '}
               </div>
 
-              <div className='bg-grey3 rounded-full h-[50px] w-[50px]  grid place-items-center mr-3 hover:cursor-pointer'>
+              <div className='bg-pink rounded-full h-[50px] w-[50px]  grid place-items-center mr-3 hover:cursor-pointer'>
                 {' '}
                 <img src={send} className='w-[30px]' alt={send} />{' '}
               </div>
 
-              <div className='bg-grey3 rounded-full h-[50px] w-[50px]  grid place-items-center mr-3 hover:cursor-pointer'>
+              <div className='bg-pink rounded-full h-[50px] w-[50px]  grid place-items-center mr-3 hover:cursor-pointer'>
                 {' '}
-                <img src={more} className='w-[30px]' alt={more} />{' '}
+                <img  src={more} className='w-[30px] ' alt={more}  />
               </div>
             </div>
             {/* icons */}
 
             {/* buttons */}
             <div className='flex gap-9 mt-9 mb-4'>
-              <button className='flex bg-white w-[205px] h-[48px]  rounded-md text-base items-center justify-center capitalize font-bold'>
+              <a href='https://www.youtube.com/watch?v=XXR5jCLsRvs&list=PLL9QJYLKMy_ecXpAMITlXVzoIcYKW0rkC' target='blank' className='flex bg-white w-[205px] h-[48px]  rounded-md text-base items-center justify-center capitalize font-bold'>
                 {' '}
                 <img
                   src={playBlack}
@@ -76,20 +76,21 @@ export default function LiveSession() {
                   className='w-[35px]'
                 />{' '}
                 play all
-              </button>
-              <button className='flex bg-grey3 text-white  w-[205px] h-[48px] rounded-md text-base items-center justify-center capitalize font-bold'>
+              </a>
+              <Link to='' className=' z-10 flex bg-pink text-white  w-[205px] h-[48px] rounded-md text-base items-center justify-center capitalize font-bold'>
                 {' '}
-                <img src={shuffle} alt={shuffle} className='w-[35px]' />
+                <img src={shuffle} alt={shuffle} className='w-[35px] z-50' />
                 shuffle
-              </button>
+              </Link>
+            </div>
             </div>
             {/* buttons */}
           </div>
           {/* videoframe */}
 
           {/* videoframelist */}
-          <Link to={'/live-session-user-page'}>
-            <div className='mt-10 xl:mt-0'>
+          <Link to={'/live-session-user-page'} className='w-2/3'>
+            <div className='mt-10 xl:mt-0 w-full'>
               <ul className='list-decimal'>
                 <li className='flex gap-6 hover:cursor-pointer'>
                   {' '}
@@ -101,8 +102,8 @@ export default function LiveSession() {
                     alt={productDesignImage1}
                     className=''
                   />{' '}
-                  <div>
-                    <p className='md:text-xl font-bold'>
+                  <div className=''>
+                    <p className='text-xl font-bold'>
                       Introduction to Product Design 17:01:23
                     </p>
                     <p className='text-grey4 font-medium sm:text-base'>
@@ -117,7 +118,7 @@ export default function LiveSession() {
                   </span>{' '}
                   <img src={productDesignImage2} alt={productDesignImage2} />
                   <div>
-                    <p className='md:text-xl font-bold'>
+                    <p className='text-xl font-bold'>
                       Introduction to Product Design 17:01:23
                     </p>
                     <p className='text-grey4 font-medium sm:text-base'>
@@ -132,7 +133,7 @@ export default function LiveSession() {
                   </span>{' '}
                   <img src={productDesignImage3} alt={productDesignImage3} />
                   <div>
-                    <p className='md:text-xl font-bold'>
+                    <p className='text-xl font-bold'>
                       Introduction to Product Design 17:01:23
                     </p>
                     <p className='text-grey4 font-medium sm:text-base'>
@@ -193,7 +194,7 @@ export default function LiveSession() {
                   </span>{' '}
                   <img src={productDesignImage7} alt={productDesignImage7} />
                   <div>
-                    <p className='md:text-xl font-bold'>
+                    <p className='text-xl font-bold'>
                       Introduction to Product Design 17:01:23
                     </p>
                     <p className='text-grey4 font-medium sm:text-base'>
@@ -206,7 +207,7 @@ export default function LiveSession() {
           </Link>
           {/* videoframelist */}
         </div>
-      </div>
-    </>
+      
+    
   );
 }

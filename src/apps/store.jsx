@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './reducers/userReducer';
 import modalReducer from './modal/modalSlice'
 import quizReducer from './quizSlice';
-import courseReducer from './courseSlice'
+import courseReducer from './courseSlice';
+import moduleReducer from './moduleSlice'
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
      modal: modalReducer,
      quiz: quizReducer,
      course: courseReducer,
+     module: moduleReducer,
   },
   
 });

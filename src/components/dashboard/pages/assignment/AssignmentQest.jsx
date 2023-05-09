@@ -61,7 +61,7 @@ const AssignmentQest = () => {
                 cols='30'
                 rows='10'
                 placeholder='Comment'
-                className='border rounded border-pink  w-full p-4 outline-none texx-lg capitalize'
+                className='border rounded border-pink  w-full p-4 outline-none text-lg '
                 type='text'
                 required
               ></textarea>

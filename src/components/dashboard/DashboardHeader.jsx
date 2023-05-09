@@ -61,7 +61,7 @@ const DashboardHeader = () => {
           <input
             type='text'
             placeholder='search'
-            className='border rounded-lg border-lightgrey lg:w-[300px] md:w-[200px] w-[150px] placeholder:lg:pl-8 h-10'
+            className='border rounded-lg border-pink outline-none px-6 lg:w-[300px] md:w-[200px] w-[150px] placeholder:lg:pl-8 h-10 '
           />
         </div>
 
@@ -101,8 +101,8 @@ const DashboardHeader = () => {
             </Popup>
           </div>
 
-          <div className='text-xl lg:flex md:hidden hidden lg:flex-col lg:ml-3 md:ml-0 ml-0 items-start'>
-            <header className=''>User Fullname</header>
+          <div className='text-[16px] lg:flex md:hidden hidden lg:flex-col lg:ml-1 md:ml-0 ml-0 items-start leading-2 mt-1'>
+            <header className=''>{localStorage.getItem("fullName")}</header>
             <p className=''>Online</p>
           </div>
         </div>

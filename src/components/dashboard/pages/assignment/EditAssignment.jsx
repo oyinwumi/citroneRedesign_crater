@@ -9,14 +9,14 @@ const EditAssignment = () => {
   const [updateInput , setUpdateInput] = useState(inputValue);
   // const navigate = useNavigate()
   const reSubmit = (e) =>{
-    console.log(e.target.value);
+  e.preventDefault()
     setUpdateInput(e.target.value)
   
   }
   const handleSubmit = ()=>{
     setUpdateInput(updateInput)
     alert('submitted')
-    // navigate('/assignment')
+  
   }
   return (
     <div className='w-full h-full relative'>
@@ -56,10 +56,10 @@ const EditAssignment = () => {
             
                 name=''
               value= {updateInput}
-                placeholder={inputValue}
-                className='border rounded-sm border-pink  w-full p-4 outline-none texx-lg capitalize'
+                // placeholder={inputValue}
+                className='border rounded-sm border-pink  w-full p-4 outline-none text-lg'
                 type='text'
-                onChange={() => reSubmit }
+                onChange={reSubmit}
               ></textarea>
             </div>
           </div>

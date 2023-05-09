@@ -21,6 +21,7 @@ const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  // const [fullName, setFullName] = useState('')
 
   // Clear out the error message once the user makes changes to the email or password
   useEffect(() => {
@@ -67,6 +68,7 @@ const LogIn = () => {
       const userName = response?.data?.user?.username;
       const role = response?.data?.user?.role;
       const accessToken = response?.data?.user?.accessToken;
+      const fullName = response?.data.user?.firstName + ' ' +  response?.data.user?.lastName ;
       const details = { email, password, userName, role, accessToken };
       const detailsPlus = {
         firstName,
@@ -75,10 +77,13 @@ const LogIn = () => {
         userName,
         role,
         accessToken,
+        fullName
       };
+    
       console.log(`Details: ${JSON.stringify(details)}`);
       console.log(`DetailsPlus: ${JSON.stringify(detailsPlus)}`);
       localStorage.setItem("user",detailsPlus.userName )
+      localStorage.setItem("fullName", detailsPlus.fullName)
 
       dispatch(setAuth(state,detailsPlus));
       console.log(`AUTH: ${JSON.stringify(auth)}`);
