@@ -50,6 +50,10 @@ const LogIn = () => {
       //   }
       // );
       console.log(response.data);
+      localStorage.setItem("token", response?.data?.token)
+     
+      // localStorage.setItem("user", JSON.stringify(response?.data))
+  
       // console.log(response.data.firstName);
       // console.log(response.data.lastName);
       // console.log(response.data.email);
@@ -58,7 +62,7 @@ const LogIn = () => {
       // console.log(response.data.accessToken);
       // console.log(JSON.stringify(response?.data));
       const firstName = response?.data?.user?.firstName;
-      const lastName = response?.data?.user?.lastName;
+      const lastName = response?.data?.user?.lastdispatchName;
       const email = response?.data?.user?.email;
       const userName = response?.data?.user?.username;
       const role = response?.data?.user?.role;
@@ -74,8 +78,9 @@ const LogIn = () => {
       };
       console.log(`Details: ${JSON.stringify(details)}`);
       console.log(`DetailsPlus: ${JSON.stringify(detailsPlus)}`);
+      localStorage.setItem("user",detailsPlus.userName )
 
-      dispatch(setAuth(detailsPlus));
+      dispatch(setAuth(state,detailsPlus));
       console.log(`AUTH: ${JSON.stringify(auth)}`);
 
       setEmail('');

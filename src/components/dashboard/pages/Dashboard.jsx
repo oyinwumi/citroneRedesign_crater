@@ -11,16 +11,16 @@ import Barchart from '../../../assets/barchart.png';
 import recentActivity from '../activity';
 import Blue from '../../../assets/blue-square.svg';
 import Orange from '../../../assets/orange-square.svg';
-import {  useSelector } from 'react-redux';
+
 
 
 const button = (
   <button className='bg-purple text-white text-center rounded-lg p-2 w-24 '>
     Completed
   </button>
+  
 );
 const Dashboard = () => {
-  const {userName } = useSelector((store) => store.userReducer);
 
   const [date, setDate] = useState(new Date());
   const [visible, setVisible] = useState(4);
@@ -66,7 +66,7 @@ const Dashboard = () => {
         {/* <Sidebar/> */}
         <div className='flex  lg:flex-row md:flex-col flex-col w-full px-6 '>
           <div className='w-full mt-8'>
-            <header className='mb-4 text-xl'>Hi, {userName}</header>
+            <header className='mb-4 text-xl'>Hi, {localStorage.getItem("user")}</header>
             <div className='flex gap-8  lg:flex-row md:flex-row flex-col'>
               {dashboardUser.map((user) => {
                 return (
@@ -100,9 +100,9 @@ const Dashboard = () => {
                       <p>{item.time}</p>
                     </div>
                     <div className=''>
-                      <button className='bg-white  border border-purple text-purple lg:text-xl md:text-lg text-[16px] rounded-lg p-2 lg:w-28 md:w-28 w-24 '>
+                      <a href="https://us02web.zoom.us/j/3998577636?pwd=5aS6btns9w5GZNUjsfaT4PNzxrxNqr.1" target='blank'> <button className='bg-white  border border-purple text-purple lg:text-xl md:text-lg text-[16px] rounded-lg p-2 lg:w-28 md:w-28 w-24 '>
                         Join Class
-                      </button>
+                      </button></a>
                     </div>
                   </div>
                 );

@@ -1,6 +1,6 @@
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import api from '../api/axios'
-// import axios from "axios";
+
 
 const url = '/api/citrone/user/courses'
 const initialState ={
@@ -11,13 +11,11 @@ const initialState ={
  export const getCourses = createAsyncThunk('courses/getCourses', 
    async () => {
     try {
-       const response = await api.get(url, {
-        headers:{
-
-        }
-       })
-       console.log( 'Response',response.data)
-       return response.data
+       const response = await api.get(url ,{ headers:{
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }})
+       console.log( 'Response3',response.data.message)
+       return response.data.message
     } catch (error) {
 
     }
@@ -27,40 +25,34 @@ const initialState ={
 const courseSlice = createSlice({
     name: 'course',
     initialState,
-    reducers:{
-        setCourse : (state, action) =>{
-            state.courses = [];
-        }
+    inputValue: '',
+    reducers:{ 
+      setCourses(state, action) {
+        state.courses = action.payload;
+      },
+      setInputValue(state, action) {
+        state.inputValue = action.payload;
+      },
+     },
 
-    },
-    // extraReducers: {
-    //     [getCourses.pending]: (state) =>{
-    //         state.isLoading = true;
-    //     },
-    //     [getCourses.fulfilled]: (state ,action) =>{
-    //         state.isLoading = false;
-    //         state.getCourses = action.payload;
-    //     },
-    //     [getCourses.rejected]: (state) =>{
-    //         state.isLoading =false
-    //     }
-    // }
     extraReducers: builder => {
         builder
-          .addCase('getCourses.pending', state => {
+          .addCase('courses/getCourses/pending', state => {
+            console.log('course');
             state.isLoading  = true;
           });
-          builder.addCase('getCourses.fulfilled',  state =>{
+          builder.addCase('courses/getCourses/fulfilled', (state , action) =>{
             state.isLoading = false;
-            console.log(setCourse());
-            return setCourse 
+            state.courses = action.payload
+           
+          
           });
-          builder.addCase('getCourses.rejected',  state =>{
+          builder.addCase('courses/getCourses/rejected',  state =>{
             state.isLoading = false;
         
           })
       },
 })
 
-export const { setCourse} = courseSlice.actions;
+export const { setCourse, setInputValue} = courseSlice.actions;
 export default courseSlice.reducer;
