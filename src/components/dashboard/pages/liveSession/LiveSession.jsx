@@ -18,16 +18,16 @@ import '../liveSession/css/session.css';
 export default function LiveSession() {
   return (
       
-        <div className='flex gap-9 w-full p-5 font-font '>
+        <div className='flex lg:flex-row md:flex-col flex-col justify-between gap-9 w-full p-5 font-font '>
           {/* videoframe */}
        
-          <div className='bg-purple p-8 rounded-md w-1/3 h-min '>
-            <div>
+          <div className='bg-purple p-8 rounded-md  lg:w-2/3 md:w-full w-full h-min lg:mb-0 md:mb-8 mb-8'>
+          
             <div className='h-[311px] w-full bg-white rounded-md hover:cursor-pointer'>
               <div>
                 <p className='uppercase flex justify-center play-all-button font-bold'>
                   {' '}
-                 <button className='bg-white'><img src={play} alt={play} className='mr-4' /> play all</button>
+                 <a href='https://www.youtube.com/watch?v=XXR5jCLsRvs&list=PLL9QJYLKMy_ecXpAMITlXVzoIcYKW0rkC' target='blank' className='bg-white'><img src={play} alt={play} className='mr-4' /> play all</a>
                 </p>
               </div>
             </div>
@@ -83,13 +83,13 @@ export default function LiveSession() {
                 shuffle
               </Link>
             </div>
-            </div>
+            
             {/* buttons */}
           </div>
           {/* videoframe */}
 
           {/* videoframelist */}
-          <Link to={'/live-session-user-page'} className='w-2/3'>
+          <Link to={'/live-session-user-page'} className='lg:w-2/3 md:w-full w-full'>
             <div className='mt-10 xl:mt-0 w-full'>
               <ul className='list-decimal'>
                 <li className='flex gap-6 hover:cursor-pointer'>

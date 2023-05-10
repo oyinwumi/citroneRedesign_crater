@@ -38,11 +38,11 @@ const Sidebar = () => {
       name: 'Assignment',
       icon: <img src={Note} alt={Note} className='w-[24px]' />,
     },
-    {
-      path: '/chat',
-      name: 'Chat',
-      icon: <img src={Chat} alt={Chat} />,
-    },
+    // {
+    //   path: '/chat',
+    //   name: 'Chat',
+    //   icon: <img src={Chat} alt={Chat} />,
+    // },
     {
       path: '/scoreboard',
       name: 'Scoreboard',

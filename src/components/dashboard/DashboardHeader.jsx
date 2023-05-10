@@ -114,7 +114,7 @@ const DashboardHeader = () => {
           <ion-icon name={open ? 'close' : 'menu'}></ion-icon>
         </div>
         <div
-          className={` lg:hidden px-4 md:text-center text-black  lg:z-auto md:z-40 z-40 md:absolute absolute  w-full left-0 md:w-full lg:pt-0 md:pt-10 pt-10
+          className={` text-2xl lg:hidden px-4 md:text-center text-black  lg:z-auto md:z-40 z-40 md:absolute absolute  w-full left-0 md:w-full lg:pt-0 md:pt-10 pt-10
         md:pb-0 pb-12 md:pl-0 pl-9  md:opacity-100 md:bg-white bg-white   transition-all ease-in duration-500 ${
           open ? 'top-20' : 'top-[-560px]'
         } `}
@@ -142,13 +142,13 @@ const DashboardHeader = () => {
             <img src={Note} alt={Note} />
             <p className='ml-4'>Assignment</p>
           </Link>
-          <Link
+          {/* <Link
             to='/chatroom'
             className='flex hover:bg-pink  p-4 hover:border-r-4 border-purple items-center'
           >
             <img src={Chat} alt={Chat} />
             <p className='ml-4'>Chat Room</p>
-          </Link>
+          </Link> */}
           <Link
             to='/scoreboard'
             className='flex hover:bg-pink  p-4 hover:border-r-4 items-center'
