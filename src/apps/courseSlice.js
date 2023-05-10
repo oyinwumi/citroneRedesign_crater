@@ -38,7 +38,7 @@ const courseSlice = createSlice({
     extraReducers: builder => {
         builder
           .addCase('courses/getCourses/pending', state => {
-            console.log('course');
+            // console.log('course');
             state.isLoading  = true;
           });
           builder.addCase('courses/getCourses/fulfilled', (state , action) =>{

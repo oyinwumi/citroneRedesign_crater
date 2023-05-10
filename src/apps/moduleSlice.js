@@ -1,8 +1,11 @@
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import api from '../api/axios'
 
+const level = localStorage.getItem("courseLevel")
 
-const url = 'api/citrone/user/beginner/course'
+
+const url = `api/citrone/user/${level}/course`;
+
 const initialState ={
   module: [],
   isLoading: false
@@ -35,7 +38,7 @@ const moduleSlice = createSlice({
     extraReducers: builder => {
         builder
           .addCase('module/getModule/pending', state => {
-            console.log('module');
+            // console.log('module');
             state.isLoading  = true;
           });
           builder.addCase('module/getModule/fulfilled', (state , action) =>{
