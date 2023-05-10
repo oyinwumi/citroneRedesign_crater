@@ -5,29 +5,20 @@ import { getModule } from '../../../../../apps/moduleSlice';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-
+const loader = <h1 className='text-4xl '>Loading...</h1>
 
 const CourseCategory = () => {
-  // const [data, setData] = useState([]);
+
    const { level } = useParams();
-   
+    console.log(level)
   // alert(level)
   const dispatch = useDispatch();
-  const {module} =  useSelector((store)=> store.module)
-
-  // useEffect(() => {
-  //   dispatch(getCourses());
-  //   let filteredData = courseData.filter((c) => {
-  //     return c.categoryId === course_category;
-  //   });
-  //   setData(filteredData);
-  // }, [course_category]);
-  // console.log(course_category);
+  const {module, isLoading } =  useSelector((store)=> store.module)
 
   useEffect(()=>{
-   dispatch(getModule())
+   dispatch(getModule(level))
    console.log(module)
-  }, [])
+  }, [level])
 
   return (
     <div className='w-full '>
@@ -46,7 +37,9 @@ const CourseCategory = () => {
           </div>
           <h5 className='text-[24px] mb-4 ml-6'>Beginner Level: All Courses</h5>
           <div className='flex  flex-wrap items-center mb-14 '>
-            {module.map((course) => {
+
+            {isLoading? loader : module.map((course) => {
+
               return (
                 <Link 
                   to='/moduleone'

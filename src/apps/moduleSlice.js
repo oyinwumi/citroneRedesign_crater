@@ -1,10 +1,7 @@
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import api from '../api/axios'
 
-const level = localStorage.getItem("courseLevel")
 
-
-const url = `api/citrone/user/${level}/course`;
 
 const initialState ={
   module: [],
@@ -12,7 +9,9 @@ const initialState ={
 }
 
  export const getModule = createAsyncThunk('module/getModule', 
-   async () => {
+   async (level) => {
+    const url = `api/citrone/user/${level}/course`;
+
     try {
        const response = await api.get(url ,{ headers:{
         Authorization: `Bearer ${localStorage.getItem("token")}`
