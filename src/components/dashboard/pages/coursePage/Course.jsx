@@ -8,9 +8,14 @@ import { useDispatch } from 'react-redux';
 
 
 const Course = () => {
+  localStorage.removeItem("courseLevel")
 const course = useSelector(state => state.course.courses)
 console.log(course);
 const dispatch = useDispatch()
+
+const courseLevel = (level) =>{
+  localStorage.setItem("courseLevel", level)
+}
 
 useEffect(()=>{
  dispatch( getCourses())
@@ -70,7 +75,9 @@ useEffect(()=>{
             <div className='flex lg:flex-row md:flex-col flex-col '>
              
                 {course.map((level)=>{
-                  return  <Link to='/coursecategory' className='lg:w-1/2 capitalize lg:text-xl md:text-lg text-lg'>
+                  return  <Link to={`/coursecategory/${level.level}`}
+                  onClick={() => {courseLevel(level.level)}}
+                  className='lg:w-1/2 capitalize lg:text-xl md:text-lg text-lg'>
                     <img src={level.imageUrl} alt={level.imageUrl} className=' w-full' />
                     <div className='ml-8'>
                       <p key={level._id} className=''>{level.level}</p>
@@ -78,22 +85,7 @@ useEffect(()=>{
                 </div> 
                     </Link>
                 })}
-                {/* <img src={Beginner} alt={Beginner} className=' w-full' />
-                <div className='ml-6'>
-                  { course.map((level)=>{
-                    return  <p key={level._id} className='mt-2'>{level.level}</p>
-                  })}
-                 
-                  <p className='mt-4 '>1.3 UI/UX Design</p>
-                </div> */}
              
-              {/* <Link to='/courses/intermediate' className='lg:w-1/2'>
-                <img src={Intermidiate} alt={Intermidiate} className='w-full' />
-                <div className='ml-6'>
-                  <p className='mt-2'>Intermediate Level</p>
-                  <p className='mt-4'>1.3 UI/UX Design</p>
-                </div>
-              </Link> */}
             </div>
           </div>
         </div>

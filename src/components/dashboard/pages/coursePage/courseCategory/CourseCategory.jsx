@@ -1,17 +1,17 @@
 import React, {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import DashboardHeader from '../../../DashboardHeader';
-// import Sidebar from '../../../Sidebar';
-// import courseData from './coursedata';
 import { FaChevronRight } from 'react-icons/fa';
 import { getModule } from '../../../../../apps/moduleSlice';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 
 
 const CourseCategory = () => {
   // const [data, setData] = useState([]);
-  // const { course_category } = useParams();
+   const { level } = useParams();
+   
+  // alert(level)
   const dispatch = useDispatch();
   const {module} =  useSelector((store)=> store.module)
 

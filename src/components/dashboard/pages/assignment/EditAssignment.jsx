@@ -15,7 +15,7 @@ const EditAssignment = () => {
   }
   const handleSubmit = ()=>{
     setUpdateInput(updateInput)
-    alert('submitted')
+    alert('your assignment has been re-submitted')
   
   }
   return (
@@ -64,9 +64,9 @@ const EditAssignment = () => {
             </div>
           </div>
           <div className='mt-3 relative float-right'>
-            <button onClick={handleSubmit}  className='bg-white text-purple border border-purple text-center rounded-lg p-1 w-24 '>
+           <Link to="/assignment"> <button onClick={handleSubmit}  className='bg-white text-purple border border-purple text-center rounded-lg p-1 w-24 '>
               Re-Submit
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
